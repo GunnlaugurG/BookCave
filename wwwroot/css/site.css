@@ -1,7 +1,8 @@
 ﻿body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: gray;
 }
 
 /* Wrapping element */
@@ -38,56 +39,66 @@
 /*---------------ADDITIONS------------*/
 
 /*--------------NAVIGATION BAR------------*/
-#formLogin{
-  padding: 15px; min-width:300px;
-}
-.navigation-Bar{
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-.search-container{
-  padding-top: 11px;
+#formLogin {
+    padding: 15px;
+    min-width: 300px;
 }
 
+.navigation-Bar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.search-container {
+    padding-top: 11px;
+}
 
 /*-----------CART--------------*/
-ul.dropdown-cart{
-  min-width:250px;
-}
-ul.dropdown-cart li .item{
-  display:block;
-  padding:3px 10px;
-  margin: 3px 0;
-}
-ul.dropdown-cart li .item:hover{
-  background-color:#f3f3f3;
-}
-ul.dropdown-cart li .item:after{
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
+ul.dropdown-cart {
+    min-width: 250px;
 }
 
-ul.dropdown-cart li .item-left{
-  float:left;
-}
-ul.dropdown-cart li .item-left img,
-ul.dropdown-cart li .item-left span.item-info{
-  float:left;
-}
-ul.dropdown-cart li .item-left span.item-info{
-  margin-left:10px;   
-}
-ul.dropdown-cart li .item-left span.item-info span{
-  display:block;
-}
-ul.dropdown-cart li .item-right{
-  float:right;
-}
-ul.dropdown-cart li .item-right button{
-  margin-top:14px;
-}
+    ul.dropdown-cart li .item {
+        display: block;
+        padding: 3px 10px;
+        margin: 3px 0;
+    }
+
+        ul.dropdown-cart li .item:hover {
+            background-color: #f3f3f3;
+        }
+
+        ul.dropdown-cart li .item:after {
+            visibility: hidden;
+            display: block;
+            font-size: 0;
+            content: " ";
+            clear: both;
+            height: 0;
+        }
+
+    ul.dropdown-cart li .item-left {
+        float: left;
+    }
+
+        ul.dropdown-cart li .item-left img,
+        ul.dropdown-cart li .item-left span.item-info {
+            float: left;
+        }
+
+        ul.dropdown-cart li .item-left span.item-info {
+            margin-left: 10px;
+        }
+
+            ul.dropdown-cart li .item-left span.item-info span {
+                display: block;
+            }
+
+    ul.dropdown-cart li .item-right {
+        float: right;
+    }
+
+        ul.dropdown-cart li .item-right button {
+            margin-top: 14px;
+        }
