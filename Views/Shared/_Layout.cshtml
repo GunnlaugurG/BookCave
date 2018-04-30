@@ -46,7 +46,7 @@
             <!-- *********** Listi af öllu hægra megin ********* -->
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-            <!-- *********** Search takki ********* -->
+                            <!-- *********** Search takki ********* -->
                             <div class="search-container">
                                 <form action="/action_page.php">
                                     <input type="text" placeholder="Search.." name="search">
@@ -54,11 +54,11 @@
                                 </form>
                             </div>
                         </li>
-                <!-- *********** Sign in ********* -->
+                        <!-- *********** Sign in ********* -->
                         <li class="dropdown">
-                    	    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-							Sign In<span class="caret"></span>
-						    </a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                                Sign In<span class="caret"></span>
+                            </a>
                             <div class="dropdown-menu" id="formLogin">
                                 <div class="row">
                                     <div class="container-fluid">
@@ -72,15 +72,17 @@
                                                 <input class="form-control" name="password" id="password" type="password">
                                                 <br>
                                             </div>
-                                            <button type="submit" id="btnLogin" class="btn btn-success btn-sm">Login</button>
+                                            <!-- *********** Register... á eftir að gera sér síður fyrir þetta ********* -->
+                                                 <li><a href="#" data-toggle="modal" data-target="#modalRegister" class="">Register</a></li>
+                                                <button type="submit" id="btnLogin" class="btn btn-success btn-sm">Login</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </li>
-            <!-- *********** Register... á eftir að gera sér síður fyrir þetta ********* -->
-                        <li><a href="#" data-toggle="modal" data-target="#modalRegister" class="">Register</a></li>
-            <!-- *********** Karfan ********* -->
+                        <!-- *********** Register... á eftir að gera sér síður fyrir þetta ********* -->
+                        <!-- <li><a href="#" data-toggle="modal" data-target="#modalRegister" class="">Register</a></li>-->
+                        <!-- *********** Karfan ********* -->
                         <li>
                             <div class="Basket">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span> 7 - Items<span class="caret"></span></a>
@@ -99,11 +101,13 @@
                                             </span>
                                         </span>
                                     </li>
+                                    
                                     <li class="divider"></li>
-                                        <li><a class="text-center" href="">Go to checkout</a></li>
+
+                                    <li><a class="text-center" href="">Go to checkout</a></li>
                                 </ul>
-                            </li>
-                        </ul>
+                        </li>
+                    </ul>
                     </div>
                 </li>
             </ul>
