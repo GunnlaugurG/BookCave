@@ -1,4 +1,4 @@
-namespace BookCave.Data.EntityModels
+namespace BookCave.Data.EntityModels{
     public class CardInfo
     {
         public string cardInfoID {get; set;}
