@@ -6,7 +6,7 @@ namespace BookCave.Data.EntityModels{
 
          public string genre { get; set; }
 
-         public Author Author { get; set; }
+         public Author author { get; set; }
          
          public double cost { get; set; }
 
