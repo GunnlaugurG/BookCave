@@ -20,6 +20,7 @@ namespace BookCave.Controllers
             _userManager = userManager;
         }
 
+
         public IActionResult Register()
         {
             return View();
