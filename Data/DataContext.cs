@@ -1,3 +1,4 @@
+using BookCave.Data.EntityModels;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
