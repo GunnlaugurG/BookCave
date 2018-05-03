@@ -12537,28 +12537,33 @@
     ]
   },
   "packageFolders": {
-    "/Users/elias/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Notandi\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/elias/Desktop/BookCave/BookCave.csproj",
+      "projectUniqueName": "C:\\Users\\Notandi\\Desktop\\BookCave\\BookCave.csproj",
       "projectName": "BookCave",
-      "projectPath": "/Users/elias/Desktop/BookCave/BookCave.csproj",
-      "packagesPath": "/Users/elias/.nuget/packages/",
-      "outputPath": "/Users/elias/Desktop/BookCave/obj/",
+      "projectPath": "C:\\Users\\Notandi\\Desktop\\BookCave\\BookCave.csproj",
+      "packagesPath": "C:\\Users\\Notandi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Notandi\\Desktop\\BookCave\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/elias/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Notandi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
