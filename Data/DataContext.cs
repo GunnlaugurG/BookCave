@@ -1,11 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using BookCave.Data.EntityModels;
 
 namespace BookCave.Data
 {
     public class DataContext : DbContext {
         public List<Book> books { get; set; }
-
+        public List<Author> authors { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 
             optionsBuilder
