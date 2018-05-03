@@ -1,4 +1,4 @@
-namespace BookCave.Data {
+namespace BookCave.Data.EntityModels{
     public class Book {
          public string bookID { get; set; }
 
