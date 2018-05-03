@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using BookCave.Data.EntityModels;
+using BookCave.Models;
 
 namespace BookCave
 {
