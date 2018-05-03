@@ -14,7 +14,7 @@ namespace BookCave.Controllers {
                 return View("NotFound");
             }
 
-            BookDetails Temp = new BookDetails(){
+            BookDetailsViewModel Temp = new BookDetailsViewModel(){
                         Id = 1,
                         Name = "Book",
                         Author = "Stefán Örn",
@@ -22,8 +22,8 @@ namespace BookCave.Controllers {
                         Image = "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/7303/9780730324218.jpg",
                         Price = 100,
                         Ratings = 76.4,
-                        Comments = new List<Comments>{
-                            new Comments{
+                        Comments = new List<CommentsViewModel>{
+                            new CommentsViewModel{
                                 Author = "tommi tommson",
                                 Description = "fínasta bók",
                                 Ratings = 34 
