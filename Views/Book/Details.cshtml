@@ -1,18 +1,29 @@
 @model BookCave.Models.ViewModels.BookDetailsViewModel
 
-<div class="Container"></div>
+<div class="Container">
     <div class="row">
-        <div class="col">
+        <div class="col-lg-10 col-md-10">
             <h1>@Model.Name</h1>
             <p>@Model.Author</p>
         </div>
-        <div class="col">
+        <div class="col-lg-2 col-md-2">
             <h2>@Model.Ratings</h2>
         </div>
     </div>
-    <div>
-        <img src= "@Model.Image" alt="Mountain View">
-        <p>@Model.Description</p>
-        <h2>@Model.Price</h2>
+    <div class="row">
+        <div class="col-lg-4 col-md-4">
+            <img src= "@Model.Image" alt="Mountain View">
+        </div>
+        <div class="col-lg-8">
+            <p>@Model.Description</p>
+        </div> 
     </div>
+        <div class="col-lg-10"></div>
+        <div class="col-lg-2">
+            <p class="btn btn-primary center-block">Skrifa ummæli</p>
+            <br>
+            <p class="btn btn-warning center-block">Setja á óskalista</p>
+            <h3>@Model.Price Krónur</h3>
+            <p class="btn btn-success center-block">Setja í körfu</p>
+        </div>
 </div>
