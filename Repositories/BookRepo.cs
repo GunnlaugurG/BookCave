@@ -13,5 +13,15 @@ namespace BookCave.Repositories
         public BookRepo() {
             _db = new DataContext();
         }
+        public List<BookListViewModel> getBooks() {
+            var books = (from b in _db.books
+                        select new BookListViewModel {
+                            title = b.title,
+                            author = b.author,
+                            rating = b.rating,
+                            cost = b.cost,
+                        }).ToList();
+            return books;
+        }
     }
 }
