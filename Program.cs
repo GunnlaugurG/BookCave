@@ -28,16 +28,6 @@ namespace BookCave
 
         public static void SeedData() {
 
-            var db = new DataContext();
-            if(!db.books.Any()) {
-            var initialBooks = new List<Book>() {
-                new Book{ title = "Lord Of The rings: The fellowship of the ring", genre="Adventure", cost=10.99}
-            };
-            db.AddRange();
-            db.SaveChanges();
-            //hehe
-            }
         }
     }
-    
 }
