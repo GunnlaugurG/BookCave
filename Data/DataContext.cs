@@ -5,8 +5,7 @@ using System.Collections.Generic;
 namespace BookCave.Data
 {
     public class DataContext : DbContext {
-        public List<Book> books { get; set; }
-
+        public DbSet<Author> authors { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 
             optionsBuilder

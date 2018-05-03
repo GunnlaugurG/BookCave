@@ -1,0 +1,18 @@
+@model BookCave.Models.ViewModels.BookDetailsViewModel
+
+<div class="Container"></div>
+    <div class="row">
+        <div class="col">
+            <h1>@Model.Name</h1>
+            <p>@Model.Author</p>
+        </div>
+        <div class="col">
+            <h2>@Model.Ratings</h2>
+        </div>
+    </div>
+    <div>
+        <img src= "@Model.Image" alt="Mountain View">
+        <p>@Model.Description</p>
+        <h2>@Model.Price</h2>
+    </div>
+</div>
