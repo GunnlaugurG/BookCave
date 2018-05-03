@@ -41,3 +41,4 @@ C:\Users\Notandi\Desktop\BookCave\bin\Debug\netcoreapp2.0\BookCave.dll
 C:\Users\Notandi\Desktop\BookCave\bin\Debug\netcoreapp2.0\BookCave.pdb
 C:\Users\Notandi\Desktop\BookCave\obj\Debug\netcoreapp2.0\BookCave.dll
 C:\Users\Notandi\Desktop\BookCave\obj\Debug\netcoreapp2.0\BookCave.pdb
+C:\Users\Notandi\Desktop\BookCave\obj\Debug\netcoreapp2.0\BookCave.csprojResolveAssemblyReference.cache
