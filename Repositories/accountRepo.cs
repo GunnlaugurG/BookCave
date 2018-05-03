@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace BookCave.Repositories
 {
-    public class accountRepo
+    public class AccountRepo
     {
+
     }
 }
