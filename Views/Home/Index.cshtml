@@ -1,1 +1,21 @@
-<p>hello world!</p> 
+@model List<BookCave.Models.ViewModels.BookListViewModel>
+
+<div class="Container">
+    <div class="row">
+        @for( int i = 0; i < 4; i++)
+        {
+           <div class="col-md-3 col-lg-3">
+           <div class="card">
+               <img class="card-img-top Thumb-nail-image" src="@Model[i].image" alt="Book Cover">
+               <div class="card-body">
+                    <p class="card-text">@Model[i].title</p>  
+                    <div class="d-flex justify-content-between align-items-center">
+                        <medium>@Model[i].rating Einkunn </medium>
+                        <medium>@Model[i].cost kr</medium>
+                    </div>
+               </div>
+            </div>
+           </div>
+        }
+    </div>
+</div>
