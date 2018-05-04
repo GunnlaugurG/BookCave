@@ -15,7 +15,7 @@ namespace BookCave.Models.ViewModels
         public string FirstName { get; set; }
         [Required]
         public string LastName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter password")]
         public string Password { get; set; }
     }
 }
