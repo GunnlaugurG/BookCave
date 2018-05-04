@@ -14,7 +14,7 @@
 <div class="row">
 @foreach(var book in Model) {
     <div class="col-sm-4" style="border: 1px solid black">
-        @book.image <br>
+        <img class="Thumb-nail-image" src="@book.image" alt="cover"> <br>
         Title: @book.title <br>
         Rating: @book.rating <br>
         Cost: @book.cost
