@@ -13,10 +13,16 @@
     <form asp-action="Logout" asp-controller="Account" method="POST">
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <button class="btn btn-link navbar-btn navbar-link">@claim</button>
-            </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log out</button>
+                <div class="dropdown">
+                    <button class="btn navbar-btn btn-link dropdown-toggle" type="button" data-toggle="dropdown">@claim
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">HTML</a></li>
+                            <li><a class="dropdown-item"href="#">CSS</a></li>
+                            <div class="dropdown-divider"></div>
+                            <button type="submit" class="btn btn-danger dropdown-item" id="logout-btn">Log out</button>
+                        </ul>
+                    </div>
             </li>
         </ul>
     </form>
