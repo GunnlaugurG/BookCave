@@ -1,9 +1,6 @@
 namespace BookCave.Data.EntityModels{
-<<<<<<< HEAD
-    public class Book {
-=======
+ 
    public class Book {
->>>>>>> aa67994820c015e116df8a5b88b74a9511e5c649
         public int Id { get; set; }
         public string title { get; set; }
         public string author { get; set; }
