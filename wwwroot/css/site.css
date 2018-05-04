@@ -4,6 +4,12 @@
     font-family: sans-serif;
 }
 
+.Thumb-nail-image{
+
+    height: 200px;
+    width: 100%;
+}
+
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
