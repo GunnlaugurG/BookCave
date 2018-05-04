@@ -1,7 +1,12 @@
 ﻿@model BookCave.Models.ViewModels.RegisterViewModel
 
+<<<<<<< HEAD
 <h1>Nýskrá</h1>
 <form asp-action="Register" asp-controller="Account" class="form-horizontal">
+=======
+<h1>Register</h1>
+<form class="form-horizontal" method="POST">
+>>>>>>> a7984afb256817245eb4f840d6631cdda70928b1
     <div class="form-group">
         <input type="email" asp-for="Email" class="form-control" placeholder="Email..." />
          <span asp-validation-for="Email"></span><br>
@@ -23,6 +28,6 @@
          <span asp-validation-for="ConfirmPassword"></span><br>
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-default">Register</button>
+        <button type="submit" asp-action="Register" asp-controller="Account"  class="btn btn-default">Register</button>
     </div>
 </form>
