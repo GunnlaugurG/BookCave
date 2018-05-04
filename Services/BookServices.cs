@@ -6,6 +6,13 @@ using BookCave.Data;
 using BookCave.Models.ViewModels;
 using BookCave.Repositories;
 
+ public enum select{
+    topRating,
+    topPrice,
+    topName,
+    bottomPrice
+};
+
 namespace BookCave.Services {
     public class BookServices {
 
@@ -17,30 +24,36 @@ namespace BookCave.Services {
             
             return _bookRepo.GetAllBooks();
         }
-        public List<BookListViewModel> GetTopTenBooks(int value) {
+        public List<BookListViewModel> GetTopBooks( select value, int count) {
             
-            if(value == 1) {
+            if( value == select.topRating) {
             var topRating = (from b in _bookRepo.GetAllBooks()
                            orderby b.rating descending
-                           select b).Take(10).ToList();
+                           select b).Take(count).ToList();
                            return topRating;
             }
-            if(value == 0) {
+            if(value == select.topPrice) {
             var topPrice = (from b in _bookRepo.GetAllBooks()
                            orderby b.cost descending
-                           select b).Take(10).ToList();
+                           select b).Take(count).ToList();
                            return topPrice;
             }
-            if(value == 3) {
+            if(value == select.topName) {
             var topName = (from b in _bookRepo.GetAllBooks()
                            orderby b.title
-                           select b).Take(10).ToList();
+                           select b).Take(count).ToList();
                            return topName;
             }
+            if(value == select.bottomPrice){
+                var bottomPrice = (from b in _bookRepo.GetAllBooks()
+                orderby b.cost ascending
+                select b).Take(count).ToList();
+                return bottomPrice;
+            } 
             else {
                 var topBooks = (from b in _bookRepo.GetAllBooks()
                            orderby b.rating descending
-                           select b).Take(10).ToList();
+                           select b).Take(count).ToList();
                            return topBooks;
                 }
             }

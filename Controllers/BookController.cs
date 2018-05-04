@@ -22,7 +22,7 @@ namespace BookCave.Controllers {
 
         //This Displays the top ten books ordered by rating
         public IActionResult TopTenBooks(int value) {        
-            books = _bookService.GetTopTenBooks(value);
+            books = _bookService.GetTopBooks( select.topRating, 10 );
             return View(books);
         }
     }
