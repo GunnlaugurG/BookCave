@@ -14,14 +14,15 @@ namespace BookCave.Repositories
             _db = new DataContext();
         }
         public List<BookListViewModel> GetAllBooks() {
-            var books = (from b in _db.books
+           /* var books = (from b in _db.books
                         select new BookListViewModel {
                             title = b.title,
                             author = b.author,
                             rating = b.rating,
                             cost = b.cost,
                         }).ToList();
-            return books;
+            return books;*/
+            return null;
         }
     }
 }
