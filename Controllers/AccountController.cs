@@ -42,7 +42,7 @@ namespace BookCave.Controllers
                 //Add the concantenated first name as Fullname
                 await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
                 await _signInManager.SignInAsync(user, false);
-
+                
                 return RedirectToAction("Index", "Home");
             }
             return View();
