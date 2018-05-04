@@ -24,6 +24,14 @@ namespace BookCave.Services {
             
             return _bookRepo.GetAllBooks();
         }
+        public BookDetailsViewModel GetBookByID(int id){
+        
+            var bookByID = ( from b in _bookRepo.GetAllBooks()
+                            where b.Id == id 
+                            select b).FirstOrDefault();
+            /// book repo þarf að skila entity klasa...
+            return null;
+        }
         public List<BookListViewModel> GetTopBooks( select value, int count) {
             
             if( value == select.topRating) {
