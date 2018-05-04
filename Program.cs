@@ -29,169 +29,130 @@ namespace BookCave
         public static void SeedData() {
 
             var db = new DataContext();
-
-            var books = new List<Book>() {
-                new Book{
-                    title="The Great Gatsby",
-                    author="F. Scott Fitzgerald",
-                    genre="Fiction",
-                    rating=4,
-                    description="In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.",
-                    cost=10.99
+            
+            var authors = new List<Author>() {
+                new Author {
+                    authorName = "John Steinbeck",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/e/e7/John_Steinbeck_1962.jpg"
                 },
-                new Book{
-                    title="The Grapes of Wrath",
-                    author="John Steinbeck",
-                    genre="Fiction",
-                    rating=4,
-                    description="To the red country and part of the gray country of Oklahoma, the last rains came gently, and they did not cut the scarred earth.",
-                    cost=9.89
+                new Author {
+                    authorName = "George Orwell",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/George_Orwell_press_photo.jpg/440px-George_Orwell_press_photo.jpg"
                 },
-                 new Book{
-                    title="Nineteen Eighty-Four",
-                    author="George Orwell",
-                    genre="Science Fiction",
-                    rating=4.5,
-                    description="It was a bright cold day in April, and the clocks were striking thirteen.",
-                    cost=13.49
+                new Author {
+                    authorName = "James Joyce",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Revolutionary_Joyce_Better_Contrast.jpg/440px-Revolutionary_Joyce_Better_Contrast.jpg"
                 },
-                new Book{
-                    title="Ulysses",
-                    author="James Joyce",
-                    genre="Fiction",
-                    rating=2.5,
-                    description="Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.",
-                    cost=10
+                new Author {
+                    authorName = "Vladimir Nabokov",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Vladimir_Nabokov_1973.jpg/460px-Vladimir_Nabokov_1973.jpg"
                 },
-                new Book{
-                    title="Lolita",
-                    author="Vladimir Nabokov",
-                    genre="Romance",
-                    rating=4,
-                    description="Lolita, light of my life, fire of my loins. My sin, my soul. Lo-lee-ta: the tip of the tongue taking a trip of three steps down the palette to tap, at three, on the teeth.",
-                    cost=16
+                new Author {
+                    authorName = "Joseph Heller",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Joseph_Heller1986_crop.jpg/440px-Joseph_Heller1986_crop.jpg"
                 },
-                new Book{
-                    title="Catch-22",
-                    author="Joseph Heller",
-                    genre="Historical fiction",
-                    rating=4,
-                    description="It was love at first sight.",
-                    cost=8.55
+                new Author {
+                    authorName = "J.D. Salinger",
+                    image = "https://upload.wikimedia.org/wikipedia/en/8/8c/JD_Salinger.jpg"
                 },
-                new Book{
-                    title="The catcher in the Rye",
-                    author="J. D. Salinger",
-                    genre="Novel",
-                    rating=3.5,
-                    description="If you really want to hear about it, the first thing you'll probably want to know is where I was born, and what my lousy childhood was like, and how my parents were occupied and all before they...",
-                    cost=14.99
+                new Author {
+                    authorName = "Toni Morrison",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Toni_Morrison_2008-2.jpg/440px-Toni_Morrison_2008-2.jpg"
                 },
-                 new Book{
-                    title="Beloved",
-                    author="Toni Morrison",
-                    genre="Novel",
-                    rating=4,
-                    description="124 was spiteful. Full of baby's venom. The women in the house knew it and so did the children.",
-                    cost=11.49
+                new Author {
+                    authorName = "William Folkner",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Carl_Van_Vechten_-_William_Faulkner.jpg/440px-Carl_Van_Vechten_-_William_Faulkner.jpg"
                 },
-                 new Book{
-                    title="The Sound and the Fury",
-                    author="William Faulkner",
-                    genre="Novel",
-                    rating=3.5,
-                    description="Through the fence, between the curling flower spaces, I could see them hitting.",
-                    cost=12.99
+                new Author {
+                    authorName = "Harper Lee",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/5/5f/HarperLee_2007Nov05.jpg"
                 },
-                 new Book{
-                    title="To Kill a Mockingbird",
-                    author="Harper Lee",
-                    genre="Historical Fiction",
-                    rating=4.5,
-                    description="When he was nearly thirteen, my brother Jem got his arm badly broken at the elbow.",
-                    cost=999.99
+                new Author {
+                    authorName = "J.R.R. Tolkien",
+                    image = "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE5NTU2MzE2Mzg4MzYxNzM5/jrr-tolkien-9508428-1-402.jpg"
                 },
-                 new Book{
-                    title="The Lord of the Rings",
-                    author="J.R.R. Tolkien",
-                    genre="Fantasy/Adventure",
-                    rating=4.5,
-                    description="When Mr. Bilbo Baggins of Bag End announced that he would shortly be celebrating his eleventy-first birthday with a party of special magnificence, there was much talk and excitement in Hobbiton.",
-                    cost=999.99
+                new Author {
+                    authorName = "Gabriel García Márquez",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/0/0f/Gabriel_Garcia_Marquez.jpg"
                 },
-                new Book{
-                    title="One Hundred Years of Solitude",
-                    author="Gabriel García Márquez",
-                    genre="Fantasy",
-                    rating=4.5,
-                    description="Many years later, as he faced the firing squad, Colonel Aureliano Buendía was to remember that distant afternoon when his father took him to discover ice.Muchos años después, frente al pelotón de...",
-                    cost=999.99
+                new Author {
+                    authorName = "Aldous Huxley",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/e/e9/Aldous_Huxley_psychical_researcher.png"
                 },
-                new Book{
-                    title="Brave New World",
-                    author="Aldous Huxley",
-                    genre="Science Fiction",
-                    rating=4,
-                    description="A squat grey building of only thirty-four stories.",
-                    cost=999.99
+                new Author {
+                    authorName = "Virginia Woolf",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg/440px-George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg"
                 },
-                new Book{
-                    title="To the Lighthouse",
-                    author="Virginia Woolf",
-                    genre="Fiction",
-                    rating=3.5,
-                    description="Yes, of course, if it's fine tomorrow,said Mrs. Ramsay.But you'll have to be up with the lark,she added.",
-                    cost=999.99
+                new Author {
+                    authorName = "Ralph Ellison",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Ralph_Ellison_photo_portrait_seated.jpg/440px-Ralph_Ellison_photo_portrait_seated.jpg"
                 },
-                new Book{
-                    title="Invisible Man",
-                    author="Ralph Ellison",
-                    genre="Historical Fiction",
-                    rating=4,
-                    description="I am an invisible man. No, I am not a spook like those who haunted Edgar Allan Poe; nor am I one of your Hollywood-movie ectoplasms. I am a man of substance, of flesh and bone, fiber and liquids—...",
-                    cost=999.99
+                new Author {
+                    authorName = "Margaret Mitchell",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Margaret_Mitchell_NYWTS.jpg/440px-Margaret_Mitchell_NYWTS.jpg"
                 },
-                new Book{
-                    title="Gone with the Wind",
-                    author="Margaret Mitchell",
-                    genre="Historical Fiction/Romance",
-                    rating=4.5,
-                    description="Scarlett O'Hara was not beautiful, but men seldom realized it when caught by her charm, as the Tarleton twins were.",
-                    cost=999.99
+                new Author {
+                    authorName = "Charlotte Bronte",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/3/3a/CBRichmond.png"
                 },
-                new Book{
-                    title="Jane Eyre",
-                    author="Charlotte Brontë",
-                    genre="Romance",
-                    rating=4,
-                    description="There was no possibility of taking a walk that day. We had been wandering, indeed, in the leafless shrubbery an hour in the morning; but since dinner (Mrs. Reed, when there was no company, dined...",
-                    cost=999.99
+                new Author {
+                    authorName = "Jack Kerouac",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Kerouac_by_Palumbo_2.png/440px-Kerouac_by_Palumbo_2.png"
                 },
-                new Book{
-                    title="On the Road",
-                    author="Jack Kerouac",
-                    genre="Adventure",
-                    rating=3.5,
-                    description="I first met Dean not long after my wife and I split up.",
-                    cost=999.99
+                new Author {
+                    authorName = "Jane Austen",
+                    image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHGstztOpN826VsBqCoI07Bb3F8TOEHLpmIOy8acEwuggVepeV"
                 },
-                new Book{
-                    title="Pride and Prejudice",
-                    author="Jane Austen",
-                    genre="Romance/Historical Fiction",
-                    rating=4,
-                    description="It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife.",
-                    cost=999.99
+                new Author {
+                    authorName = "William Golding",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/William_Golding_1983.jpg/440px-William_Golding_1983.jpg"
                 },
-                new Book{
-                    title="Lord of the Flies",
-                    author="William Golding",
-                    genre="Adventure/Horror",
-                    rating=4,
-                    description="The boy with fair hair lowered himself down the last few feet of rock and began to pick his way toward the lagoon.",
+                new Author {
+                    authorName = "George Eliot",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/George_Eliot_at_30_by_Fran%C3%A7ois_D%27Albert_Durade.jpg/440px-George_Eliot_at_30_by_Fran%C3%A7ois_D%27Albert_Durade.jpg"
+                },
+                new Author {
+                    authorName = "Leo Tolstoy",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/c/c6/L.N.Tolstoy_Prokudin-Gorsky.jpg"
+                },
+                new Author {
+                    authorName = "E.M. Forster",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/E._M._Forster_von_Dora_Carrington%2C_1924-25.jpg/400px-E._M._Forster_von_Dora_Carrington%2C_1924-25.jpg"
+                },
+                new Author {
+                    authorName = "Marcel Proust",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/a/a5/Marcel_Proust_1900-2.jpg"
+                },
+                new Author {
+                    authorName = "Emily Bronte",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Emily_Bront%C3%AB_by_Patrick_Branwell_Bront%C3%AB_restored.jpg/440px-Emily_Bront%C3%AB_by_Patrick_Branwell_Bront%C3%AB_restored.jpg"
+                },
+                new Author {
+                    authorName = "William Golding",
+                    image = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/William_Golding_1983.jpg/440px-William_Golding_1983.jpg"
+                },
+                new Author {
+                    authorName = "A. A. Milne",
+                    image = "https://thecaptivereader.files.wordpress.com/2012/07/a-a-milne.jpg"
+                },
+                new Author {
+                    authorName = "James Joyce",
+                    image = "https://i.scdn.co/image/c1fcea27a0803e912feebe004d480943ef88b9e2"
+                },
+                new Author {
+                    authorName = "Salman Rushdie",
+                    image = "https://i.guim.co.uk/img/static/sys-images/Observer/Columnist/Columnists/2015/9/2/1441221590151/salman-rushdie-008.jpg?w=300&q=55&auto=format&usm=12&fit=max&s=778d6906e54d989f2f606f567d5b65f8"
+                },
+                new Author {
+                    authorName = "Alice Walker",
+                    image = "https://thenewpress.com/sites/default/files/author_photos/walker_alice_ana_elena.jpg"
+                },
+                new Author {
+                    authorName = "C. S. Lewis",
+                    image = "https://naqyr37xcg93tizq734pqsx1-wpengine.netdna-ssl.com/wp-content/uploads/2017/08/CS-Lewis-Quotes.jpg"
                 }
             };
-            db.AddRange(books);
+            db.AddRange(authors);
             db.SaveChanges();
         }
     }

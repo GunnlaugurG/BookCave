@@ -1,7 +1,7 @@
 ﻿@model BookCave.Models.ViewModels.RegisterViewModel
 
 <h1>Register</h1>
-<form asp-action="Register" asp-controller="Account" class="form-horizontal">
+<form class="form-horizontal" method="POST">
     <div class="form-group">
         <input type="email" asp-for="Email" class="form-control" placeholder="Enter email.." />
     </div>
@@ -15,6 +15,6 @@
         <input type="password" asp-for="Password" class="form-control" placeholder="Enter password.." />
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-default">Register</button>
+        <button type="submit" asp-action="Register" asp-controller="Account"  class="btn btn-default">Register</button>
     </div>
 </form>
