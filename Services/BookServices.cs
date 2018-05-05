@@ -57,7 +57,7 @@ namespace BookCave.Services
                                  orderby b.rating descending
                                  select new BookListViewModel
                                  {
-                                     Id = b.Id,
+                                     id = b.Id,
                                      title = b.title,
                                      author = b.author,
                                      rating = b.rating,
@@ -72,7 +72,7 @@ namespace BookCave.Services
                                 orderby b.cost descending
                                 select new BookListViewModel
                                 {
-                                    Id = b.Id,
+                                    id = b.Id,
                                     title = b.title,
                                     author = b.author,
                                     rating = b.rating,
@@ -87,7 +87,7 @@ namespace BookCave.Services
                                orderby b.title
                                select new BookListViewModel
                                {
-                                   Id = b.Id,
+                                   id = b.Id,
                                    title = b.title,
                                    author = b.author,
                                    rating = b.rating,
@@ -102,7 +102,7 @@ namespace BookCave.Services
                                    orderby b.cost ascending
                                    select new BookListViewModel
                                    {
-                                       Id = b.Id,
+                                       id = b.Id,
                                        title = b.title,
                                        author = b.author,
                                        rating = b.rating,
@@ -117,7 +117,7 @@ namespace BookCave.Services
                                 orderby b.rating descending
                                 select new BookListViewModel
                                 {
-                                    Id = b.Id,
+                                    id = b.Id,
                                     title = b.title,
                                     author = b.author,
                                     rating = b.rating,
