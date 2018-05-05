@@ -23,10 +23,10 @@ namespace BookCave.Controllers
             
             /// Vill fá 5 vinsælustu bækurnar og 5 ódýrustu bækurnar
             var retBooks = new List<BookListViewModel>();
-
+/*
             retBooks = _bookService.GetTopBooks(select.topRating, 5);
             retBooks.AddRange( _bookService.GetTopBooks(select.bottomPrice, 5));
-
+*/
             return View( retBooks );
         }
         public IActionResult Error()

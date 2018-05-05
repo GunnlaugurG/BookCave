@@ -10,7 +10,8 @@
     </form>
 </div>
 
-<a href="#" id="clickMe" value="1">woowoo</a>
+                        <!--This route id here returns 0, but why ?-->
+<a asp-action="TopTenBooks" asp-controller="Book" asp-route-id=1>click me!</a>
 <div class="container-fluid">
 <div class="row mainContent">
 @foreach(var book in Model) {
