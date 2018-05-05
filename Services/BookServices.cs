@@ -44,7 +44,7 @@ namespace BookCave.Services
                                         author = b.author,
                                         rating = b.rating,
                                         image = b.image,
-                                        cost = b.cost * 101
+                                        cost = b.cost
                                    }).ToList();        
                                 return searchedResults;
         }
@@ -78,7 +78,7 @@ namespace BookCave.Services
                               author = b.author,
                               rating = b.rating,
                               image = b.image,
-                              cost = b.cost * 101
+                              cost = b.cost
                           }).ToList();
 
             return sortBy;
@@ -97,7 +97,7 @@ namespace BookCave.Services
                                      author = b.author,
                                      rating = b.rating,
                                      image = b.image,
-                                     cost = b.cost * 101
+                                     cost = b.cost
                                  }).Take(count).ToList();
                 return topPrice;
             } 
@@ -157,7 +157,7 @@ namespace BookCave.Services
                                      author = b.author,
                                      rating = b.rating,
                                      image = b.image,
-                                     cost = b.cost * 101
+                                     cost = b.cost
                                  }).Take(count).ToList();
                 return topRating;
             } 

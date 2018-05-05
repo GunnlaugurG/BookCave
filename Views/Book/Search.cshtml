@@ -1,5 +1,5 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
-<h1>@ViewBag.searchedWord</h1>
+<h1>@ViewBag.searchedWord</h1><h1></h1>
 <div class="">
     <form action="SortByGenre" method="GET">
         <select name="value" class="form-control selectButton top-right" id="selectBox1">
@@ -15,13 +15,14 @@
         {
         <div class="col-sm-4 centered book-layout">
             <div class="col-sm-12 book-display-border">
-                <img class="Thumb-nail-image" src="@book.image" alt="cover"> <br>
+                <a asp-controller="book" asp-action="details" asp-route-Id=@book.id><img class="Thumb-nail-image" src="@book.image" alt="cover"></a> <br>
                 <div class="col-sm-12 book-display-text">
                     <a asp-controller="book" asp-action="details" asp-route-Id=@book.id class="card-text">@book.title</a>  <br>
+                    @book.author <br>
                     <div class="divider"></div>
                     Rating: @book.rating <br>
                     <div class="divider"></div>
-                    Cost: @book.cost Kr.
+                    Cost: @book.cost $
                 </div>
             </div>
         </div>
