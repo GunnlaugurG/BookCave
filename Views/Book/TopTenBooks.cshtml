@@ -14,7 +14,7 @@
 <div class="row">
 @foreach(var book in Model) {
     <div class="col-sm-4" >
-        <img class="Thumb-nail-image" src="@book.image" alt="cover" style="padding: 0 20px;"> <br>
+        <img class="Thumb-nail-image" src="@book.image" alt="cover"> <br>
  <a asp-controller="book" asp-action="details" asp-route-Id=@book.id class="card-text">@book.title</a>  <br>
          Rating: @book.rating <br>
         Cost: @book.cost
