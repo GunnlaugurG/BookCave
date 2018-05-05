@@ -15,7 +15,7 @@ namespace BookCave.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
-        private AccountServices _accountServices;
+        private AccountServices _accountServices = new AccountServices();
         public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
@@ -47,7 +47,6 @@ namespace BookCave.Controllers
 
                 _accountServices.addNewUserToDataBase(user);               
 
-                
                 return RedirectToAction("Index", "Home");
             }
             return View();

@@ -10,10 +10,15 @@ namespace BookCave.Services
 {
     public class AccountServices
     {
-        private AccountRepo _accountRepo;
+        public AccountServices(){}
+        private AccountRepo _accountRepo = new AccountRepo();
 
         public void addNewUserToDataBase(ApplicationUser user){
-            
+            UserAccount _user = new UserAccount();
+                _user.userName = user.Email;
+                _user.aspUserId = user.Id;
+
+                _accountRepo.addUserToDataBase(_user);
         }
     }
 }
