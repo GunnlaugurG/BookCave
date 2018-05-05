@@ -6,21 +6,126 @@ using BookCave.Data;
 using BookCave.Models.ViewModels;
 using BookCave.Repositories;
 
-namespace BookCave.Services {
-    public class BookServices {
+public enum select
+{
+    topRating,
+    topPrice,
+    topName,
+    bottomPrice
+};
+
+namespace BookCave.Services
+{
+    public class BookServices
+    {
 
         private BookRepo _bookRepo;
-
-        public BookServices(){
+        public BookServices()
+        {
             _bookRepo = new BookRepo();
-
         }
-        public List<BookListViewModel> GetAllBooks(){
-            
-            return _bookRepo.GetAllBooks();
-
+        public List<BookListViewModel> GetAllBooks()
+        {
+            _bookRepo.GetAllBooks();
+            return null;
         }
+        public BookDetailsViewModel GetBookByID(int id)
+        {
 
+            var bookByID = (from b in _bookRepo.GetAllBooks()
+                            where b.Id == id
+                            select new BookDetailsViewModel
+                            {
+                                id = b.Id,
+                                name = b.title,
+                                author = b.author,
+                                description = b.description,
+                                image = b.image,
+                                price = b.cost,
+                                ratings = b.rating
+
+                            }).FirstOrDefault();
+                /// Þarf að filla inn Comments lika
+            return bookByID;
+        }
+        public List<BookListViewModel> GetTopBooks(select value, int count)
+        {
+
+            if (value == select.topRating)
+            {
+                var topRating = (from b in _bookRepo.GetAllBooks()
+                                 orderby b.rating descending
+                                 select new BookListViewModel
+                                 {
+                                     id = b.Id,
+                                     title = b.title,
+                                     author = b.author,
+                                     rating = b.rating,
+                                     image = b.image,
+                                     cost = b.cost
+                                 }).Take(count).ToList();
+                return topRating;
+            }
+            if (value == select.topPrice)
+            {
+                var topPrice = (from b in _bookRepo.GetAllBooks()
+                                orderby b.cost descending
+                                select new BookListViewModel
+                                {
+                                    id = b.Id,
+                                    title = b.title,
+                                    author = b.author,
+                                    rating = b.rating,
+                                    image = b.image,
+                                    cost = b.cost
+                                }).Take(count).ToList();
+                return topPrice;
+            }
+            if (value == select.topName)
+            {
+                var topName = (from b in _bookRepo.GetAllBooks()
+                               orderby b.title
+                               select new BookListViewModel
+                               {
+                                   id = b.Id,
+                                   title = b.title,
+                                   author = b.author,
+                                   rating = b.rating,
+                                   image = b.image,
+                                   cost = b.cost
+                               }).Take(count).ToList();
+                return topName;
+            }
+            if (value == select.bottomPrice)
+            {
+                var bottomPrice = (from b in _bookRepo.GetAllBooks()
+                                   orderby b.cost ascending
+                                   select new BookListViewModel
+                                   {
+                                       id = b.Id,
+                                       title = b.title,
+                                       author = b.author,
+                                       rating = b.rating,
+                                       image = b.image,
+                                       cost = b.cost
+                                   }).Take(count).ToList();
+                return bottomPrice;
+            }
+            else
+            {
+                var topBooks = (from b in _bookRepo.GetAllBooks()
+                                orderby b.rating descending
+                                select new BookListViewModel
+                                {
+                                    id = b.Id,
+                                    title = b.title,
+                                    author = b.author,
+                                    rating = b.rating,
+                                    image = b.image,
+                                    cost = b.cost
+                                }).Take(count).ToList();
+                return topBooks;
+            }
+        }
     }
-
 }

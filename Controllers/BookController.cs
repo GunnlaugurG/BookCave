@@ -4,38 +4,30 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using BookCave.Models.ViewModels;
+using BookCave.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookCave.Controllers {
     public class BookController : Controller
-    {
-        public IActionResult Index() {
-
-            return View();
+    { 
+        private BookServices _bookService;
+        private List<BookListViewModel> books;
+        public BookController() {
+            _bookService = new BookServices();
         }
-        public IActionResult Details (int? id){
-            if(id == null){
-                return View("NotFound");
-            }
+        public IActionResult Index() {
+            books = _bookService.GetAllBooks();
+            return View(books);
+        }
+        //This Displays the top ten books ordered by rating
+        public IActionResult TopTenBooks(int value) {        
+            books = _bookService.GetTopBooks( select.topRating, 10 );
+            return View(books);
+        }
 
-            BookDetailsViewModel Temp = new BookDetailsViewModel(){
-                        Id = 1,
-                        Name = "Book",
-                        Author = "Stefán Örn",
-                        Description = "Loerm ispmu sdfsaf314234kslfjaslækfdjs",
-                        Image = "https://d1w7fb2mkkr3kw.cloudfront.net/assets/images/book/lrg/9780/7303/9780730324218.jpg",
-                        Price = 100,
-                        Ratings = 76.4,
-                        Comments = new List<CommentsViewModel>{
-                            new CommentsViewModel{
-                                Author = "tommi tommson",
-                                Description = "fínasta bók",
-                                Ratings = 34 
-                            }
-                        }
-                    };
-
-            return View( Temp );
+        public IActionResult Details( int id ){
+            var bookDetails = _bookService.GetBookByID(id);
+            return View( bookDetails );
         }
     }
 }

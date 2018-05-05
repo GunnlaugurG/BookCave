@@ -22,7 +22,7 @@
       <!-- *********** Headder ********* -->
     <div class="header">
         <div class="head-content">
-            <img src="~/images/logo-sm.jpg" alt="">
+            <a asp-action="Index" asp-controller="Home"><img src="~/images/logo-sm.jpg" alt=""></a>
             
         </div>
     </div>
@@ -43,6 +43,7 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class=""><a href="#" class="">Flokka Eftir</a></li>
+                        <li class=""><a asp-action="TopTenBooks" asp-controller="Book" class="">Topp 10 bækur</a></li>
                         <li class=""><a href="#" class="">Höfundar</a></li>
                         <li class=""><a href="#" class="">About</a></li>
                     </ul>

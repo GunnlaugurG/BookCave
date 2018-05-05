@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookCave.Data;
+using BookCave.Data.EntityModels;
 using BookCave.Models.ViewModels;
 
 namespace BookCave.Repositories
@@ -13,16 +14,10 @@ namespace BookCave.Repositories
         public BookRepo() {
             _db = new DataContext();
         }
-        public List<BookListViewModel> GetAllBooks() {
-           /* var books = (from b in _db.books
-                        select new BookListViewModel {
-                            title = b.title,
-                            author = b.author,
-                            rating = b.rating,
-                            cost = b.cost,
-                        }).ToList();
-            return books;*/
-            return null;
+        public List<Book> GetAllBooks() {
+           var books = (from b in _db.books 
+                        select b).ToList();
+            return books;
         }
     }
 }

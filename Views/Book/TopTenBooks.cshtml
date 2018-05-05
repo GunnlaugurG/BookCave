@@ -1,0 +1,24 @@
+@model List<BookCave.Models.ViewModels.BookListViewModel>
+<h1>Top books</h1>
+<!--<form action="TopTenBooks" method="GET">
+    <select name="value" class="top-right">
+        <option value="rating">Sort by Rating</option>
+        <option value="price">Sort by Price</option>
+        <option value="name"><a asp-action="TopTenBooks" asp-controller="Book" asp-route-value="name">Sort by Name</a></option>
+    </select>
+    </form>-->
+    <a asp-action="TopTenBooks" asp-controller="Book" asp-route-id=1>Short by cost</a>
+    <a asp-action="TopTenBooks" asp-controller="Book" asp-route-id=2>Short by rating</a>
+    <a asp-action="TopTenBooks" asp-controller="Book" asp-route-id=3>Short by name</a>
+<div class="container-fluid">
+<div class="row">
+@foreach(var book in Model) {
+    <div class="col-sm-4" style="border: 1px solid black">
+        <img class="Thumb-nail-image" src="@book.image" alt="cover"> <br>
+ <a asp-controller="book" asp-action="details" asp-route-Id=@book.id class="card-text">@book.title</a>  <br>
+         Rating: @book.rating <br>
+        Cost: @book.cost
+    </div>
+}
+</div>
+</div>
