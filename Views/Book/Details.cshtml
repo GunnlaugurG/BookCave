@@ -20,9 +20,9 @@
     </div>
         <div class="col-lg-10"></div>
         <div class="col-lg-2">
-            <p class="btn btn-primary center-block">Skrifa ummæli</p>
+            <a asp-controller="book" asp-action="review" asp-route-Id=@Model.id class="btn btn-primary center-block" >Skrifa ummæli</a>
             <br>
-            <p class="btn btn-warning center-block">Setja á óskalista</p>
+            <a  class="btn btn-warning center-block">Setja á óskalista</a>
             <h3>@Model.price Krónur</h3>
             <p class="btn btn-success center-block">Setja í körfu</p>
         </div>

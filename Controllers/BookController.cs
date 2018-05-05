@@ -55,9 +55,17 @@ namespace BookCave.Controllers
             var sortBy = _bookService.GetBooksByGenre(genre);
             return View(sortBy);
         }
+        [HttpGet]
+        public IActionResult review( int id ){
+
+            var quickAndDirty = new ReviewInputModel{ bookId = id };
+            return View( quickAndDirty );
+        }
+        [HttpPost]
         public IActionResult review( ReviewInputModel input ){
-            
-            return View();
+
+            // Afhverju virkar þetta ekki?
+            return RedirectToAction("Details", 1);
         }
     }
 }
