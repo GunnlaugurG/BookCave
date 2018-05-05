@@ -11,8 +11,17 @@ $(function() {
     });
   });
 
-$("#selectBox1").click(function(){
+$("#hehe").click(function(){
     $.get("Book/TopTenBooks", function(data, status){
-        alert("NIGGER!!!!!");
+        console.log("WORKING");
     });
 });
+
+$("#secret-student").click(function(){
+  $.get("Home/GetSecretStudent", function(data, status){
+      $("#tafla").append("<tr><td>" + data.name + "</td> <td>"+ data.age + "</td></tr>");
+      $("#secret-student").attr("disabled","disabled");
+  });
+});
+
+
