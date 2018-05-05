@@ -46,5 +46,14 @@ namespace BookCave.Controllers
             var sortBy = _bookService.GetBooksByGenre(genre);
             return View(sortBy);
         }
+
+        public IActionResult Search(string searchedWord) {
+            ViewBag.searchedWord = "Results for:" + searchedWord;
+            var searchedResults = _bookService.GetSearchedResults(searchedWord);
+            if(searchedResults.Count() == 0) {
+                ViewBag.searchedWord = "No results found..";
+            }
+            return View(searchedResults);
+        }
     }
 }
