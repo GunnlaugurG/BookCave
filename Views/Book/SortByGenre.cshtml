@@ -9,17 +9,22 @@
         </select>
     </form>
 </div>
-
 <div class="container-fluid">
     <div class="row mainContent">
         @foreach (var book in Model)
         {
-            <div class="col-sm-4 centered">
+        <div class="col-sm-4 centered book-layout">
+            <div class="col-sm-12 book-display-border">
                 <img class="Thumb-nail-image" src="@book.image" alt="cover"> <br>
-                <a asp-controller="book" asp-action="details" asp-route-Id=@book.id class="card-text">@book.title</a>  <br>
-                Rating: @book.rating <br>
-                Cost: @book.cost Kr.
+                <div class="col-sm-12 book-display-text">
+                    <a asp-controller="book" asp-action="details" asp-route-Id=@book.id class="card-text">@book.title</a>  <br>
+                    <div class="divider"></div>
+                    Rating: @book.rating <br>
+                    <div class="divider"></div>
+                    Cost: @book.cost Kr.
+                </div>
             </div>
+        </div>
         }
-    </div>
+  </div>
 </div>
