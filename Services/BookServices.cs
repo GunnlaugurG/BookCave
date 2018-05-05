@@ -62,7 +62,7 @@ namespace BookCave.Services
                                      author = b.author,
                                      rating = b.rating,
                                      image = b.image,
-                                     cost = b.cost
+                                     cost = b.cost*101
                                  }).Take(count).ToList();
                 return topRating;
             }
