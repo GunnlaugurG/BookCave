@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using BookCave.Models;
 using BookCave.Models.ViewModels;
+using BookCave.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,7 @@ namespace BookCave.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
+        private AccountServices _accountServices;
         public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
@@ -42,6 +44,9 @@ namespace BookCave.Controllers
                 //Add the concantenated first name as Fullname
                 await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
                 await _signInManager.SignInAsync(user, false);
+
+                _accountServices.addNewUserToDataBase(user);               
+
                 
                 return RedirectToAction("Index", "Home");
             }

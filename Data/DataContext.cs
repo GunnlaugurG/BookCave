@@ -7,6 +7,7 @@ namespace BookCave.Data
     public class DataContext : DbContext {
         public DbSet<Author> authors { get; set; }
         public DbSet<Book> books { get; set; }
+        public DbSet<UserAccount> userAccounts { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 
             optionsBuilder
