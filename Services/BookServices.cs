@@ -18,20 +18,21 @@ namespace BookCave.Services
 {
     public class BookServices
     {
-
         private BookRepo _bookRepo;
+
         public BookServices()
         {
             _bookRepo = new BookRepo();
         }
+
         public List<BookListViewModel> GetAllBooks()
         {
             _bookRepo.GetAllBooks();
             return null;
         }
+
         public BookDetailsViewModel GetBookByID(int id)
         {
-
             var bookByID = (from b in _bookRepo.GetAllBooks()
                             where b.Id == id
                             select new BookDetailsViewModel
@@ -43,14 +44,31 @@ namespace BookCave.Services
                                 image = b.image,
                                 price = b.cost,
                                 ratings = b.rating
-
                             }).FirstOrDefault();
-                /// Þarf að filla inn Comments lika
+            /// Þarf að filla inn Comments lika
             return bookByID;
         }
+
+        public List<BookListViewModel> GetBooksByGenre(string genre)
+        {
+            // Flokkar bækur eftir tegund fyrir "Flokka eftir tegund" dropdown listann í navbar
+            var sortBy = (from b in _bookRepo.GetAllBooks()
+                          where b.genre.ToLower().Contains(genre.ToLower())
+                          select new BookListViewModel
+                          {
+                              id = b.Id,
+                              title = b.title,
+                              author = b.author,
+                              rating = b.rating,
+                              image = b.image,
+                              cost = b.cost * 101
+                          }).ToList();
+
+            return sortBy;
+        }
+
         public List<BookListViewModel> GetTopBooks(select value, int count)
         {
-
             if (value == select.topRating)
             {
                 var topRating = (from b in _bookRepo.GetAllBooks()
@@ -62,7 +80,7 @@ namespace BookCave.Services
                                      author = b.author,
                                      rating = b.rating,
                                      image = b.image,
-                                     cost = b.cost*101
+                                     cost = b.cost * 101
                                  }).Take(count).ToList();
                 return topRating;
             }
