@@ -19,11 +19,15 @@ namespace BookCave.Controllers {
             books = _bookService.GetAllBooks();
             return View(books);
         }
-
         //This Displays the top ten books ordered by rating
         public IActionResult TopTenBooks(int value) {        
             books = _bookService.GetTopBooks( select.topRating, 10 );
             return View(books);
+        }
+
+        public IActionResult Details( int id ){
+            var bookDetails = _bookService.GetBookByID(id);
+            return View( bookDetails );
         }
     }
 }

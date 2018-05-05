@@ -8,7 +8,7 @@
            <div class="card">
                <img class="card-img-top Thumb-nail-image" src="@Model[i].image" alt="Book Cover">
                <div class="card-body">
-                    <p class="card-text">@Model[i].title</p>  
+                    <a asp-controller="Books" asp-action="Details" asp-route-Id=@Model[i].id class="card-text">@Model[i].title</a>  
                     <div class="d-flex justify-content-between align-items-center">
                         <medium>@Model[i].rating Einkunn </medium>
                         <medium>@Model[i].cost kr</medium>
