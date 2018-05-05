@@ -7,27 +7,43 @@ using BookCave.Models.ViewModels;
 using BookCave.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookCave.Controllers {
+namespace BookCave.Controllers
+{
     public class BookController : Controller
-    { 
+    {
         private BookServices _bookService;
         private List<BookListViewModel> books;
-        public BookController() {
+
+        public BookController()
+        {
             _bookService = new BookServices();
         }
-        public IActionResult Index() {
+
+        public IActionResult Index()
+        {
             books = _bookService.GetAllBooks();
             return View(books);
         }
+
         //This Displays the top ten books ordered by rating
-        public IActionResult TopTenBooks(int value) {        
-            books = _bookService.GetTopBooks( select.topRating, 10 );
+        public IActionResult TopTenBooks(int value)
+        {
+            books = _bookService.GetTopBooks(select.topRating, 10);
             return View(books);
         }
 
-        public IActionResult Details( int id ){
+        public IActionResult Details(int id)
+        {
             var bookDetails = _bookService.GetBookByID(id);
-            return View( bookDetails );
+            return View(bookDetails);
+        }
+
+        public IActionResult SortByGenre(string genre)
+        {
+            genre = "Fantasy";
+            ViewBag.genre = genre;
+            var sortBy = _bookService.GetBooksByGenre(genre);
+            return View(sortBy);
         }
     }
 }

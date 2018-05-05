@@ -13125,23 +13125,46 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "/Users/elias/.nuget/packages/": {},
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+=======
+    "C:\\Users\\Einar Orri\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+>>>>>>> a5702e56acadf3224063e70459ff8c808ea3e7ac
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "/Users/elias/Desktop/BookCave/BookCave.csproj",
       "projectName": "BookCave",
       "projectPath": "/Users/elias/Desktop/BookCave/BookCave.csproj",
       "packagesPath": "/Users/elias/.nuget/packages/",
       "outputPath": "/Users/elias/Desktop/BookCave/obj/",
+=======
+      "projectUniqueName": "C:\\Users\\Einar Orri\\Desktop\\Book Cave\\BookCave\\BookCave.csproj",
+      "projectName": "BookCave",
+      "projectPath": "C:\\Users\\Einar Orri\\Desktop\\Book Cave\\BookCave\\BookCave.csproj",
+      "packagesPath": "C:\\Users\\Einar Orri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Einar Orri\\Desktop\\Book Cave\\BookCave\\obj\\",
+>>>>>>> a5702e56acadf3224063e70459ff8c808ea3e7ac
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "/Users/elias/.nuget/NuGet/NuGet.Config"
+=======
+        "C:\\Users\\Einar Orri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+>>>>>>> a5702e56acadf3224063e70459ff8c808ea3e7ac
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

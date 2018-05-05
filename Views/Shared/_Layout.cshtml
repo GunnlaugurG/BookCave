@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BookCave</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -18,12 +18,11 @@
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     </environment>
 </head>
-  <body>
-      <!-- *********** Headder ********* -->
+<body>
+    <!-- *********** Headder ********* -->
     <div class="header">
         <div class="head-content">
             <a asp-action="Index" asp-controller="Home"><img src="~/images/logo-sm.jpg" alt=""></a>
-            
         </div>
     </div>
     <!-- *********** Navigation bar ********* -->
@@ -36,102 +35,112 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                        </button>	<a class="navbar-brand" href="#"></a>
-                        
-</div>
+                    </button>	<a class="navbar-brand" href="#"></a>
+                </div>
                 <!-- *********** Listi af öllu vinstra megin ********* -->
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class=""><a href="#" class="">Flokka Eftir</a></li>
+                        <li class="">
+                            <div class="dropdown">
+                                <button class="btn navbar-btn btn-link dropdown-toggle" type="button" data-toggle="dropdown">
+                                    Flokka eftir tegund
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Ævintýri</a></li>
+                                    <li><a class="dropdown-item" href="#">Skáldsögur</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class=""><a asp-action="TopTenBooks" asp-controller="Book" class="">Topp 10 bækur</a></li>
                         <li class=""><a href="#" class="">Höfundar</a></li>
                         <li class=""><a href="#" class="">About</a></li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial");
                     <!-- *********** Listi af öllu hægra megin *********
-    <ul class="nav navbar-nav navbar-right">
-        <li>-->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>-->
                     <!-- *********** Search takki ********* -->
                     <!--ÞARF AÐ L'ATA INN AFTUR-->
                     <!-- <div class="search-container">
-            <form action="#">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-    </li>-->
+                            <form action="#">
+                                <input type="text" placeholder="Search.." name="search">
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </li>-->
                     <!-- *********** Sign in ********* -->
                     <!--
-    <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
-            Sign In<span class="caret"></span>
-        </a>
-        <div class="dropdown-menu" id="formLogin">
-            <div class="row">
-                <div class="container-fluid">
-                    <form class="">
-                        <div class="form-group">
-                            <label class="">Username</label>
-                            <input class="form-control" name="username" id="username" type="text">
-                        </div>
-                        <div class="form-group">
-                            <label class="">Password</label>
-                            <input class="form-control" name="password" id="password" type="password">
-                            <br>
-                        </div>
-                        -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                            Sign In<span class="caret"></span>
+                        </a>
+                        <div class="dropdown-menu" id="formLogin">
+                            <div class="row">
+                                <div class="container-fluid">
+                                    <form class="">
+                                        <div class="form-group">
+                                            <label class="">Username</label>
+                                            <input class="form-control" name="username" id="username" type="text">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="">Password</label>
+                                            <input class="form-control" name="password" id="password" type="password">
+                                            <br>
+                                        </div>
+                                        -->
                     <!-- *********** Register... á eftir að gera sér síður fyrir þetta ********* -->
                     <!--
-        <li><a href="#" data-toggle="modal" data-target="#modalRegister" class="">Register</a></li>
-        <button type="submit" id="btnLogin" class="btn btn-success btn-sm">Login</button>
-        </form>
-    </div>
+                        <li><a href="#" data-toggle="modal" data-target="#modalRegister" class="">Register</a></li>
+                        <button type="submit" id="btnLogin" class="btn btn-success btn-sm">Login</button>
+                        </form>
                     </div>
-                </div>
-            </li>
-                -->
+                                    </div>
+                                </div>
+                            </li>
+                                -->
                     <!-- *********** Register... á eftir að gera sér síður fyrir þetta ********* -->
                     <!-- <li><a href="#" data-toggle="modal" data-target="#modalRegister" class="">Register</a></li>-->
                     <!-- *********** Karfan ********* -->
                     <!--
-        <li>
-            <div class="Basket">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span> 7 - Items<span class="caret"></span></a>
-                <ul class="dropdown-menu dropdown-cart" role="menu">
                     <li>
-                        <span class="item">
-                            <span class="item-left">
-                                <img src="http://lorempixel.com/50/50/" alt="" />
-                                <span class="item-info">
-                                    <span>Item name</span>
-                                    <span>23$</span>
-                                </span>
-                            </span>
-                            <span class="item-right">
-                                <button class="btn btn-xs btn-danger pull-right">x</button>
-                            </span>
-                        </span>
+                        <div class="Basket">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> <span class="glyphicon glyphicon-shopping-cart"></span> 7 - Items<span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-cart" role="menu">
+                                <li>
+                                    <span class="item">
+                                        <span class="item-left">
+                                            <img src="http://lorempixel.com/50/50/" alt="" />
+                                            <span class="item-info">
+                                                <span>Item name</span>
+                                                <span>23$</span>
+                                            </span>
+                                        </span>
+                                        <span class="item-right">
+                                            <button class="btn btn-xs btn-danger pull-right">x</button>
+                                        </span>
+                                    </span>
+                                </li>
+
+                                <li class="divider"></li>
+
+                                <li><a class="text-center" href="">Go to checkout</a></li>
+                            </ul>
                     </li>
-
-                    <li class="divider"></li>
-
-                    <li><a class="text-center" href="">Go to checkout</a></li>
-                </ul>
-        </li>
-        -->
+                    -->
                     </ul>
                 </div>
                 </li>
-            </ul>
-        </div>
-        <!--/.navbar-collapse -->
+                </ul>
+            </div>
+            <!--/.navbar-collapse -->
     </div>
-</nav>
+    </nav>
     </div>
     <div class="container body-content">
         @RenderBody()
     </div>
-        <environment include="Development">
+    <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
@@ -153,5 +162,5 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
-  </body>
+</body>
 </html>
