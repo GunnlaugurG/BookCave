@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using BookCave.Models.InputModel;
 using BookCave.Models.ViewModels;
 using BookCave.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -44,6 +45,10 @@ namespace BookCave.Controllers
             ViewBag.genre = genre;
             var sortBy = _bookService.GetBooksByGenre(genre);
             return View(sortBy);
+        }
+        public IActionResult review( ReviewInputModel input ){
+            
+            return View();
         }
     }
 }
