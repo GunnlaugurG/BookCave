@@ -28,9 +28,17 @@ namespace BookCave.Controllers
 
         //This Displays the top ten books ordered by rating
         [HttpGet]
-        public IActionResult TopTenBooks(int value)
+        public IActionResult TopTenBooks(string value)
         {
-            books = _bookService.GetTopBooks(value, 10);
+            if( value == "rating"){
+                books = _bookService.GetTopBooks(select.topRating, 10);
+            }
+            else if( value == "price"){
+                books = _bookService.GetTopBooks(select.bottomPrice, 10);
+            }
+            else if ( value == "name"){
+                books = _bookService.GetTopBooks(select.topName, 10);
+            }
             return View(books);
         }
 

@@ -67,9 +67,9 @@ namespace BookCave.Services
             return sortBy;
         }
 
-        public List<BookListViewModel> GetTopBooks(int value, int count)
+        public List<BookListViewModel> GetTopBooks( select value, int count)
         {
-            if(value == 1)
+            if(value == select.topPrice)
             {
                 var topPrice = (from b in _bookRepo.GetAllBooks()
                                  orderby b.cost descending
@@ -83,8 +83,8 @@ namespace BookCave.Services
                                      cost = b.cost * 101
                                  }).Take(count).ToList();
                 return topPrice;
-            } /*
-            if (value == select.topPrice)
+            } 
+            else if (value == select.topPrice)
             {
                 var topPrice = (from b in _bookRepo.GetAllBooks()
                                 orderby b.cost descending
@@ -99,7 +99,7 @@ namespace BookCave.Services
                                 }).Take(count).ToList();
                 return topPrice;
             }
-            if (value == select.topName)
+            else if (value == select.topName)
             {
                 var topName = (from b in _bookRepo.GetAllBooks()
                                orderby b.title
@@ -114,7 +114,7 @@ namespace BookCave.Services
                                }).Take(count).ToList();
                 return topName;
             }
-            if (value == select.bottomPrice)
+            else if (value == select.bottomPrice)
             {
                 var bottomPrice = (from b in _bookRepo.GetAllBooks()
                                    orderby b.cost ascending
@@ -129,21 +129,8 @@ namespace BookCave.Services
                                    }).Take(count).ToList();
                 return bottomPrice;
             }
-            else
+            else if( value == select.topRating)
             {
-                var topBooks = (from b in _bookRepo.GetAllBooks()
-                                orderby b.rating descending
-                                select new BookListViewModel
-                                {
-                                    id = b.Id,
-                                    title = b.title,
-                                    author = b.author,
-                                    rating = b.rating,
-                                    image = b.image,
-                                    cost = b.cost
-                                }).Take(count).ToList();
-                return topBooks;
-            } */
              var topRating = (from b in _bookRepo.GetAllBooks()
                                  orderby b.rating descending
                                  select new BookListViewModel
@@ -156,6 +143,12 @@ namespace BookCave.Services
                                      cost = b.cost * 101
                                  }).Take(count).ToList();
                 return topRating;
+            } 
+            else{
+                //skila auðum lista ef ekkert er valið
+                return new List<BookListViewModel>();
+            }
+
         }
         
     }
