@@ -5,8 +5,10 @@
         <select name="value" class="form-control selectButton top-right" id="selectBox1">
             <option value="rating">Sort by Rating</option>
             <option value="price">Sort by Price</option>
-            <option value="name"><a asp-action="TopTenBooks" asp-controller="Book" asp-route-value="name">Sort by Name</a></option>
+            <option value="name">
+            <a asp-action="TopTenBooks" asp-controller="Book" asp-route-value="2">Sort by Name</a></option>
         </select>
+        <input type="submit"></input>
     </form>
 </div>
 
