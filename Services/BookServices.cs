@@ -84,7 +84,7 @@ namespace BookCave.Services
             return sortBy;
         }
 
-        public List<BookListViewModel> GetTopBooks( select value, int count)
+        public List<BookListViewModel> GetTopBooks(select value, int count)
         {
             if(value == select.topPrice)
             {
