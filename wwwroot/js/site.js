@@ -10,3 +10,9 @@ $(function() {
       e.stopPropagation();
     });
   });
+
+$("#selectBox1").click(function(){
+    $.get("Book/TopTenBooks", function(data, status){
+        alert("NIGGER!!!!!");
+    });
+});
