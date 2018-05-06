@@ -1,21 +1,44 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
 
 <div class="Container">
+    <h2>Vinsælustu bækurnar</h2>
     <div class="row">
-        @foreach(var book in Model)
+        @for (var i = 0; i < 4; i++)
         {
-           <div class="col-md-3 col-lg-3">
-           <div class="card">
-               <img asp-controller="book" asp-action="details" asp-route-Id=@book.id class="card-img-top Thumb-nail-image" src="@book.image" alt="Book Cover">
-               <div class="card-body">
-                    <a asp-controller="book" asp-action="details" asp-route-Id=@book.id class="card-text">@book.title</a>  
-                    <div class="d-flex justify-content-between align-items-center">
-                        <medium>@book.rating Einkunn </medium>
-                        <medium>@book.cost kr</medium>
+            <div class="col-sm-3">
+                <div class="card">
+                    <img asp-controller="book" asp-action="details" asp-route-Id=@Model[i].id class="card-img-top Thumb-nail-image" src="@Model[i].image" alt="Book Cover">
+                    <div class="card-body">
+                        <a asp-controller="book" asp-action="details" asp-route-Id=@Model[i].id class="card-text">@Model[i].title</a>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="col-sm-6">
+                                <medium>Einkunn: @Model[i].rating</medium>
+                                <medium>Verd: @Model[i].cost</medium>
+                            </div>
+                        </div>
                     </div>
-               </div>
+                </div>
             </div>
-           </div>
+        }
+    </div>
+    <h2>Ódýrustu bækurnar</h2>
+    <div class="row">
+        @for (var i = 4; i < 8; i++)
+        {
+            <div class="col-sm-3">
+                <div class="card">
+                    <img asp-controller="book" asp-action="details" asp-route-Id=@Model[i].id class="card-img-top Thumb-nail-image" src="@Model[i].image" alt="Book Cover">
+                    <div class="card-body">
+                        <a asp-controller="book" asp-action="details" asp-route-Id=@Model[i].id class="card-text">@Model[i].title</a>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="col-sm-6">
+                                <medium>Einkunn: @Model[i].rating</medium>
+                                <medium>Verd: @Model[i].cost</medium>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         }
     </div>
 </div>
