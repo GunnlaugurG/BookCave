@@ -5,8 +5,7 @@
         <select name="value" class="form-control selectButton top-right" id="selectBox1">
             <option value="rating">Sort by Rating</option>
             <option value="price">Sort by Price</option>
-            <option value="name">
-            <a asp-action="TopTenBooks" asp-controller="Book" asp-route-value="2">Sort by Name</a></option>
+            <option value="name">Sort by Name</option>
         </select>
         <input type="submit"></input>
     </form>
@@ -27,7 +26,7 @@
                     <div id="book-info" class="col-lg-12 col-sm-12">
                         <a asp-controller="book" asp-action="details" asp-route-Id="@book.id" class="card-text">@book.title</a>
                         <div class="divider"></div>
-                        <p>Author: @book.author</p>
+                        <a asp-action="details" asp-controller="author" asp-route-id="@book.author.Id"><p>@book.author.authorName</p></a>
                         <p>Rating: @book.rating</p>
                         <p>Price: @book.cost $</p>
                     </div>

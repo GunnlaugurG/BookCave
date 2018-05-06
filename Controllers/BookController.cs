@@ -22,8 +22,7 @@ namespace BookCave.Controllers
 
         public IActionResult Index()
         {
-            books = _bookService.GetAllBooks();
-            return View(books);
+            return View();
         }
 
         //This Displays the top ten books ordered by rating

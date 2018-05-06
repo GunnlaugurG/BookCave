@@ -27,14 +27,7 @@ namespace BookCave.Services
             _reviewRepo = new ReviewRepo();
             _bookRepo = new BookRepo();
         }
-
-        public List<BookListViewModel> GetAllBooks()
-        {
-            _bookRepo.GetAllBooks();
-            return null;
-        }
-
-        public List<BookListViewModel> GetSearchedResults(string search) {
+       public List<BookListViewModel> GetSearchedResults(string search) {
 
             return _bookRepo.GetSearchedResults(search);
         }
