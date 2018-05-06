@@ -66,7 +66,7 @@ namespace BookCave.Controllers
         [HttpPost]
         public IActionResult review( ReviewInputModel input ){
             
-            //_bookService.SetBookReview( input );
+            _bookService.SetBookReview( input );
             return RedirectToAction("Index");
         }
 
