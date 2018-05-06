@@ -62,9 +62,9 @@ namespace BookCave.Controllers
         }
         [HttpPost]
         public IActionResult review( ReviewInputModel input ){
-
-            // Afhverju virkar þetta ekki?
-            return RedirectToAction("Details", 1);
+            
+            _bookService.SetBookReview( input );
+            return RedirectToAction("Index");
         }
 
         public IActionResult Search(string searchedWord) {

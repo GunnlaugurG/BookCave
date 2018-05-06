@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookCave.Data;
 using BookCave.Models.ViewModels;
+using BookCave.Models.InputModel;
 using BookCave.Repositories;
 
 public enum select
@@ -167,6 +168,9 @@ namespace BookCave.Services
             }
 
         }
-        
+
+        public void SetBookReview( ReviewInputModel inputFromUser ) {
+            
+        }
     }
 }
