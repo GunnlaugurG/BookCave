@@ -1,2 +1,10 @@
-@model BookCave.Models.ViewModels
-<p>@Model.authorName</p>
+@model BookCave.Models.ViewModels.AuthorDetailsViewModel
+<h1>@Model.authorName</h1>
+<img src="@Model.image" alt="authorPhoto">
+<p>Books written by author:
+    @foreach(var book in Model.writtenBooks) {
+     <text>&nbsp;</text>
+     @:&nbsp;
+      <a asp-action="Details" asp-controller="book" asp-route-id="@book.Id">@book.title</a>
+    }
+</p>

@@ -10,22 +10,38 @@
     </form>
 </div>
 <div class="container-fluid">
-    <div class="row mainContent">
+
+    <div class="row ">
         @foreach (var book in Model)
         {
-        <div class="col-sm-4 centered book-layout">
-            <div class="col-sm-12 book-display-border">
-                <a asp-controller="book" asp-action="details" asp-route-Id=@book.id><img class="Thumb-nail-image" src="@book.image" alt="cover"></a> <br>
-                <div class="col-sm-12 book-display-text">
-                    <a asp-controller="book" asp-action="details" asp-route-Id=@book.id class="card-text">@book.title</a>  <br>
-                    @book.author <br>
-                    <div class="divider"></div>
-                    Rating: @book.rating <br>
-                    <div class="divider"></div>
-                    Cost: @book.cost $
+            <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <img class="Thumb-nail-image" src="@book.image" alt="book-cover" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="book-info" class="col-lg-12 col-sm-12">
+                        <a asp-controller="book" asp-action="details" asp-route-Id="@book.id" class="card-text">@book.title</a>
+                        <div class="divider"></div>
+                        <p>Author: @book.author</p>
+                        <p>Rating: @book.rating</p>
+                        <p>Price: @book.cost $</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
+                        <a class="btn btn-success center-block" href="#">Add to cart</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-4 spacing">
+
+                    </div>
                 </div>
             </div>
-        </div>
+
         }
-  </div>
+        <br />
+    </div>
 </div>

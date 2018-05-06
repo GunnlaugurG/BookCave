@@ -47,7 +47,6 @@ namespace BookCave.Controllers
 
         public IActionResult SortByGenre(string genre)
         {
-            genre = "Fantasy";
             ViewBag.genre = genre;
             var sortBy = _bookService.GetBooksByGenre(genre);
             return View(sortBy);
@@ -55,6 +54,9 @@ namespace BookCave.Controllers
         public IActionResult Details(int id)
         {
             var bookDetails = _bookService.GetBookByID(id);
+            if(bookDetails == null) {
+                return View("BookNotFound");
+            }
             return View(bookDetails);
         }
         [HttpGet]
