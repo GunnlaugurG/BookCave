@@ -12,23 +12,24 @@ namespace BookCave.Controllers
 {
     public class HomeController : Controller
     {
-
         private BookServices _bookService;
 
-        public HomeController(){
+        public HomeController()
+        {
             _bookService = new BookServices();
         }
+
         public IActionResult Index()
         {
-            
             /// Vill fá 5 vinsælustu bækurnar og 5 ódýrustu bækurnar
             var retBooks = new List<BookListViewModel>();
 
-            retBooks = _bookService.GetTopBooks(select.topRating, 5);
-            retBooks.AddRange( _bookService.GetTopBooks(select.bottomPrice, 5));
+            retBooks = _bookService.GetTopBooks(select.topRating, 4);
+            retBooks.AddRange(_bookService.GetTopBooks(select.bottomPrice, 4));
 
-            return View( retBooks );
+            return View(retBooks);
         }
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
