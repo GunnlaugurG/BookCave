@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using BookCave.Models.InputModel;
 using BookCave.Models.ViewModels;
 using BookCave.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -48,7 +49,23 @@ namespace BookCave.Controllers
             var sortBy = _bookService.GetBooksByGenre(genre);
             return View(sortBy);
         }
+        public IActionResult Details(int id)
+        {
+            var bookDetails = _bookService.GetBookByID(id);
+            return View(bookDetails);
+        }
+        [HttpGet]
+        public IActionResult review( int id ){
 
+            var quickAndDirty = new ReviewInputModel{ bookId = id };
+            return View( quickAndDirty );
+        }
+        [HttpPost]
+        public IActionResult review( ReviewInputModel input ){
+
+            // Afhverju virkar þetta ekki?
+            return RedirectToAction("Details", 1);
+        }
 
         public IActionResult Search(string searchedWord) {
            
