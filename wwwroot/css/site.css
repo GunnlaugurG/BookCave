@@ -3,6 +3,30 @@
     padding: 0;
     font-family: sans-serif;
 }
+#image-container{
+    height: 250;
+    width: 250;
+}
+.book-details-border{
+    border: 5px solid white;
+    border-radius: 15px;
+    background-color: lightgray;
+    
+}
+.three-buttons{
+    margin-bottom: 15px;
+}
+.three-buttons a{
+    margin: 5px;
+}
+#image-container img{
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.col-wrapper{
+    margin-top: 45px;
+}
 
 .Thumb-nail-image {
     height: 250px;

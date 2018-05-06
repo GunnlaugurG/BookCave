@@ -2,29 +2,49 @@
 
 <div class="Container">
     <div class="row">
-        <div class="col-lg-10 col-md-10">
-            <h1>@Model.name</h1>
-            <p>@Model.author</p>
+        
+    <div class="book-details-border col-sm-10 col-lg-10">
+        <div id="image-container" class="col-sm-3 col-lg-3" style="height: 50%">
+            <img src="@Model.image" alt="Book Cover">
         </div>
-        <div class="col-lg-2 col-md-2">
-            <h2>@Model.ratings</h2>
-        </div>
+        <div class="col-sm-8 col-lg-8">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12" style="height: 70px">
+                         <h4>@Model.name</h4>
+                         <p>@Model.author</p>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-12" style="height: 200px">
+                        <p>@Model.description</p>
+                    </div>
+                    <div class="col-sm-12 col-lg-12 text-right">
+                        <h2>@Model.ratings</h2>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+            
+            <div class="col-sm-2 col-lg-2 book-details-border">
+             <div class="row">
+             <div class="col-sm-12 col-lg-12 text-right">
+             <h3>@Model.price $</h3>
+             </div>
+             </div>
+             <div class="row">
+            <div class="col-sm-12 col-lg-12 three-buttons">
+             <a asp-controller="book" asp-action="review" asp-route-Id=@Model.id class="btn btn-primary center-block" >Skrifa ummæli</a>
+            
+            <a  class="btn btn-warning center-block">Setja á óskalista</a>
+            
+            <a class="btn btn-success center-block">Setja í körfu</a>
+            </div>
+            </div>
+                    </div>
     </div>
     <div class="row">
-        <div class="col-lg-4 col-md-4">
-            <img src= "@Model.image" alt="Book Cover">
-        </div>
-        <div class="col-lg-8">
-            <p>@Model.description</p>
-        </div> 
-    </div>
-        <div class="col-lg-10"></div>
-        <div class="col-lg-2">
-            <a asp-controller="book" asp-action="review" asp-route-Id=@Model.id class="btn btn-primary center-block" >Skrifa ummæli</a>
-            <br>
-            <a  class="btn btn-warning center-block">Setja á óskalista</a>
-            <h3>@Model.price $</h3>
-            <p class="btn btn-success center-block">Setja í körfu</p>
-        </div>
-</div>
+        <div class="col-sm-12 col-lg-12" style="background-color: aquamarine; height: 150px; margin-top: 20px">
 
+        </div>
+    </div>
+</div>

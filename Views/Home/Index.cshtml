@@ -1,12 +1,17 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
 
 <div class="Container">
+<<<<<<< HEAD
     <h2>Vins√älustu b√äkurnar</h2>
+=======
+    <h2>VinsÊlustu bÊkurnar</h2>
+>>>>>>> e62bf78c4dcb1d8832e14d34caa5578279d7319c
     <div class="row">
         @for (var i = 0; i < 4; i++)
         {
             <div class="col-sm-3">
                 <div class="card">
+<<<<<<< HEAD
                 <a asp-action="Details" asp-controller="Book" asp-route-Id="@Model[i].id"><img src="@Model[i].image" alt="bookCover" class="card-img-top Thumb-nail-image"></a>
                     <div class="card-body">
                         <a asp-controller="book" asp-action="details" asp-route-Id=@Model[i].id class="card-text">@Model[i].title</a> <br>
@@ -15,6 +20,15 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="col-sm-6">
                                
+=======
+                    <img asp-controller="book" asp-action="details" asp-route-Id=@Model[i].id class="card-img-top Thumb-nail-image" src="@Model[i].image" alt="Book Cover">
+                    <div class="card-body">
+                        <a asp-controller="book" asp-action="details" asp-route-Id=@Model[i].id class="card-text">@Model[i].title</a>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="col-sm-6">
+                                <medium>Einkunn: @Model[i].rating</medium>
+                                <medium>Verd: @Model[i].cost</medium>
+>>>>>>> e62bf78c4dcb1d8832e14d34caa5578279d7319c
                             </div>
                         </div>
                     </div>
@@ -22,6 +36,7 @@
             </div>
         }
     </div>
+<<<<<<< HEAD
     <h2>‚ÄùdÀùrustu b√äkurnar</h2>
     <div class="row">
         @for (var i = 4; i < 8; i++)
@@ -36,9 +51,31 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="col-sm-6">
                                
+=======
+    <h2>”d˝rustu bÊkurnar</h2>
+    <div class="row">
+        @for (var i = 4; i < 8; i++)
+        {
+            <div class="col-sm-3">
+                <div class="card">
+                    <img asp-controller="book" asp-action="details" asp-route-Id=@Model[i].id class="card-img-top Thumb-nail-image" src="@Model[i].image" alt="Book Cover">
+                    <div class="card-body">
+                        <a asp-controller="book" asp-action="details" asp-route-Id=@Model[i].id class="card-text">@Model[i].title</a>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="col-sm-6">
+                                <medium>Einkunn: @Model[i].rating</medium>
+                                <medium>Verd: @Model[i].cost</medium>
+>>>>>>> e62bf78c4dcb1d8832e14d34caa5578279d7319c
                             </div>
                         </div>
                     </div>
                 </div>
+<<<<<<< HEAD
 </div>
 }
+=======
+            </div>
+        }
+    </div>
+</div>
+>>>>>>> e62bf78c4dcb1d8832e14d34caa5578279d7319c
