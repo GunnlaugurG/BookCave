@@ -39,6 +39,9 @@ namespace BookCave.Controllers
             else if ( value == "name"){
                 books = _bookService.GetTopBooks(select.topName, 10);
             }
+            else{
+               books = _bookService.GetTopBooks(select.topRating, 10); 
+            }
             return View(books);
         }
 
