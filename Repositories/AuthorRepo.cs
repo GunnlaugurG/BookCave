@@ -14,10 +14,14 @@ namespace BookCave.Repositories {
             _db = new DataContext();
         }
         public List<AuthorListViewModel> GetAllAuthors() {
+           
             var authors = (from a in _db.authors
+                           join b in _db.books on a.authorName equals b.author
+                           orderby b.rating descending
                            select new AuthorListViewModel {
                                Id = a.Id,
-                               authorName = a.authorName
+                               authorName = a.authorName,
+                               mostPopularBook = b
                            }).ToList();
             return authors;
         }
