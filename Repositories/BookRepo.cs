@@ -19,5 +19,8 @@ namespace BookCave.Repositories
                         select b).ToList();
             return books;
         }
+        public void UpdateABook( Book book ){
+            // hér þarf að updeita book
+        }
     }
 }
