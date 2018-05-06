@@ -11,7 +11,5 @@ namespace BookCave.Data.EntityModels
         public string picture {get; set;}
         public CardInfo cardInfo {get; set;}
         public ShippingInfo shippingInfo {get; set;}
-        public List<Order> orderHistory {get; set;}
-        public List<Book> wishList {get; set;}
     }
 }
