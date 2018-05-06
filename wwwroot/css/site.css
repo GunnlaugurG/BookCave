@@ -77,6 +77,15 @@ form.search-bar button {
     border-left: none;
     cursor: pointer;
 }
+#book-info p {
+    margin: 0;
+}
+.spacing {
+    margin-top: 20px;
+}
+.img-thumbnail-btn {
+    width: 250px !important;
+}
 
 form.search-bar button:hover {
     background: #0b7dda;
