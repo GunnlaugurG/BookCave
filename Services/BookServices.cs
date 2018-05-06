@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookCave.Data;
+using BookCave.Data.EntityModels;
 using BookCave.Models.ViewModels;
 using BookCave.Models.InputModel;
 using BookCave.Repositories;
@@ -20,9 +21,10 @@ namespace BookCave.Services
     public class BookServices
     {
         private BookRepo _bookRepo;
-
+        private ReviewRepo _reviewRepo;
         public BookServices()
         {
+            _reviewRepo = new ReviewRepo();
             _bookRepo = new BookRepo();
         }
 
@@ -171,6 +173,23 @@ namespace BookCave.Services
 
         public void SetBookReview( ReviewInputModel inputFromUser ) {
             
+            var reviewForBook = ( from r in _reviewRepo.GetAllReviews()
+                                    where r.bookId == inputFromUser.bookId
+                                    select r).ToList();
+            double sumOfAllReview = inputFromUser.Ratings;
+            for( int i = 0; i < reviewForBook.Count; i++){
+                sumOfAllReview += reviewForBook[i].Ratings;
+            }
+            double newRating = sumOfAllReview / (reviewForBook.Count + 1);
+
+            Review newReview = new Review { bookId = inputFromUser.bookId,
+                                            Ratings = inputFromUser.Ratings,
+                                            Description = inputFromUser.Description};
+            _reviewRepo.SetReview( newReview );
+
+            /// TODO: upfæra bók í gagnagrunni
+            //GetBookByID( inputFromUser.bookId );
+            //_bookRepo.UpdateABook( new Book{});
         }
     }
 }
