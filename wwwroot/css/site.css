@@ -39,6 +39,7 @@ form.search-bar input[type=search] {
     background: #f1f1f1;
     -webkit-border-top-left-radius: 25px;
     -webkit-border-bottom-left-radius: 25px;
+    outline: none;
 }
 
 form.search-bar button {
