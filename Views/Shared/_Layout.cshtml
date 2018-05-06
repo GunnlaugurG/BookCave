@@ -22,12 +22,19 @@
 <body>
     <!-- *********** Headder ********* -->
     <div class="header">
-        <div class="head-content">
-            <a asp-action="Index" asp-controller="Home"><img src="~/images/logo-sm.jpg" alt=""></a>
-            <form style="float: right" style="margin-top: 10px" asp-action="Search" asp-controller="Book" method="GET">
-                            <input type="search" name="searchedWord" placeholder="Search.." class="search-button" >
-                            <button type="submit" value="search" class="btn btn-primary">Search</button>
-            </form>
+        <div class="row">
+            <div class="head-content">
+                <div class="col-sm-4">
+                    <a asp-action="Index" asp-controller="Home"> <img src="~/images/logo-sm.jpg" alt="logo" /></a>
+                </div>
+                <div class="text-center col-sm-8">
+                    <form class="search-bar col-sm-8" asp-action="Search" asp-controller="Book" method="GET">
+                        <input type="search" name="searchedWord" placeholder="Search.." class="search-button">
+                        <button type="submit" value="search" class="search-btn"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+            </div>
         </div>
     </div>
     <!-- *********** Navigation bar ********* -->
@@ -63,9 +70,9 @@
                         <li>
                             <!--
                                 Víðir: Hér copyaði ég form textann fyrir search barinn, það má eyða þetta comment út
-                                
+
                                 <form asp-action="Search" asp-controller="Book" method="GET">
-                            <input type="search" name="searchedWord" placeholder="Search.." class="search-button" >
+                            <input type="search" name="searchedWord" placeholder="Search.." class="search-button">
                             <button type="submit" value="search" class="btn btn-primary">Search</button>
                             </form>-->
                         </li>

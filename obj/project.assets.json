@@ -13125,25 +13125,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\VidirSnaer\\.nuget\\packages\\": {},
+    "C:\\Users\\Einar Orri\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\VidirSnaer\\Documents\\GitHub\\BookCave\\BookCave.csproj",
+      "projectUniqueName": "C:\\Users\\Einar Orri\\Desktop\\Book Cave\\BookCave\\BookCave.csproj",
       "projectName": "BookCave",
-      "projectPath": "C:\\Users\\VidirSnaer\\Documents\\GitHub\\BookCave\\BookCave.csproj",
-      "packagesPath": "C:\\Users\\VidirSnaer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\VidirSnaer\\Documents\\GitHub\\BookCave\\obj\\",
+      "projectPath": "C:\\Users\\Einar Orri\\Desktop\\Book Cave\\BookCave\\BookCave.csproj",
+      "packagesPath": "C:\\Users\\Einar Orri\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Einar Orri\\Desktop\\Book Cave\\BookCave\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\VidirSnaer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Einar Orri\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],

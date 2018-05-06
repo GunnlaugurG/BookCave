@@ -10,19 +10,58 @@
 }
 
 .book-layout {
-    text-align:center;
+    text-align: center;
 }
+
+.search-btn {
+    border-radius: 0 30px 30px 0;
+}
+
+form.search-bar input[type=search] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 60%;
+    background: #f1f1f1;
+    -webkit-border-top-left-radius: 25px;
+    -webkit-border-bottom-left-radius: 25px;
+}
+
+form.search-bar button {
+    float: left;
+    width: 10%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.search-bar button:hover {
+    background: #0b7dda;
+}
+
+form.search-bar ::after {
+    clear: both;
+    display: table;
+}
+
 .book-display-border {
-    border: 1px solid lightgray;    
+    border: 1px solid lightgray;
     margin: 1%;
-    padding:3%;
+    padding: 3%;
     background-color: lightgray;
     border-radius: 30px;
-    font-family:'Comic Sans MS';
+    font-family: 'Comic Sans MS';
 }
+
 .book-display-text {
     text-align: justify;
 }
+
 .selectButton {
     width: 15%;
     float: right;
@@ -84,16 +123,17 @@
 .search-container {
     padding-top: 11px;
 }
+
 input[type=text] {
     width: 130px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
 
-/* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-    width: 100%;
-}
+    /* When the input field gets focus, change its width to 100% */
+    input[type=text]:focus {
+        width: 100%;
+    }
 
 /*-----------CART--------------*/
 ul.dropdown-cart {
