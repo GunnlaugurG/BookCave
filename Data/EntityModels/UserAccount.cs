@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace BookCave.Data.EntityModels
 {
     using System.Collections.Generic;
