@@ -1,3 +1,39 @@
-﻿<h1>Insert Image</h1>
+﻿@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims
+@using BookCave.Models
+@model BookCave.Models.ViewModels.AccountDetailsViewModel
 
-<input type="file" name="Image" id="imgaeInput">
+
+@{
+    var claim = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(c => c.Type == "Name")?.Value;
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h1>Velkomin @claim</h1>
+        <h3>Notandanafn: @Model.userName</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4">
+        <h2>Persónu upplýsingar</h2>
+        <p>Heimilisfang: @Model.address</p>
+        <p>Borg: @Model.city</p>
+        <p>Land: @Model.country</p>
+        <p>Póstnúmer: @Model.zipCode</p>
+        <button class="btn btn-default">Breyta persónu upplýsingum</button>
+    </div>
+    <div class="col-sm-4">
+        <h2>Kortaupplýsingar</h2>
+        <p>Nafn korthafa: @Model.cardholderName</p>
+        <p>Kortanúmer: @Model.cardNumber</p>
+        <button class="btn btn-default">Breyta kortaupplýsingum</button>
+    </div>
+</div>
+
+
+
+
+
+

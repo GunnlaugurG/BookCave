@@ -4,14 +4,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookCave.Data.EntityModels;
 using BookCave.Models;
+using BookCave.Models.ViewModels;
 using BookCave.Repositories;
 
 namespace BookCave.Services
 {
     public class AccountServices
     {
-        public AccountServices(){}
-        private AccountRepo _accountRepo = new AccountRepo();
+        private AccountRepo _accountRepo;
+        public AccountServices(){
+           _accountRepo  = new AccountRepo();
+        }
+        
+
 
         public void addNewUserToDataBase(ApplicationUser user){
             UserAccount _user = new UserAccount();
@@ -19,6 +24,12 @@ namespace BookCave.Services
                 _user.aspUserId = user.Id;
 
                 _accountRepo.addUserToDataBase(_user);
+        }
+
+        public AccountDetailsViewModel getUserDetails(string userID){
+            var userDetails = _accountRepo.getUserDetailsFromDataBase(userID);
+            
+            return userDetails;
         }
     }
 }

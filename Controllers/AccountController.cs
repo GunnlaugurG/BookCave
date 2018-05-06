@@ -15,6 +15,8 @@ namespace BookCave.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+
         private AccountServices _accountServices = new AccountServices();
         public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
@@ -82,6 +84,15 @@ namespace BookCave.Controllers
         public IActionResult AccessDenied()
         {
             return View();
+        }
+        public async Task<IActionResult> Details(){
+            //TEST LÆT ÞETTA I SERVICCE SEINNA
+                var user = await GetCurrentUserAsync();
+
+                var userId = user?.Id;
+                string UserName = user?.UserName;
+                var _userInfo = _accountServices.getUserDetails(userId);
+            return View(_userInfo);
         }
     }
 }
