@@ -17,9 +17,10 @@
 @foreach(var book in Model) {
     <div class="col-sm-4 centered">
         <a asp-controller="book" asp-action="details" asp-route-Id=@book.id><img class="Thumb-nail-image" src="@book.image" alt="cover"></a> <br>
- <a asp-controller="book" asp-action="details" asp-route-Id=@book.id class="card-text">@book.title</a>  <br>
-         Rating: @book.rating <br>
-        Cost: @book.cost $
+        <a asp-controller="book" asp-action="details" asp-route-Id=@book.id class="card-text">@book.title</a>  <br>
+         @book.author <br>
+         @book.rating ★<br>
+         @book.cost $
     </div>
 }
 </div>

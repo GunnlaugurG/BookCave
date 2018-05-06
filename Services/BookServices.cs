@@ -36,7 +36,7 @@ namespace BookCave.Services
 
         public List<BookListViewModel> GetSearchedResults(string search) {
 
-                return _bookRepo.GetSearchedResults(search);
+            return _bookRepo.GetSearchedResults(search);
         }
         public BookDetailsViewModel GetBookByID(int id)
         {
