@@ -240,11 +240,6 @@ form.example input[type=text] {
         color: black;
 }
 
-
-
-
-
-
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
@@ -280,7 +275,7 @@ form.example input[type=text] {
 }
 .footer-wrapper{
     border-top: 1px solid #403f3f;
-    padding:50px;
+    padding:44px;
     background: #eae7e7;
 }
 .footer-list {
