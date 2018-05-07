@@ -13,21 +13,22 @@ header {
     height: 250px;
     width: 250px;
 }
-.book-details-border{
-    border: 5px solid white;
-    border-radius: 15px;
-    background-color: lightgray;
-    
-}
-.search-wrapper {
+
+.search-bar {
     padding-top:20px;
     padding-bottom: 15px;
     margin-left:auto;
 }
 
-.search-input {
-    width: 80%;
+.search-bar input {
+    width: 90%;
+    height: 40px;
+    border: 1px solid lightgray;
+    font-size: 17px;
+    border-radius: 25px;
+    outline:none;
 }
+
 
 .three-buttons{
     margin-bottom: 15px;
@@ -159,6 +160,10 @@ form.example input[type=text] {
 .home-logo:hover {
     text-decoration: none;
     color: black;
+}
+ .home-logo:active{
+        text-decoration: none;
+        color: black;
 }
 form.example button {
     float: left;
