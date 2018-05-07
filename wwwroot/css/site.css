@@ -6,6 +6,9 @@
 ul {
     list-style-type: none;
 }
+header {
+    width:100%;
+}
 #image-container{
     height: 250px;
     width: 250px;
@@ -16,6 +19,16 @@ ul {
     background-color: lightgray;
     
 }
+.search-wrapper {
+    padding-top:20px;
+    padding-bottom: 15px;
+    margin-left:auto;
+}
+
+.search-input {
+    width: 80%;
+}
+
 .three-buttons{
     margin-bottom: 15px;
 }
@@ -56,11 +69,20 @@ ul {
 .book-layout {
     text-align: center;
 }
-
-.search-btn {
-    border-radius: 0 30px 30px 0;
+.container-3 {
+    width: 300px;
+    vertical-align: middle;
+    white-space: nowrap;
+    position: relative;
 }
 
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 15px;
+}
 
 #book-info p {
     margin: 0;
@@ -87,8 +109,6 @@ ul {
 
 .log-in-partial{
     display:flex;
-}
-.log-in-partial p {
 }
 .book-display-border {
     border: 1px solid lightgray;
@@ -123,6 +143,36 @@ ul {
     padding-right: 15px;
 }
 
+form.example input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+
+form.example button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+    form.example button:hover {
+        background: #0b7dda;
+    }
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 
 
 

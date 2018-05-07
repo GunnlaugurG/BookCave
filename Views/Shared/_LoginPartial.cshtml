@@ -14,13 +14,13 @@
         <ul class="nav navbar-nav navbar-right">
             <li>
                 <div class="dropdown">
-                    <button class="btn navbar-btn btn-link dropdown-toggle text-right" type="button" data-toggle="dropdown">
+                    <button class="btn navbar-btn btn-link dropdown-toggle" type="button" data-toggle="dropdown">
                         @claim
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a asp-action="Details" asp-controller="Account" class="dropdown-item"> Notenda upplýsingar </a></li>
-                        <li><a class="dropdown-item">Pöntunar saga</a></li>
+                        <li><a asp-action="Details" asp-controller="Account" class="dropdown-item"> User information </a></li>
+                        <li><a class="dropdown-item">Order History</a></li>
                         <div class="dropdown-divider"></div>
                         <button type="submit" class="btn btn-danger dropdown-item" id="logout-btn">Log out</button>
                     </ul>
@@ -32,7 +32,12 @@
 }
 else
 {
-    <div class="log-in-partial">
-        <a asp-area="" asp-controller="Account" asp-action="Login">Log in</a> <p>/</p><a asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-    </div>
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
+        </li>
+    </ul>
 }

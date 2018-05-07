@@ -20,50 +20,38 @@
     </environment>
 </head>
 <body>
-    <!-- *********** Headder ********* -->
+    <!-- ********* Headder ******* -->
     <header>
-        <div class="row">
-            <div class="col-lg-3  col-md-4 text-center" style="background:yellow;">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h2>The Book Cave</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 text-center" style="background: green; height:63px;">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <form class="col-sm-8" asp-action="Search" asp-controller="Book" method="GET">
-                            <input type="search" name="searchedWord" placeholder="Leita eftir Titil, Tegund eða Höfund.." class="search-button">
-                            <button type="submit" value="search"><i class="fa fa-search"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3  col-md-2 " style="background:red;">
-                <ul class="log-in">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3  col-md-4 text-center">
                     <div class="row">
-                        <div class="col-sm-4">
-                            <li>
-                                @await Html.PartialAsync("_LoginPartial")
-                            </li>
+                        <div class=" col col-sm-12">
+                            <h2>The Book Cave</h2>
                         </div>
                     </div>
-                </ul>
-                <ul class="wishing-cart">
-                    <li><i class="glyphicon glyphicon-heart"> </i>
-                        <a href="#">Wishlist</a>
-                    </li>
-                    <li><i class="glyphicon glyphicon-shopping-cart"></i>
-                        <a href="#">Cart</a>
-                    </li>
-                </ul>
-
-
+                </div>
+                <div class="col col-lg-6 col-md-6">
+                    <div class="row">
+                        <div class="col col-sm-12 text-center">
+                            <ul>
+                                <li>
+                                    <form class="search-wrapper search-bar" asp-action="Search" asp-controller="Book" method="GET">
+                                        <input class="search-input" type="search" name="searchedWord" placeholder="Search for a title, genre or an author..">
+                                        <button type="submit" value="search"><i class="fa fa-search"></i></button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-lg-3 col-md-2">
+                    <strong> Hér kemur login/logout</strong>
+                </div>
             </div>
         </div>
     </header>
-    <!-- *********** Navigation bar ********* -->
+    <!-- ********* Navigation bar ******* -->
     <div class="navigation-Bar">
         <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
@@ -73,30 +61,43 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
-                    </button>	<a class="navbar-brand" href="#"></a>
+                    </button> <a class="navbar-brand" href="#"></a>
                 </div>
-                <!-- *********** Listi af öllu vinstra megin ********* -->
+                <!-- ********* Listi af öllu vinstra megin ******* -->
                 <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav  navbar-left">
+                    <ul class="nav navbar-nav">
                         <li class="">
                             <div class="dropdown">
                                 <button class="btn navbar-btn btn-link dropdown-toggle" type="button" data-toggle="dropdown">
-                                    Flokka eftir tegund
+                                    Order by genre
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Ævintýri</a></li>
-                                    <li><a class="dropdown-item" href="#">Skáldsögur</a></li>
+                                    <li><a class="dropdown-item" href="#">Adventure</a></li>
+                                    <li><a class="dropdown-item" href="#">Novels</a></li>
                                 </ul>
                             </div>
                         </li>
-                        <li class=""><a asp-action="TopTenBooks" asp-controller="Book" class="">Topp 10 bækur</a></li>
-                        <li class=""><a asp-action="Index" asp-controller="author"class="">Höfundar</a></li>
+                        <li class=""><a asp-action="TopTenBooks" asp-controller="Book" class="">Top 10 books</a></li>
+                        <li class=""><a asp-action="Index" asp-controller="author" class="">Authors</a></li>
+                        <li class=""><a href="#" class="">About</a></li>
+                        <li>
+                            <!--
+                                Víðir: Hér copyaði ég form textann fyrir search barinn, það má eyða þetta comment út
+
+                                <form asp-action="Search" asp-controller="Book" method="GET">
+                            <input type="search" name="searchedWord" placeholder="Search.." class="search-button">
+                            <button type="submit" value="search" class="btn btn-primary">Search</button>
+                            </form>-->
+                        </li>
                     </ul>
+                    @await Html.PartialAsync("_LoginPartial");
+
                 </div>
             </div>
-            </nav>
             <!--/.navbar-collapse -->
+    </div>
+    </nav>
     </div>
     <div class="container body-content">
         @RenderBody()
