@@ -15,7 +15,7 @@
                     <div id="book-info" class="col-lg-12 col-sm-12">
                         <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
                         <div class="divider"></div>
-                        <a asp-action="details" asp-controller="author" asp-route-id="@Model[i].author.Id"><p>@Model[i].author.authorName</p></a>
+                        <p>Author: @Model[i].author</p>
                         <p>Rating: @Model[i].rating</p>
                         <p>Price: @Model[i].cost $</p>
                     </div>
@@ -48,7 +48,8 @@
                     <div id="book-info" class="col-lg-12 col-sm-12">
                         <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
                         <div class="divider"></div>
-                            <a asp-action="details" asp-controller="author" asp-route-id="@Model[i].author.Id"><p>@Model[i].author.authorName</p></a>                        <p>Rating: @Model[i].rating</p>
+                        <p>Author: @Model[i].author</p>
+                        <p>Rating: @Model[i].rating</p>
                         <p>Price: @Model[i].cost $</p>
                     </div>
                 </div>
