@@ -213,6 +213,10 @@ form.example::after {
     input[type=text]:focus {
         width: 100%;
     }
+ .sort-by-button {
+     width: 200px;
+     padding: 17px;
+}
 
 /*-----------CART--------------*/
 ul.dropdown-cart {
