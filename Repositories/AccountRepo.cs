@@ -33,7 +33,7 @@ namespace BookCave.Repositories
                                 address = a.shippingInfo.address,
                                 city = a.shippingInfo.city,
                                 country = a.shippingInfo.country,
-                                //zipCode = a.shippingInfo.zipCode,
+                                zipCode = a.shippingInfo.zipCode,
                                 cardNumber = a.cardInfo.cardNumber,
                                 cardholderName = a.cardInfo.cardholderName
                             }).FirstOrDefault();
