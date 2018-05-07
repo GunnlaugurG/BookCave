@@ -223,8 +223,9 @@ form.example::after {
    padding: 17px;
 }
 .footer-wrapper{
-    border-top: 1px solid #DDD;
+    border-top: 1px solid #403f3f;
     padding:50px;
+    background: #eae7e7;
 }
 .footer-list {
     text-decoration: none;
