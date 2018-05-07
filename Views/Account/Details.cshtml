@@ -295,7 +295,7 @@
                                         <input type="text" asp-for="zipCode" class="form-control">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success form-control">Submit</button>
                             </form>
 <!--*******************************FORM ends******************************-->
                         </div>
@@ -316,7 +316,35 @@
         <h2>Kortaupplýsingar</h2>
         <p>Nafn korthafa: @Model.cardholderName</p>
         <p>Kortanúmer: @Model.cardNumber</p>
-        <button class="btn btn-default">Breyta kortaupplýsingum</button>
+        <button class="btn btn-default" data-toggle="modal" data-target="#anotherModal">Breyta kortaupplýsingum</button>
+<!--***************************Another Modal******************************-->
+        <div class="modal fade" id="anotherModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Change Card Information</h2>
+        </div>
+        <div class="modal-body">
+            <form asp-controller="Account" asp-action="ChangeCardDetails" method="POST">
+                <label asp-for="cardholderName">Cardholders name</label>
+                <input type="text" asp-for="cardholderName" class="form-control" placeholder="Cardholders name..">
+                <label asp-for="cardNumber">Card number</label>
+                <input type="text" asp-for="cardNumber" class="form-control" placeholder="Card number..">
+                <label asp-for="cvc">CVC</label>
+                <input type="text" asp-for="cvc" class="form-control" placeholder="CVC..">
+                <button type="submit" class="btn btn-success form-control">Submit</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
     </div>
 </div>
 
