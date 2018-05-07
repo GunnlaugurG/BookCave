@@ -55,6 +55,9 @@ namespace BookCave.Controllers
 
         public IActionResult SortByGenre(string genre)
         {
+            if(genre == null) {
+                return View("PageNotFound");
+            }
             ViewBag.genre = genre;
             var sortBy = _bookService.GetBooksByGenre(genre);
             return View(sortBy);
