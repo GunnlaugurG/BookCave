@@ -222,6 +222,29 @@ form.example::after {
    width: 200px;
    padding: 17px;
 }
+.footer-wrapper{
+    border-top: 1px solid #DDD;
+    padding:50px;
+}
+.footer-list {
+    text-decoration: none;
+    color: black;
+}
+
+.footer-list a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer-list:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.footer-list:active {
+    text-decoration: none;
+    color: black;
+}
 
 /*-----------CART--------------*/
 ul.dropdown-cart {
