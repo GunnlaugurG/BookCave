@@ -27,8 +27,35 @@ ul {
     border: none !important;
    
 }
-.header-list{
-    display:flex;
+.wishlist {
+    color:red;
+    padding-right:5px;
+}
+.cart {
+    padding-right: 5px;
+}
+.glyphicon.glyphicon-heart{
+    font-size:20px;
+}
+.glyphicon.glyphicon-shopping-cart {
+    font-size:20px;
+}
+.header-items {
+    display: block;
+    margin: auto;
+}
+
+ul#header-list
+{
+    padding-top:30px;
+    list-style: none;
+    margin:auto;
+    padding-left: 5px;
+}
+
+ul#header-list li{
+    display:inline;
+    margin-right:10px;
 }
 
 header {
