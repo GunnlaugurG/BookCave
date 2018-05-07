@@ -11,9 +11,10 @@ using System;
 namespace BookCave.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20180507133144_updateShipping")]
+    partial class updateShipping
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -107,8 +108,7 @@ namespace BookCave.Migrations
 
                     b.Property<string>("password");
 
-                    b.Property<byte[]>("picture")
-                        .HasMaxLength(16);
+                    b.Property<string>("picture");
 
                     b.Property<string>("shippingInfoId");
 

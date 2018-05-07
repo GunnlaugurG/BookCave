@@ -5,6 +5,6 @@ namespace BookCave.Data.EntityModels {
         public string address { get; set; }
         public string city { get; set; }
         public string country { get; set; }
-        public int zipCode { get; set; }
+        public string zipCode { get; set; }
     }
 }

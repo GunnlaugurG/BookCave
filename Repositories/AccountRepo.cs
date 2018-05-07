@@ -22,20 +22,21 @@ namespace BookCave.Repositories
         }
 
         public AccountDetailsViewModel getUserDetailsFromDataBase(string userId){
-                var user = new AccountDetailsViewModel();
 
-                 user = (from a in _db.userAccounts
+                var user = (from a in _db.userAccounts
                             where a.aspUserId == userId
                             select new AccountDetailsViewModel{
+
+                                
                                 userName = a.userName,
                                 picture = a.picture,
                                 address = a.shippingInfo.address,
                                 city = a.shippingInfo.city,
                                 country = a.shippingInfo.country,
-                                zipCode = a.shippingInfo.zipCode,
+                                //zipCode = a.shippingInfo.zipCode,
                                 cardNumber = a.cardInfo.cardNumber,
                                 cardholderName = a.cardInfo.cardholderName
-                            }).Single();
+                            }).FirstOrDefault();
            return user;
         }
     }

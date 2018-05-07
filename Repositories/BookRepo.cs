@@ -156,7 +156,7 @@ namespace BookCave.Repositories
         //Ná í bók fyrir Account (GULLI)
         public Book getFavoriteBook(){
                 var books = (from b in _db.books 
-                            select b).Single();
+                            select b).First();
             return books;
         }
 
