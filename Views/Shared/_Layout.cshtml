@@ -82,8 +82,12 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Adventure</a></li>
-                                    <li><a class="dropdown-item" href="#">Novels</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Adventure">Adventure</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Fiction">Fiction</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Horror">Horror</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Romance">Romance</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Novel">Novel</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Philosophy">Philosophy</a></li>
                                 </ul>
                             </div>
                         </li>

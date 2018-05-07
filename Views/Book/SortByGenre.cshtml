@@ -24,7 +24,7 @@
                         <a asp-controller="book" asp-action="details" asp-route-Id="@book.id" class="card-text">@book.title</a>
                         <div class="divider"></div>
                         <a asp-action="details" asp-controller="author" asp-route-id="@book.author.Id"><p>@book.author.authorName</p></a>
-                         @for(var i = 0; i < @Model[i].rating-1; i++) {
+                         @for(var i = 0; i < @book.rating-1; i++) {
                             <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
                         }
                         @if(@book.rating % 2 != 0) {
@@ -44,7 +44,6 @@
                     </div>
                 </div>
             </div>
-
 }
         <br />
     </div>
