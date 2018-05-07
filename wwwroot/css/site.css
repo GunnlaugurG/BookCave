@@ -141,9 +141,14 @@ header {
     background: white;
     border-bottom: 1px solid #b6b0b0;
     border-top: 1px solid #b6b0b0;
+    
 }
-
-
+.navbar-toggle.collapsed{
+    background: #b6b0b0;
+}
+.navbar-toggle{
+    background: #b6b0b0;
+}
 .book-layout {
     text-align: center;
 }
