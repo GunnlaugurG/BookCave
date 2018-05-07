@@ -15,10 +15,12 @@ namespace BookCave.Repositories {
             _db = new DataContext();
         }
 
-        public List<Review> GetAllReviews(){
-            var allReview = new List<Review>();
-            //þetta skilar öllum review úr gagnagrunni
-            return allReview;
+        public List<Review> GetReviewByBookId( int bookId ){
+            var ReviewByBookId = ( from r in _db.Reviews
+                                    where r.reviewBookId == bookId
+                                    select r).ToList();
+            
+            return ReviewByBookId;
         }
 
         public void SetReview( Review review){

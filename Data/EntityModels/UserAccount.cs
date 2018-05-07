@@ -9,9 +9,9 @@ namespace BookCave.Data.EntityModels
         public string aspUserId { get; set;}
         public string userName {get; set;}
         public string password {get; set;}
-        public Book favoriteBook {get; set;}
+        public int favoriteBookForUserId {get; set;}
         public string picture {get; set;}
-        public CardInfo cardInfo {get; set;}
-        public ShippingInfo shippingInfo {get; set;}
+        public string cardInfoForUserId {get; set;}
+        public string shippingInfoForUserId {get; set;}
     }
 }
