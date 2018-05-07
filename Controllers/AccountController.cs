@@ -106,9 +106,9 @@ namespace BookCave.Controllers
                 }
                 _accountServices.changeShippingInfoServ(userId, changeShipping);
                 
-            }
-
             return RedirectToAction("Details" , "Account");
+            }
+            return RedirectToAction("Details", "Account");
         }
         public async Task<IActionResult> ChangeCardDetails(ChangeCardInputModel ChangeCardInfo){
             if(ModelState.IsValid){
