@@ -6,6 +6,10 @@
 ul {
     list-style-type: none;
 }
+html{
+    position:relative;
+    min-height: 100%;
+}
 .text-nav-content{
     color: rgb(97, 92, 92) !important;
     font-weight: bold;
@@ -283,14 +287,17 @@ input[type=text]:focus {
    width: 200px;
    padding: 17px;
 }
-.footer-wrapper{
+.footer-wrapper {
     border-top: 1px solid #403f3f;
-    padding:44px;
+    padding: 44px;
+    margin-top:77px;
 }
 .footer-list {
     text-decoration: none;
     color: black;
+ 
 }
+
 
 .footer-list a {
     text-decoration: none;
