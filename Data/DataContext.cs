@@ -9,6 +9,8 @@ namespace BookCave.Data
         public DbSet<Book> books { get; set; }
         public DbSet<UserAccount> userAccounts { get; set; }
         public DbSet<Review> Reviews { get; set; }  
+        public DbSet<ShippingInfo> shipingInfo {get; set;}
+        public DbSet<CardInfo> cardInfo {get; set;}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
 
             optionsBuilder
