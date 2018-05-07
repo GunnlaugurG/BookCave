@@ -235,8 +235,12 @@ form.example input[type=text] {
     color: black;
 }
  .home-logo:active{
-        text-decoration: none;
-        color: black;
+    text-decoration: none;
+    color: black;
+}
+.home-logo:visited {
+    text-decoration: none;
+    color: black;
 }
 
 /* Hide/rearrange for smaller screens */
