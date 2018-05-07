@@ -14,6 +14,7 @@ namespace BookCave.Models.ViewModels
         public string city { get; set; }
         public string country { get; set; }
         public int zipCode { get; set; }
+        public string favoriteBookName {get; set;}
         public string cardNumber {get; set;}
         public string cardholderName {get; set;}
     }

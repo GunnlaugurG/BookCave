@@ -153,6 +153,12 @@ namespace BookCave.Repositories
         public void UpdateABook( Book book ){
             // hér þarf að updeita book
         }
+        //Ná í bók fyrir Account (GULLI)
+        public Book getFavoriteBook(){
+                var books = (from b in _db.books 
+                            select b).Single();
+            return books;
+        }
 
     }
 }

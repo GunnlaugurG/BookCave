@@ -16,28 +16,28 @@
                 <div class="dropdown">
                     <button class="btn navbar-btn btn-link dropdown-toggle" type="button" data-toggle="dropdown">
                         @claim
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a asp-action="Details" asp-controller="Account" class="dropdown-item"> User information </a></li>
-                        <li><a class="dropdown-item">Order History</a></li>
-                        <div class="dropdown-divider"></div>
-                        <button type="submit" class="btn btn-danger dropdown-item" id="logout-btn">Log out</button>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </form>
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a asp-action="Details" asp-controller="Account" class="dropdown-item"> Notenda upplýsingar </a></li>
+                    <li><a class="dropdown-item" >Pöntunar saga</a></li>
+                    <div class="dropdown-divider"></div>
+                    <button type="submit" class="btn btn-danger dropdown-item" id="logout-btn">Log out</button>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</form>
 
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a asp-area="" asp-controller="Account" asp-action="Register">Register</a>
-        </li>
-        <li>
-            <a asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
-        </li>
-    </ul>
+<ul class="nav navbar-nav navbar-right">
+    <li>
+        <a asp-area="" asp-controller="Account" asp-action="Register" class="glyphicon glyphicon-user" > Nýskrá</a>
+    </li>
+    <li>
+        <a asp-area="" asp-controller="Account" asp-action="Login" class="glyphicon glyphicon-log-in"> Innskrá</a>
+    </li>
+</ul>
 }
