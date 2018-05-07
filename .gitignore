@@ -1,4 +1,5 @@
 obj/*
+bin/*
 *.swp
 .~
 project.lock.json
