@@ -40,25 +40,35 @@ C:/Users/Einar Orri/Desktop/another book cave/BookCave/obj/Debug/netcoreapp2.0/B
 C:/Users/Einar Orri/Desktop/another book cave/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfo.cs
 C:/Users/Einar Orri/Desktop/another book cave/BookCave/obj/Debug/netcoreapp2.0/BookCave.dll
 C:/Users/Einar Orri/Desktop/another book cave/BookCave/obj/Debug/netcoreapp2.0/BookCave.pdb
-C:\Users\Notandi\Desktop\BookCave\bin\Debug\netcoreapp2.0\BookCave.deps.json
-C:\Users\Notandi\Desktop\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.json
-C:\Users\Notandi\Desktop\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.dev.json
-C:\Users\Notandi\Desktop\BookCave\bin\Debug\netcoreapp2.0\BookCave.dll
-C:\Users\Notandi\Desktop\BookCave\bin\Debug\netcoreapp2.0\BookCave.pdb
-C:\Users\Notandi\Desktop\BookCave\obj\Debug\netcoreapp2.0\BookCave.csprojResolveAssemblyReference.cache
-C:\Users\Notandi\Desktop\BookCave\obj\Debug\netcoreapp2.0\BookCave.csproj.CoreCompileInputs.cache
-C:\Users\Notandi\Desktop\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfoInputs.cache
-C:\Users\Notandi\Desktop\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfo.cs
-C:\Users\Notandi\Desktop\BookCave\obj\Debug\netcoreapp2.0\BookCave.dll
-C:\Users\Notandi\Desktop\BookCave\obj\Debug\netcoreapp2.0\BookCave.pdb
-C:\Users\Einar Orri Þormar\Documents\GitHub\Cave\BookCave\bin\Debug\netcoreapp2.0\BookCave.deps.json
-C:\Users\Einar Orri Þormar\Documents\GitHub\Cave\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.json
-C:\Users\Einar Orri Þormar\Documents\GitHub\Cave\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.dev.json
-C:\Users\Einar Orri Þormar\Documents\GitHub\Cave\BookCave\bin\Debug\netcoreapp2.0\BookCave.dll
-C:\Users\Einar Orri Þormar\Documents\GitHub\Cave\BookCave\bin\Debug\netcoreapp2.0\BookCave.pdb
-C:\Users\Einar Orri Þormar\Documents\GitHub\Cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.csprojResolveAssemblyReference.cache
-C:\Users\Einar Orri Þormar\Documents\GitHub\Cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.csproj.CoreCompileInputs.cache
-C:\Users\Einar Orri Þormar\Documents\GitHub\Cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfoInputs.cache
-C:\Users\Einar Orri Þormar\Documents\GitHub\Cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfo.cs
-C:\Users\Einar Orri Þormar\Documents\GitHub\Cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.dll
-C:\Users\Einar Orri Þormar\Documents\GitHub\Cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.pdb
+C:/Users/Notandi/Desktop/BookCave/bin/Debug/netcoreapp2.0/BookCave.deps.json
+C:/Users/Notandi/Desktop/BookCave/bin/Debug/netcoreapp2.0/BookCave.runtimeconfig.json
+C:/Users/Notandi/Desktop/BookCave/bin/Debug/netcoreapp2.0/BookCave.runtimeconfig.dev.json
+C:/Users/Notandi/Desktop/BookCave/bin/Debug/netcoreapp2.0/BookCave.dll
+C:/Users/Notandi/Desktop/BookCave/bin/Debug/netcoreapp2.0/BookCave.pdb
+C:/Users/Notandi/Desktop/BookCave/obj/Debug/netcoreapp2.0/BookCave.csprojResolveAssemblyReference.cache
+C:/Users/Notandi/Desktop/BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.CoreCompileInputs.cache
+C:/Users/Notandi/Desktop/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfoInputs.cache
+C:/Users/Notandi/Desktop/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfo.cs
+C:/Users/Notandi/Desktop/BookCave/obj/Debug/netcoreapp2.0/BookCave.dll
+C:/Users/Notandi/Desktop/BookCave/obj/Debug/netcoreapp2.0/BookCave.pdb
+C:/Users/Einar Orri Þormar/Documents/GitHub/Cave/BookCave/bin/Debug/netcoreapp2.0/BookCave.deps.json
+C:/Users/Einar Orri Þormar/Documents/GitHub/Cave/BookCave/bin/Debug/netcoreapp2.0/BookCave.runtimeconfig.json
+C:/Users/Einar Orri Þormar/Documents/GitHub/Cave/BookCave/bin/Debug/netcoreapp2.0/BookCave.runtimeconfig.dev.json
+C:/Users/Einar Orri Þormar/Documents/GitHub/Cave/BookCave/bin/Debug/netcoreapp2.0/BookCave.dll
+C:/Users/Einar Orri Þormar/Documents/GitHub/Cave/BookCave/bin/Debug/netcoreapp2.0/BookCave.pdb
+C:/Users/Einar Orri Þormar/Documents/GitHub/Cave/BookCave/obj/Debug/netcoreapp2.0/BookCave.csprojResolveAssemblyReference.cache
+C:/Users/Einar Orri Þormar/Documents/GitHub/Cave/BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.CoreCompileInputs.cache
+C:/Users/Einar Orri Þormar/Documents/GitHub/Cave/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfoInputs.cache
+C:/Users/Einar Orri Þormar/Documents/GitHub/Cave/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfo.cs
+C:/Users/Einar Orri Þormar/Documents/GitHub/Cave/BookCave/obj/Debug/netcoreapp2.0/BookCave.dll
+C:/Users/Einar Orri Þormar/Documents/GitHub/Cave/BookCave/obj/Debug/netcoreapp2.0/BookCave.pdb
+/Users/stefanorn/Documents/Skóli/verklegtNamskeid2/BookCave/bin/Debug/netcoreapp2.0/BookCave.deps.json
+/Users/stefanorn/Documents/Skóli/verklegtNamskeid2/BookCave/bin/Debug/netcoreapp2.0/BookCave.runtimeconfig.json
+/Users/stefanorn/Documents/Skóli/verklegtNamskeid2/BookCave/bin/Debug/netcoreapp2.0/BookCave.runtimeconfig.dev.json
+/Users/stefanorn/Documents/Skóli/verklegtNamskeid2/BookCave/bin/Debug/netcoreapp2.0/BookCave.dll
+/Users/stefanorn/Documents/Skóli/verklegtNamskeid2/BookCave/bin/Debug/netcoreapp2.0/BookCave.pdb
+/Users/stefanorn/Documents/Skóli/verklegtNamskeid2/BookCave/obj/Debug/netcoreapp2.0/BookCave.csproj.CoreCompileInputs.cache
+/Users/stefanorn/Documents/Skóli/verklegtNamskeid2/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfoInputs.cache
+/Users/stefanorn/Documents/Skóli/verklegtNamskeid2/BookCave/obj/Debug/netcoreapp2.0/BookCave.AssemblyInfo.cs
+/Users/stefanorn/Documents/Skóli/verklegtNamskeid2/BookCave/obj/Debug/netcoreapp2.0/BookCave.dll
+/Users/stefanorn/Documents/Skóli/verklegtNamskeid2/BookCave/obj/Debug/netcoreapp2.0/BookCave.pdb

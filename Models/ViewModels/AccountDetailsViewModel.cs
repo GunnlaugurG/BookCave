@@ -9,7 +9,7 @@ namespace BookCave.Models.ViewModels
     public class AccountDetailsViewModel
     {
         public string userName { get; set; }
-        public byte[] picture { get; set; }
+        public string picture { get; set; }
         public string address { get; set; }
         public string city { get; set; }
         public string country { get; set; }
