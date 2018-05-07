@@ -26,7 +26,6 @@ namespace BookCave.Controllers
 
             retBooks = _bookService.GetTopBooks(select.topRating, 4);
             retBooks.AddRange(_bookService.GetTopBooks(select.bottomPrice, 4));
-
             return View(retBooks);
         }
 
