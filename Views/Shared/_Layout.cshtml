@@ -92,7 +92,8 @@
                             </div>
                         </li>
                         <li><a class="text-nav-content" asp-action="TopTenBooks" asp-controller="Book">Top 10 books</a></li>
-                        <li><a class="text-nav-content" asp-action="Index" asp-controller="author">Authors</a></li>
+                        <li><a class="text-nav-content" asp-controller="book" asp-action="Index" >All books</a></li>
+                        <li><a class="text-nav-content" asp-controller="author" asp-action="Index" >Authors</a></li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial")
                 </div>

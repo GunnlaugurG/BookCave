@@ -14,9 +14,17 @@ namespace BookCave.Repositories
         public BookRepo() {
             _db = new DataContext();
         }
-        public List<Book> GetAllBooks() {
-           var books = (from b in _db.books 
-                        select b).ToList();
+        public List<BookListViewModel> GetAllBooks() {
+           var books = (from b in _db.books
+                        join a in _db.authors on b.keyAuthorId equals a.Id
+                        select new BookListViewModel {
+                              id = b.Id,
+                              title = b.title,
+                              author = a,
+                              rating = b.rating,
+                              image = b.image,
+                              cost = b.cost
+                        }).ToList();
             return books;
         }
 
@@ -24,7 +32,7 @@ namespace BookCave.Repositories
         {
             var bookByID = (from b in _db.books
                             where b.Id == id
-                            join a in _db.authors on b.author equals a.authorName
+                            join a in _db.authors on b.keyAuthorId equals a.Id
                             select new BookDetailsViewModel
                             {
                                 id = b.Id,
