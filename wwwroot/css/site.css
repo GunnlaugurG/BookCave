@@ -73,7 +73,7 @@ header {
     
 }
 .search-wrapper{
-    
+    position: relative;
 }
 .search-bar button{
     border-radius: 0 2em 2em 0;
@@ -83,7 +83,7 @@ header {
     border: border: 1px solid lightgray;
     outline:none;
     width: 50px;
-    
+    position:absolute;
 
 }
 

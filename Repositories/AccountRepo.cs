@@ -21,31 +21,63 @@ namespace BookCave.Repositories
             _db.Add(newUser);
             _db.SaveChanges();
         }
+        public void addShippingAddresToDataBase(ShippingInfo newShipping){
+            _db.Add(newShipping);
+            _db.SaveChanges();
+        }
 
         public AccountDetailsViewModel getUserDetailsFromDataBase(string userId){
 
                 var user = (from a in _db.userAccounts
                             where a.aspUserId == userId
-                            select new AccountDetailsViewModel{
-
-                                
+                            select new AccountDetailsViewModel{                              
                                 userName = a.userName,
                                 picture = a.picture,
-                                //ÞARF AÐ KLARA HER
+
+                                address = (from b in _db.shipingInfo
+                                            where b.aspUserIdForShipping == userId
+                                            select b.address).FirstOrDefault(),
+                                zipCode = (from b in _db.shipingInfo
+                                            where b.aspUserIdForShipping == userId
+                                            select b.zipCode).FirstOrDefault(),
+                                city = (from b in _db.shipingInfo
+                                            where b.aspUserIdForShipping == userId
+                                            select b.city).FirstOrDefault(),
+                                country = (from b in _db.shipingInfo
+                                            where b.aspUserIdForShipping == userId
+                                            select b.country).FirstOrDefault(),
+                                cardholderName = (from c in _db.cardInfo
+                                                    where c.aspUserIdForCardInfo == userId
+                                                    select c.cardholderName).FirstOrDefault(),
+                                cardNumber = (from c in _db.cardInfo
+                                                    where c.aspUserIdForCardInfo == userId
+                                                    select c.cardNumber).FirstOrDefault(),
+                                favoriteBookName = "Not reddy"
                             }).FirstOrDefault();
            return user;
         }
 
         public void ChangeShippingInfoRepo(string userId, ChangeShippingInputModel newShippingInfo){
-            var change = (from u in _db.userAccounts
-                            where u.aspUserId == userId
+            var change = (from u in _db.shipingInfo
+                            where u.aspUserIdForShipping == userId
                             select u).FirstOrDefault();
-            
-            
-            
-            //_db.SaveChanges();
-
-                             
+            if(change == null){
+                ShippingInfo shiping = new ShippingInfo{
+                address = newShippingInfo.address,
+                city = newShippingInfo.city,
+                country = newShippingInfo.country,
+                zipCode = newShippingInfo.zipCode,
+                aspUserIdForShipping = userId
+                };
+                addShippingAddresToDataBase(shiping);
+            }
+            else{
+                change.address = newShippingInfo.address;
+                change.city = newShippingInfo.city;
+                change.country = newShippingInfo.country;
+                change.zipCode = newShippingInfo.zipCode;
+            }
+            _db.SaveChanges();                             
         }
     }
 }

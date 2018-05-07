@@ -5,5 +5,6 @@ namespace BookCave.Data.EntityModels {
         public string cardNumber {get; set;}
         public string cardholderName {get; set;}
         public string cvc {get; set;}
+        public string aspUserIdForCardInfo {get; set;}
     }
 }
