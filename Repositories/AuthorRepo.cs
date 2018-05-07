@@ -37,7 +37,8 @@ namespace BookCave.Repositories {
                             select new AuthorDetailsViewModel{
                                 authorName = a.authorName,
                                 image = a.image,
-                                writtenBooks = writtenBooks
+                                writtenBooks = writtenBooks,
+                                authorDescription = a.authorDescription
                             }).SingleOrDefault();
             return authorId;
         }

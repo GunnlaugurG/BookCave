@@ -35,7 +35,6 @@ namespace BookCave.Services
         {
             return _bookRepo.GetBookByID(id);
         }
-
         public List<BookListViewModel> GetBooksByGenre(string genre)
         {
             return _bookRepo.GetBooksByGenre(genre);
@@ -44,6 +43,10 @@ namespace BookCave.Services
         public List<BookListViewModel> GetTopBooks(select value, int count)
         {
             return _bookRepo.GetTopBooks(value,count);
+        }
+
+        public List<BookListViewModel> GetAllBooks() {
+            return _bookRepo.GetAllBooks();
         }
 
         public void SetBookReview( ReviewInputModel inputFromUser ) {

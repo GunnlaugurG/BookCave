@@ -38,7 +38,7 @@
                                 <li>
                                      <form class="search-bar" asp-action="Search" asp-controller="Book" method="GET">
                                          <div class="search-wrapper">
-                                                <input type="search" name="searchedWord" placeholder="Search for a title, genre or an author..">
+                                                <input type="search" autocomplete="off" name="searchedWord" placeholder="Search for a title, genre or an author..">
                                                 <button type="submit" value="search"><i class="fa fa-search"></i></button>
                                             </div>
                                     </form>
@@ -82,13 +82,18 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Adventure</a></li>
-                                    <li><a class="dropdown-item" href="#">Novels</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Adventure">Adventure</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Fiction">Fiction</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Horror">Horror</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Romance">Romance</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Novel">Novel</a></li>
+                                    <li><a class="dropdown-item" asp-controller="book" asp-action="SortByGenre" asp-route-genre="Philosophy">Philosophy</a></li>
                                 </ul>
                             </div>
                         </li>
                         <li><a class="text-nav-content" asp-action="TopTenBooks" asp-controller="Book">Top 10 books</a></li>
-                        <li><a class="text-nav-content" asp-action="Index" asp-controller="author">Authors</a></li>
+                        <li><a class="text-nav-content" asp-controller="book" asp-action="Index" >All books</a></li>
+                        <li><a class="text-nav-content" asp-controller="author" asp-action="Index" >Authors</a></li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial")
                 </div>
