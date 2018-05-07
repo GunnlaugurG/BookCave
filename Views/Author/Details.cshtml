@@ -1,25 +1,29 @@
 @model BookCave.Models.ViewModels.AuthorDetailsViewModel
-<p>@Model.authorDescription</p>
+
 <div class="container-fluid" style=" margin-bottom:100px">
     <div class="row">
-        <div class="col-sm-3 col-lg-3" style="background:red;">
+        <div class="col-sm-3 col-lg-3">
             <img class="Thumb-nail-image text-center" src="@Model.image" alt="authorPhoto">
         </div>
-        <div class="col-sm-8 col-lg-8" style="background:yellow">
+        <div class="col-sm-8 col-lg-8">
             <p>
                 <h1>@Model.authorName</h1>
-                Books written by @Model.authorName:
-                @foreach (var book in Model.writtenBooks)
-                {
-                    <text>&nbsp;</text>
-                    @:&nbsp;
-                    <a asp-action="Details" asp-controller="book" asp-route-id="@book.Id">@book.title</a>
 
-                }
-
-                <div class="col-sm-12 col-md-12 col-lg-12" style="background:green; height:165px;">
-                </div>
             </p>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+            <strong>About the author</strong>
+            <p>@Model.authorDescription</p>
+            </div>
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <strong> Books written by @Model.authorName:</strong>
+                    @foreach (var book in Model.writtenBooks)
+                     {
+                <text>&nbsp;</text>
+                @:&nbsp;
+                <a asp-action="Details" asp-controller="book" asp-route-id="@book.Id">@book.title</a>
+                    }
+                </div>
         </div>
+        
     </div>
 </div>

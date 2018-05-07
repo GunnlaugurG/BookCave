@@ -35,5 +35,8 @@ namespace BookCave.Services
         public void changeShippingInfoServ (string UserId, ChangeShippingInputModel newShipInfoService){
             _accountRepo.ChangeShippingInfoRepo(UserId, newShipInfoService);
         }
+        public void cahngeCardServ(string userId, ChangeCardInputModel newCardInfo){
+            _accountRepo.changeCardInfoRepo(userId, newCardInfo);
+        }
     }
 }

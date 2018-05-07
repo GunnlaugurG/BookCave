@@ -17,5 +17,6 @@ namespace BookCave.Models.ViewModels
         public string favoriteBookName {get; set;}
         public string cardNumber {get; set;}
         public string cardholderName {get; set;}
+        public string cvc {get; set;}
     }
 }

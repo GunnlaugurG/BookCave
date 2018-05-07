@@ -16,6 +16,11 @@ namespace BookCave.Repositories
         public AccountRepo(){
             _db = new DataContext();    
         }
+        public void addCardInfoToDataBase(CardInfo newCard){
+            
+            _db.Add(newCard);
+            _db.SaveChanges();
+        }
         public void addUserToDataBase(UserAccount newUser){
             
             _db.Add(newUser);
@@ -78,6 +83,26 @@ namespace BookCave.Repositories
                 change.zipCode = newShippingInfo.zipCode;
             }
             _db.SaveChanges();                             
+        }
+        public void changeCardInfoRepo(string UserId, ChangeCardInputModel newCard){
+            var change = (from a in _db.cardInfo
+                            where a.aspUserIdForCardInfo == UserId
+                            select a).FirstOrDefault();
+            if(change == null){
+                CardInfo newCardInfo = new CardInfo{
+                    cardholderName = newCard.cardholderName,
+                    cardNumber = newCard.cardNumber,
+                    cvc = newCard.cvc,
+                    aspUserIdForCardInfo = UserId
+                };
+                addCardInfoToDataBase(newCardInfo);
+            }
+            else{
+                change.cardholderName = newCard.cardholderName;
+                change.cardNumber = newCard.cardNumber;
+                change.cvc = newCard.cvc;
+            }
+            _db.SaveChanges();
         }
     }
 }
