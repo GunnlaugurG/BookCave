@@ -38,15 +38,15 @@
                     <div class="modal-body">
                         <div class="form-group">
 <!--***************************FORM*****************************-->
-                            <form action="" method="POST">
-                                <label for="changeAddress">Breyta heimilisfangi</label>
-                                <input type="text" id="changeAddress" class="form-control" placeholder="Heimilisfang..">
-                                <label for="changeCity">Breyta borg</label>
-                                <input type="text" id="changeCity" class="form-control" placeholder="Borg..">
+                            <form asp-controller="Account" asp-action="ChangeShippingDetails" method="POST">
+                                <label asp-for="address">Breyta heimilisfangi</label>
+                                <input type="text" asp-for="address" class="form-control" placeholder="Heimilisfang..">
+                                <label asp-for="city">Breyta borg</label>
+                                <input type="text" asp-for="city" class="form-control" placeholder="Borg..">
                                 <div class="row">
                                     <div class="col-sm-4">  
-                                        <label for="countrySelect">Breyta landi</label>
-                                        <select name="countries" class="form-control custom-select">
+                                        <label asp-for="country">Breyta landi</label>
+                                        <select asp-for="country" class="form-control custom-select">
                                             <option value="United States">United States</option> 
                                             <option value="United Kingdom">United Kingdom</option> 
                                             <option value="Afghanistan">Afghanistan</option> 
@@ -290,18 +290,17 @@
                                             <option value="Zimbabwe">Zimbabwe</option>
                                             </select>
                                     </div>
-                                        <!--LAGA á mrg (GULLI)-->
                                     <div class="col-sm-3">
-                                        <label for="zipCode">Póstnúmer</label>
-                                        <input type="text" id="zipCode" class="form-control">
+                                        <label asp-for="zipCode">Póstnúmer</label>
+                                        <input type="text" asp-for="zipCode" class="form-control">
                                     </div>
                                 </div>
+                                <button type="submit" class="btn btn-success">Submit</button>
                             </form>
 <!--*******************************FORM ends******************************-->
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" data-dismiss="modal">Submit</button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     </div>
                 </div>

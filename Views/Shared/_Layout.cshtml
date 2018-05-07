@@ -36,9 +36,11 @@
                         <div class="col col-sm-12 text-center">
                             <ul>
                                 <li>
-                                    <form class="search-wrapper search-bar" asp-action="Search" asp-controller="Book" method="GET">
-                                        <input class="search-input" type="search" name="searchedWord" placeholder="Search for a title, genre or an author..">
-                                        <button type="submit" value="search"><i class="fa fa-search"></i></button>
+                                     <form class="search-bar" asp-action="Search" asp-controller="Book" method="GET">
+                                         <div class="search-wrapper">
+                                                <input type="search" name="searchedWord" placeholder="Search for a title, genre or an author..">
+                                                <button type="submit" value="search"><i class="fa fa-search"></i></button>
+                                            </div>
                                     </form>
                                 </li>
                             </ul>
@@ -53,7 +55,7 @@
     </header>
     <!-- ********* Navigation bar ******* -->
     <div class="navigation-Bar">
-        <nav class="navbar navbar-inverse navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-static-top navbar-styling">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -80,16 +82,41 @@
                         </li>
                         <li class=""><a asp-action="TopTenBooks" asp-controller="Book" class="">Top 10 books</a></li>
                         <li class=""><a asp-action="Index" asp-controller="author" class="">Authors</a></li>
-                        <li class=""><a href="#" class="">About</a></li>
                     </ul>
-                    @await Html.PartialAsync("_LoginPartial");
+                    @await Html.PartialAsync("_LoginPartial")
                 </div>
             </div>
+            </nav>
             <!--/.navbar-collapse -->
     </div>
     <div class="container body-content">
         @RenderBody()
     </div>
+    <footer>
+        <div class="container-fluid">
+            <div class="row footer-wrapper">
+                <div class="col-lg-4 col-md-4 col-sm-4 text-center footer-list">
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4  text-center footer-list">
+                    <ul>
+                        <li>Háskólinn í Reykjavík</li>
+                        <li>Menntavegur 1</li>
+                        <li>101 Reykjavík</li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4  text-center footer-list">
+                    <ul>
+                        <li>&copy; The Book Cave</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>

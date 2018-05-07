@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookCave.Data;
 using BookCave.Data.EntityModels;
+using BookCave.Models.InputModel;
 using BookCave.Models.ViewModels;
 
 namespace BookCave.Repositories
@@ -38,6 +39,32 @@ namespace BookCave.Repositories
                                 cardholderName = a.cardInfo.cardholderName
                             }).FirstOrDefault();
            return user;
+        }
+
+        public void ChangeShippingInfoRepo(string userId, ChangeShippingInputModel newShippingInfo){
+            var change = (from u in _db.userAccounts
+                            where u.aspUserId == userId
+                            select u).FirstOrDefault();
+            
+            
+            if(change.shippingInfo == null){
+                change.shippingInfo = new ShippingInfo{
+                    address = newShippingInfo.address,
+                    city = newShippingInfo.city,
+                    country = newShippingInfo.country,
+                    zipCode = newShippingInfo.zipCode
+                };
+            }
+            else{
+                change.shippingInfo.address = newShippingInfo.address;
+                change.shippingInfo.city = newShippingInfo.city;
+                change.shippingInfo.country = newShippingInfo.country;
+                change.shippingInfo.zipCode = newShippingInfo.zipCode;
+            }
+            
+            //_db.SaveChanges();
+
+                             
         }
     }
 }
