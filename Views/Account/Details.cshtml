@@ -315,7 +315,14 @@
     <div class="col-sm-4">
         <h2>Kortaupplýsingar</h2>
         <p>Nafn korthafa: @Model.cardholderName</p>
-        <p>Kortanúmer: @Model.cardNumber</p>
+        <p>Kortanúmer: 
+            @for(var i = 0; i < 16; i++) {
+                if(i % 4 == 0 && i != 0) {
+                    <span>-</span>
+                }
+                @Model.cardNumber[i]
+            }
+            </p>
         <button class="btn btn-default" data-toggle="modal" data-target="#anotherModal">Breyta kortaupplýsingum</button>
 <!--***************************Another Modal******************************-->
         <div class="modal fade" id="anotherModal" role="dialog">
