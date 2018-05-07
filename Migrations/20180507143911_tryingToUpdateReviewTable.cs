@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BookCave.Migrations
 {
-    public partial class addedReviewVol3 : Migration
+    public partial class tryingToUpdateReviewTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
