@@ -63,7 +63,7 @@ namespace BookCave.Repositories
             if(value == select.topPrice)
             {
                 var topPrice = (from b in _db.books
-                                 orderby b.cost
+                                 orderby b.cost descending
                                  join a in _db.authors on b.author equals a.authorName
                                  select new BookListViewModel
                                  {
@@ -79,7 +79,7 @@ namespace BookCave.Repositories
             else if (value == select.bottomPrice)
             {
                 var bottomPrice = (from b in _db.books
-                                   orderby b.cost ascending
+                                   orderby b.cost 
                                    join a in _db.authors on b.author equals a.authorName
                                    select new BookListViewModel
                                    {
