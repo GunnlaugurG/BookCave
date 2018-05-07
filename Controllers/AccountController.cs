@@ -86,12 +86,13 @@ namespace BookCave.Controllers
             return View();
         }
         public async Task<IActionResult> Details(){
-            //TEST LÆT ÞETTA I SERVICCE SEINNA
-                var user = await GetCurrentUserAsync();
+            var user = await GetCurrentUserAsync();
 
-                var userId = user?.Id;
-                string UserName = user?.UserName;
-                var _userInfo = _accountServices.getUserDetails(userId);
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            var _userInfo = _accountServices.getUserDetails(userId);
             return View(_userInfo);
         }
     }

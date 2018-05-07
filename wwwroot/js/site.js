@@ -1,5 +1,44 @@
 ﻿// Write your JavaScript code.
-console.log("Javascript up and running");
+console.log("Javascript up and running1");
+
+
+$("#sort-by").change(function(){
+    var sortVal = $(this).val();
+    $.post("SortBy", { value: sortVal },
+    function(data, status){
+      console.log(data); 
+      var markup = "";
+      for( var i = 0; i < data.length; i++){
+        markup += '<div id="settings" class="col-lg-3 col-sm-6 col-md-4">';
+        markup += '<div class="row">';
+        markup += '<div class="col-lg-12 col-sm-12">';
+        markup += ' <img class="Thumb-nail-image" src="' + data[i].image + '" alt="book-cover" />';
+        markup += '</div>';
+        markup += '</div>';
+        markup += '<div class="row">';
+        markup += '<div id="book-info" class="col-lg-12 col-sm-12">';
+        markup += '<a href="details/' + data[i].id + '" class="card-text">' + data[i].title + '</a>';
+        markup += '<div class="divider"></div>';
+        markup += '<a href="/author/details/' + data[i].author.id + '">' + data[i].author.authorName + '</a>' ;
+        markup += '<p>Rating: ' + data[i].rating + '</p>';
+        markup += '<p>Price: ' + data[i].cost + ' $</p>';
+        markup += '</div>';
+        markup += '</div>';
+        markup += '<div class="row">';
+        markup += '<div class="col-lg-12 col-sm-12 img-thumbnail-btn">';
+        markup += '<a class="btn btn-success center-block" href="#">Add to cart</a>';
+        markup += '</div>';
+        markup += '</div>';
+        markup += '<div class="row">';
+        markup += '<div class="col-lg-12 col-sm-4 spacing">';
+        markup += '</div>';
+        markup += '</div>';
+        markup += '</div>';
+      }
+      $("#book-list").empty();
+      $("#book-list").append(markup);
+    })
+});
 
 $(function() {
     // Setup drop down menu
@@ -10,38 +49,4 @@ $(function() {
       e.stopPropagation();
     });
   });
-/*
-$("#clickMe").click(function(){
-    data = 2;
-    $.get("TopTenBooks", function(data, status){
-        
-    });
-});*/
-/*
-$("#get-concerts").click(function(){
-    $.get("http://apis.is/concerts", function(data, status){
-        $("#conserts").append("<table class=" + "table" +" id="+ "consert-table" + "><tr><th>Event name</th><th>Place</th><th>Date</th></tr></table");
-        for(var i = 0; i < data.results.length; i++){
-            var markup = "<tr><td>" + data.results[i].eventDateName + "</td><td>" + data.results[i].eventHallName + "</td><td>" + data.results[i].dateOfShow + "</td></tr>";
-            console.log(markup);
-            $("#consert-table").append(markup);
-        }
-    });
-});
-*/
-$(function () {
-    $("#clickMe").on("click", function () {
-    var id = $(this).attr("id");
-        $.ajax({
-            type: "GET",
-            url: "TopTenBooks(2)",
-            data: {"type" : id},
-            success: function (responseData) {
-                $("#list").replaceWith($(responseData).find("#list"));
-            }
-        });
-    return false;
-    });
-});
-
 

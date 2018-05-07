@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-sm-12 col-lg-12" style="height: 70px">
                          <h4>@Model.name</h4>
-                         <p>@Model.author</p>
+                         <a asp-action="details" asp-controller="author" asp-route-id="@Model.author.Id"><p>@Model.author.authorName</p></a>
                     </div>
 
                     <div class="col-sm-12 col-lg-12" style="height: 200px">
