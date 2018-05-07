@@ -31,12 +31,7 @@ namespace BookCave.Repositories
                                 
                                 userName = a.userName,
                                 picture = a.picture,
-                                address = a.shippingInfo.address,
-                                city = a.shippingInfo.city,
-                                country = a.shippingInfo.country,
-                                zipCode = a.shippingInfo.zipCode,
-                                cardNumber = a.cardInfo.cardNumber,
-                                cardholderName = a.cardInfo.cardholderName
+                                //ÞARF AÐ KLARA HER
                             }).FirstOrDefault();
            return user;
         }
@@ -47,20 +42,6 @@ namespace BookCave.Repositories
                             select u).FirstOrDefault();
             
             
-            if(change.shippingInfo == null){
-                change.shippingInfo = new ShippingInfo{
-                    address = newShippingInfo.address,
-                    city = newShippingInfo.city,
-                    country = newShippingInfo.country,
-                    zipCode = newShippingInfo.zipCode
-                };
-            }
-            else{
-                change.shippingInfo.address = newShippingInfo.address;
-                change.shippingInfo.city = newShippingInfo.city;
-                change.shippingInfo.country = newShippingInfo.country;
-                change.shippingInfo.zipCode = newShippingInfo.zipCode;
-            }
             
             //_db.SaveChanges();
 
