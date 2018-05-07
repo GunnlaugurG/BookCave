@@ -13,14 +13,19 @@
                          <h4>@Model.name</h4>
                          <a asp-action="details" asp-controller="author" asp-route-id="@Model.author.Id"><p>@Model.author.authorName</p></a>
                     </div>
-
                     <div class="col-sm-12 col-lg-12" style="height: 200px">
                         <p>@Model.description</p>
                     </div>
                     <div class="col-sm-12 col-lg-12 text-right">
-                        <h2>@Model.ratings</h2>
+                        <h2>@for(var i = 0; i < @Model.rating-1; i++) {
+                            <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
+                        }
+                        @if(@Model.rating % 2 != 0) {
+                            <img src="~/Images/halfStar.png" alt="rating" style="width:20px; height:20px;">
+                        } else {
+                            <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
+                        }</h2>
                     </div>
-
                 </div>
             </div>
             </div>
