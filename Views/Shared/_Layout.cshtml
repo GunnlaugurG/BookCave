@@ -70,8 +70,8 @@
                     <ul class="nav navbar-nav">
                         <li class="">
                             <div class="dropdown">
-                                <button class="btn navbar-btn btn-link dropdown-toggle" type="button" data-toggle="dropdown">
-                                    Order by genre
+                                <button class="btn navbar-btn btn-link dropdown-toggle text-nav-content" type="button" data-toggle="dropdown">
+                                    <a class="text-nav-content">Order by genre</a>
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
@@ -80,8 +80,8 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class=""><a asp-action="TopTenBooks" asp-controller="Book" class="">Top 10 books</a></li>
-                        <li class=""><a asp-action="Index" asp-controller="author" class="">Authors</a></li>
+                        <li><a class="text-nav-content" asp-action="TopTenBooks" asp-controller="Book">Top 10 books</a></li>
+                        <li><a class="text-nav-content" asp-action="Index" asp-controller="author">Authors</a></li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial")
                 </div>

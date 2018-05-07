@@ -6,6 +6,27 @@
 ul {
     list-style-type: none;
 }
+.text-nav-content{
+    color: rgb(97, 92, 92) !important;
+    font-weight: bold;
+    text-decoration: none !important;
+    border: none !important;
+
+
+}
+.text-nav-content:active{
+    
+    border: none !important;
+    outline: none !important;
+}
+.text-nav-content:hover{
+    outline: none;
+    text-decoration: none;
+    color: black !important;
+    border: none !important;
+   
+}
+
 header {
     width:100%;
 }
@@ -70,6 +91,7 @@ header {
     border-bottom: 1px solid #b6b0b0;
     border-top: 1px solid #b6b0b0;
 }
+
 
 .book-layout {
     text-align: center;
@@ -192,9 +214,11 @@ form.example input[type=text] {
 }
 
 .navigation-Bar {
+    
     position: sticky;
     top: 0;
     z-index: 1;
+    
 }
 
 
@@ -243,7 +267,7 @@ ul.dropdown-cart {
     }
 
  ul.dropdown-cart li .item:hover {
-            background-color: #f3f3f3;
+            background-color: white;
 }
 
 ul.dropdown-cart li .item:after {
