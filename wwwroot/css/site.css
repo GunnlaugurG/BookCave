@@ -70,6 +70,21 @@ header {
     padding-top:20px;
     padding-bottom: 15px;
     margin-left:auto;
+    
+}
+.search-wrapper{
+    
+}
+.search-bar button{
+    border-radius: 0 2em 2em 0;
+    padding-top:8px;
+    padding-bottom: 8px;
+    margin-left: -10px;
+    border: border: 1px solid lightgray;
+    outline:none;
+    width: 50px;
+    
+
 }
 
 .search-bar input {
@@ -77,8 +92,10 @@ header {
     height: 40px;
     border: 1px solid lightgray;
     font-size: 17px;
-    border-radius: 25px;
+    border-radius: 2em 0 0 2em;/*25px;*/
     outline:none;
+    margin:0px;
+    
 }
 
 
