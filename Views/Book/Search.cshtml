@@ -28,9 +28,9 @@
                             <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
                         }
                         @if(@book.rating % 2 != 0) {
-                            <img src="~/Images/halfStar.png" alt="rating" style="width:20px; height:20px;">
+                            <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
                         } else {
-                            <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
+                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                         }
                         <p>Price: @book.cost $</p>
                     </div>
