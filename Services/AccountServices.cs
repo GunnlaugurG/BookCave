@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using BookCave.Data.EntityModels;
 using BookCave.Models;
+using BookCave.Models.InputModel;
 using BookCave.Models.ViewModels;
 using BookCave.Repositories;
 
@@ -38,6 +39,10 @@ namespace BookCave.Services
         public AccountDetailsViewModel getUserDetails(string userID){
             var userDetails = _accountRepo.getUserDetailsFromDataBase(userID);
             return userDetails;
+        }
+
+        public void changeShippingInfoServ (string UserId, ChangeShippingInputModel newShipInfoService){
+            _accountRepo.ChangeShippingInfoRepo(UserId, newShipInfoService);
         }
     }
 }

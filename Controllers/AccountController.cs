@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using BookCave.Models;
+using BookCave.Models.InputModel;
 using BookCave.Models.ViewModels;
 using BookCave.Services;
 using Microsoft.AspNetCore.Identity;
@@ -95,5 +96,20 @@ namespace BookCave.Controllers
             var _userInfo = _accountServices.getUserDetails(userId);
             return View(_userInfo);
         }
+        [HttpPost]
+        public async Task<IActionResult> ChangeShippingDetails(ChangeShippingInputModel changeShipping){
+            if(ModelState.IsValid){
+                var user = await GetCurrentUserAsync();
+                var userId = user?.Id;
+                if(userId == null){
+                    return RedirectToAction("Login", "Account");
+                }
+                _accountServices.changeShippingInfoServ(userId, changeShipping);
+                
+            }
+
+            return RedirectToAction("Details" , "Account");
+        }
+
     }
 }
