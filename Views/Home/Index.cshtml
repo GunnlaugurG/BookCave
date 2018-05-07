@@ -1,67 +1,69 @@
-﻿@model List<BookCave.Models.ViewModels.BookListViewModel>
+@model List<BookCave.Models.ViewModels.BookListViewModel>
 
 <div class="Container">
     <h2>Vinsælustu Bækurnar</h2>
     <div class="row">
         @for (var i = 0; i < 4; i++)
         {
-        <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
-            <div class="row">
-                <div class="col-lg-12 col-sm-12">
-                    <a asp-action="Details" asp-controller="Book" asp-route-Id="@Model[i].id"><img src="@Model[i].image" alt="bookCover" class="card-img-top Thumb-nail-image"></a>
+            <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <a asp-action="Details" asp-controller="Book" asp-route-Id="@Model[i].id"><img src="@Model[i].image" alt="bookCover" class="card-img-top Thumb-nail-image"></a>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div id="book-info" class="col-lg-12 col-sm-12">
-                    <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
-                    <div class="divider"></div>
-                    <p>Author: @Model[i].author</p>
-                    <p>Rating: @Model[i].rating</p>
-                    <p>Price: @Model[i].cost $</p>
+                <div class="row">
+                    <div id="book-info" class="col-lg-12 col-sm-12">
+                        <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
+                        <div class="divider"></div>
+                        <p>Author: @Model[i].author</p>
+                        <p>Rating: @Model[i].rating</p>
+                        <p>Price: @Model[i].cost $</p>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
-                    <a class="btn btn-success center-block" href="#">Add to cart</a>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
+                        <a class="btn btn-success center-block" href="#">Add to cart</a>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-sm-4 spacing">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-4 spacing">
 
+                    </div>
                 </div>
             </div>
-        </div>
-}
+        }
+    </div>
     </div>
     <h2>Ódýrustu bækur</h2>
     <div class="row">
         @for (var i = 4; i < 8; i++)
         {
-        <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
-            <div class="row">
-                <div class="col-lg-12 col-sm-12">
-                    <a asp-action="Details" asp-controller="Book" asp-route-Id="@Model[i].id"><img src="@Model[i].image" alt="bookCover" class="card-img-top Thumb-nail-image"></a>
+            <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12">
+                        <a asp-action="Details" asp-controller="Book" asp-route-Id="@Model[i].id"><img src="@Model[i].image" alt="bookCover" class="card-img-top Thumb-nail-image"></a>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div id="book-info" class="col-lg-12 col-sm-12">
-                    <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
-                    <div class="divider"></div>
-                    <p>Author: @Model[i].author</p>
-                    <p>Rating: @Model[i].rating</p>
-                    <p>Price: @Model[i].cost $</p>
+                <div class="row">
+                    <div id="book-info" class="col-lg-12 col-sm-12">
+                        <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
+                        <div class="divider"></div>
+                        <p>Author: @Model[i].author</p>
+                        <p>Rating: @Model[i].rating</p>
+                        <p>Price: @Model[i].cost $</p>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
-                    <a class="btn btn-success center-block" href="#">Add to cart</a>
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
+                        <a class="btn btn-success center-block" href="#">Add to cart</a>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-sm-4 spacing">
+                <div class="row">
+                    <div class="col-lg-12 col-sm-4 spacing">
 
+                    </div>
                 </div>
             </div>
-        </div>
         }
+        </div>
 
