@@ -65,7 +65,11 @@ header {
     border-radius: 30px;
     font-family:'Comic Sans MS';
 }
-
+.navbar-styling {
+    background: white;
+    border-bottom: 1px solid #b6b0b0;
+    border-top: 1px solid #b6b0b0;
+}
 
 .book-layout {
     text-align: center;
@@ -165,27 +169,7 @@ form.example input[type=text] {
         text-decoration: none;
         color: black;
 }
-form.example button {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: #2196F3;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
-}
 
-    form.example button:hover {
-        background: #0b7dda;
-    }
-
-form.example::after {
-    content: "";
-    clear: both;
-    display: table;
-}
 
 
 
@@ -258,18 +242,18 @@ ul.dropdown-cart {
         margin: 3px 0;
     }
 
-        ul.dropdown-cart li .item:hover {
+ ul.dropdown-cart li .item:hover {
             background-color: #f3f3f3;
-        }
+}
 
-        ul.dropdown-cart li .item:after {
-            visibility: hidden;
-            display: block;
-            font-size: 0;
-            content: " ";
-            clear: both;
-            height: 0;
-        }
+ul.dropdown-cart li .item:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
 
     ul.dropdown-cart li .item-left {
         float: left;

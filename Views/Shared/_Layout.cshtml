@@ -55,7 +55,7 @@
     </header>
     <!-- ********* Navigation bar ******* -->
     <div class="navigation-Bar">
-        <nav class="navbar navbar-inverse navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-static-top navbar-styling">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -83,9 +83,10 @@
                         <li class=""><a asp-action="TopTenBooks" asp-controller="Book" class="">Top 10 books</a></li>
                         <li class=""><a asp-action="Index" asp-controller="author" class="">Authors</a></li>
                     </ul>
-                    @await Html.PartialAsync("_LoginPartial");
+                    @await Html.PartialAsync("_LoginPartial")
                 </div>
             </div>
+            </nav>
             <!--/.navbar-collapse -->
     </div>
     <div class="container body-content">
