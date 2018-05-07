@@ -88,6 +88,7 @@ header {
     margin-left: -10px;
     border: 1px solid lightgray;
     outline:none;
+    height:40px;
     width: 50px;
     position:absolute;
 
