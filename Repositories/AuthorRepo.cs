@@ -17,13 +17,19 @@ namespace BookCave.Repositories {
         public List<AuthorListViewModel> GetAllAuthors() {
            
             var authors = (from a in _db.authors
-                           join b in _db.books on a.authorName equals b.author
-                           orderby b.rating descending
+                           join b in _db.books on a.Id equals b.keyAuthorId
+                           orderby a.authorName
                            select new AuthorListViewModel {
                                Id = a.Id,
                                authorName = a.authorName,
-                               mostPopularBook = b
                            }).ToList();
+            
+            for(int i = 0; i < authors.Count; i++){
+                authors[i].mostPopularBook =  (from b in _db.books
+                                               where authors[i].Id == b.keyAuthorId
+                                               orderby b.rating descending
+                                               select b).First();
+            }
             return authors;
         }
         //Finds the author with the given ID and returns

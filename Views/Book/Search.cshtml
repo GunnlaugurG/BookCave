@@ -1,13 +1,19 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
-<h1>@ViewBag.searchedWord</h1><h1></h1>
-<div class="">
-    <form action="SortByGenre" method="GET">
-        <select name="value" class="form-control selectButton top-right" id="selectBox1">
-            <option value="rating">Sort by Rating</option>
-            <option value="price">Sort by Price</option>
-            <option value="name"><a asp-action="TopTenBooks" asp-controller="Book" asp-route-value="name">Sort by Name</a></option>
-        </select>
-    </form>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-9 col-md-8 col-sm-6">
+            <h1>@ViewBag.searchedWord</h1>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-6 sort-by-button">
+            <form action="SortByGenre" method="GET">
+                <select name="value" class="form-control top-right" id="selectBox1">
+                    <option value="rating">Sort by Rating</option>
+                    <option value="price">Sort by Price</option>
+                    <option value="name"><a asp-action="TopTenBooks" asp-controller="Book" asp-route-value="name">Sort by Name</a></option>
+                </select>
+            </form>
+        </div>
+    </div>
 </div>
 <div class="container-fluid">
 
@@ -36,7 +42,6 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12 col-sm-4 spacing">
-
                     </div>
                 </div>
             </div>

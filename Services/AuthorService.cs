@@ -20,6 +20,7 @@ namespace BookCave.Services {
         }
 
         public List<AuthorListViewModel> GetAllAuthors() {
+            
             return _authorRepo.GetAllAuthors();
         }
     }

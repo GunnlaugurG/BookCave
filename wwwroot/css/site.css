@@ -13,21 +13,22 @@ header {
     height: 250px;
     width: 250px;
 }
-.book-details-border{
-    border: 5px solid white;
-    border-radius: 15px;
-    background-color: lightgray;
-    
-}
-.search-wrapper {
+
+.search-bar {
     padding-top:20px;
     padding-bottom: 15px;
     margin-left:auto;
 }
 
-.search-input {
-    width: 80%;
+.search-bar input {
+    width: 90%;
+    height: 40px;
+    border: 1px solid lightgray;
+    font-size: 17px;
+    border-radius: 25px;
+    outline:none;
 }
+
 
 .three-buttons{
     margin-bottom: 15px;
@@ -64,7 +65,11 @@ header {
     border-radius: 30px;
     font-family:'Comic Sans MS';
 }
-
+.navbar-styling {
+    background: white;
+    border-bottom: 1px solid #b6b0b0;
+    border-top: 1px solid #b6b0b0;
+}
 
 .book-layout {
     text-align: center;
@@ -160,27 +165,11 @@ form.example input[type=text] {
     text-decoration: none;
     color: black;
 }
-form.example button {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: #2196F3;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
+ .home-logo:active{
+        text-decoration: none;
+        color: black;
 }
 
-    form.example button:hover {
-        background: #0b7dda;
-    }
-
-form.example::after {
-    content: "";
-    clear: both;
-    display: table;
-}
 
 
 
@@ -213,6 +202,34 @@ form.example::after {
     input[type=text]:focus {
         width: 100%;
     }
+ .sort-by-button {
+   width: 200px;
+   padding: 17px;
+}
+.footer-wrapper{
+    border-top: 1px solid #403f3f;
+    padding:50px;
+    background: #eae7e7;
+}
+.footer-list {
+    text-decoration: none;
+    color: black;
+}
+
+.footer-list a {
+    text-decoration: none;
+    color: black;
+}
+
+.footer-list:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.footer-list:active {
+    text-decoration: none;
+    color: black;
+}
 
 /*-----------CART--------------*/
 ul.dropdown-cart {
@@ -225,18 +242,18 @@ ul.dropdown-cart {
         margin: 3px 0;
     }
 
-        ul.dropdown-cart li .item:hover {
+ ul.dropdown-cart li .item:hover {
             background-color: #f3f3f3;
-        }
+}
 
-        ul.dropdown-cart li .item:after {
-            visibility: hidden;
-            display: block;
-            font-size: 0;
-            content: " ";
-            clear: both;
-            height: 0;
-        }
+ul.dropdown-cart li .item:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
 
     ul.dropdown-cart li .item-left {
         float: left;
