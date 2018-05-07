@@ -1,19 +1,14 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
 <h1>Top books</h1>
 <div class="">
-    <form action="TopTenBooks" method="GET">
-        <select name="value" class="form-control selectButton top-right" id="selectBox1">
+        <select name="value" class="form-control top-right" id="sort-by" >
             <option value="rating">Sort by Rating</option>
             <option value="price">Sort by Price</option>
             <option value="name">Sort by Name</option>
         </select>
-        <input type="submit"></input>
-    </form>
 </div>
-
 <div class="container-fluid">
-
-    <div class="row ">
+    <div id="book-list" class="row ">
         @foreach (var book in Model)
         {
             <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
@@ -26,7 +21,7 @@
                     <div id="book-info" class="col-lg-12 col-sm-12">
                         <a asp-controller="book" asp-action="details" asp-route-Id="@book.id" class="card-text">@book.title</a>
                         <div class="divider"></div>
-                        <a asp-action="details" asp-controller="author" asp-route-id="@book.author.Id"><p>@book.author.authorName</p></a>
+                        <a asp-action="details" asp-controller="author" asp-route-id="@book.author.Id">@book.author.authorName</a>
                         <p>Rating: @book.rating</p>
                         <p>Price: @book.cost $</p>
                     </div>
@@ -42,7 +37,6 @@
                     </div>
                 </div>
             </div>
-
         }
         <br />
     </div>
