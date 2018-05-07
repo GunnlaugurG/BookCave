@@ -66,3 +66,4 @@ bin/Debug/netcoreapp2.0/BookCave.pdb
 obj/Debug/netcoreapp2.0/BookCave.dll
 obj/Debug/netcoreapp2.0/BookCave.pdb
 bin/Debug/netcoreapp2.0/BookCave.dll
+*.dll

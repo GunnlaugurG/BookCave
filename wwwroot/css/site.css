@@ -244,10 +244,15 @@ form.example input[type=text] {
 }
 
 /* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 850px) {
     /* Hide captions */
     .carousel-caption {
         display: none;
+    }
+    .search-wrapper{
+         position: relative;
+         margin-right: 20%;
+        
     }
 }
 
