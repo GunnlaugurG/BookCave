@@ -151,7 +151,15 @@ form.example input[type=text] {
     width: 80%;
     background: #f1f1f1;
 }
-
+.home-logo {
+    text-decoration: none;
+    font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    color: black;
+}
+.home-logo:hover {
+    text-decoration: none;
+    color: black;
+}
 form.example button {
     float: left;
     width: 20%;

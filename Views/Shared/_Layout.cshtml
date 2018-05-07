@@ -27,7 +27,7 @@
                 <div class="col-lg-3  col-md-4 text-center">
                     <div class="row">
                         <div class=" col col-sm-12">
-                            <h2>The Book Cave</h2>
+                            <h2><a class="home-logo" asp-controller="home" asp-action="index">The Book Cave</a></h2>
                         </div>
                     </div>
                 </div>
@@ -81,23 +81,11 @@
                         <li class=""><a asp-action="TopTenBooks" asp-controller="Book" class="">Top 10 books</a></li>
                         <li class=""><a asp-action="Index" asp-controller="author" class="">Authors</a></li>
                         <li class=""><a href="#" class="">About</a></li>
-                        <li>
-                            <!--
-                                Víðir: Hér copyaði ég form textann fyrir search barinn, það má eyða þetta comment út
-
-                                <form asp-action="Search" asp-controller="Book" method="GET">
-                            <input type="search" name="searchedWord" placeholder="Search.." class="search-button">
-                            <button type="submit" value="search" class="btn btn-primary">Search</button>
-                            </form>-->
-                        </li>
                     </ul>
                     @await Html.PartialAsync("_LoginPartial");
-
                 </div>
             </div>
             <!--/.navbar-collapse -->
-    </div>
-    </nav>
     </div>
     <div class="container body-content">
         @RenderBody()
