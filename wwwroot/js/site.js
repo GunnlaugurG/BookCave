@@ -40,6 +40,8 @@ $("#sort-by").change(function(){
       $("#book-list").append(markup);
     })
 });
+
+
   
 $(function() {
     // Setup drop down menu
