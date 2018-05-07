@@ -13,12 +13,12 @@ C:\Users\Einar Orri\Desktop\another book cave\BookCave\bin\Debug\netcoreapp2.0\B
 C:\Users\Einar Orri\Desktop\another book cave\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.dev.json
 C:\Users\Einar Orri\Desktop\another book cave\BookCave\bin\Debug\netcoreapp2.0\BookCave.dll
 C:\Users\Einar Orri\Desktop\another book cave\BookCave\bin\Debug\netcoreapp2.0\BookCave.pdb
-C:\Users\Einar Orri\Desktop\another book cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.csprojResolveAssemblyReference.cache
 C:\Users\Einar Orri\Desktop\another book cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.csproj.CoreCompileInputs.cache
 C:\Users\Einar Orri\Desktop\another book cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfoInputs.cache
 C:\Users\Einar Orri\Desktop\another book cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfo.cs
 C:\Users\Einar Orri\Desktop\another book cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.dll
 C:\Users\Einar Orri\Desktop\another book cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.pdb
+<<<<<<< HEAD
 C:\Users\VidirSnaer\Documents\GitHub\BookCave\bin\Debug\netcoreapp2.0\BookCave.deps.json
 C:\Users\VidirSnaer\Documents\GitHub\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.json
 C:\Users\VidirSnaer\Documents\GitHub\BookCave\bin\Debug\netcoreapp2.0\BookCave.runtimeconfig.dev.json
@@ -29,3 +29,6 @@ C:\Users\VidirSnaer\Documents\GitHub\BookCave\obj\Debug\netcoreapp2.0\BookCave.A
 C:\Users\VidirSnaer\Documents\GitHub\BookCave\obj\Debug\netcoreapp2.0\BookCave.AssemblyInfo.cs
 C:\Users\VidirSnaer\Documents\GitHub\BookCave\obj\Debug\netcoreapp2.0\BookCave.dll
 C:\Users\VidirSnaer\Documents\GitHub\BookCave\obj\Debug\netcoreapp2.0\BookCave.pdb
+=======
+C:\Users\Einar Orri\Desktop\another book cave\BookCave\obj\Debug\netcoreapp2.0\BookCave.csprojResolveAssemblyReference.cache
+>>>>>>> 820d6285fd69c3346b1589f2ad1448f635e10318
