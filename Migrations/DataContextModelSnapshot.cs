@@ -76,6 +76,24 @@ namespace BookCave.Migrations
                     b.ToTable("CardInfo");
                 });
 
+            modelBuilder.Entity("BookCave.Data.EntityModels.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("Ratings");
+
+                    b.Property<int>("reviewBookId");
+
+                    b.Property<string>("reviewFromUserName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reviews");
+                });
+
             modelBuilder.Entity("BookCave.Data.EntityModels.ShippingInfo", b =>
                 {
                     b.Property<string>("Id")
@@ -107,8 +125,7 @@ namespace BookCave.Migrations
 
                     b.Property<string>("password");
 
-                    b.Property<byte[]>("picture")
-                        .HasMaxLength(16);
+                    b.Property<string>("picture");
 
                     b.Property<string>("shippingInfoId");
 

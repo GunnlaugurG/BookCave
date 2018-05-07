@@ -10,8 +10,7 @@ namespace BookCave.Data.EntityModels
         public string userName {get; set;}
         public string password {get; set;}
         public Book favoriteBook {get; set;}
-        [MaxLength(16)]
-        public byte[] picture {get; set;}
+        public string picture {get; set;}
         public CardInfo cardInfo {get; set;}
         public ShippingInfo shippingInfo {get; set;}
     }

@@ -11,8 +11,8 @@ using System;
 namespace BookCave.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20180507133144_updateShipping")]
-    partial class updateShipping
+    [Migration("20180507143911_tryingToUpdateReviewTable")]
+    partial class tryingToUpdateReviewTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -75,6 +75,24 @@ namespace BookCave.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CardInfo");
+                });
+
+            modelBuilder.Entity("BookCave.Data.EntityModels.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("Ratings");
+
+                    b.Property<int>("reviewBookId");
+
+                    b.Property<string>("reviewFromUserName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("BookCave.Data.EntityModels.ShippingInfo", b =>
