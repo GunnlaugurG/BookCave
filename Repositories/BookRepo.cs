@@ -33,7 +33,7 @@ namespace BookCave.Repositories
                                 description = b.description,
                                 image = b.image,
                                 price = b.cost,
-                                ratings = b.rating
+                                rating = b.rating
                             }).SingleOrDefault();
             /// Þarf að filla inn Comments lika
             return bookByID;

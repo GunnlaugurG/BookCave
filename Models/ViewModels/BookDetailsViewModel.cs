@@ -10,7 +10,7 @@ namespace BookCave.Models.ViewModels {
         public string description { get; set; }
         public string image { get; set; }
         public double price{ get; set; }
-        public double ratings{ get; set; } 
+        public double rating { get; set; } 
         public List<CommentsViewModel> comments { get; set; }
     }
 }

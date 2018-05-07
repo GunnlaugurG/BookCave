@@ -34,12 +34,13 @@ $("#sort-by").change(function(){
         markup += '</div>';
         markup += '</div>';
         markup += '</div>';
+      
       }
       $("#book-list").empty();
       $("#book-list").append(markup);
     })
 });
-
+  
 $(function() {
     // Setup drop down menu
     $('.dropdown-toggle').dropdown();
