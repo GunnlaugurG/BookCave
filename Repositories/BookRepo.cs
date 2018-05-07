@@ -17,6 +17,7 @@ namespace BookCave.Repositories
         public List<BookListViewModel> GetAllBooks() {
            var books = (from b in _db.books
                         join a in _db.authors on b.keyAuthorId equals a.Id
+                        orderby b.title
                         select new BookListViewModel {
                               id = b.Id,
                               title = b.title,
