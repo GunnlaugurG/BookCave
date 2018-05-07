@@ -244,10 +244,15 @@ form.example input[type=text] {
 }
 
 /* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 850px) {
     /* Hide captions */
     .carousel-caption {
         display: none;
+    }
+    .search-wrapper{
+         position: relative;
+         margin-right: 20%;
+        
     }
 }
 
@@ -260,18 +265,15 @@ form.example input[type=text] {
 }
 
 .navigation-Bar {
-    
     position: sticky;
     top: 0;
     z-index: 1;
     
 }
-
-
     /* When the input field gets focus, change its width to 100% */
-    input[type=text]:focus {
+input[type=text]:focus {
         width: 100%;
-    }
+}
  .sort-by-button {
    width: 200px;
    padding: 17px;
@@ -279,7 +281,6 @@ form.example input[type=text] {
 .footer-wrapper{
     border-top: 1px solid #403f3f;
     padding:44px;
-    background: #eae7e7;
 }
 .footer-list {
     text-decoration: none;
