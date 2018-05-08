@@ -272,14 +272,10 @@ form.example input[type=text] {
 
 #logout-btn {
     width: 100%;
-    padding-top: 5px;
-    padding-bottom: -5px;
-    bottom: 0;
-    background: #e8e8e8;
+    padding-top:5px !important;
     border-color: #e8e8e8;
 }
     #logout-btn:not(.nohover):hover {
-        border-color: #e8e8e8;
     }
 /* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
