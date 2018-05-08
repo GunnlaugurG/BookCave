@@ -51,7 +51,7 @@
     </div>
     <div class="row" id="review-form">
         <div>
-            <p>Write a review</p>
+            
             <textarea row="10" cols="70" id="description"></textarea>
         </div>
         <div>
@@ -74,11 +74,24 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-12 col-lg-12" style="background-color: aquamarine; height: 150px; margin-top: 20px">
-           @foreach( var book in Model.comments ){
-               <p> @book.Description </p>
-           }
-            <h1>Hér kemur review stebbi</h1>
+        <div class="col-sm-12 col-lg-12">
+           @foreach(var book in Model.comments ){
+                  @if(book.Author == null) {
+                      <span>Anonymous</span>
+                  } else {
+                      <span>@book.Author</span>
+                  } <br>
+                @book.Description<br/>
+                        @for(int i = 0; i < @book.Ratings-1; i++) {
+                            <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
+                        }
+                        @if(@book.Ratings % 1 != 0) {
+                            <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+                        } else {
+                            <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
+                        }
+                         <br> <br> 
+                        }   
         </div>
     </div>
 </div>

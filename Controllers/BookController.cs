@@ -1,19 +1,29 @@
+using BookCave.Models;
 using BookCave.Models.InputModel;
 using BookCave.Models.ViewModels;
 using BookCave.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace BookCave.Controllers
 {
     public class BookController : Controller
     {
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
+        private AccountServices _accountServices = new AccountServices();
+
         private BookServices _bookService;
         private List<BookListViewModel> books;
 
-        public BookController()
+        public BookController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
+            _signInManager = signInManager;
+            _userManager = userManager;
             _bookService = new BookServices();
         }
 
@@ -87,9 +97,10 @@ namespace BookCave.Controllers
         }
 
         [HttpPost]
-        public IActionResult review(ReviewInputModel input)
-        {
-            _bookService.SetBookReview( input );
+        public async Task<IActionResult> review(ReviewInputModel input) {
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            _bookService.SetBookReview( input, userId );
             return Ok();
         }
         public IActionResult Search(string searchedWord)

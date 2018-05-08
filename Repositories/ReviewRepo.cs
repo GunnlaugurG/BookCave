@@ -28,6 +28,7 @@ namespace BookCave.Repositories
             var ReviewByBookId = (from r in _db.reviewTwo
                                   where r.reviewBookId == bookId
                                   select new CommentsViewModel{
+                                      Author = r.reviewFromUserName,
                                       Description = r.Description,
                                       Ratings = r.Ratings
                                   }).ToList();
