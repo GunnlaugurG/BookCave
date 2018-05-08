@@ -274,7 +274,7 @@ form.example input[type=text] {
 }
 
 #logout-btn {
-    width: 100%;
+    width: 200px;
     padding-top:5px !important;
     border-color: #e8e8e8;
 }

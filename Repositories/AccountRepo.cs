@@ -32,6 +32,15 @@ namespace BookCave.Repositories
             _db.Add(newShipping);
             _db.SaveChanges();
         }
+        public void addCartToDatabase(Cart newCart){
+            _db.Add(newCart);
+            _db.SaveChanges();
+        }
+        public void addCartItemToDatabase(CartItem newCartItem){
+            _db.Add(newCartItem);
+            _db.SaveChanges();
+        }
+        
 
         public AccountDetailsViewModel getUserDetailsFromDataBase(string userId)
         {
@@ -126,6 +135,44 @@ namespace BookCave.Repositories
                             select a.cost).FirstOrDefault();
             newModel.bookId = bookId;
         return newModel;
+        }
+        public void AddToCartRepo(int thisBookId, string userId){
+            var userCart = (from c in _db.carts
+                            where c.cartForUserId == userId && c.orderComplete == false
+                            select c).FirstOrDefault();
+            var getBook = (from b in _db.books
+                            where b.Id == thisBookId
+                            select b).FirstOrDefault();
+
+            if(userCart == null){
+                Cart newCart = new Cart
+                {
+                    totalCost = getBook.cost,
+                    cartForUserId = userId,
+                    quantityInCart = 1,
+                    orderComplete = false
+                };
+                addCartToDatabase(newCart);
+                CartItem newCartItem = new CartItem{
+                    keyCartId = newCart.Id,
+                    itemCost = getBook.cost,
+                    bookQuantity = 1,
+                    bookForCartItem = getBook.Id
+                };
+                addCartItemToDatabase(newCartItem);
+            }
+            else{
+                userCart.quantityInCart += 1;
+                userCart.totalCost += getBook.cost;
+                CartItem addCartItem = new CartItem{
+                    keyCartId = userCart.Id,
+                    itemCost = getBook.cost,
+                    bookQuantity = 1,
+                    bookForCartItem = getBook.Id
+                };
+                addCartItemToDatabase(addCartItem);
+                _db.SaveChanges();
+            }
         }
     }
 }
