@@ -1,5 +1,6 @@
 using BookCave.Data;
 using BookCave.Data.EntityModels;
+using BookCave.Models.ViewModels;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,6 +20,17 @@ namespace BookCave.Repositories
             var ReviewByBookId = (from r in _db.reviewTwo
                                   where r.reviewBookId == bookId
                                   select r).ToList();
+
+            return ReviewByBookId;
+        }
+        public List<CommentsViewModel> GetReviewViewModelByBookId(int bookId)
+        {
+            var ReviewByBookId = (from r in _db.reviewTwo
+                                  where r.reviewBookId == bookId
+                                  select new CommentsViewModel{
+                                      Description = r.Description,
+                                      Ratings = r.Ratings
+                                  }).ToList();
 
             return ReviewByBookId;
         }
