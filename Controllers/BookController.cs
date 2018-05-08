@@ -37,34 +37,14 @@ namespace BookCave.Controllers
         [HttpGet]
         public IActionResult TopTenBooks()
         {
-            books = _bookService.GetTopBooks(select.topRating, 10);
-
+            books = _bookService.GetTopBooks("rating",10);
             return View(books);
         }
 
         [HttpPost]
         public IActionResult SortBy(string value)
         {
-            if (value == "rating")
-            {
-                books = _bookService.GetTopBooks(select.topRating, 10);
-            }
-            else if (value == "lowPrice")
-            {
-                books = _bookService.GetTopBooks(select.bottomPrice, 10);
-            }
-            else if (value == "highPrice")
-            {
-                books = _bookService.GetTopBooks(select.topPrice, 10);
-            }
-            else if (value == "name")
-            {
-                books = _bookService.GetTopBooks(select.topName, 10);
-            }
-            else
-            {
-                books = _bookService.GetTopBooks(select.topRating, 10);
-            }
+            books = _bookService.SortBy(value);
             return Json(books);
         }
 
