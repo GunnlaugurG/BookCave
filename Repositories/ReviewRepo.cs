@@ -14,17 +14,19 @@ namespace BookCave.Repositories
             _db = new DataContext();
         }
 
-        public List<Review> GetReviewByBookId(int bookId)
+        public List<ReviewTwo> GetReviewByBookId(int bookId)
         {
-            var ReviewByBookId = (from r in _db.Reviews
+            var ReviewByBookId = (from r in _db.reviewTwo
                                   where r.reviewBookId == bookId
                                   select r).ToList();
 
             return ReviewByBookId;
         }
 
-        public void SetReview(Review review)
+        public void SetReview(ReviewTwo review)
         {
+            _db.Add(review);
+            _db.SaveChanges();
             // Hér skrifa ég review i gagnagrunn
         }
     }
