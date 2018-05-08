@@ -1,0 +1,15 @@
+@using Microsoft.AspNetCore.Identity
+@using System.Security.Claims
+@using BookCave.Models
+@model BookCave.Models.ViewModels.DisplayCartItemViewModel;
+
+@{
+    var claim = ((ClaimsIdentity)User.Identity).Claims.FirstOrDefault(c => c.Type == "Name")?.Value;
+}
+
+<h1>@claim  's Cart</h1>
+<p>@Model.BookName</p>
+<form asp-controller="Account" asp-action="AddItemToCart" class="form-goup" method="POST">
+    
+
+</form>

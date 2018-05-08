@@ -41,5 +41,9 @@ namespace BookCave.Services
         {
             _accountRepo.changeCardInfoRepo(userId, newCardInfo);
         }
+        public DisplayCartItemViewModel getBookName(int bookId){
+            DisplayCartItemViewModel newCart = _accountRepo.getBookRepo(bookId);
+            return newCart;
+        }
     }
 }
