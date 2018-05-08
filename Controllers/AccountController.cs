@@ -132,8 +132,8 @@ namespace BookCave.Controllers
 
             return RedirectToAction("Details", "Account");
         }
-        [HttpGet]
-        public async Task<IActionResult> AddToCart(int bookId){
+        
+        public async Task<IActionResult> AddToCart(int id){
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
             if(userId == null){
@@ -141,8 +141,8 @@ namespace BookCave.Controllers
             }
             else{
                 var newModel =  new DisplayCartItemViewModel();
-                newModel = _accountServices.getBookName(bookId);
-                return View(newModel);
+                newModel = _accountServices.getBookName(id);
+                return RedirectToAction("Details", "Book" , new {id = id});
             }
             
         }

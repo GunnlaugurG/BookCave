@@ -232,6 +232,7 @@ form.example input[type=text] {
     font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;
     color: black;
   */
+  position: center;
 }
 .home-logo:hover {
     text-decoration: none;
