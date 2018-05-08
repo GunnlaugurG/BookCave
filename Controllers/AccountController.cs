@@ -157,5 +157,13 @@ namespace BookCave.Controllers
             newModel = _accountServices.getCartviewModel(userId);
             return View(newModel);
         }
+        public async Task<IActionResult> WishList(){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+        }
     }
 }
