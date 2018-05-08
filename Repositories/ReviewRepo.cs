@@ -25,6 +25,8 @@ namespace BookCave.Repositories
 
         public void SetReview(Review review)
         {
+            _db.Reviews.Add(review);
+        
             // Hér skrifa ég review i gagnagrunn
         }
     }

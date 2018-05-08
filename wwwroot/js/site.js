@@ -5,9 +5,18 @@ $("#sort-by").change(function(){
     var sortVal = $(this).val();
     $.post("SortBy", { value: sortVal },
     function(data, status){
-      console.log(data);
       var markup = "";
+
+      var bookList = $("#book-list");
+      console.log( bookList); 
+
+    //  var bookTitle = $(".card-text").children();
+    
       for( var i = 0; i < data.length; i++){
+     //   bookTitle.prevObject[i].href = "details/" + data[i].id;
+     //   bookTitle.prevObject[i].text = data[i].title;
+
+
         markup += '<div id="settings" class="col-lg-3 col-sm-6 col-md-4">';
         markup += '<div class="row">';
         markup += '<div class="col-lg-12 col-sm-12">';
@@ -23,7 +32,7 @@ $("#sort-by").change(function(){
         markup += '<p>Price: ' + data[i].cost + ' $</p>';
         markup += '</div>';
         markup += '</div>';
-        markup += '<div class="row">';
+        markup += '<div class="row">'
         markup += '<div class="col-lg-12 col-sm-12 img-thumbnail-btn">';
         markup += '<a class="btn btn-success center-block" href="#">Add to cart</a>';
         markup += '</div>';
