@@ -87,7 +87,7 @@ namespace BookCave.Controllers
         public IActionResult Search(string searchedWord) {
             
             if(searchedWord == null) {
-                searchedWord = "";
+                 searchedWord = "...";
             }
             ViewBag.searchedWord = "Results for: " + searchedWord;
             var searchedResults = _bookService.GetSearchedResults(searchedWord);
