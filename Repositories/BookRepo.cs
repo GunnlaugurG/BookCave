@@ -17,6 +17,13 @@ namespace BookCave.Repositories
             _db = new DataContext();
         }
 
+
+        public string getUserName( string userId){
+            var UserName = (from a in _db.userAccounts
+                        where a.aspUserId == userId
+                        select a. ).FirstOrDefault();
+            return UserName;
+        }
         public List<BookListViewModel> GetAllBooks()
         {
             var books = (from b in _db.books
