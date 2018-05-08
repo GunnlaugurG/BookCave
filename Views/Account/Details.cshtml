@@ -320,20 +320,20 @@
                 <p>
                     Card number:
                     @if (@Model.cardNumber == null)
-        {
-            <p>Model.cardnumber </p>
-}
-else
-{
-            @for (var i = 0; i < 16; i++)
-{
-    if (i % 4 == 0 && i != 0)
-    {
-            <span>-</span>
-}
-            @Model.cardNumber[i]
-}
-}
+                    {
+                        <p> </p>
+                    } else {
+                    @for (var i = 0; i < 16; i++) {
+                            if(i % 4 == 0 && i != 0) {
+                                <span></span>
+                            }
+                            if(i < 12) {
+                                <span>*</span>
+                            } else {
+                            <span>@Model.cardNumber[i]</span>
+                            }
+                        }
+                    }
                     </p>
                     <button class="btn btn-default" data-toggle="modal" data-target="#anotherModal">Change card information</button>
                     <!--***************************Another Modal******************************-->
