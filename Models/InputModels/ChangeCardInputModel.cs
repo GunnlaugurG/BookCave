@@ -11,7 +11,7 @@ namespace BookCave.Models.InputModel {
         public string cardNumber { get; set; }
 
         [Required(ErrorMessage = "Please select country")]
-          [RegularExpression("[0-9]{3}", ErrorMessage = "cvc number must be 3 digits")]
+        [RegularExpression("[0-9]{3}", ErrorMessage = "cvc number must be 3 digits")]
         public string cvc {get; set; }
 
     }
