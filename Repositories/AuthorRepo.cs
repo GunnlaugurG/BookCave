@@ -17,19 +17,19 @@ namespace BookCave.Repositories
         //Displays the list of actors ordered by the highest rated book of theirs.
         public List<AuthorListViewModel> GetAllAuthors()
         {
-            var authorNames = (from a in _db.authors
+            var authors = (from a in _db.authors
                            orderby a.authorName
                            select new AuthorListViewModel {
                                Id = a.Id,
                                authorName = a.authorName,
                            }).ToList();
-            for(int i = 0; i<authorNames.Count; i++) {
-                authorNames[i].mostPopularBook = (from b in _db.books
-                            where b.keyAuthorId == authorNames[i].Id
-                            orderby b.rating descending
+            for(int i = 0; i < authors.Count; i++) {
+                authors[i].mostPopularBook = (from b in _db.books
+                            where b.keyAuthorId == authors[i].Id
+                            orderby b.copiesSold descending
                             select b).First();
             }
-            return authorNames;
+            return authors;
         }
 
         //Finds the author with the given ID and returns
