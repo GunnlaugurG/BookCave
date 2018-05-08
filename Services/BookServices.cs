@@ -53,18 +53,20 @@ namespace BookCave.Services
         public void SetBookReview(ReviewInputModel inputFromUser)
         {
             var reviewForBook = _reviewRepo.GetReviewByBookId(inputFromUser.bookId);
-            double sumOfAllReview = inputFromUser.Ratings;
-            for (int i = 0; i < reviewForBook.Count; i++)
-            {
-                sumOfAllReview += reviewForBook[i].Ratings;
+            if( reviewForBook != null){
+                double sumOfAllReview = inputFromUser.Ratings;
+                for (int i = 0; i < reviewForBook.Count; i++)
+                {
+                   sumOfAllReview += reviewForBook[i].Ratings;
+                }
+                double newRating = sumOfAllReview / (reviewForBook.Count + 1);
             }
-            double newRating = sumOfAllReview / (reviewForBook.Count + 1);
-
             Review newReview = new Review
             {
                 reviewBookId = inputFromUser.bookId,
                 Ratings = inputFromUser.Ratings,
-                Description = inputFromUser.Description
+                Description = inputFromUser.Description,
+                reviewFromUserName = "Unknown"
             };
             _reviewRepo.SetReview(newReview);
 
