@@ -11,8 +11,8 @@ using System;
 namespace BookCave.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20180507143911_tryingToUpdateReviewTable")]
-    partial class tryingToUpdateReviewTable
+    [Migration("20180508123950_testupdate")]
+    partial class testupdate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,6 +25,8 @@ namespace BookCave.Migrations
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("authorDescription");
 
                     b.Property<string>("authorName");
 
@@ -66,6 +68,8 @@ namespace BookCave.Migrations
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("aspUserIdForCardInfo");
+
                     b.Property<string>("cardNumber");
 
                     b.Property<string>("cardholderName");
@@ -74,7 +78,41 @@ namespace BookCave.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CardInfo");
+                    b.ToTable("cardInfo");
+                });
+
+            modelBuilder.Entity("BookCave.Data.EntityModels.Cart", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("cartForUserId");
+
+                    b.Property<int>("quantityInCart");
+
+                    b.Property<double>("totalCost");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("carts");
+                });
+
+            modelBuilder.Entity("BookCave.Data.EntityModels.CartItem", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("bookForCartItem");
+
+                    b.Property<int>("bookQuantity");
+
+                    b.Property<double>("itemCost");
+
+                    b.Property<string>("keyCartId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("cartItems");
                 });
 
             modelBuilder.Entity("BookCave.Data.EntityModels.Review", b =>
@@ -102,6 +140,8 @@ namespace BookCave.Migrations
 
                     b.Property<string>("address");
 
+                    b.Property<string>("aspUserIdForShipping");
+
                     b.Property<string>("city");
 
                     b.Property<string>("country");
@@ -110,7 +150,7 @@ namespace BookCave.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ShippingInfo");
+                    b.ToTable("shipingInfo");
                 });
 
             modelBuilder.Entity("BookCave.Data.EntityModels.UserAccount", b =>
@@ -120,42 +160,35 @@ namespace BookCave.Migrations
 
                     b.Property<string>("aspUserId");
 
-                    b.Property<string>("cardInfoId");
+                    b.Property<string>("cardInfoForUserId");
 
-                    b.Property<int?>("favoriteBookId");
+                    b.Property<int>("favoriteBookForUserId");
 
                     b.Property<string>("password");
 
                     b.Property<string>("picture");
 
-                    b.Property<string>("shippingInfoId");
+                    b.Property<string>("shippingInfoForUserId");
 
                     b.Property<string>("userName");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("cardInfoId");
-
-                    b.HasIndex("favoriteBookId");
-
-                    b.HasIndex("shippingInfoId");
-
                     b.ToTable("userAccounts");
                 });
 
-            modelBuilder.Entity("BookCave.Data.EntityModels.UserAccount", b =>
+            modelBuilder.Entity("BookCave.Data.EntityModels.WishList", b =>
                 {
-                    b.HasOne("BookCave.Data.EntityModels.CardInfo", "cardInfo")
-                        .WithMany()
-                        .HasForeignKey("cardInfoId");
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
 
-                    b.HasOne("BookCave.Data.EntityModels.Book", "favoriteBook")
-                        .WithMany()
-                        .HasForeignKey("favoriteBookId");
+                    b.Property<string>("aspUserforWishList");
 
-                    b.HasOne("BookCave.Data.EntityModels.ShippingInfo", "shippingInfo")
-                        .WithMany()
-                        .HasForeignKey("shippingInfoId");
+                    b.Property<int>("bookForWishListId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("wishLists");
                 });
 #pragma warning restore 612, 618
         }
