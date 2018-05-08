@@ -45,5 +45,8 @@ namespace BookCave.Services
             DisplayCartItemViewModel newCart = _accountRepo.getBookRepo(bookId);
             return newCart;
         }
+        public void AddToCart(int bookId, string userId){
+            _accountRepo.AddToCartRepo(bookId, userId);
+        }
     }
 }
