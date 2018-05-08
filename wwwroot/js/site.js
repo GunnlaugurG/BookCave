@@ -1,12 +1,11 @@
 ﻿// Write your JavaScript code.
 console.log("Javascript up and running1");
 
-
 $("#sort-by").change(function(){
     var sortVal = $(this).val();
     $.post("SortBy", { value: sortVal },
     function(data, status){
-      console.log(data); 
+      console.log(data);
       var markup = "";
       for( var i = 0; i < data.length; i++){
         markup += '<div id="settings" class="col-lg-3 col-sm-6 col-md-4">';
@@ -34,22 +33,18 @@ $("#sort-by").change(function(){
         markup += '</div>';
         markup += '</div>';
         markup += '</div>';
-      
       }
       $("#book-list").empty();
       $("#book-list").append(markup);
     })
 });
 
-
-  
 $(function() {
     // Setup drop down menu
     $('.dropdown-toggle').dropdown();
-   
+
     // Fix input element click problem
     $('.dropdown input, .dropdown label').click(function(e) {
       e.stopPropagation();
     });
   });
-

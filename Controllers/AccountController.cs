@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using BookCave.Models;
+﻿using BookCave.Models;
 using BookCave.Models.InputModel;
 using BookCave.Models.ViewModels;
 using BookCave.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace BookCave.Controllers
 {
@@ -16,9 +13,11 @@ namespace BookCave.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
+
         private Task<ApplicationUser> GetCurrentUserAsync() => _userManager.GetUserAsync(HttpContext.User);
 
         private AccountServices _accountServices = new AccountServices();
+
         public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
@@ -48,7 +47,7 @@ namespace BookCave.Controllers
                 await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
                 await _signInManager.SignInAsync(user, false);
 
-                _accountServices.addNewUserToDataBase(user);               
+                _accountServices.addNewUserToDataBase(user);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -86,43 +85,52 @@ namespace BookCave.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Details(){
+
+        public async Task<IActionResult> Details()
+        {
             var user = await GetCurrentUserAsync();
 
             var userId = user?.Id;
-            if(userId == null){
+            if (userId == null)
+            {
                 return RedirectToAction("Login", "Account");
             }
             var _userInfo = _accountServices.getUserDetails(userId);
             return View(_userInfo);
         }
+
         [HttpPost]
-        public async Task<IActionResult> ChangeShippingDetails(ChangeShippingInputModel changeShipping){
-            if(ModelState.IsValid){
+        public async Task<IActionResult> ChangeShippingDetails(ChangeShippingInputModel changeShipping)
+        {
+            if (ModelState.IsValid)
+            {
                 var user = await GetCurrentUserAsync();
                 var userId = user?.Id;
-                if(userId == null){
+                if (userId == null)
+                {
                     return RedirectToAction("Login", "Account");
                 }
                 _accountServices.changeShippingInfoServ(userId, changeShipping);
-                
-            return RedirectToAction("Details" , "Account");
+
+                return RedirectToAction("Details", "Account");
             }
             return RedirectToAction("Details", "Account");
         }
-        public async Task<IActionResult> ChangeCardDetails(ChangeCardInputModel ChangeCardInfo){
-            if(ModelState.IsValid){
+
+        public async Task<IActionResult> ChangeCardDetails(ChangeCardInputModel ChangeCardInfo)
+        {
+            if (ModelState.IsValid)
+            {
                 var user = await GetCurrentUserAsync();
                 var userId = user?.Id;
-                if(userId == null){
+                if (userId == null)
+                {
                     return RedirectToAction("Login", "Account");
                 }
                 _accountServices.cahngeCardServ(userId, ChangeCardInfo);
-                
             }
 
             return RedirectToAction("Details", "Account");
         }
-
     }
 }

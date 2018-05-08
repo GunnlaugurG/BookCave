@@ -1,5 +1,3 @@
-using System;
-
 namespace BookCave.Models
 {
     public class ErrorViewModel

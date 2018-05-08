@@ -1,26 +1,25 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BookCave.Data.EntityModels;
-using BookCave.Models;
 using BookCave.Models.ViewModels;
 using BookCave.Repositories;
+using System.Collections.Generic;
 
-namespace BookCave.Services {
-    public class AuthorService {
-
+namespace BookCave.Services
+{
+    public class AuthorService
+    {
         private AuthorRepo _authorRepo;
-        public AuthorService() {
+
+        public AuthorService()
+        {
             _authorRepo = new AuthorRepo();
         }
-        public AuthorDetailsViewModel GetAuthorById(string id) {
-            
+
+        public AuthorDetailsViewModel GetAuthorById(string id)
+        {
             return _authorRepo.GetAuthorById(id);
         }
 
-        public List<AuthorListViewModel> GetAllAuthors() {
-            
+        public List<AuthorListViewModel> GetAllAuthors()
+        {
             return _authorRepo.GetAllAuthors();
         }
     }

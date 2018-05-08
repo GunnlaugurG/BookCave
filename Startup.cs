@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BookCave.Data.EntityModels;
+using BookCave.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Identity;
-using BookCave.Data;
-using BookCave.Data.EntityModels;
-using BookCave.Models;
+using System;
 
 namespace BookCave
 {
@@ -18,7 +14,6 @@ namespace BookCave
     {
         public Startup(IConfiguration configuration)
         {
-            
             Configuration = configuration;
         }
 

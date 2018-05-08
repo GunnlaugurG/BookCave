@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BookCave.Data;
+using BookCave.Data.EntityModels;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using BookCave.Data;
-using BookCave.Data.EntityModels;
+using System.Collections.Generic;
 
 namespace BookCave
 {
@@ -26,11 +20,11 @@ namespace BookCave
                 .UseStartup<Startup>()
                 .Build();
 
-        public static void SeedData() {
-
+        public static void SeedData()
+        {
             var db = new DataContext();
-            var books = new List<Book>() {
-
+            var books = new List<Book>()
+            {
             };
             db.AddRange(books);
             db.SaveChanges();

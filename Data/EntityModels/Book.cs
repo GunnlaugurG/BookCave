@@ -1,6 +1,7 @@
-namespace BookCave.Data.EntityModels{
- 
-   public class Book {
+namespace BookCave.Data.EntityModels
+{
+    public class Book
+    {
         public int Id { get; set; }
         public string title { get; set; }
         public string author { get; set; }
@@ -10,5 +11,5 @@ namespace BookCave.Data.EntityModels{
         public string description { get; set; }
         public double cost { get; set; }
         public string image { get; set; }
-    } 
+    }
 }

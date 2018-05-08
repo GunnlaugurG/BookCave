@@ -1,12 +1,9 @@
-using System.Collections.Generic;
-using BookCave.Models.ViewModels;
-
-namespace BookCave.Models.ViewModels {
-
-    public class CommentsViewModel {
-        public string Author {get; set; }
-        public string Description {get; set; }
-        public double Ratings {get; set; }
+namespace BookCave.Models.ViewModels
+{
+    public class CommentsViewModel
+    {
+        public string Author { get; set; }
+        public string Description { get; set; }
+        public double Ratings { get; set; }
     }
-
 }

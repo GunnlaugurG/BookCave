@@ -1,35 +1,38 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using BookCave.Data;
 using BookCave.Data.EntityModels;
 using BookCave.Models.ViewModels;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BookCave.Repositories
 {
     public class BookRepo
     {
         private DataContext _db;
-        public BookRepo() {
+
+        public BookRepo()
+        {
             _db = new DataContext();
         }
-        public List<BookListViewModel> GetAllBooks() {
-           var books = (from b in _db.books
-                        join a in _db.authors on b.keyAuthorId equals a.Id
-                        orderby b.title
-                        select new BookListViewModel {
-                              id = b.Id,
-                              title = b.title,
-                              author = a,
-                              rating = b.rating,
-                              image = b.image,
-                              cost = b.cost
-                        }).ToList();
+
+        public List<BookListViewModel> GetAllBooks()
+        {
+            var books = (from b in _db.books
+                         join a in _db.authors on b.keyAuthorId equals a.Id
+                         orderby b.title
+                         select new BookListViewModel
+                         {
+                             id = b.Id,
+                             title = b.title,
+                             author = a,
+                             rating = b.rating,
+                             image = b.image,
+                             cost = b.cost
+                         }).ToList();
             return books;
         }
 
-         public BookDetailsViewModel GetBookByID(int id)
+        public BookDetailsViewModel GetBookByID(int id)
         {
             var bookByID = (from b in _db.books
                             where b.Id == id
@@ -48,7 +51,7 @@ namespace BookCave.Repositories
             return bookByID;
         }
 
-         public List<BookListViewModel> GetBooksByGenre(string genre)
+        public List<BookListViewModel> GetBooksByGenre(string genre)
         {
             // Flokkar bækur eftir tegund fyrir "Flokka eftir tegund" dropdown listann í navbar
             var sortBy = (from b in _db.books
@@ -69,26 +72,26 @@ namespace BookCave.Repositories
 
         public List<BookListViewModel> GetTopBooks(select value, int count)
         {
-            if(value == select.topPrice)
+            if (value == select.topPrice)
             {
                 var topPrice = (from b in _db.books
-                                 orderby b.cost descending
-                                 join a in _db.authors on b.author equals a.authorName
-                                 select new BookListViewModel
-                                 {
-                                     id = b.Id,
-                                     title = b.title,
-                                     author = a,
-                                     rating = b.rating,
-                                     image = b.image,
-                                     cost = b.cost
-                                 }).Take(count).ToList();
+                                orderby b.cost descending
+                                join a in _db.authors on b.author equals a.authorName
+                                select new BookListViewModel
+                                {
+                                    id = b.Id,
+                                    title = b.title,
+                                    author = a,
+                                    rating = b.rating,
+                                    image = b.image,
+                                    cost = b.cost
+                                }).Take(count).ToList();
                 return topPrice;
-            } 
+            }
             else if (value == select.bottomPrice)
             {
                 var bottomPrice = (from b in _db.books
-                                   orderby b.cost 
+                                   orderby b.cost
                                    join a in _db.authors on b.author equals a.authorName
                                    select new BookListViewModel
                                    {
@@ -117,10 +120,9 @@ namespace BookCave.Repositories
                                }).Take(count).ToList();
                 return topName;
             }
-            
-            else if( value == select.topRating)
+            else if (value == select.topRating)
             {
-             var topRating = (from b in _db.books
+                var topRating = (from b in _db.books
                                  orderby b.rating descending
                                  join a in _db.authors on b.author equals a.authorName
                                  select new BookListViewModel
@@ -133,41 +135,45 @@ namespace BookCave.Repositories
                                      cost = b.cost
                                  }).Take(count).ToList();
                 return topRating;
-            } 
-            else{
+            }
+            else
+            {
                 //skila auðum lista ef ekkert er valið
                 return new List<BookListViewModel>();
             }
-
         }
 
+        public List<BookListViewModel> GetSearchedResults(string search)
+        {
+            var searchedResults = (from b in _db.books
 
-        public List<BookListViewModel> GetSearchedResults(string search) {
-                var searchedResults = (from b in _db.books
-
-                            where b.author.ToLower().Contains(search.ToLower())||
-                            b.title.ToLower().Contains(search.ToLower()) || 
-                            b.genre.ToLower().Contains(search.ToLower())
-                            join a in _db.authors on b.author equals a.authorName
-                            select new BookListViewModel
-                            {
-                                id = b.Id,
-                                title = b.title,
-                                author = a,
-                                rating = b.rating,
-                                image = b.image,
-                                cost = b.cost}).ToList();        
-                                return searchedResults;
+                                   where b.author.ToLower().Contains(search.ToLower()) ||
+                                   b.title.ToLower().Contains(search.ToLower()) ||
+                                   b.genre.ToLower().Contains(search.ToLower())
+                                   join a in _db.authors on b.author equals a.authorName
+                                   select new BookListViewModel
+                                   {
+                                       id = b.Id,
+                                       title = b.title,
+                                       author = a,
+                                       rating = b.rating,
+                                       image = b.image,
+                                       cost = b.cost
+                                   }).ToList();
+            return searchedResults;
         }
-        public void UpdateABook( Book book ){
+
+        public void UpdateABook(Book book)
+        {
             // hér þarf að updeita book
         }
+
         //Ná í bók fyrir Account (GULLI)
-        public Book getFavoriteBook(){
-                var books = (from b in _db.books 
-                            select b).First();
+        public Book getFavoriteBook()
+        {
+            var books = (from b in _db.books
+                         select b).First();
             return books;
         }
-
     }
 }
