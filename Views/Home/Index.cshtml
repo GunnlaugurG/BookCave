@@ -2,7 +2,7 @@
 
 <div class="Container">
     <div class="row">
-        <h2>Top rated books</h2>
+        <h2>Most popular books</h2>
     </div>
     <div class="row">
         @for (var i = 0; i < 4; i++)
@@ -18,13 +18,13 @@
                         <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
                         <div class="divider"></div>
                         <p>Author: <a asp-controller="author" asp-action="details" asp-route-Id="@Model[i].author.Id">@Model[i].author.authorName</a></p>
-                        @for (var j = 0; j < @Model[j].rating; j++)
-                        {
-                            <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
+                        @for(var j = 0; j < @Model[j].rating-1; j++) {
+                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                         }
-                        @if (@Model[i].rating % 2 != 0)
-                        {
-                            <img src="~/Images/halfStar.png" alt="rating" style="width:20px; height:20px;">
+                        @if(@Model[j].rating % 2 != 0) {
+                            <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+                        } else {
+                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                         }
                         <p>Price: @Model[i].cost $</p>
                     </div>
@@ -43,7 +43,7 @@
     </div>
     <div class="container">
     <div class="row">
-        <h2>Cheap books</h2>
+        <h2>Bang for your buck</h2>
     </div>
     <div class="row">
         @for (var i = 4; i < 8; i++)
@@ -59,13 +59,13 @@
                         <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
                         <div class="divider"></div>
                         <p>Author: <a asp-controller="author" asp-action="details" asp-route-Id="@Model[i].author.Id">@Model[i].author.authorName</a></p>
-                        @for (var j = 0; j < @Model[j].rating; j++)
-                        {
-                            <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
+                        @for(var i = 0; i < @Model.rating-1; i++) {
+                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                         }
-                        @if (@Model[i].rating % 2 != 0)
-                        {
-                            <img src="~/Images/halfStar.png" alt="rating" style="width:20px; height:20px;">
+                        @if(@Model.rating % 2 != 0) {
+                            <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+                        } else {
+                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                         }
                         <p><bold>Price:</bold> @Model[i].cost $</p>
                     </div>

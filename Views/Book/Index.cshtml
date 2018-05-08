@@ -29,19 +29,16 @@
                             <a asp-controller="book" asp-action="details" asp-route-Id="@book.id" class="card-text">@book.title</a>
                             <div class="divider"></div>
                             <a asp-action="details" asp-controller="author" asp-route-id="@book.author.Id"><p>@book.author.authorName</p></a>
-                            @for (var i = 0; i < @book.rating - 1; i++)
-                            {
+                            <p>@book.rating</p>
+                            @for(int i = 0; i < @book.rating-1; i++) {
                                 <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                             }
-                            @if (@book.rating % 2 != 0)
-                            {
+                            @if(@book.rating % 1 != 0) {
                                 <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
-                            }
-                            else
-                            {
+                            } else {
                                 <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                             }
-                            <p>Price: @book.cost $</p>
+                                <p>Price: @book.cost $</p>
                         </div>
                     </div>
                     <div class="row">
