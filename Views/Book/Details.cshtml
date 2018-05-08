@@ -75,10 +75,18 @@
     </div>
     <div class="row">
         <div class="col-sm-12 col-lg-12" style="background-color: aquamarine; height: 150px; margin-top: 20px">
-           @foreach( var book in Model.comments ){
-               <p> @book.Description </p>
+           
+           @foreach(var book in Model.comments ){
+               <p>Stebbi blö<br/>
+                  @for(int i = 0; i < @book.Ratings-1; i++) {
+                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+                        }
+                        @if(@book.Ratings % 2 != 0) {
+                            <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+                        } <br>
+                @book.Description <br/> <br>
+            </p>
            }
-            <h1>Hér kemur review stebbi</h1>
         </div>
     </div>
 </div>
