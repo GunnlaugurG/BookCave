@@ -142,7 +142,7 @@ namespace BookCave.Controllers
             else{
                 var newModel =  new DisplayCartItemViewModel();
                 newModel = _accountServices.getBookName(Id);
-                _accountServices.AddToCart(Id, userId);
+                bool added = _accountServices.AddToCart(Id, userId);
                 return RedirectToAction("Details", "Book" , new {id = Id});
             }
             
