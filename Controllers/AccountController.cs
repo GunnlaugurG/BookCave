@@ -143,9 +143,8 @@ namespace BookCave.Controllers
                 var newModel =  new DisplayCartItemViewModel();
                 newModel = _accountServices.getBookName(Id);
                 bool added = _accountServices.AddToCart(Id, userId);
-                return RedirectToAction("Details", "Book" , new {id = Id});
+                return Ok();
             }
-            
         }
         public async Task<IActionResult> Cart(){
             var user = await GetCurrentUserAsync();

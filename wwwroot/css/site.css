@@ -232,12 +232,18 @@ form.example input[type=text] {
     width: 80%;
     background: #f1f1f1;
 }
+.content-styling-h {
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+
+.book-styling-layout {
+    padding-left:4%;
+}
 .home-logo {
-    /*text-decoration: none;
-    font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+    text-decoration: none;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
     color: black;
-  */
-  position: center;
+    position: center;
 }
 .home-logo:hover {
     text-decoration: none;
@@ -258,21 +264,6 @@ form.example input[type=text] {
     .carousel-caption {
         display: none;
     }
-    @media screen and (max-width: 767px) {
-            .center-books{
-                padding-left: 35% !important;
-            }
-        }
-        @media screen and (max-width: 500px) {
-            .center-books{
-                padding-left: 25% !important;
-            }
-        }
-        @media screen and (max-width: 350px) {
-            .center-books{
-                padding-left: 15% !important;
-            }
-        }
     .search-wrapper{
          position: relative;
          margin-right: 20%;

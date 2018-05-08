@@ -19,11 +19,16 @@ namespace BookCave.Repositories
         {
             var authors = (from a in _db.authors
                            orderby a.authorName
-                           select new AuthorListViewModel
-                           {
+                           select new AuthorListViewModel {
                                Id = a.Id,
                                authorName = a.authorName,
                            }).ToList();
+            for(int i = 0; i < authors.Count; i++) {
+                authors[i].mostPopularBook = (from b in _db.books
+                            where b.keyAuthorId == authors[i].Id
+                            orderby b.copiesSold descending
+                            select b).First();
+            }
             return authors;
         }
 

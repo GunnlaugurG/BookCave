@@ -1,86 +1,106 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
 
-<div class="Container">
+<div class="container">
     <div class="row">
-        <h2>Most popular books</h2>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <h1 class="content-styling-h">Top rated books</h1>
+            <hr />
+        </div>
     </div>
+    </div>
+    <div class="container book-styling-layout">
+        <div class="row">
+            @for (var i = 0; i < 4; i++)
+            {
+                <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12">
+                            <a asp-action="Details" asp-controller="Book" asp-route-Id="@Model[i].id"><img src="@Model[i].image" alt="bookCover" class="card-img-top Thumb-nail-image"></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="book-info" class="col-lg-12 col-sm-12">
+                            <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
+                            <div class="divider"></div>
+                            <p>Author: <a asp-controller="author" asp-action="details" asp-route-Id="@Model[i].author.Id">@Model[i].author.authorName</a></p>
+                            @for (int j = 0; j < @Model[i].rating - 1; j++)
+                            {
+                                <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+                            }
+                            @if (@Model[i].rating % 2 != 0)
+                            {
+                                <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+                            }
+                            else
+                            {
+                                <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+                            }
+                            <p>Price: @Model[i].cost $</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
+                            <a class="btn btn-default center-block" href="#">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-4 spacing">
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <hr />
+
     <div class="row">
-        @for (var i = 0; i < 4; i++)
-        {
-            <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
-                <div class="row">
-                    <div class="col-lg-12 col-sm-12">
-                        <a asp-action="Details" asp-controller="Book" asp-route-Id="@Model[i].id"><img src="@Model[i].image" alt="bookCover" class="card-img-top Thumb-nail-image"></a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div id="book-info" class="col-lg-12 col-sm-12">
-                        <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
-                        <div class="divider"></div>
-                        <p>Author: <a asp-controller="author" asp-action="details" asp-route-Id="@Model[i].author.Id">@Model[i].author.authorName</a></p>
-                        @for(int j = 0; j < @Model[i].rating-1; j++) {
-                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
-                        }
-                        @if(@Model[i].rating % 2 != 0) {
-                            <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
-                        } else {
-                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
-                        }
-                        <p>Price: @Model[i].cost $</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
-                        <a class="btn btn-default center-block" href="#">Add to cart</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-sm-4 spacing">
-                    </div>
-                </div>
-            </div>
-        }
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <h1 class="content-styling-h">Bang for your buck</h1>
+            <hr />
+        </div>
     </div>
-    <div class="container">
-    <div class="row">
-        <h2>Bang for your buck</h2>
-    </div>
-    <div class="row">
-        @for (var i = 4; i < 8; i++)
-        {
-            <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
-                <div class="row">
-                    <div class="col-lg-12 col-sm-12">
-                        <a asp-action="Details" asp-controller="Book" asp-route-Id="@Model[i].id"><img src="@Model[i].image" alt="bookCover" class="card-img-top Thumb-nail-image"></a>
+    <div class="container book-styling-layout">
+        <div class="row">
+            @for (var i = 4; i < 8; i++)
+            {
+                <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12">
+                            <a asp-action="Details" asp-controller="Book" asp-route-Id="@Model[i].id"><img src="@Model[i].image" alt="bookCover" class="card-img-top Thumb-nail-image"></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="book-info" class="col-lg-12 col-sm-12">
+                            <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
+                            <div class="divider"></div>
+                            <p>Author: <a asp-controller="author" asp-action="details" asp-route-Id="@Model[i].author.Id">@Model[i].author.authorName</a></p>
+                            @for (int j = 0; j < @Model[i].rating - 1; j++)
+                            {
+                                <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+                            }
+                            @if (@Model[i].rating % 2 != 0)
+                            {
+                                <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+                            }
+                            else
+                            {
+                                <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+                            }
+                            <p><bold>Price:</bold> @Model[i].cost $</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
+                            <a class="btn btn-default center-block" href="#">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-4 spacing">
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div id="book-info" class="col-lg-12 col-sm-12">
-                        <a asp-controller="book" asp-action="details" asp-route-Id="@Model[i].id" class="card-text">@Model[i].title</a>
-                        <div class="divider"></div>
-                        <p>Author: <a asp-controller="author" asp-action="details" asp-route-Id="@Model[i].author.Id">@Model[i].author.authorName</a></p>
-                        @for(int j = 0; j < @Model[i].rating-1; j++) {
-                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
-                        }
-                        @if(@Model[i].rating % 2 != 0) {
-                            <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
-                        } else {
-                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
-                        }
-                        <p><bold>Price:</bold> @Model[i].cost $</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
-                        <a class="btn btn-default center-block" href="#">Add to cart</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-sm-4 spacing">
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
+            }
+        </div>
     </div>
 </div>
