@@ -1,42 +1,51 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
-<h1>@ViewBag.genre</h1>
-<div class="container-fluid">
-
-    <div class="row ">
-        @foreach (var book in Model) {
-            <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
-                <div class="row">
-                    <div class="col-lg-12 col-sm-12">
-                        <a asp-controller="book" asp-action="details" asp-route-id="@book.id"><img class="Thumb-nail-image" src="@book.image" alt="book-cover" /></a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div id="book-info" class="col-lg-12 col-sm-12">
-                        <a asp-controller="book" asp-action="details" asp-route-Id="@book.id" class="card-text">@book.title</a>
-                        <div class="divider"></div>
-                        <a asp-action="details" asp-controller="author" asp-route-id="@book.author.Id"><p>@book.author.authorName</p></a>
-                        @for(int i = 0; i < @book.rating-1; i++) {
-                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
-                        }
-                        @if(@book.rating % 1 != 0) {
-                            <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
-                        } else {
-                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
-                        }
-                        <p>Price: @book.cost $</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
-                        <a class="btn btn-default center-block" href="#">Add to cart</a>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 col-sm-4 spacing">
-                    </div>
-                </div>
-            </div>
-}
-        <br />
+<div class="container">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <h1 class="content-styling-h">@ViewBag.genre</h1>
+        <hr />
+        </div>
     </div>
+    <div class="container book-styling-layout">
+        <div class="row">
+            @foreach (var book in Model)
+            {
+                <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12">
+                            <a asp-controller="book" asp-action="details" asp-route-id="@book.id"><img class="Thumb-nail-image" src="@book.image" alt="book-cover" /></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div id="book-info" class="col-lg-12 col-sm-12">
+                            <a asp-controller="book" asp-action="details" asp-route-Id="@book.id" class="card-text">@book.title</a>
+                            <div class="divider"></div>
+                            <a asp-action="details" asp-controller="author" asp-route-id="@book.author.Id"><p>@book.author.authorName</p></a>
+                            @for (int i = 0; i < @book.rating - 1; i++)
+                            {
+                                <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+                            }
+                            @if (@book.rating % 1 != 0)
+                            {
+                                <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+                            }
+                            else
+                            {
+                                <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+                            }
+                            <p>Price: @book.cost $</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
+                            <a class="btn btn-default center-block" href="#">Add to cart</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-sm-4 spacing">
+                        </div>
+                    </div>
+                </div>
+            }
+            <br />
+        </div>
     </div>

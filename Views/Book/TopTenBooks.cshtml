@@ -1,14 +1,14 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
 
-<div class="container-fluid">
+<div class="container">
     <div class="row">
-        <div class="col-lg-9 col-md-8 col-sm-6">
-            <h1>Top books</h1>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <h1 class="content-styling-h">From the top shelf</h1>
+            <hr />
             </div>
         </div>
     </div>
-</div>
-<div class="container-fluid">
+<div  class="container book-styling-layout">
     <div id="book-list" class="row ">
         @foreach (var book in Model) {
             <div id="settings" class="col-lg-3 col-sm-6 col-md-4">

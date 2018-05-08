@@ -1,5 +1,5 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
-<div class="container-fluid">
+<div class="container">
     <div class="row">
         <div class="col-lg-9 col-md-8 col-sm-6">
         </div>
@@ -11,10 +11,11 @@
                     <option value="name"><a asp-action="TopTenBooks" asp-controller="Book" asp-route-value="name">Sort by Name</a></option>
                 </select>
             </form>
-            </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <hr />
+</div>
+    <div class="container book-styling-layout">
         <div class="row ">
             @foreach (var book in Model)
             {
