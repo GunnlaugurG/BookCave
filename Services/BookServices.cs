@@ -60,11 +60,11 @@ namespace BookCave.Services
             }
             double newRating = sumOfAllReview / (reviewForBook.Count + 1);
 
-            Review newReview = new Review
+            ReviewTwo newReview = new ReviewTwo
             {
                 reviewBookId = inputFromUser.bookId,
                 Ratings = inputFromUser.Ratings,
-                Description = inputFromUser.Description
+                Description = inputFromUser.Description,
             };
             _reviewRepo.SetReview(newReview);
 
