@@ -316,11 +316,16 @@
         <h2>Kortaupplýsingar</h2>
         <p>Nafn korthafa: @Model.cardholderName</p>
         <p>Kortanúmer: 
-            @for(var i = 0; i < 16; i++) {
-                if(i % 4 == 0 && i != 0) {
-                    <span>-</span>
+            @if(@Model.cardNumber == null){
+                <p>Model.cardnumber </p>
+            }
+            else{
+                @for(var i = 0; i < 16; i++) {
+                    if(i % 4 == 0 && i != 0) {
+                        <span>-</span>
+                    }
+                    @Model.cardNumber[i]
                 }
-                @Model.cardNumber[i]
             }
             </p>
         <button class="btn btn-default" data-toggle="modal" data-target="#anotherModal">Breyta kortaupplýsingum</button>
@@ -338,6 +343,7 @@
             <form asp-controller="Account" asp-action="ChangeCardDetails" method="POST">
                 <label asp-for="cardholderName">Cardholders name</label>
                 <input type="text" asp-for="cardholderName" class="form-control" placeholder="Cardholders name..">
+                <span asp-validation-for="cardholderName"></span><br>
                 <label asp-for="cardNumber">Card number</label>
                 <input type="text" asp-for="cardNumber" class="form-control" placeholder="Card number..">
                 <label asp-for="cvc">CVC</label>
