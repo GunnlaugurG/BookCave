@@ -21,7 +21,7 @@ namespace BookCave.Repositories
         public string getUserName( string userId){
             var UserName = (from a in _db.userAccounts
                         where a.aspUserId == userId
-                        select a.userName ).FirstOrDefault();
+                        select a.userName).FirstOrDefault();
             return UserName;
         }
         public List<BookListViewModel> GetAllBooks()
@@ -57,7 +57,6 @@ namespace BookCave.Repositories
                                 price = b.cost,
                                 rating = b.rating,
                                 comments = _reviewRepo.GetReviewViewModelByBookId(id)
-                            
                             }).SingleOrDefault();
             return bookByID;
         }
