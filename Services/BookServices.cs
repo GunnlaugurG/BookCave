@@ -19,10 +19,13 @@ namespace BookCave.Services
         private BookRepo _bookRepo;
         private ReviewRepo _reviewRepo;
 
+        private AccountRepo _accountRepo;
         public BookServices()
         {
             _reviewRepo = new ReviewRepo();
             _bookRepo = new BookRepo();
+            _accountRepo = new AccountRepo();
+            
         }
 
         public List<BookListViewModel> GetSearchedResults(string search)
@@ -50,8 +53,9 @@ namespace BookCave.Services
             return _bookRepo.GetAllBooks();
         }
 
-        public void SetBookReview(ReviewInputModel inputFromUser)
+        public void SetBookReview(ReviewInputModel inputFromUser, string user)
         {
+
             var reviewForBook = _reviewRepo.GetReviewByBookId(inputFromUser.bookId);
             double sumOfAllReview = inputFromUser.Ratings;
             for (int i = 0; i < reviewForBook.Count; i++)
@@ -65,6 +69,7 @@ namespace BookCave.Services
                 reviewBookId = inputFromUser.bookId,
                 Ratings = inputFromUser.Ratings,
                 Description = inputFromUser.Description,
+                reviewFromUserName = _bookRepo.getUserName( user )
             };
             _reviewRepo.SetReview(newReview);
 
