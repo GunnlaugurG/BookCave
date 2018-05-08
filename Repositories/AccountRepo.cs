@@ -2,6 +2,7 @@
 using BookCave.Data.EntityModels;
 using BookCave.Models.InputModel;
 using BookCave.Models.ViewModels;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BookCave.Repositories
@@ -173,6 +174,33 @@ namespace BookCave.Repositories
                 addCartItemToDatabase(addCartItem);
                 _db.SaveChanges();
             }
+        }
+        public DisplayCartViewModel getCartViewModelRepo(string userId){
+            var cartId = (from a in _db.carts
+                            where a.cartForUserId == userId && a.orderComplete == false
+                            select a.Id).FirstOrDefault();
+
+            var newModel = new DisplayCartViewModel();
+            newModel.booksList = new List<BookInCartListViewModel>();
+            newModel.totalCost = (from a in _db.carts
+                                    where a.cartForUserId == userId && a.orderComplete == false
+                                    select  a.totalCost).FirstOrDefault();
+
+            var listOfBookId = (from a in _db.cartItems
+                                    where a.keyCartId == cartId
+                                    select a.bookForCartItem).ToList();
+
+            for(int i = 0; i < listOfBookId.Count; i++){
+                newModel.booksList.Add((from a in _db.books
+                            where a.Id == listOfBookId[i]
+                            select new BookInCartListViewModel{
+                                id = a.Id,
+                                title = a.title,
+                                cost = a.cost,
+                                image = a.image
+                            }).FirstOrDefault());
+            }
+            return newModel;
         }
     }
 }
