@@ -132,5 +132,30 @@ namespace BookCave.Controllers
 
             return RedirectToAction("Details", "Account");
         }
+        
+        public async Task<IActionResult> AddToCart(int id){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            else{
+                var newModel =  new DisplayCartItemViewModel();
+                newModel = _accountServices.getBookName(id);
+                return RedirectToAction("Details", "Book" , new {id = id});
+            }
+            
+        }
+        public async Task<IActionResult> AddItemToCart(AddToCartInputModel newItem){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            else{
+                
+            }
+            return View();
+        }
     }
 }

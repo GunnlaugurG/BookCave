@@ -9,9 +9,11 @@ namespace BookCave.Repositories
     public class BookRepo
     {
         private DataContext _db;
+        private ReviewRepo _reviewRepo;
 
         public BookRepo()
         {
+            _reviewRepo = new ReviewRepo();
             _db = new DataContext();
         }
 
@@ -28,6 +30,7 @@ namespace BookCave.Repositories
                              rating = b.rating,
                              image = b.image,
                              cost = b.cost
+
                          }).ToList();
             return books;
         }
@@ -45,9 +48,10 @@ namespace BookCave.Repositories
                                 description = b.description,
                                 image = b.image,
                                 price = b.cost,
-                                rating = b.rating
+                                rating = b.rating,
+                                comments = _reviewRepo.GetReviewViewModelByBookId(id)
+                            
                             }).SingleOrDefault();
-            /// Þarf að filla inn Comments lika
             return bookByID;
         }
 
