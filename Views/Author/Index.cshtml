@@ -8,6 +8,7 @@
         <a asp-action="details" asp-controller="author" asp-route-id="@author.Id">@author.authorName</a> <br>
       </td>
       <td>
+      <a asp-controller="book" asp-action="details" asp-route-id="@author.mostPopularBook.Id">@author.mostPopularBook.title</a>
       </td>
     </tr>
 }
