@@ -48,6 +48,16 @@ $("#sort-by").change(function(){
     })
 });
 
+
+//Fyrir review síðuna
+$('#review-form').addClass("hidden");
+
+$('#write-review').click(function(){
+  $('#review-form').removeClass("hidden");
+})
+
+
+
 $(function() {
     // Setup drop down menu
     $('.dropdown-toggle').dropdown();

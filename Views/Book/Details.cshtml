@@ -38,6 +38,7 @@
              </div>
              <div class="row">
             <div class="col-sm-12 col-lg-12 three-buttons">
+            <a id="write-review" class="btn btn-warning center-block" >Write review</a>
              <a asp-controller="book" asp-action="review" asp-route-Id=@Model.id class="btn btn-primary center-block" >Skrifa ummæli</a>
 
             <a  class="btn btn-warning center-block">Setja á óskalista</a>
@@ -46,6 +47,30 @@
             </div>
             </div>
                     </div>
+    </div>
+    <div class="row" id="review-form">
+        <div>
+            <p>Write a review</p>
+            <textarea row="10" cols="70">
+            </textarea>
+        </div>
+        <div>
+         <p>Grade</p>
+         <select>
+            <option value="5">5.0</option>
+            <option value="4.5">4.5</option>
+            <option value="4.0">4.0</option>
+            <option value="3.5">3.5</option>
+            <option value="3">3.0</option>
+            <option value="2.5">2.5</option>
+            <option value="2">2.0</option>
+            <option value="1.5">1.5</option>
+            <option value="1">1.0</option>
+            <option value="0.5">0.5</option>
+            <option value="0.0">0.0</option>
+        </select>
+        <button class="btn  btn-default">write</button>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-12 col-lg-12" style="background-color: aquamarine; height: 150px; margin-top: 20px">
