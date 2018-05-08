@@ -80,6 +80,40 @@ namespace BookCave.Migrations
                     b.ToTable("cardInfo");
                 });
 
+            modelBuilder.Entity("BookCave.Data.EntityModels.Cart", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("cartForUserId");
+
+                    b.Property<int>("quantityInCart");
+
+                    b.Property<double>("totalCost");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("carts");
+                });
+
+            modelBuilder.Entity("BookCave.Data.EntityModels.CartItem", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("bookForCartItem");
+
+                    b.Property<int>("bookQuantity");
+
+                    b.Property<double>("itemCost");
+
+                    b.Property<string>("keyCartId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("cartItems");
+                });
+
             modelBuilder.Entity("BookCave.Data.EntityModels.Review", b =>
                 {
                     b.Property<int>("Id")
@@ -96,6 +130,24 @@ namespace BookCave.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Reviews");
+                });
+
+            modelBuilder.Entity("BookCave.Data.EntityModels.ReviewTwo", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("Ratings");
+
+                    b.Property<int>("reviewBookId");
+
+                    b.Property<string>("reviewFromUserName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("reviewTwo");
                 });
 
             modelBuilder.Entity("BookCave.Data.EntityModels.ShippingInfo", b =>
@@ -140,6 +192,20 @@ namespace BookCave.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("userAccounts");
+                });
+
+            modelBuilder.Entity("BookCave.Data.EntityModels.WishList", b =>
+                {
+                    b.Property<string>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("aspUserforWishList");
+
+                    b.Property<int>("bookForWishListId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("wishLists");
                 });
 #pragma warning restore 612, 618
         }
