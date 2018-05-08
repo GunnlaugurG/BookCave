@@ -137,7 +137,7 @@ namespace BookCave.Repositories
             newModel.bookId = bookId;
         return newModel;
         }
-        public void AddToCartRepo(int thisBookId, string userId){
+        public bool AddToCartRepo(int thisBookId, string userId){
             var userCart = (from c in _db.carts
                             where c.cartForUserId == userId && c.orderComplete == false
                             select c).FirstOrDefault();
@@ -161,8 +161,12 @@ namespace BookCave.Repositories
                     bookForCartItem = getBook.Id
                 };
                 addCartItemToDatabase(newCartItem);
+                return true;
             }
             else{
+                if(checkIfBookIsInCart(thisBookId, userCart.Id) == false){
+                    return false;
+                }
                 userCart.quantityInCart += 1;
                 userCart.totalCost += getBook.cost;
                 CartItem addCartItem = new CartItem{
@@ -173,6 +177,7 @@ namespace BookCave.Repositories
                 };
                 addCartItemToDatabase(addCartItem);
                 _db.SaveChanges();
+                return true;
             }
         }
         public DisplayCartViewModel getCartViewModelRepo(string userId){
@@ -181,26 +186,36 @@ namespace BookCave.Repositories
                             select a.Id).FirstOrDefault();
 
             var newModel = new DisplayCartViewModel();
+
             newModel.booksList = new List<BookInCartListViewModel>();
             newModel.totalCost = (from a in _db.carts
                                     where a.cartForUserId == userId && a.orderComplete == false
                                     select  a.totalCost).FirstOrDefault();
 
             var listOfBookId = (from a in _db.cartItems
-                                    where a.keyCartId == cartId
-                                    select a.bookForCartItem).ToList();
+                                where a.keyCartId == cartId
+                                select a.bookForCartItem).ToList();
 
             for(int i = 0; i < listOfBookId.Count; i++){
                 newModel.booksList.Add((from a in _db.books
-                            where a.Id == listOfBookId[i]
-                            select new BookInCartListViewModel{
-                                id = a.Id,
-                                title = a.title,
-                                cost = a.cost,
-                                image = a.image
-                            }).FirstOrDefault());
+                                        where a.Id == listOfBookId[i]
+                                        select new BookInCartListViewModel{
+                                            id = a.Id,
+                                            title = a.title,
+                                            cost = a.cost,
+                                            image = a.image
+                                        }).FirstOrDefault());                    
             }
             return newModel;
+        }
+        public bool checkIfBookIsInCart(int bookId, string userCart){
+            var cehckDb = (from a in _db.cartItems
+                            where a.keyCartId == userCart && a.bookForCartItem == bookId
+                            select a).FirstOrDefault();
+            if(cehckDb == null){
+                return true;
+            }
+            return false;
         }
     }
 }

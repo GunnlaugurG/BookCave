@@ -81,3 +81,13 @@ $(function() {
       e.stopPropagation();
     });
   });
+//Geyma
+/*
+  $("#SubmitShipping").click(function(event){
+    event.preventDefault();
+    $.post('/Account/ChangeShippingDetails', $('firstForm').serialize(), function(data) {
+        alert("Yes");
+    }).fail(function(data) {
+        alert("hi");
+    })
+  });*/
