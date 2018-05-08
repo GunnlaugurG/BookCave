@@ -55,7 +55,19 @@ $('#review-form').addClass("hidden");
 $('#write-review').click(function(){
   $('#review-form').removeClass("hidden");
 })
-
+$('#submit').click(function(){
+  var description = $('#description').val();
+  var ratings = $('#ratings').val();
+  var bookId = $('#book-id').text();
+  $.post('review',
+  {
+    bookId: bookId,
+    Description: description,
+    Ratings: ratings
+  }, function(data, status){
+    console.log(data + status);
+  })
+})
 
 
 $(function() {

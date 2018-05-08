@@ -92,7 +92,6 @@ namespace BookCave.Controllers
             _bookService.SetBookReview( input );
             return RedirectToAction("Index");
         }
-
         public IActionResult Search(string searchedWord)
         {
             if (searchedWord == null)
