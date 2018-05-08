@@ -72,16 +72,16 @@ $('#submit').click(function(){
   })
 });
 
-
-$(function() {
+/// veit ekki hvað þetta er enn þetta kastar villu
+//$(function() {
     // Setup drop down menu
-    $('.dropdown-toggle').dropdown();
+  //  $('.dropdown-toggle').dropdown();
 
     // Fix input element click problem
-    $('.dropdown input, .dropdown label').click(function(e) {
-      e.stopPropagation();
-    });
-  });
+//    $('.dropdown input, .dropdown label').click(function(e) {
+  //    e.stopPropagation();
+  //  });
+//  });
 //Geyma
 /*
   $("#SubmitShipping").click(function(event){
