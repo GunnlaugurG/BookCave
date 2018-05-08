@@ -20,7 +20,18 @@ html{
     height:20px;
     width:20px;
 }
-.text-nav-content:active{
+.user-styling {
+    padding:20px;
+}
+.modal-content-styling {
+    margin-bottom: 10px !important;
+    width: 80% !important;
+} 
+.cvc-styling {
+    width:15%;
+    margin-bottom:10px;
+}
+.text-nav-content:active {
     border: none !important;
     outline: none !important;
     color: black !important;
