@@ -21,7 +21,7 @@ namespace BookCave.Repositories
         public string getUserName( string userId){
             var UserName = (from a in _db.userAccounts
                         where a.aspUserId == userId
-                        select a. ).FirstOrDefault();
+                        select a.userName ).FirstOrDefault();
             return UserName;
         }
         public List<BookListViewModel> GetAllBooks()
