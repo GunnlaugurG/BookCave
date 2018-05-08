@@ -16,16 +16,16 @@ namespace BookCave.Repositories
 
         public List<Review> GetReviewByBookId(int bookId)
         {
-          //  var ReviewByBookId = (from r in _db.reviews
-          //                        where r.reviewBookId == bookId
-          //                        select r).ToList();
-        return null;
-//            return ReviewByBookId;
+            var ReviewByBookId = (from r in _db.Reviews
+                                  where r.reviewBookId == bookId
+                                  select r).ToList();
+
+            return ReviewByBookId;
         }
 
         public void SetReview(Review review)
         {
-            _db.Add(review);
+            // Hér skrifa ég review i gagnagrunn
         }
     }
 }

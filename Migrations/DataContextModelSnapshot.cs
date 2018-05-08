@@ -95,7 +95,7 @@ namespace BookCave.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Review");
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("BookCave.Data.EntityModels.ShippingInfo", b =>
