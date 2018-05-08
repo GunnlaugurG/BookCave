@@ -292,7 +292,14 @@ form.example input[type=text] {
     top: 0;
     z-index: 1;
 }
-
+.review-area {
+    resize:none;
+    width:100%;
+}
+.review-layout {
+}
+.review-box {
+}
 #logout-btn {
     width: 200px;
     padding-top:5px !important;

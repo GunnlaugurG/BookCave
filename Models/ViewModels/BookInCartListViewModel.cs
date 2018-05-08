@@ -8,5 +8,6 @@ namespace BookCave.Models.ViewModels
         public string title { get; set; }
         public double cost { get; set; }
         public string image {get; set;}
+        public int quantity {get; set;}
     }
 }

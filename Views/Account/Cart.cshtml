@@ -5,12 +5,14 @@
   <thead>
         <tr>
             <th scope="col">BookName</th>
+            <th scope="col">Quantity</th>
             <th scope="col">Price</th>
         </tr>
       @foreach(var book in Model.booksList)
         {
         <tr>
             <td><a asp-controller="Book" asp-action="details" asp-route-id="@book.id"> @book.title</a></td>
+            <td>@book.quantity</td>
             <td>@book.cost</td>
         </tr>
         }
