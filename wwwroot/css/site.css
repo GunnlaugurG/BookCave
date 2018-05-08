@@ -141,8 +141,8 @@ header {
     border-top: 1px solid #b6b0b0;
     
 }
-.navbar-toggle.collapsed{
-    background: #b6b0b0;
+.navbar-toggle.collapsed {
+    background: lightgray;
 }
 .navbar-toggle{
     background: #b6b0b0;
@@ -267,12 +267,23 @@ form.example input[type=text] {
 .navigation-Bar {
     position: sticky;
     top: 0;
-    z-index: 1;
-    
+    z-index: 1; 
 }
-    /* When the input field gets focus, change its width to 100% */
+
+#logout-btn {
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: -5px;
+    bottom: 0;
+    background: #e8e8e8;
+    border-color: #e8e8e8;
+}
+    #logout-btn:not(.nohover):hover {
+        border-color: #e8e8e8;
+    }
+/* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
-        width: 100%;
+    width: 100%;
 }
  .sort-by-button {
    width: 200px;
