@@ -75,6 +75,9 @@
     </div>
     <div class="row">
         <div class="col-sm-12 col-lg-12" style="background-color: aquamarine; height: 150px; margin-top: 20px">
+           @foreach( var book in Model.comments ){
+               <p> @book.Description </p>
+           }
             <h1>Hér kemur review stebbi</h1>
         </div>
     </div>
