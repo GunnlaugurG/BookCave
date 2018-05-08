@@ -72,6 +72,11 @@ $('#submit').click(function(){
   })
 });
 
+$("#back-to-top").click(function () {
+  
+  $("html, body").animate({scrollTop: 0}, 500);
+});
+
 /// veit ekki hvað þetta er enn þetta kastar villu
 //$(function() {
     // Setup drop down menu
