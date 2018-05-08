@@ -60,7 +60,12 @@ namespace BookCave.Repositories
                             }).SingleOrDefault();
             return bookByID;
         }
-
+        public Book getBookEntityModel(int id ){
+            var bookByID = (from b in _db.books
+                            where b.Id == id
+                            select b).SingleOrDefault();
+            return bookByID;
+        }
         public List<BookListViewModel> GetBooksByGenre(string genre)
         {
             // Flokkar bækur eftir tegund fyrir "Flokka eftir tegund" dropdown listann í navbar
@@ -82,37 +87,40 @@ namespace BookCave.Repositories
 
         public List<BookListViewModel> SortBy(string option)
         {
-            if (option == "rating") {
+            if (option == "rating")
+            {
                 var topRating = (from b in _db.books
-                                orderby b.rating descending
-                                join a in _db.authors on b.author equals a.authorName
-                                select new BookListViewModel
-                                {
-                                    id = b.Id,
-                                    title = b.title,
-                                    author = a,
-                                    rating = b.rating,
-                                    image = b.image,
-                                    cost = b.cost
-                                }).ToList();
+                                 orderby b.rating descending
+                                 join a in _db.authors on b.author equals a.authorName
+                                 select new BookListViewModel
+                                 {
+                                     id = b.Id,
+                                     title = b.title,
+                                     author = a,
+                                     rating = b.rating,
+                                     image = b.image,
+                                     cost = b.cost
+                                 }).ToList();
                 return topRating;
             }
-            if (option == "highPrice") {
+            if (option == "highPrice")
+            {
                 var highPrice = (from b in _db.books
-                                orderby b.cost descending
-                                join a in _db.authors on b.author equals a.authorName
-                                select new BookListViewModel
-                                {
-                                    id = b.Id,
-                                    title = b.title,
-                                    author = a,
-                                    rating = b.rating,
-                                    image = b.image,
-                                    cost = b.cost
-                                }).ToList();
+                                 orderby b.cost descending
+                                 join a in _db.authors on b.author equals a.authorName
+                                 select new BookListViewModel
+                                 {
+                                     id = b.Id,
+                                     title = b.title,
+                                     author = a,
+                                     rating = b.rating,
+                                     image = b.image,
+                                     cost = b.cost
+                                 }).ToList();
                 return highPrice;
             }
-            if (option == "lowPrice") {
+            if (option == "lowPrice")
+            {
                 var lowPrice = (from b in _db.books
                                 orderby b.cost
                                 join a in _db.authors on b.author equals a.authorName
@@ -127,19 +135,20 @@ namespace BookCave.Repositories
                                 }).ToList();
                 return lowPrice;
             }
-            if (option == "mostPopular") {
+            if (option == "mostPopular")
+            {
                 var highPrice = (from b in _db.books
-                                orderby b.copiesSold descending
-                                join a in _db.authors on b.author equals a.authorName
-                                select new BookListViewModel
-                                {
-                                    id = b.Id,
-                                    title = b.title,
-                                    author = a,
-                                    rating = b.rating,
-                                    image = b.image,
-                                    cost = b.cost
-                                }).ToList();
+                                 orderby b.copiesSold descending
+                                 join a in _db.authors on b.author equals a.authorName
+                                 select new BookListViewModel
+                                 {
+                                     id = b.Id,
+                                     title = b.title,
+                                     author = a,
+                                     rating = b.rating,
+                                     image = b.image,
+                                     cost = b.cost
+                                 }).ToList();
                 return highPrice;
             }
             else
@@ -149,24 +158,27 @@ namespace BookCave.Repositories
             }
         }
 
-        public List<BookListViewModel> GetTopBooks(string value, int count) {
-            if(value == "mostPopular") {
-             var mostPopular = (from b in _db.books
-                                orderby b.copiesSold descending
-                                join a in _db.authors on b.author equals a.authorName
-                                select new BookListViewModel
-                                {
-                                    id = b.Id,
-                                    title = b.title,
-                                    author = a,
-                                    rating = b.rating,
-                                    image = b.image,
-                                    cost = b.cost
-                                }).Take(count).ToList();
+        public List<BookListViewModel> GetTopBooks(string value, int count)
+        {
+            if (value == "mostPopular")
+            {
+                var mostPopular = (from b in _db.books
+                                   orderby b.copiesSold descending
+                                   join a in _db.authors on b.author equals a.authorName
+                                   select new BookListViewModel
+                                   {
+                                       id = b.Id,
+                                       title = b.title,
+                                       author = a,
+                                       rating = b.rating,
+                                       image = b.image,
+                                       cost = b.cost
+                                   }).Take(count).ToList();
                 return mostPopular;
             }
-             if(value == "rating") {
-             var topRated = (from b in _db.books
+            if (value == "rating")
+            {
+                var topRated = (from b in _db.books
                                 orderby b.rating descending
                                 join a in _db.authors on b.author equals a.authorName
                                 select new BookListViewModel
@@ -179,7 +191,9 @@ namespace BookCave.Repositories
                                     cost = b.cost
                                 }).Take(count).ToList();
                 return topRated;
-            } else {
+            }
+            else
+            {
                 var lowPrice = (from b in _db.books
                                 orderby b.cost
                                 join a in _db.authors on b.author equals a.authorName
@@ -216,9 +230,13 @@ namespace BookCave.Repositories
             return searchedResults;
         }
 
-        public void UpdateABook(Book book)
+        public void UpdateABook(Book change, int bookId)
         {
-            // hér þarf að updeita book
+            var original = (from b in _db.books
+                            where b.Id == bookId
+                            select b).FirstOrDefault();
+            original = change;
+            _db.SaveChanges();
         }
 
         //Ná í bók fyrir Account (GULLI)

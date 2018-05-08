@@ -56,6 +56,8 @@ $('#write-review').click(function(){
   $('#review-form').removeClass("hidden");
 })
 $('#submit').click(function(){
+  
+  $('#review-form').addClass("hidden");
   var description = $('#description').val();
   var ratings = $('#ratings').val();
   var bookId = $('#book-id').text();
@@ -67,7 +69,6 @@ $('#submit').click(function(){
   }, 
   function(data, status){
     console.log(data);
-    $('#review-form').addClass("hidden");
   })
 });
 

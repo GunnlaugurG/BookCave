@@ -76,9 +76,9 @@ namespace BookCave.Services
             };
             _reviewRepo.SetReview(newReview);
 
-            /// TODO: upfæra bók í gagnagrunni
-            //GetBookByID( inputFromUser.bookId );
-            //_bookRepo.UpdateABook( new Book{});
+            var updatedBook = _bookRepo.getBookEntityModel( inputFromUser.bookId );
+            updatedBook.rating = newRating;
+            _bookRepo.UpdateABook( updatedBook, inputFromUser.bookId );
         }
     }
 }
