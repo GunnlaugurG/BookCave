@@ -90,9 +90,8 @@ namespace BookCave.Controllers
         public IActionResult review(ReviewInputModel input)
         {
             _bookService.SetBookReview( input );
-            return RedirectToAction("Index");
+            return Ok();
         }
-
         public IActionResult Search(string searchedWord)
         {
             if (searchedWord == null)
