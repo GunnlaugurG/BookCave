@@ -275,8 +275,7 @@ form.example input[type=text] {
     padding-top:5px !important;
     border-color: #e8e8e8;
 }
-    #logout-btn:not(.nohover):hover {
-    }
+
 /* When the input field gets focus, change its width to 100% */
 input[type=text]:focus {
     width: 100%;
