@@ -217,9 +217,10 @@ form.example input[type=text] {
     background: #f1f1f1;
 }
 .home-logo {
-    text-decoration: none;
+    /*text-decoration: none;
     font-family:Cambria, Cochin, Georgia, Times, Times New Roman, serif;
     color: black;
+  */
 }
 .home-logo:hover {
     text-decoration: none;
