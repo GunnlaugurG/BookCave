@@ -11,5 +11,6 @@ namespace BookCave.Data.EntityModels
         public string description { get; set; }
         public double cost { get; set; }
         public string image { get; set; }
+        public int copiesSold { get; set; }
     }
 }

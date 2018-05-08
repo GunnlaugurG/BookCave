@@ -1,97 +1,156 @@
 @model BookCave.Models.ViewModels.BookDetailsViewModel
 
-<div class="Container">
+<div class="container">
     <div class="row">
 
-    <div class="col-sm-10 col-lg-10">
-        <div id="image-container" class="col-sm-3 col-lg-3" style="height: 50%">
-            <img src="@Model.image" alt="Book Cover">
-        </div>
-        <div class="col-sm-8 col-lg-8">
+        <div class="col-sm-10 col-md-10 col-lg-10">
+            <div id="image-container" class="col-sm-3 col-lg-3" style="height: 50%">
+                <img src="@Model.image" alt="Book Cover">
+            </div>
+            <div class="col-sm-8 col-lg-8">
                 <div class="row">
                     <div class="col-sm-12 col-lg-12" style="height: 70px">
-                         <h4>@Model.name</h4>
-                         <a asp-action="details" asp-controller="author" asp-route-id="@Model.author.Id"><p>@Model.author.authorName</p></a>
+                        <h4>@Model.name</h4>
+                        <a asp-action="details" asp-controller="author" asp-route-id="@Model.author.Id"><p>@Model.author.authorName</p></a>
                     </div>
-                    <div class="col-sm-12 col-lg-12" style="height: 200px">
+                    <div class="col-sm-12 col-md-12 col-lg-12">
                         <strong>Description</strong>
                         <p>@Model.description</p>
                     </div>
-                    <div class="col-sm-12 col-lg-12 text-right">
-                        <h2>@for(var i = 0; i < @Model.rating-1; i++) {
-                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
-                        }
-                        @if(@Model.rating % 2 != 0) {
-                            <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
-                        } else {
-                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
-                        }</h2>
+                    <div class="col-sm-12 col-md-12 col-lg-12 text-right">
+                        <h2>
+                            @for (var i = 0; i < @Model.rating - 1; i++)
+                            {
+                                <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+                            }
+                            @if (@Model.rating % 2 != 0)
+                            {
+                                <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+                            }
+                            else
+                            {
+                                <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+                            }
+                        </h2>
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
 
-            <div class="col-sm-2 col-lg-2">
-             <div class="row">
-             <div class="col-sm-12 col-lg-12 text-right">
-             <h3>@Model.price $</h3>
-             </div>
-             </div>
-             <div class="row">
-            <div class="col-sm-12 col-lg-12 three-buttons">
-            <a id="write-review" class="btn btn-warning center-block" >Write review</a>
-             <a asp-controller="book" asp-action="review" asp-route-Id=@Model.id class="btn btn-primary center-block" >Skrifa ummæli</a>
-
-            <a  class="btn btn-warning center-block">Setja á óskalista</a>
-
-            <a asp-controller="Account" asp-action="AddToCart" asp-route-Id="@Model.id" class="btn btn-default center-block">Add to cart</a>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <div class="row">
+                <div class="col-sm-12 col-lg-12 text-right">
+                    <h3>@Model.price $</h3>
+                </div>
             </div>
+            <div class="row">
+                <div class="col-sm-12 col-lg-12 three-buttons">
+                    <a id="write-review" class="btn btn-warning center-block">Write review</a>
+                    <a class="btn btn-warning center-block">Setja á óskalista</a>
+                    <a asp-controller="Account" asp-action="AddToCart" asp-route-Id="@Model.id" class="btn btn-default center-block">Add to cart</a>
+                </div>
             </div>
+        </div>
+    </div>
+    <div class="row review-layout" id="review-form">
+        <div class="row">
+            <div class="review-box">
+                <div class="col-sm-12 col-lg-12 col-md-12">
+                    <h2 class="text-center">Write a review for @Model.name</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
                     </div>
-    </div>
-    <div class="row" id="review-form">
-        <div>
-            
-            <textarea row="10" cols="70" id="description"></textarea>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <textarea class="review-area" rows="6" id="description"></textarea>
+                    </div>
+
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                        <h4 class="text-center">Please give this book a rating</h4>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm4 col-lg-offset-1">
+                        <select id="ratings">
+                            <option value="5">5.0</option>
+                            <option value="4.5">4.5</option>
+                            <option value="4.0">4.0</option>
+                            <option value="3.5">3.5</option>
+                            <option value="3">3.0</option>
+                            <option value="2.5">2.5</option>
+                            <option value="2">2.0</option>
+                            <option value="1.5">1.5</option>
+                            <option value="1">1.0</option>
+                            <option value="0.5">0.5</option>
+                            <option value="0.0">0.0</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-4">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-         <p>Grade</p>
-         <p id="book-id">@Model.id</p>
-         <select id="ratings">
-            <option value="5">5.0</option>
-            <option value="4.5">4.5</option>
-            <option value="4.0">4.0</option>
-            <option value="3.5">3.5</option>
-            <option value="3">3.0</option>
-            <option value="2.5">2.5</option>
-            <option value="2">2.0</option>
-            <option value="1.5">1.5</option>
-            <option value="1">1.0</option>
-            <option value="0.5">0.5</option>
-            <option value="0.0">0.0</option>
-        </select>
-        <button class="btn  btn-default" id="submit">Submit</button>
+
+
+        <div class="row">
+            <div class="col-sm-5 col-lg-5 col-md-5">
+
+            </div>
+            <div class="col-sm-7 col-lg-7 col-md-7">
+                <button class="btn  btn-default text-center" id="submit">Submit</button>
+            </div>
         </div>
     </div>
+
+
     <div class="row">
-        <div class="col-sm-12 col-lg-12">
-           @foreach(var book in Model.comments ){
-                  @if(book.Author == null) {
-                      <span>Anonymous</span>
-                  } else {
-                      <span>@book.Author</span>
-                  } <br>
-                @book.Description<br/>
-                        @for(int i = 0; i < @book.Ratings-1; i++) {
-                            <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
-                        }
-                        @if(@book.Ratings % 1 != 0) {
-                            <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
-                        } else {
-                            <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
-                        }
-                         <br> <br> 
-                        }   
+        <div class="col-sm-12 col-lg-12 col-md-12">
+            <h3>Reviews for @Model.name</h3>
         </div>
+    </div>
+
+        
+
+<div class="row review-layout">
+    <div class="col-sm-12 col-lg-12">
+        @foreach (var book in Model.comments)
+        {
+            @if (book.Author == null)
+            {
+                <span>Anonymous</span>
+            }
+            else
+            {
+                <span>@book.Author</span>
+            } <br>
+            @book.Description<br />
+            @for (int i = 0; i < @book.Ratings - 1; i++)
+            {
+                <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
+            }
+            @if (@book.Ratings % 1 != 0)
+            {
+                <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+            }
+            else
+            {
+                <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
+            }
+            <br> <br>
+        }
     </div>
 </div>
+</div>
+

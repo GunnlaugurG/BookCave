@@ -43,9 +43,9 @@ namespace BookCave.Services
             return _bookRepo.GetBooksByGenre(genre);
         }
 
-        public List<BookListViewModel> GetTopBooks(select value, int count)
+        public List<BookListViewModel> SortBy(string option)
         {
-            return _bookRepo.GetTopBooks(value, count);
+            return _bookRepo.SortBy(option);
         }
 
         public List<BookListViewModel> GetAllBooks()
@@ -53,6 +53,9 @@ namespace BookCave.Services
             return _bookRepo.GetAllBooks();
         }
 
+        public List<BookListViewModel> GetTopBooks(string value, int count) {
+            return _bookRepo.GetTopBooks(value,count);
+        }
         public void SetBookReview(ReviewInputModel inputFromUser, string user)
         {
 
