@@ -136,17 +136,7 @@ namespace BookCave.Repositories
             }
             _db.SaveChanges();
         }
-        /*public DisplayCartItemViewModel getBookRepo(int bookId){
-            var newModel = new DisplayCartItemViewModel();
-            newModel.BookName = (from a in _db.books
-                        where a.Id == bookId
-                        select a.title).FirstOrDefault();
-            newModel.cost = (from a in _db.books
-                            where a.Id == bookId
-                            select a.cost).FirstOrDefault();
-            newModel.bookId = bookId;
-        return newModel;
-        }*/
+
         public bool AddToCartRepo(int thisBookId, string userId){
             var userCart = (from c in _db.carts
                             where c.cartForUserId == userId && c.orderComplete == false
