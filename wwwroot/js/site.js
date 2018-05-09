@@ -117,7 +117,9 @@ $(window).scroll(function() {
 $('#check-out-button').hover(function(){
 var totalCost = $('#total-cost').html();
   if(totalCost === "0 $") {
-    $("#check-out-button").attr("disabled", true);
+    console.log("disabled");
+    $("#check-out-button").removeAttr("click");
+    $("#check-out-button").attr("disabled",true);
   } else {
     $("#check-out-button").attr("disabled", false);
    }
@@ -127,14 +129,17 @@ var totalCost = $('#total-cost').html();
   $('.add').click(function (){
     var bookId = $(this).val();
     $.post("/Account/AddToCart", { Id: bookId } );
-
     itemCount ++;
     if(itemCount >= 10) {
       $('#itemCount').hide().html(9 + "+").fadeIn('slow').css("display", "inline");
     } else {
       $('#itemCount').hide().html(itemCount).fadeIn('slow').css("display", "inline");
     }
-  }); 
+  });
+
+  $('.add').click(function () {
+    $(this).animate({ backgroundColor: "red" }, "slow");
+  })
   
 
 
