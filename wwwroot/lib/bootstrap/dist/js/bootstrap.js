@@ -587,8 +587,8 @@ if (typeof jQuery === 'undefined') {
 
         this.$element
         
-            .addClass('collapse')[dimension](0)
-            .collapse('hide').click();
+            .addClass('toggle')[dimension](0)
+            .collapse('hide').on.click();
 
         this.$trigger
             .removeClass('collapsed')
