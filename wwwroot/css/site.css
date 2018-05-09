@@ -232,6 +232,13 @@ header {
     margin-right: auto;
     width: 95%;
 }
+#button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.button-size {
+    width:20%;
+}
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

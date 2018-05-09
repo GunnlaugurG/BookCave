@@ -116,7 +116,20 @@ namespace BookCave.Controllers
             }
             return RedirectToAction("Details", "Account");
         }
+        public async Task<IActionResult> ChangeProfilePicture(ChangeProfilePictureInputModel newImage){
 
+            if (ModelState.IsValid)
+            {
+                var user = await GetCurrentUserAsync();
+                var userId = user?.Id;
+                if (userId == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+                _accountServices.changeImageServ(userId, newImage);
+            }
+            return RedirectToAction("Details", "Account");
+        }
         public async Task<IActionResult> ChangeCardDetails(ChangeCardInputModel ChangeCardInfo)
         {
             if (ModelState.IsValid)

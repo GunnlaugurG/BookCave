@@ -77,7 +77,14 @@ namespace BookCave.Repositories
                         }).FirstOrDefault();
             return user;
         }
+        public void ChangeImageRepo( string userId, ChangeProfilePictureInputModel newImage ){
 
+            var change = (from u in _db.userAccounts 
+                            where u.aspUserId == userId
+                            select u).FirstOrDefault();
+            change.picture = newImage.picture;
+            _db.SaveChanges();
+        }
         public void ChangeShippingInfoRepo(string userId, ChangeShippingInputModel newShippingInfo)
         {
             var change = (from u in _db.shipingInfo

@@ -31,7 +31,9 @@ namespace BookCave.Services
             var userDetails = _accountRepo.getUserDetailsFromDataBase(userID);
             return userDetails;
         }
-
+        public void changeImageServ(string UserId, ChangeProfilePictureInputModel newImage){
+            _accountRepo.ChangeImageRepo(UserId, newImage );
+        }
         public void changeShippingInfoServ(string UserId, ChangeShippingInputModel newShipInfoService)
         {
             _accountRepo.ChangeShippingInfoRepo(UserId, newShipInfoService);
