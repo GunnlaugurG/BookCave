@@ -249,6 +249,13 @@ namespace BookCave.Controllers
             }
             return View();
         }
-
+        public async Task<IActionResult> OrderHistory(){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+        }
     }
 }
