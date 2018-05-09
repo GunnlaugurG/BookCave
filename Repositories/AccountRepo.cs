@@ -332,9 +332,6 @@ namespace BookCave.Repositories
             _db.Remove(getItem);
             _db.SaveChanges();
         }
-<<<<<<< HEAD
-      
-=======
         public void EmptyCartFromRepo(string userId){
             var getCart =  (from a in _db.carts
                             where a.cartForUserId == userId
@@ -346,12 +343,12 @@ namespace BookCave.Repositories
             _db.RemoveRange(cartItems);
             _db.SaveChanges();
         }
->>>>>>> 1d54afad5b800c0c8f920b42420fe61e1829ca10
+      
         public OrderHistoryViewModel OrderHistoryRepo(string userId){
             var getOrderList = (from a in _db.orders
                                 where a.aspForCartId == userId
                                 select a).ToList();
-                                
+
                                 return null;
         }
     }
