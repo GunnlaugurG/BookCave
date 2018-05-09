@@ -27,7 +27,10 @@ namespace BookCave.Repositories
                 authors[i].mostPopularBook = (from b in _db.books
                             where b.keyAuthorId == authors[i].Id
                             orderby b.copiesSold descending
-                            select b).First();
+                            select new BookListItemViewModel{
+                                Id = b.Id,
+                                title = b.title
+                            }).First();
             }
             return authors;
         }
@@ -38,7 +41,10 @@ namespace BookCave.Repositories
             var writtenBooks = (from b in _db.books
                                 join a in _db.authors on b.keyAuthorId equals a.Id
                                 where a.Id == id
-                                select b).ToList();
+                                select new BookListItemViewModel{
+                                    Id = b.Id,
+                                    title = b.title
+                                }).ToList();
 
             var authorId = (from a in _db.authors
                             where a.Id == id

@@ -140,11 +140,20 @@ namespace BookCave.Controllers
                 return RedirectToAction("Login", "Account");
             }
             else{
-                var newModel =  new DisplayCartItemViewModel();
-                newModel = _accountServices.getBookName(Id);
+                //var newModel =  new DisplayCartItemViewModel();
+                //newModel = _accountServices.getBookName(Id);
                 bool added = _accountServices.AddToCart(Id, userId);
-                return Ok();
+                return RedirectToAction("Details", "Book" , new {id = Id});
             }
+        }
+        public async Task<IActionResult> removeFromCart( int bookId ){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            } 
+            /// Kalla á eitthvað service til að remove-a
+            return Ok();
         }
         public async Task<IActionResult> Cart(){
             var user = await GetCurrentUserAsync();
@@ -164,5 +173,25 @@ namespace BookCave.Controllers
             }
             return View();
         }
+        public async Task<IActionResult> CheckOut(){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            //EF PERSONU UPPL'YSINGAR ERU NULL ÞA KEMUR VILLA ÞARF AÐ LAGA
+            var newModel = _accountServices.checkOutService(userId);
+            return View(newModel);
+        }
+        public async Task<IActionResult> Complete(){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            var success = _accountServices.completeServ(userId);
+            return RedirectToAction("OrderSuccessful", "Account");
+        }
+
     }
 }

@@ -1,0 +1,40 @@
+@model BookCave.Models.ViewModels.CheckOutViewModel
+
+<h1>CheckOut</h1>
+<div class="row">
+    <div class="col-sm-3">
+        <h3>Shipping Information</h3>
+        <p>Address: @Model.address</p>
+        <p>City: @Model.city</p>
+        <p>Country: @Model.country</p>
+        <p>Zip: @Model.zip</p>
+    </div>
+    <div class="col-sm-3">
+        <h3>Card Information</h3>
+        <p>Cardholder name: @Model.cardHolderName</p>
+        <p>Cardnumber: @Model.cardNumber</p>
+    </div>
+</div>
+<div class="row">
+    <table class="table table-striped col-sm-12">
+  <thead>
+        <tr>
+            <th scope="col">BookName</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+        </tr>
+      @foreach(var book in Model.booksList)
+        {
+        <tr>
+            <td><a asp-controller="Book" asp-action="details" asp-route-id="@book.id"> @book.title</a></td>
+            <td>@book.quantity</td>
+            <td>@book.cost</td>
+        </tr>
+        }
+  </tbody>
+</table>
+<h4>Total cost: @Model.totalCost</h4>
+<a class="btn btn-default center-block" asp-controller="Account" asp-action="Details">Change BillingInfo</a>
+<a class="btn btn-default center-block" asp-controller="Account" asp-action="Complete">Complete Order</a>
+<a class="btn btn-default center-block" asp-controller="Account" asp-action="Cart">Back To cart</a>
+</div>
