@@ -126,7 +126,11 @@ var totalCost = $('#total-cost').html();
     console.log(value);
     itemCount ++;
     //$('#message').hide().html("You clicked on a checkbox.").fadeIn('slow');
-    $('#itemCount').hide().html(itemCount).fadeIn('slow');
+    if(itemCount >= 10) {
+      $('#itemCount').hide().html(9 + "+").fadeIn('slow').css("display", "inline");
+    } else {
+      $('#itemCount').hide().html(itemCount).fadeIn('slow').css("display", "inline");
+    }
   }); 
   
 
