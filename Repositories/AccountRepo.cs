@@ -234,7 +234,7 @@ namespace BookCave.Repositories
             newModel.address = getUserDetails.address;
             newModel.city = getUserDetails.city;
             newModel.country = getUserDetails.country;
-            newModel.zip = getUserDetails.zipCode;
+            newModel.zipCode = getUserDetails.zipCode;
             // FILL IN VIEW MODEL FROM SHIPPING INFO
             var cardInfo = (from b in _db.cardInfo
                             where b.aspUserIdForCardInfo == userId
