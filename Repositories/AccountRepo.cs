@@ -354,22 +354,6 @@ namespace BookCave.Repositories
             _db.Remove(getItem);
             _db.SaveChanges();
         }
-        public void UpdateCartItemQuantity(int quantity, int bookId, string userId){
-            var getCart = (from a in _db.carts
-                            where a.cartForUserId == userId
-                            select a).FirstOrDefault();
-            var getItem = (from b in _db.cartItems
-                            where b.bookForCartItem == bookId && b.keyCartId == getCart.Id
-                            select b).FirstOrDefault();
-            var getbookprice = (from a in _db.books
-                                where a.Id == bookId
-                                select a.cost).FirstOrDefault();
-            var oldQuantyPrice = getbookprice * getItem.bookQuantity;
-            var newQuantyPrice = getbookprice * quantity;
-            getCart.totalCost += newQuantyPrice - oldQuantyPrice;
-            getItem.bookQuantity = quantity;
-            _db.SaveChanges();
-        }
         public void EmptyCartFromRepo(string userId){
             var getCart =  (from a in _db.carts
                             where a.cartForUserId == userId
