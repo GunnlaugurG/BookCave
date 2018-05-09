@@ -126,7 +126,7 @@ namespace BookCave.Repositories
             }
             _db.SaveChanges();
         }
-        public DisplayCartItemViewModel getBookRepo(int bookId){
+        /*public DisplayCartItemViewModel getBookRepo(int bookId){
             var newModel = new DisplayCartItemViewModel();
             newModel.BookName = (from a in _db.books
                         where a.Id == bookId
@@ -136,7 +136,7 @@ namespace BookCave.Repositories
                             select a.cost).FirstOrDefault();
             newModel.bookId = bookId;
         return newModel;
-        }
+        }*/
         public bool AddToCartRepo(int thisBookId, string userId){
             var userCart = (from c in _db.carts
                             where c.cartForUserId == userId && c.orderComplete == false
@@ -216,6 +216,59 @@ namespace BookCave.Repositories
                 return true;
             }
             return false;
+        }
+        public CheckOutViewModel checkOutRepo(string userId){
+            var newModel = new CheckOutViewModel();
+            newModel.booksList = new List<BookInCartListViewModel>();
+            //GETTING CART ID SO I CAN FIND EVERY ITEM THAT IS LINKED TO IT
+            var cartId = (from a in _db.carts
+                        where a.cartForUserId == userId && a.orderComplete == false
+                        select a.Id).FirstOrDefault();
+            //FILL IN VIEWMODEL FROM SHIPPING INFO
+            var getUserDetails = (from a in _db.shipingInfo
+                                    where a.aspUserIdForShipping == userId
+                                    select a).FirstOrDefault();
+            newModel.address = getUserDetails.address;
+            newModel.city = getUserDetails.city;
+            newModel.country = getUserDetails.country;
+            newModel.zip = getUserDetails.zipCode;
+            // FILL IN VIEW MODEL FROM SHIPPING INFO
+            var cardInfo = (from b in _db.cardInfo
+                            where b.aspUserIdForCardInfo == userId
+                            select b).FirstOrDefault();
+            newModel.cardHolderName = cardInfo.cardholderName;
+            newModel.cardNumber = cardInfo.cardNumber;
+            //FILL IN TOTALCOST
+            newModel.totalCost = (from a in _db.carts
+                                where a.cartForUserId == userId
+                                select a.totalCost).FirstOrDefault();
+            //FINDING BOOK ID AND QUANTITY OF THAT BOOK 
+            var newList = new List<CartItemAndBookConnection>();
+            var findConnection = (from a in _db.cartItems
+                        where a.keyCartId == cartId
+                        select a).ToList();
+            //merging togather book it and quantity to list
+            foreach(var connection in findConnection){
+                CartItemAndBookConnection cartItemToList = new CartItemAndBookConnection();
+                cartItemToList.bookId = connection.bookForCartItem;
+                cartItemToList.quantity = connection.bookQuantity;
+                newList.Add(cartItemToList);
+            }
+            //adding to the ViewModel List with the merger
+            foreach(var a in newList){
+                var b = (from c in _db.books
+                        where c.Id == a.bookId
+                        select new BookInCartListViewModel{
+                            quantity = a.quantity,
+                            id = c.Id,
+                            title = c.title,
+                            cost = c.cost,
+                            image = c.image
+                        }).FirstOrDefault();
+                newModel.booksList.Add(b);
+            }
+
+            return newModel;
         }
     }
 }

@@ -140,10 +140,10 @@ namespace BookCave.Controllers
                 return RedirectToAction("Login", "Account");
             }
             else{
-                var newModel =  new DisplayCartItemViewModel();
-                newModel = _accountServices.getBookName(Id);
+                //var newModel =  new DisplayCartItemViewModel();
+                //newModel = _accountServices.getBookName(Id);
                 bool added = _accountServices.AddToCart(Id, userId);
-                return Ok();
+                return RedirectToAction("Details", "Book" , new {id = Id});
             }
         }
         public async Task<IActionResult> Cart(){
@@ -163,6 +163,15 @@ namespace BookCave.Controllers
                 return RedirectToAction("Login", "Account");
             }
             return View();
+        }
+        public async Task<IActionResult> CheckOut(){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            var newModel = _accountServices.checkOutService(userId);
+            return View(newModel);
         }
     }
 }

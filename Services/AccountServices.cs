@@ -41,16 +41,20 @@ namespace BookCave.Services
         {
             _accountRepo.changeCardInfoRepo(userId, newCardInfo);
         }
-        public DisplayCartItemViewModel getBookName(int bookId){
+        /*public DisplayCartItemViewModel getBookName(int bookId){
             DisplayCartItemViewModel newCart = _accountRepo.getBookRepo(bookId);
             return newCart;
-        }
+        }*/
         public bool AddToCart(int bookId, string userId){
             return _accountRepo.AddToCartRepo(bookId, userId);
         }
         public DisplayCartViewModel getCartviewModel(string UserId){
             var newModel = _accountRepo.getCartViewModelRepo(UserId);
 
+            return newModel;
+        }
+        public CheckOutViewModel checkOutService(string userId){
+            var newModel = _accountRepo.checkOutRepo(userId);
             return newModel;
         }
     }
