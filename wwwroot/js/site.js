@@ -42,6 +42,7 @@ $("#selectBox").change(function(){
                   });
     });
 
+
 ///////////////Fyrir review síðuna//////////////////
 $('#review-form').addClass("hidden");
 
@@ -61,9 +62,13 @@ $('#submit').click(function(){
     Ratings: ratings
   }, 
   function(data, status){
-    console.log(data);
+    location.reload();
   })
 });
+$('#close-review').click( function(){
+  $('#review-form').addClass("hidden");
+
+})
 ////////////////////////////////////////////
 
 
