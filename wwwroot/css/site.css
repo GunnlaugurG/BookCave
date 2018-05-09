@@ -167,6 +167,10 @@ header {
     margin-right: 2.5%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.icon-bar {
+    background-color: black !important;
+ }
+ 
 
 .navbar-styling {
     background: white;
@@ -174,10 +178,10 @@ header {
     border-top: 1px solid #b6b0b0;
 }
 .navbar-toggle.collapsed {
-    background: lightgray;
+    background: white;
 }
 .navbar-toggle{
-    background: #b6b0b0;
+    background: white !important;
 }
 .book-layout {
     text-align: center;
