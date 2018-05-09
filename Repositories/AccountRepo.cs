@@ -136,7 +136,10 @@ namespace BookCave.Repositories
             }
             _db.SaveChanges();
         }
+        public void changeFavoriteBook( int bookId, string userID ){
+            // hengja bók á user ;)
 
+        }
         public bool AddToCartRepo(int thisBookId, string userId){
             var userCart = (from c in _db.carts
                             where c.cartForUserId == userId && c.orderComplete == false

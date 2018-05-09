@@ -74,8 +74,11 @@ namespace BookCave.Controllers
             var userId = user?.Id;
              if (userId == null) {
                     return Json("RedirectToLogin");
-                }
-            return Ok();
+            }
+            else{
+                _accountServices.setFavoriteBook( bookId, userId );
+                return Ok();
+            }
         }
 
         [HttpPost]

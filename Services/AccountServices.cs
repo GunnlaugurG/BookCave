@@ -31,6 +31,10 @@ namespace BookCave.Services
             var userDetails = _accountRepo.getUserDetailsFromDataBase(userID);
             return userDetails;
         }
+        public void setFavoriteBook(int bookId, string userId ){
+            _accountRepo.changeFavoriteBook(bookId, userId);
+        }
+
         public void changeImageServ(string UserId, ChangeProfilePictureInputModel newImage){
             _accountRepo.ChangeImageRepo(UserId, newImage );
         }
