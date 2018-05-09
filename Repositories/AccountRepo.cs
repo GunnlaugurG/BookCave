@@ -77,7 +77,14 @@ namespace BookCave.Repositories
                         }).FirstOrDefault();
             return user;
         }
+        public void ChangeImageRepo( string userId, ChangeProfilePictureInputModel newImage ){
 
+            var change = (from u in _db.userAccounts 
+                            where u.aspUserId == userId
+                            select u).FirstOrDefault();
+            change.picture = newImage.picture;
+            _db.SaveChanges();
+        }
         public void ChangeShippingInfoRepo(string userId, ChangeShippingInputModel newShippingInfo)
         {
             var change = (from u in _db.shipingInfo
@@ -129,17 +136,7 @@ namespace BookCave.Repositories
             }
             _db.SaveChanges();
         }
-        /*public DisplayCartItemViewModel getBookRepo(int bookId){
-            var newModel = new DisplayCartItemViewModel();
-            newModel.BookName = (from a in _db.books
-                        where a.Id == bookId
-                        select a.title).FirstOrDefault();
-            newModel.cost = (from a in _db.books
-                            where a.Id == bookId
-                            select a.cost).FirstOrDefault();
-            newModel.bookId = bookId;
-        return newModel;
-        }*/
+
         public bool AddToCartRepo(int thisBookId, string userId){
             var userCart = (from c in _db.carts
                             where c.cartForUserId == userId && c.orderComplete == false
@@ -293,6 +290,23 @@ namespace BookCave.Repositories
             }
             _db.SaveChanges();
             return true;
+        }
+        public bool checkIfUserHasInfo(string userId){
+            var userShippingInfo = (from a in _db.shipingInfo
+                                    where a.aspUserIdForShipping == userId
+                                    select a).FirstOrDefault();
+            var userCartInfo = (from a in _db.cardInfo
+                                where a.aspUserIdForCardInfo == userId
+                                select a).FirstOrDefault();
+            if(userCartInfo == null){
+                return false;
+            }
+            else if(userShippingInfo == null){
+                return false;
+            }
+            else{
+                return true;
+            }
         }
     }
 }

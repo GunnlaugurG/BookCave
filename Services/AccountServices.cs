@@ -31,7 +31,9 @@ namespace BookCave.Services
             var userDetails = _accountRepo.getUserDetailsFromDataBase(userID);
             return userDetails;
         }
-
+        public void changeImageServ(string UserId, ChangeProfilePictureInputModel newImage){
+            _accountRepo.ChangeImageRepo(UserId, newImage );
+        }
         public void changeShippingInfoServ(string UserId, ChangeShippingInputModel newShipInfoService)
         {
             _accountRepo.ChangeShippingInfoRepo(UserId, newShipInfoService);
@@ -41,10 +43,6 @@ namespace BookCave.Services
         {
             _accountRepo.changeCardInfoRepo(userId, newCardInfo);
         }
-        /*public DisplayCartItemViewModel getBookName(int bookId){
-            DisplayCartItemViewModel newCart = _accountRepo.getBookRepo(bookId);
-            return newCart;
-        }*/
         public bool AddToCart(int bookId, string userId){
             return _accountRepo.AddToCartRepo(bookId, userId);
         }
@@ -61,29 +59,9 @@ namespace BookCave.Services
             var success = _accountRepo.completeRepo(userId);
             return success;
         }
-        public bool checkPersonalInfo(CheckOutViewModel model){
-            if(model.address == null){
-                return false;
-            }
-            else if(model.cardHolderName == null){
-                return false;
-            }
-            else if(model.cardNumber == null){
-                return false;
-            }
-            else if(model.city == null){
-                return false;
-            }
-            else if(model.country == null){
-                return false;
-            }
-            else if(model.cvc == null){
-                return false;
-            }
-            else if(model.zipCode == null){
-                return false;
-            }
-            return true;
+        public bool checkPersonalInfo(string userId){
+            var check = _accountRepo.checkIfUserHasInfo(userId);
+            return check;
         }
     }
 } 

@@ -116,7 +116,20 @@ namespace BookCave.Controllers
             }
             return RedirectToAction("Details", "Account");
         }
+        public async Task<IActionResult> ChangeProfilePicture(ChangeProfilePictureInputModel newImage){
 
+            if (ModelState.IsValid)
+            {
+                var user = await GetCurrentUserAsync();
+                var userId = user?.Id;
+                if (userId == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+                _accountServices.changeImageServ(userId, newImage);
+            }
+            return RedirectToAction("Details", "Account");
+        }
         public async Task<IActionResult> ChangeCardDetails(ChangeCardInputModel ChangeCardInfo)
         {
             if (ModelState.IsValid)
@@ -140,8 +153,6 @@ namespace BookCave.Controllers
                 return RedirectToAction("Login", "Account");
             }
             else{
-                //var newModel =  new DisplayCartItemViewModel();
-                //newModel = _accountServices.getBookName(Id);
                 bool added = _accountServices.AddToCart(Id, userId);
                 return RedirectToAction("Details", "Book" , new {id = Id});
             }
@@ -179,12 +190,13 @@ namespace BookCave.Controllers
             if(userId == null){
                 return RedirectToAction("Login", "Account");
             }
+            var checkInfo = _accountServices.checkPersonalInfo(userId);
+            if(checkInfo != true){
+                return RedirectToAction("ChangeInfo", "Account");
+            }
             //EF PERSONU UPPL'YSINGAR ERU NULL ÞA KEMUR VILLA ÞARF AÐ LAGA
             var newModel = _accountServices.checkOutService(userId);
-            var checkInfo = _accountServices.checkPersonalInfo(newModel);
-            if(checkInfo != true){
-                RedirectToAction("Details", "Account");
-            }
+            
                 return View(newModel);
         }
         public async Task<IActionResult> Complete(){
