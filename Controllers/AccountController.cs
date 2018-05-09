@@ -179,12 +179,13 @@ namespace BookCave.Controllers
             if(userId == null){
                 return RedirectToAction("Login", "Account");
             }
+            var checkInfo = _accountServices.checkPersonalInfo(userId);
+            if(checkInfo != true){
+                return RedirectToAction("ChangeInfo", "Account");
+            }
             //EF PERSONU UPPL'YSINGAR ERU NULL ÞA KEMUR VILLA ÞARF AÐ LAGA
             var newModel = _accountServices.checkOutService(userId);
-            var checkInfo = _accountServices.checkPersonalInfo(newModel);
-            if(checkInfo != true){
-                RedirectToAction("Details", "Account");
-            }
+            
                 return View(newModel);
         }
         public async Task<IActionResult> Complete(){

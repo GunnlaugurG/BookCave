@@ -294,5 +294,22 @@ namespace BookCave.Repositories
             _db.SaveChanges();
             return true;
         }
+        public bool checkIfUserHasInfo(string userId){
+            var userShippingInfo = (from a in _db.shipingInfo
+                                    where a.aspUserIdForShipping == userId
+                                    select a).FirstOrDefault();
+            var userCartInfo = (from a in _db.cardInfo
+                                where a.aspUserIdForCardInfo == userId
+                                select a).FirstOrDefault();
+            if(userCartInfo == null){
+                return false;
+            }
+            else if(userShippingInfo == null){
+                return false;
+            }
+            else{
+                return true;
+            }
+        }
     }
 }
