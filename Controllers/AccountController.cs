@@ -241,6 +241,14 @@ namespace BookCave.Controllers
 
             return RedirectToAction("CheckOut", "Account");
         }
+        public async Task<IActionResult> ChangeInfo(){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            return View();
+        }
 
     }
 }
