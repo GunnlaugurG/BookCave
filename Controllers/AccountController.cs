@@ -190,7 +190,7 @@ namespace BookCave.Controllers
                 return RedirectToAction("Login", "Account");
             }
             var success = _accountServices.completeServ(userId);
-            return RedirectToAction("Success", "Account");
+            return RedirectToAction("OrderSuccessful", "Account");
         }
 
     }
