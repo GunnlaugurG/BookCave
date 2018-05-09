@@ -146,7 +146,7 @@ namespace BookCave.Controllers
                 return RedirectToAction("Details", "Book" , new {id = Id});
             }
         }
-        public async Task<IActionResult> removeFromCart( int bookId ){
+        public async Task<IActionResult> RemoveFromCart( int bookId ){
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
             if(userId == null){
