@@ -1,7 +1,5 @@
-﻿namespace BookCave.Models.ViewModels
-{
-    public class AccountDetailsViewModel
-    {
+﻿namespace BookCave.Models.ViewModels {
+    public class AccountDetailsViewModel {
         public string userName { get; set; }
         public string picture { get; set; }
         public string address { get; set; }

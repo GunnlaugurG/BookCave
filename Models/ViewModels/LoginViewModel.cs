@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BookCave.Models.ViewModels
-{
-    public class LoginViewModel
-    {
+namespace BookCave.Models.ViewModels {
+    public class LoginViewModel {
         [EmailAddress]
         public string Email { get; set; }
 

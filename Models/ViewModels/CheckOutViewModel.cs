@@ -1,10 +1,8 @@
 using System.Collections.Generic;
 using BookCave.Data.EntityModels;
 
-namespace BookCave.Models.ViewModels
-{
-    public class CheckOutViewModel
-    {
+namespace BookCave.Models.ViewModels {
+    public class CheckOutViewModel {
         public string address { get; set; }
         public string zip {get; set;}
         public string country { get; set; }
