@@ -126,7 +126,7 @@ namespace BookCave.Controllers
                 {
                     return RedirectToAction("Login", "Account");
                 }
-                // hér kalla ég á service
+                _accountServices.changeImageServ(userId, newImage);
             }
             return RedirectToAction("Details", "Account");
         }
