@@ -1,7 +1,7 @@
 ﻿// Write your JavaScript code.
 $(document).ready(function(){
 
-console.log("Javascript up and running1");
+console.log("Javascript up and running");
 
 //Ajax request for sorting the book list "All Books"
 $("#selectBox").change(function(){
@@ -88,13 +88,6 @@ $(".remove-from-cart").click( function(){
 
 ////////////////////////////////////////////
 
-/////////Add-to-cart///////////////////
-$(".add").click( function(){
-  //var
-
-})
-////////////////////////////////////////////
-
 //// eitthvað sem einhver er að gera er að gera ///
 $("#back-to-top").click(function () {
 
@@ -121,11 +114,15 @@ var totalCost = $('#total-cost').html();
 
   var itemCount = 0;
   $('.add').click(function (){
-    var value = $(this).val();
-    console.log(value);
+    var bookId = $(this).val();
+    $.post("/Account/AddToCart", { Id: bookId } );
+
     itemCount ++;
-    //$('#message').hide().html("You clicked on a checkbox.").fadeIn('slow');
-    $('#itemCount').hide().html(itemCount).fadeIn('slow');
+    if(itemCount >= 10) {
+      $('#itemCount').hide().html(9 + "+").fadeIn('slow').css("display", "inline");
+    } else {
+      $('#itemCount').hide().html(itemCount).fadeIn('slow').css("display", "inline");
+    }
   }); 
   
 

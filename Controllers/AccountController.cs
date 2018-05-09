@@ -154,7 +154,7 @@ namespace BookCave.Controllers
             }
             else{
                 bool added = _accountServices.AddToCart(Id, userId);
-                return RedirectToAction("Details", "Book" , new {id = Id});
+                return Ok();
             }
         }
         public async Task<IActionResult> RemoveFromCart( int bookId ){
