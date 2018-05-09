@@ -179,6 +179,7 @@ namespace BookCave.Controllers
             if(userId == null){
                 return RedirectToAction("Login", "Account");
             }
+            //EF PERSONU UPPL'YSINGAR ERU NULL ÞA KEMUR VILLA ÞARF AÐ LAGA
             var newModel = _accountServices.checkOutService(userId);
             return View(newModel);
         }

@@ -16,5 +16,25 @@
     </div>
 </div>
 <div class="row">
-    <p>shit</p>
+    <table class="table table-striped col-sm-12">
+  <thead>
+        <tr>
+            <th scope="col">BookName</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+        </tr>
+      @foreach(var book in Model.booksList)
+        {
+        <tr>
+            <td><a asp-controller="Book" asp-action="details" asp-route-id="@book.id"> @book.title</a></td>
+            <td>@book.quantity</td>
+            <td>@book.cost</td>
+        </tr>
+        }
+  </tbody>
+</table>
+<h4>Total cost: @Model.totalCost</h4>
+<button class="btn btn-danger">Change Cart</button>
+<button class="btn btn-success" >Complete Order</button>
+
 </div>
