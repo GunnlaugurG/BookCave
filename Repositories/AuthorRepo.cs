@@ -57,5 +57,16 @@ namespace BookCave.Repositories
                             }).SingleOrDefault();
             return authorId;
         }
+        public AuthorListViewModel GetAuthorListViewModelById(string id){
+           
+            var authorId = (from a in _db.authors
+                            where a.Id == id
+                            select new AuthorListViewModel
+                            {
+                                Id = a.Id,
+                                authorName = a.authorName
+                            }).SingleOrDefault();
+            return authorId;
+        }
     }
 }

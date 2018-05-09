@@ -10,10 +10,12 @@ namespace BookCave.Repositories
     public class AccountRepo
     {
         private DataContext _db;
+        private AuthorRepo _authorRepo;
 
         public AccountRepo()
         {
             _db = new DataContext();
+            _authorRepo = new AuthorRepo();
         }
 
         public void addCardInfoToDataBase(CardInfo newCard)
@@ -73,8 +75,19 @@ namespace BookCave.Repositories
                             cardNumber = (from c in _db.cardInfo
                                           where c.aspUserIdForCardInfo == userId
                                           select c.cardNumber).FirstOrDefault(),
-                            favoriteBookName = "Not reddy"
+                            book = (from b in _db.books
+                                            where b.Id == a.favoriteBookForUserId 
+                                            select new BookListViewModel{
+                                                id = b.Id,
+                                                title = b.title,
+                                                author = _authorRepo.GetAuthorListViewModelById(b.author),
+                                                image = b.image,
+                                                cost = b.cost,
+                                                rating = b.rating
+                                            }).FirstOrDefault()
                         }).FirstOrDefault();
+            
+            
             return user;
         }
         public void ChangeImageRepo( string userId, ChangeProfilePictureInputModel newImage ){
