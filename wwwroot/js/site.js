@@ -96,7 +96,15 @@ $(".remove-from-cart").click( function(){
       tableRow.remove();
     })
 });
-
+$(".cart-quantity").change( function(){
+  var quantity = $(this).val();
+  var id = $(this).parent().parent()[0].cells[3].firstElementChild.value;
+  console.log(quantity + " " + id);
+  $.post("UpdateCartItemQuantity", { Quantity: quantity , bookId: id }, function(data, status){
+    console.log(data);
+    console.log(status);
+  })
+})
 ////////////////////////////////////////////
 
 //// eitthvað sem einhver er að gera er að gera ///

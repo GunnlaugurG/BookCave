@@ -173,7 +173,7 @@ namespace BookCave.Controllers
                 return Json("Something is wery wrong");
             }
             _accountServices.UpdateCartItemQuantity( Quantity, bookId, userId);
-            return Ok();
+            return Json("Quantity is " + Quantity + "bookId is " + bookId);
         }
         public async Task<IActionResult> Cart(){
             var user = await GetCurrentUserAsync();
