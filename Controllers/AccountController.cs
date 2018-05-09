@@ -255,7 +255,9 @@ namespace BookCave.Controllers
             if(userId == null){
                 return RedirectToAction("Login", "Account");
             }
-            return View();
+            var orderList = new OrderHistoryViewModel();
+            orderList = _accountServices.OrderHistoryServ(userId);
+            return View(orderList);
         }
     }
 }
