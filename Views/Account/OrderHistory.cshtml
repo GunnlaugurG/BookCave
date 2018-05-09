@@ -1,1 +1,10 @@
-﻿<h1>Test</h1>
+﻿@model List<BookCave.Models.ViewModels.BooksInOrderHistoryViewModel>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+    {
+        <h1>@item.address</h1>
+        }
+
+    </div>
+</div>
