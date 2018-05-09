@@ -80,7 +80,6 @@ $(".remove-from-cart").click( function(){
   var tableRow = $(this).parents("tr"); 
   var bookId = $(this).val();
   console.log(bookId);
-  var bookId = $(".book-id").text();
     $.post("RemoveFromCart",{ bookId: bookId }, function(data, status){
       console.log(data);
       tableRow.remove();
@@ -122,9 +121,15 @@ var totalCost = $('#total-cost').html();
 
   var itemCount = 0;
   $('.add').click(function (){
+    var value = $(this).val();
+    console.log(value);
     itemCount ++;
     //$('#message').hide().html("You clicked on a checkbox.").fadeIn('slow');
-    $('#itemCount').hide().html(itemCount).fadeIn('slow');
+    if(itemCount >= 10) {
+      $('#itemCount').hide().html(9 + "+").fadeIn('slow').css("display", "inline");
+    } else {
+      $('#itemCount').hide().html(itemCount).fadeIn('slow').css("display", "inline");
+    }
   }); 
   
 

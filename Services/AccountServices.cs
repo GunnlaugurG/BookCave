@@ -63,5 +63,8 @@ namespace BookCave.Services
             var check = _accountRepo.checkIfUserHasInfo(userId);
             return check;
         }
+        public void RemoveFromCartServ(int bookId, string userId){
+            _accountRepo.RemovFromCartRepo(bookId, userId);
+        }
     }
 } 
