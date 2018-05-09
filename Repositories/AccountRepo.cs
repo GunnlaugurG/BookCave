@@ -280,7 +280,15 @@ namespace BookCave.Repositories
             var changeCart = (from a in _db.carts
                             where a.cartForUserId == userID
                             select a).FirstOrDefault();
+            newOrder.totalCost = changeCart.totalCost;
             changeCart.totalCost = 0;
+            var getShippingDetails = (from a in _db.shipingInfo
+                            where a.aspUserIdForShipping == userID
+                            select a).FirstOrDefault();
+            newOrder.address = getShippingDetails.address;
+            newOrder.city = getShippingDetails.city;
+            newOrder.country = getShippingDetails.country;
+            newOrder.zipCode = getShippingDetails.zipCode;
             addOrderToDataBase(newOrder);
             var cartId = (from a in _db.carts
                             where a.cartForUserId == userID
@@ -291,6 +299,7 @@ namespace BookCave.Repositories
             for(int i = 0; i < listOfItems.Count; i++){
                 listOfItems[i].keyCartId = newOrder.Id;
             }
+
             _db.SaveChanges();
             return true;
         }
@@ -316,10 +325,34 @@ namespace BookCave.Repositories
                             where a.cartForUserId == userId
                             select a).FirstOrDefault();
             var getItem = (from b in _db.cartItems
-                            where b.bookForCartItem == bookId
+                            where b.bookForCartItem == bookId && b.keyCartId == getCart.Id
                             select b).FirstOrDefault();
+            var getbookprice = (from a in _db.books
+                                where a.Id == bookId
+                                select a.cost).FirstOrDefault();
+            getbookprice *= getItem.bookQuantity;
+            getCart.totalCost -= getbookprice;
             _db.Remove(getItem);
             _db.SaveChanges();
+        }
+        public void EmptyCartFromRepo(string userId){
+            var getCart =  (from a in _db.carts
+                            where a.cartForUserId == userId
+                            select a).FirstOrDefault();
+            var cartItems = (from b in _db.cartItems
+                            where b.keyCartId == getCart.Id
+                            select b).ToList();
+            getCart.totalCost = 0;
+            _db.RemoveRange(cartItems);
+            _db.SaveChanges();
+        }
+      
+        public OrderHistoryViewModel OrderHistoryRepo(string userId){
+            var getOrderList = (from a in _db.orders
+                                where a.aspForCartId == userId
+                                select a).ToList();
+
+                                return null;
         }
     }
 }

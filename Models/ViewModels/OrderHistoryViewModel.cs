@@ -3,6 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BookCave.Models.ViewModels {
     public class OrderHistoryViewModel {
-        public List<BooksInOrderHistoryViewModel> bookList {get; set;}
+        public List<BooksInOrderHistoryViewModel> orderList {get; set;}
     }
 }

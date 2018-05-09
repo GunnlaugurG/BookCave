@@ -249,13 +249,24 @@ namespace BookCave.Controllers
             }
             return View();
         }
+        public async Task<IActionResult> EmptyCart() {
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            _accountServices.EmptyCartFromServ(userId);
+            return RedirectToAction("Cart", "Account");
+        }
         public async Task<IActionResult> OrderHistory(){
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
             if(userId == null){
                 return RedirectToAction("Login", "Account");
             }
-            return View();
+            var orderList = new OrderHistoryViewModel();
+            orderList = _accountServices.OrderHistoryServ(userId);
+            return View(orderList);
         }
     }
 }
