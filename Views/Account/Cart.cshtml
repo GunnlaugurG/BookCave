@@ -16,7 +16,7 @@
             <td><a asp-controller="Book" asp-action="details" asp-route-id="@book.id"> @book.title</a></td>
             <td><input type="number" value="@book.quantity" id="cart-quantity"></td>
             <td>@book.cost</td>
-            <td><button class="btn btn-danger remove-from-cart" >X</button> <p hidden class="book-id">@book.id</p></td>
+            <td><button class="btn btn-danger remove-from-cart" value="@book.id" >X</button></td>
         </tr>
         }
         

@@ -56,6 +56,7 @@ $('#submit').click(function(){
   var description = $('#description').val();
   var ratings = $('#ratings').val();
   var bookId = $('#book-id').text();
+  $('#review-form').fadeOut(1000); 
   $.post("/book/review", 
   {
     bookId: bookId,
@@ -88,6 +89,12 @@ $(".remove-from-cart").click( function(){
 
 ////////////////////////////////////////////
 
+/////////Add-to-cart///////////////////
+$(".add").click( function(){
+  //var
+
+})
+////////////////////////////////////////////
 
 //// eitthvað sem einhver er að gera er að gera ///
 $("#back-to-top").click(function () {
