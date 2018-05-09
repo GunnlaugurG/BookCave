@@ -19,14 +19,18 @@
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12 text-right">
                         <h2>
-                        @for(int i = 0; i < @Model.rating-1; i++) {
-                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
-                        }
-                        @if(@Model.rating % 1 != 0) {
-                            <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
-                        } else {
-                            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
-                        }
+                            @for (int i = 0; i < @Model.rating - 1; i++)
+                            {
+                                <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+                            }
+                            @if (@Model.rating % 1 != 0)
+                            {
+                                <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+                            }
+                            else
+                            {
+                                <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+                            }
                         </h2>
                     </div>
                 </div>
@@ -49,92 +53,91 @@
         </div>
     </div>
     <div class="row review-layout" id="review-form">
-        
+
         <div class="row">
             <p hidden id="book-id">@Model.id</p>
             <div class="review-box">
-                    <div class="col-sm-12 col-lg-12 col-md-12">
-                        <h2 class="text-center">Write a review for @Model.name</h2>
+                <div class="col-sm-12 col-lg-12 col-md-12">
+                    <h2 class="text-center">Write a review for @Model.name</h2>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <textarea class="review-area" rows="6" id="description"></textarea>
                     </div>
 
-                    <div class="row">
-                        <div class="col-lg-3 col-md-3 col-sm-3">
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <textarea class="review-area" rows="6" id="description"></textarea>
-                        </div>
-
-                        <div class="col-lg-3 col-md-3 col-sm-3">
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12 col-lg-12 col-sm-12 col-lg-offset-0">
-                            <p class="text-center">
-                                </h3>
-                                <strong> Please give this book a rating</strong>
-                                <select id="ratings">
-                                    <option value="5">5.0</option>
-                                    <option value="4.5">4.5</option>
-                                    <option value="4.0">4.0</option>
-                                    <option value="3.5">3.5</option>
-                                    <option value="3">3.0</option>
-                                    <option value="2.5">2.5</option>
-                                    <option value="2">2.0</option>
-                                    <option value="1.5">1.5</option>
-                                    <option value="1">1.0</option>
-                                    <option value="0.5">0.5</option>
-                                </select>
-                            </p>
-                        </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3">
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-md-12 col-lg-12 col-sm-12 col-lg-offset-0">
+                        <p class="text-center">
+                            </h3>
+                            <strong> Please give this book a rating</strong>
+                            <select id="ratings">
+                                <option value="5">5.0</option>
+                                <option value="4.5">4.5</option>
+                                <option value="4.0">4.0</option>
+                                <option value="3.5">3.5</option>
+                                <option value="3">3.0</option>
+                                <option value="2.5">2.5</option>
+                                <option value="2">2.0</option>
+                                <option value="1.5">1.5</option>
+                                <option value="1">1.0</option>
+                                <option value="0.5">0.5</option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div id="button-wrapper" class="col-sm-12 col-lg-12 col-md-12">
                 <button class="btn  btn-default text-center button-size" id="submit">Submit review</button>
-                <button id="close-review" class=" btn btn-danger">Cancel review</button>
+                <button id="close-review" class=" btn btn-danger button-size">Cancel review</button>
             </div>
         </div>
     </div>
+</div>
 
-
-
+<div class="row">
+    <div class="col-sm-12 col-lg-12 col-md-12">
+        <h3>Reviews for @Model.name</h3>
     </div>
-
-
-    <div class="row">
-        <div class="col-sm-12 col-lg-12 col-md-12">
-            <h3>Reviews for @Model.name</h3>
-        </div>
-    </div>
+</div>
 
 <div class="row review-layout">
     <div class="col-sm-12 col-lg-12">
-        @foreach (var book in Model.comments) {
+        @foreach (var book in Model.comments)
+        {
             <fieldset>
-            @if(@book.Author == null) {
-                <legend>Anonymous</legend>
-            } else {
-                <legend>@book.Author</legend>
-            }
-            @book.Description<br/>
-            @for (int i = 0; i < @book.Ratings - 1; i++)
-            {
-                <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
-            }
-            @if (@book.Ratings % 1 != 0)
-            {
-                <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
-            }
-            else
-            {
-                <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
-            }
-            <br> <br>
+                @if (@book.Author == null)
+                {
+                    <legend>Anonymous</legend>
+                }
+                else
+                {
+                    <legend>@book.Author</legend>
+                }
+                @book.Description<br />
+                @for (int i = 0; i < @book.Ratings - 1; i++)
+                {
+                    <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
+                }
+                @if (@book.Ratings % 1 != 0)
+                {
+                    <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+                }
+                else
+                {
+                    <img src="~/Images/fullStar.png" alt="rating" style="width:20px; height:20px;">
+                }
+                <br> <br>
             </fieldset>
         }
     </div>
 </div>
 </div>
-
