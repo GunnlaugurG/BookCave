@@ -24,7 +24,9 @@ html{
     /*margin: auto    !important;*/
     
 }
-
+ul.bullet-punktur{
+    list-style-type: circle;
+}
 #back-to-top {
     height:50px;
     width:50px;
