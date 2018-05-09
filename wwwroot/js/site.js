@@ -48,6 +48,7 @@ $('#review-form').addClass("hidden");
 
 $('#write-review').click(function(){
   $('#review-form').removeClass("hidden");
+  $('#review-form').fadeIn(1000);
 });
 $('#submit').click(function(){
   
@@ -66,7 +67,7 @@ $('#submit').click(function(){
   })
 });
 $('#close-review').click( function(){
-  $('#review-form').addClass("hidden");
+  $('#review-form').fadeOut(500);
 
 })
 ////////////////////////////////////////////
@@ -112,12 +113,13 @@ var totalCost = $('#total-cost').html();
    }
   });
 
-var i =0;
- $('.add-to-cart').on('click', function () {
-    i = i+1;
-    alert(i);
-});
-
+  var itemCount = 0;
+  $('.add').click(function (){
+    itemCount ++;
+    //$('#message').hide().html("You clicked on a checkbox.").fadeIn('slow');
+    $('#itemCount').hide().html(itemCount).fadeIn('slow');
+  }); 
+  
 
 
 $(function() {
