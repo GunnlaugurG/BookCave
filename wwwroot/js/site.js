@@ -64,6 +64,10 @@ $('#submit').click(function(){
     console.log(data);
   })
 });
+$('#close-review').click( function(){
+  $('#review-form').addClass("hidden");
+
+})
 ////////////////////////////////////////////
 
 
