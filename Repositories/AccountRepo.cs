@@ -136,8 +136,14 @@ namespace BookCave.Repositories
             }
             _db.SaveChanges();
         }
-        public void changeFavoriteBook( int bookId, string userID ){
+        public void changeFavoriteBook( int bookId, string userId ){
             // hengja bók á user ;)
+
+            var change = (from u in _db.userAccounts 
+                            where u.aspUserId == userId
+                            select u).FirstOrDefault();
+            change.favoriteBookForUserId = bookId;
+            _db.SaveChanges();
 
         }
         public bool AddToCartRepo(int thisBookId, string userId){
