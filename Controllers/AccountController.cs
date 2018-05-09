@@ -266,7 +266,7 @@ namespace BookCave.Controllers
                 return RedirectToAction("Login", "Account");
             }
             _accountServices.EmptyCartFromServ(userId);
-            return RedirectToAction("Cart", "Account");
+            return Ok();
         }
         public async Task<IActionResult> OrderHistory(){
             var user = await GetCurrentUserAsync();
