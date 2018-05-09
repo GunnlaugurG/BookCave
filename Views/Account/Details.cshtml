@@ -42,9 +42,9 @@
                                 <!--***************************FORM*****************************-->
                                 <form asp-controller="Account" asp-action="ChangeShippingDetails" method="POST">
                                     <label asp-for="address">Change shipping address</label>
-                                    <input type="text" asp-for="address" class="form-control modal-content-styling" placeholder="Address">
+                                    <input type="text" asp-for="address" class="form-control modal-content-styling" placeholder="Address" required>
                                     <label asp-for="city">Change city</label>
-                                    <input type="text" asp-for="city" class="form-control modal-content-styling" placeholder="City..">
+                                    <input type="text" asp-for="city" class="form-control modal-content-styling" placeholder="City.." required>
                                     <div class="row">
                                         <div class="col-sm-4">
                                             <label asp-for="country">Change country</label>
@@ -293,8 +293,8 @@
                                             </select>
                                         </div>
                                         <div class="col-sm-3">
-                                            <label asp-for="zipCode">Change zip code</label>
-                                            <input type="text" asp-for="zipCode" class="form-control" style="margin-bottom:20px;">
+                                            <label asp-for="zipCode" >Change zip code</label>
+                                            <input type="text" asp-for="zipCode" class="form-control" style="margin-bottom:20px;" pattern="[0-9]{3}" title="Pleace enter 3 number zip code"  required>
                                         </div>
                                     </div>
 
@@ -349,12 +349,12 @@
                                     <div class="modal-body">
                                         <form asp-controller="Account" asp-action="ChangeCardDetails" method="POST">
                                             <label asp-for="cardholderName">Cardholders name</label>
-                                            <input type="text" asp-for="cardholderName" class="form-control modal-content-styling" placeholder="Cardholder name..">
+                                            <input type="text" asp-for="cardholderName" class="form-control modal-content-styling" placeholder="Cardholder name.." required>
                                             <label asp-for="cardNumber">Card number</label>
-                                           <input type="text" asp-for="cardNumber" class="form-control" placeholder="Card number.." style="width:80%">
+                                           <input type="text" asp-for="cardNumber" class="form-control" placeholder="Card number.." style="width:80%" required  pattern="[0-9]{16}" title="Invalid card number"  required>
                                            <span asp-validation-for="cardholderName"></span><br>
                                               <label asp-for="cvc">CVC</label>
-                                            <input style="width: 80px" type="text" asp-for="cvc" class="form-control cvc-styling" placeholder="CVC..">
+                                            <input style="width: 80px" type="text" asp-for="cvc" class="form-control cvc-styling" placeholder="CVC.."  pattern="[0-9]{3}" title="Invalid CVC"  required >
                                             <button type="submit" class="btn btn-default form-control" style="width:50%">Submit</button>
                                         </form>
                                     </div>
