@@ -42,7 +42,7 @@ $("#selectBox").change(function(){
                   });
     });
 
-//Fyrir review síðuna
+///////////////Fyrir review síðuna//////////////////
 $('#review-form').addClass("hidden");
 
 $('#write-review').click(function(){
@@ -64,7 +64,24 @@ $('#submit').click(function(){
     console.log(data);
   })
 });
+////////////////////////////////////////////
 
+
+/////////Fyrir Cartið///////////////////
+
+$(".remove-from-cart").click( function(){
+
+  var bookId = $(".book-id").text();
+    $.post("removeFromCart"),{ bookId: bookId }, function(data, status){
+      console.log(status);
+      $(this).parents("tr").remove();
+    }
+});
+
+////////////////////////////////////////////
+
+
+//// eitthvað sem einhver er að gera er að gera ///
 $("#back-to-top").click(function () {
 
   $("html, body").animate({scrollTop: 0}, 500);
@@ -78,6 +95,26 @@ $(window).scroll(function() {
     $('#back-to-top').fadeOut();
    }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /// veit ekki hvað þetta er enn þetta kastar villu
 //$(function() {
     // Setup drop down menu

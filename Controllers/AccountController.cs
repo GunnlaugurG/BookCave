@@ -146,6 +146,15 @@ namespace BookCave.Controllers
                 return RedirectToAction("Details", "Book" , new {id = Id});
             }
         }
+        public async Task<IActionResult> removeFromCart( int bookId){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            } 
+            /// Kalla á eitthvað service til að remove-a
+            return Ok();
+        }
         public async Task<IActionResult> Cart(){
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
@@ -173,5 +182,7 @@ namespace BookCave.Controllers
             var newModel = _accountServices.checkOutService(userId);
             return View(newModel);
         }
+
+
     }
 }
