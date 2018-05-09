@@ -322,7 +322,7 @@ form.example input[type=text] {
          margin-right: 20%;
     }
 }
-.keep-min-height-all-books {
+.keep-min-height {
     min-height: 50rem;
 }
 

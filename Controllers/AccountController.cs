@@ -4,6 +4,7 @@ using BookCave.Models.ViewModels;
 using BookCave.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -173,7 +174,7 @@ namespace BookCave.Controllers
                 return Json("Something is wery wrong");
             }
             _accountServices.UpdateCartItemQuantity( Quantity, bookId, userId);
-            return Ok();
+            return Json("Quantity is " + Quantity + "bookId is " + bookId);
         }
         public async Task<IActionResult> Cart(){
             var user = await GetCurrentUserAsync();
@@ -273,7 +274,7 @@ namespace BookCave.Controllers
             if(userId == null){
                 return RedirectToAction("Login", "Account");
             }
-            var orderList = new OrderHistoryViewModel();
+            var orderList = new List<BooksInOrderHistoryViewModel>();
             orderList = _accountServices.OrderHistoryServ(userId);
             return View(orderList);
         }

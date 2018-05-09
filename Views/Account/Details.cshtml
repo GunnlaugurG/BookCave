@@ -397,8 +397,14 @@
                         </div>
                     <div class="row">
                         <p>This is my favorit book</p>
-                        <img src="@Model.book.image">
-                        <p>@Model.book.title</p>
+                        @if(@Model.book == null){
+                            <p> No book set</p>
+                        }
+                        else{
+
+                            <img src="@Model.book.image">
+                            <p>@Model.book.title</p>
+                        }
                         
                     </div>
                     </div>
