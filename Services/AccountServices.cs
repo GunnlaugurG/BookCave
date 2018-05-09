@@ -1,4 +1,5 @@
-﻿using BookCave.Data.EntityModels;
+﻿using System.Collections.Generic;
+using BookCave.Data.EntityModels;
 using BookCave.Models;
 using BookCave.Models.InputModel;
 using BookCave.Models.ViewModels;
@@ -66,7 +67,7 @@ namespace BookCave.Services
         public void RemoveFromCartServ(int bookId, string userId){
             _accountRepo.RemovFromCartRepo(bookId, userId);
         }
-        public OrderHistoryViewModel OrderHistoryServ(string userId){
+        public List<BooksInOrderHistoryViewModel> OrderHistoryServ(string userId){
             var newModel = _accountRepo.OrderHistoryRepo(userId);
             return newModel;
         }
