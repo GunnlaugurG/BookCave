@@ -8,6 +8,7 @@
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
             <th scope="col">Remove</th>
+            <th scope="col">Cost</th>
         </tr>
       @foreach(var book in Model.booksList)
         {
@@ -21,5 +22,5 @@
         
   </tbody>
 </table>
-<h2 id="total-cost">@Model.totalCost</h2>
+<h2 id="total-cost" class="text-right">@Model.totalCost $</h2>
 <a asp-controller="account" asp-action="checkout" id="check-out-button" class="btn btn-primary">CheckOut</a>
