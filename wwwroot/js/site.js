@@ -48,6 +48,7 @@ $('#review-form').addClass("hidden");
 
 $('#write-review').click(function(){
   $('#review-form').removeClass("hidden");
+  $('#review-form').fadeIn(1000);
 });
 $('#submit').click(function(){
   
@@ -55,6 +56,7 @@ $('#submit').click(function(){
   var description = $('#description').val();
   var ratings = $('#ratings').val();
   var bookId = $('#book-id').text();
+  $('#review-form').fadeOut(1000); 
   $.post("/book/review", 
   {
     bookId: bookId,
@@ -66,7 +68,7 @@ $('#submit').click(function(){
   })
 });
 $('#close-review').click( function(){
-  $('#review-form').addClass("hidden");
+  $('#review-form').fadeOut(500);
 
 })
 ////////////////////////////////////////////
@@ -87,6 +89,12 @@ $(".remove-from-cart").click( function(){
 
 ////////////////////////////////////////////
 
+/////////Add-to-cart///////////////////
+$(".add").click( function(){
+  //var
+
+})
+////////////////////////////////////////////
 
 //// eitthvað sem einhver er að gera er að gera ///
 $("#back-to-top").click(function () {

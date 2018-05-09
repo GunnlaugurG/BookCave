@@ -308,5 +308,15 @@ namespace BookCave.Repositories
                 return true;
             }
         }
+        public void RemovFromCartRepo(int bookId, string userId){
+            var getCart = (from a in _db.carts
+                            where a.cartForUserId == userId
+                            select a).FirstOrDefault();
+            var getItem = (from b in _db.cartItems
+                            where b.bookForCartItem == bookId
+                            select b).FirstOrDefault();
+            _db.Remove(getItem);
+            _db.SaveChanges();
+        }
     }
 }
