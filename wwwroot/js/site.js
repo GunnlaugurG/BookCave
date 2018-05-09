@@ -48,6 +48,11 @@ $("#selectBox").change(function(){
 $('#review-form').addClass("hidden");
 
 $('#write-review').click(function(){
+  $.post("/book/LoggedInCheck", {}, function(data, status){
+    if( data == "RedirectToLogin"){
+      window.location.replace("/account/login");
+    }
+  })
   $('#review-form').removeClass("hidden");
   $('#review-form').fadeIn(1000);
 });
@@ -65,7 +70,12 @@ $('#submit').click(function(){
     Ratings: ratings
   }, 
   function(data, status){
-    location.reload();
+    if( data == "RedirectToLogin"){
+      window.location.replace("/account/login");
+    }
+    else{
+      location.reload();
+    }
   })
 });
 $('#close-review').click( function(){
