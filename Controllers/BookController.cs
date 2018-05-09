@@ -85,8 +85,24 @@ namespace BookCave.Controllers
         public async Task<IActionResult> review(ReviewInputModel input) {
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
-            _bookService.SetBookReview( input, userId );
-            return Ok();
+            if (userId == null) {
+                    return Json("RedirectToLogin");
+            }
+            else{
+                _bookService.SetBookReview( input, userId );
+                return Ok();
+            }
+        }
+        [HttpPost]
+        public async Task<IActionResult> LoggedInCheck(ReviewInputModel input) {
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if (userId == null) {
+                    return Json("RedirectToLogin");
+            }
+            else{
+                return Ok();
+            }
         }
         public IActionResult Search(string searchedWord)
         {
