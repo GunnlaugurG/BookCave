@@ -97,9 +97,7 @@ $(".remove-from-cart").click( function(){
     })
 });
 
-////////////////////////////////////////////
 
-//// eitthvað sem einhver er að gera er að gera ///
 $("#back-to-top").click(function () {
 
   $("html, body").animate({scrollTop: 0}, 500);
@@ -116,9 +114,11 @@ $(window).scroll(function() {
 
 $('#check-out-button').hover(function(){
 var totalCost = $('#total-cost').html();
-  if(totalCost === "0 $") {
+  if(totalCost === "Total price: 0 $") {
+    $("#clear-cart-button").attr('disabled',true);
     $("#check-out-button").attr('disabled',true);
   } else {
+    $("#clear-cart-button").attr('disabled',false);
     $("#check-out-button").attr("disabled", false);
    }
   });
@@ -138,6 +138,48 @@ var totalCost = $('#total-cost').html();
   $('.add').click(function () {
     //$(this).html('Added to Cart ✔').fadeIn(2000).fadeOut(2000);
     //$(this).html('Add to cart').fadeIn(2000);
+  })
+
+  $('#clear-cart-button').click(function() {
+    swal({
+      title: 'Are you sure?',
+      text: "Removing all items from the cart is irreversible!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: false,
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        swal(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+        $.post("/Account/EmptyCart", function(){
+          $("#cart-table tbody").fadeOut("slow", function() {
+            $(this).empty();
+          })
+          $("#total-cost").fadeOut("slow", function() {
+            $(this).empty();
+            $(this).html("Total price: 0 $").fadeIn('slow');
+          })
+        });
+      } 
+    })
+  })
+
+  $('.add').click(function() {
+    swal(
+      'Good job!',
+      'Book added to cart!',
+      'success'
+    )  
   })
   
 
