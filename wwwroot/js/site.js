@@ -136,7 +136,8 @@ var totalCost = $('#total-cost').html();
   });
 
   $('.add').click(function () {
-    $(this).animate({ backgroundColor: "red" }, "slow");
+    //$(this).html('Added to Cart ✔').fadeIn(2000).fadeOut(2000);
+    //$(this).html('Add to cart').fadeIn(2000);
   })
   
 

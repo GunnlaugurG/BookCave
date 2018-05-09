@@ -10,10 +10,12 @@ namespace BookCave.Repositories
     public class AccountRepo
     {
         private DataContext _db;
+        private AuthorRepo _authorRepo;
 
         public AccountRepo()
         {
             _db = new DataContext();
+            _authorRepo = new AuthorRepo();
         }
 
         public void addCardInfoToDataBase(CardInfo newCard)
@@ -73,8 +75,19 @@ namespace BookCave.Repositories
                             cardNumber = (from c in _db.cardInfo
                                           where c.aspUserIdForCardInfo == userId
                                           select c.cardNumber).FirstOrDefault(),
-                            favoriteBookName = "Not reddy"
+                            book = (from b in _db.books
+                                            where b.Id == a.favoriteBookForUserId 
+                                            select new BookListViewModel{
+                                                id = b.Id,
+                                                title = b.title,
+                                                author = _authorRepo.GetAuthorListViewModelById(b.author),
+                                                image = b.image,
+                                                cost = b.cost,
+                                                rating = b.rating
+                                            }).FirstOrDefault()
                         }).FirstOrDefault();
+            
+            
             return user;
         }
         public void ChangeImageRepo( string userId, ChangeProfilePictureInputModel newImage ){
@@ -136,7 +149,16 @@ namespace BookCave.Repositories
             }
             _db.SaveChanges();
         }
+        public void changeFavoriteBook( int bookId, string userId ){
+            // hengja bók á user ;)
 
+            var change = (from u in _db.userAccounts 
+                            where u.aspUserId == userId
+                            select u).FirstOrDefault();
+            change.favoriteBookForUserId = bookId;
+            _db.SaveChanges();
+
+        }
         public bool AddToCartRepo(int thisBookId, string userId){
             var userCart = (from c in _db.carts
                             where c.cartForUserId == userId && c.orderComplete == false
@@ -330,6 +352,22 @@ namespace BookCave.Repositories
             getbookprice *= getItem.bookQuantity;
             getCart.totalCost -= getbookprice;
             _db.Remove(getItem);
+            _db.SaveChanges();
+        }
+        public void UpdateCartItemQuantity(int quantity, int bookId, string userId){
+            var getCart = (from a in _db.carts
+                            where a.cartForUserId == userId
+                            select a).FirstOrDefault();
+            var getItem = (from b in _db.cartItems
+                            where b.bookForCartItem == bookId && b.keyCartId == getCart.Id
+                            select b).FirstOrDefault();
+            var getbookprice = (from a in _db.books
+                                where a.Id == bookId
+                                select a.cost).FirstOrDefault();
+            var oldQuantyPrice = getbookprice * getItem.bookQuantity;
+            var newQuantyPrice = getbookprice * quantity;
+            getCart.totalCost += newQuantyPrice - oldQuantyPrice;
+            getItem.bookQuantity = quantity;
             _db.SaveChanges();
         }
         public void EmptyCartFromRepo(string userId){

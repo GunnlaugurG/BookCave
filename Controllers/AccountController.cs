@@ -167,6 +167,15 @@ namespace BookCave.Controllers
             _accountServices.RemoveFromCartServ(bookId, userId);
             return Ok();
         }
+        public async Task<IActionResult> UpdateCartItemQuantity( int Quantity, int bookId ){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return Json("Something is wery wrong");
+            }
+            _accountServices.UpdateCartItemQuantity( Quantity, bookId, userId);
+            return Ok();
+        }
         public async Task<IActionResult> Cart(){
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
@@ -249,6 +258,15 @@ namespace BookCave.Controllers
                 return RedirectToAction("Login", "Account");
             }
             return View();
+        }
+        public async Task<IActionResult> EmptyCart() {
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            _accountServices.EmptyCartFromServ(userId);
+            return RedirectToAction("Cart", "Account");
         }
         public async Task<IActionResult> OrderHistory(){
             var user = await GetCurrentUserAsync();

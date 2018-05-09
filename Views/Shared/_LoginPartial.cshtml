@@ -19,8 +19,8 @@
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a asp-action="Details" asp-controller="Account" class="dropdown-item text-left text-nav-content"> Notenda upplýsingar </a></li>
-                    <li><a class="dropdown-item text-nav-content" >Pöntunar saga</a></li>
+                    <li><a  asp-controller="Account" asp-action="Details" class="dropdown-item text-left text-nav-content"> Account information </a></li>
+                    <li><a asp-controller="Account" asp-action="OrderHistory" class="dropdown-item text-nav-content" >Order History</a></li>
                     <button type="submit" class="btn btn-default btn-sm dropdown-item" id="logout-btn">Log out</button>
                 </ul>
             </div>
