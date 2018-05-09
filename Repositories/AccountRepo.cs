@@ -216,17 +216,18 @@ namespace BookCave.Repositories
 
             var listOfBookId = (from a in _db.cartItems
                                 where a.keyCartId == cartId
-                                select a.bookForCartItem).ToList();
+                                select a).ToList();
 
             for(int i = 0; i < listOfBookId.Count; i++){
                 newModel.booksList.Add((from a in _db.books
-                                        where a.Id == listOfBookId[i]
+                                        where a.Id == listOfBookId[i].bookForCartItem
                                         select new BookInCartListViewModel{
                                             id = a.Id,
                                             title = a.title,
                                             cost = a.cost,
-                                            image = a.image
-                                        }).FirstOrDefault());                    
+                                            image = a.image,
+                                            quantity = listOfBookId[i].bookQuantity
+                                        }).FirstOrDefault());
             }
             return newModel;
         }
