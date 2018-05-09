@@ -48,6 +48,7 @@ $('#review-form').addClass("hidden");
 
 $('#write-review').click(function(){
   $('#review-form').removeClass("hidden");
+  $('#review-form').fadeIn(1000);
 });
 $('#submit').click(function(){
   
@@ -66,7 +67,7 @@ $('#submit').click(function(){
   })
 });
 $('#close-review').click( function(){
-  $('#review-form').addClass("hidden");
+  $('#review-form').fadeOut(500);
 
 })
 ////////////////////////////////////////////
