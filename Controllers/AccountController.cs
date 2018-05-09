@@ -181,7 +181,11 @@ namespace BookCave.Controllers
             }
             //EF PERSONU UPPL'YSINGAR ERU NULL ÞA KEMUR VILLA ÞARF AÐ LAGA
             var newModel = _accountServices.checkOutService(userId);
-            return View(newModel);
+            var checkInfo = _accountServices.checkPersonalInfo(newModel);
+            if(checkInfo != true){
+                RedirectToAction("Details", "Account");
+            }
+                return View(newModel);
         }
         public async Task<IActionResult> Complete(){
             var user = await GetCurrentUserAsync();
