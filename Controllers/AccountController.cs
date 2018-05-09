@@ -183,7 +183,14 @@ namespace BookCave.Controllers
             var newModel = _accountServices.checkOutService(userId);
             return View(newModel);
         }
-
+        public async Task<IActionResult> Complete(){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            return RedirectToAction("Success", "Account");
+        }
 
     }
 }

@@ -34,7 +34,7 @@
   </tbody>
 </table>
 <h4>Total cost: @Model.totalCost</h4>
-<button class="btn btn-danger">Change Cart</button>
-<button class="btn btn-success" >Complete Order</button>
-
+<a class="btn btn-default center-block" asp-controller="Account" asp-action="Details">Change BillingInfo</a>
+<a class="btn btn-default center-block" asp-controller="Account" asp-action="Complete">Complete Order</a>
+<a class="btn btn-default center-block" asp-controller="Account" asp-action="Cart">Back To cart</a>
 </div>
