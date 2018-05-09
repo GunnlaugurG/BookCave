@@ -22,5 +22,5 @@
   </tbody>
 </table>
 <h2 id="total-cost" class="text-right">@Model.totalCost $</h2>
-<button type="submit" href="/account/checkout/" id="check-out-button" class="btn btn-primary">CheckOut</button>
-<a href="">Clear cart!</a>
+<a asp-controller="account" asp-action="checkout"><button type="submit" id="check-out-button" class="btn btn-primary">CheckOut</button></a>
+<a asp-controller="account" asp-action="emptyCart">Clear cart!</a>
