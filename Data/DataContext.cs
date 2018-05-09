@@ -8,7 +8,6 @@ namespace BookCave.Data
         public DbSet<Author> authors { get; set; }
         public DbSet<Book> books { get; set; }
         public DbSet<UserAccount> userAccounts { get; set; }
-        public DbSet<Review> Reviews { get; set; }
         public DbSet<ShippingInfo> shipingInfo { get; set; }
         public DbSet<CardInfo> cardInfo { get; set; }
         public DbSet<Cart> carts {get; set;}

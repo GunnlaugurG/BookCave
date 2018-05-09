@@ -3,60 +3,51 @@ $(document).ready(function(){
 
 console.log("Javascript up and running1");
 
-$("#sort-by").change(function(){
+//Ajax request for sorting the book list "All Books"
+$("#selectBox").change(function(){
     var sortVal = $(this).val();
-    $.post("SortBy", { value: sortVal },
-    function(data, status){
-      var markup = "";
-
-      var bookList = $("#book-list");
-      console.log( bookList); 
-
-    //  var bookTitle = $(".card-text").children();
-    
-      for( var i = 0; i < data.length; i++){
-     //   bookTitle.prevObject[i].href = "details/" + data[i].id;
-     //   bookTitle.prevObject[i].text = data[i].title;
-
-
-        markup += '<div id="settings" class="col-lg-3 col-sm-6 col-md-4">';
-        markup += '<div class="row">';
-        markup += '<div class="col-lg-12 col-sm-12">';
-        markup += ' <img class="Thumb-nail-image" src="' + data[i].image + '" alt="book-cover" />';
-        markup += '</div>';
-        markup += '</div>';
-        markup += '<div class="row">';
-        markup += '<div id="book-info" class="col-lg-12 col-sm-12">';
-        markup += '<a href="details/' + data[i].id + '" class="card-text">' + data[i].title + '</a>';
-        markup += '<div class="divider"></div>';
-        markup += '<a href="/author/details/' + data[i].author.id + '">' + data[i].author.authorName + '</a>' ;
-        markup += '<p>Rating: ' + data[i].rating + '</p>';
-        markup += '<p>Price: ' + data[i].cost + ' $</p>';
-        markup += '</div>';
-        markup += '</div>';
-        markup += '<div class="row">'
-        markup += '<div class="col-lg-12 col-sm-12 img-thumbnail-btn">';
-        markup += '<a class="btn btn-success center-block" href="#">Add to cart</a>';
-        markup += '</div>';
-        markup += '</div>';
-        markup += '<div class="row">';
-        markup += '<div class="col-lg-12 col-sm-4 spacing">';
-        markup += '</div>';
-        markup += '</div>';
-        markup += '</div>';
-      }
-      $("#book-list").empty();
-      $("#book-list").append(markup);
-    })
-});
-
+    console.log(sortVal);
+    var markup = "";
+    $.get("/book/SortBy", { value: sortVal }, function(data){
+      $('#book-list').fadeOut(1000, function() {
+      $('#book-list').empty();});
+      $('#book-list').fadeIn(500, function() {
+      
+          $.each(data,function(i,j){
+              markup += '<div id="animate-list" class="col-lg-3 col-sm-6 col-md-4" style="display: none;">'
+                     + '<div class="row"> <div class="col-lg-12 col-sm-12">'
+                     + '<a href="/book/details/' + j.id + '">'
+                     + '<img class="Thumb-nail-image" src="' + j.image + '"alt="book-cover" /></a>'
+                     + '</div> </div> <div class="row"> <div id="book-info" class="col-lg-12 col-sm-12">'
+                     + '<a href="/book/details/' + j.id + ' class="card-text">' + j.title + '</a>'
+                     + '<div class="divider"></div><a href="author/details/' + j.id + '<p>' + j.author.authorName + '</p></a>';
+                     for(i = 0; i < j.rating; i++) {
+                      markup += '<img src="/Images/fullStar.png" alt="rating" class="starRatings">'
+                      }
+                      if(j.rating % 1 != 0) {
+                          markup += '<img src="/Images/halfStar.png" alt="rating" class="starRatings">'
+                      } else {
+                          markup += '<img src="/Images/fullStar.png" alt="rating" class="starRatings">'
+                      }
+                      markup += '<p>Price: ' + j.cost + '</p></div> </div><div class="row">'
+                     + '<div class="col-lg-12 col-sm-12 img-thumbnail-btn"><a class="btn btn-default center-block" href="/account/addToCart/'
+                     + j.id + '">Add to cart</a></div> </div><div class="row">'
+                     + '<div class="col-lg-12 col-sm-4 spacing"></div></div></div>';
+                      
+                     $(markup).appendTo("#book-list").slideDown(1000);
+                     markup = "";
+                     console.log(markup);
+                    });
+                    ;});
+                  });
+    });
 
 //Fyrir review síðuna
 $('#review-form').addClass("hidden");
 
 $('#write-review').click(function(){
   $('#review-form').removeClass("hidden");
-})
+});
 $('#submit').click(function(){
   
   $('#review-form').addClass("hidden");
