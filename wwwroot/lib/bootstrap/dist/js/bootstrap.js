@@ -590,9 +590,6 @@ if (typeof jQuery === 'undefined') {
             .addClass('collapse')[dimension](0)
             .collapse('hide').click();
 
-            .removeClass('collapse')
-            .attr('aria-expanded', true)
-
         this.$trigger
             .removeClass('collapsed')
             .attr('aria-expanded', true)
