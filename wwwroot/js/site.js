@@ -121,6 +121,8 @@ var totalCost = $('#total-cost').html();
 
   var itemCount = 0;
   $('.add').click(function (){
+    var value = $(this).val();
+    console.log(value);
     itemCount ++;
     //$('#message').hide().html("You clicked on a checkbox.").fadeIn('slow');
     $('#itemCount').hide().html(itemCount).fadeIn('slow');
