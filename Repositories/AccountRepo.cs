@@ -324,10 +324,29 @@ namespace BookCave.Repositories
             var getItem = (from b in _db.cartItems
                             where b.bookForCartItem == bookId && b.keyCartId == getCart.Id
                             select b).FirstOrDefault();
+            var getbookprice = (from a in _db.books
+                                where a.Id == bookId
+                                select a.cost).FirstOrDefault();
+            getbookprice *= getItem.bookQuantity;
+            getCart.totalCost -= getbookprice;
             _db.Remove(getItem);
             _db.SaveChanges();
         }
+<<<<<<< HEAD
       
+=======
+        public void EmptyCartFromRepo(string userId){
+            var getCart =  (from a in _db.carts
+                            where a.cartForUserId == userId
+                            select a).FirstOrDefault();
+            var cartItems = (from b in _db.cartItems
+                            where b.keyCartId == getCart.Id
+                            select b).ToList();
+            getCart.totalCost = 0;
+            _db.RemoveRange(cartItems);
+            _db.SaveChanges();
+        }
+>>>>>>> 1d54afad5b800c0c8f920b42420fe61e1829ca10
         public OrderHistoryViewModel OrderHistoryRepo(string userId){
             var getOrderList = (from a in _db.orders
                                 where a.aspForCartId == userId
