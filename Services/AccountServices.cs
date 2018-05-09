@@ -70,6 +70,9 @@ namespace BookCave.Services
         public void RemoveFromCartServ(int bookId, string userId){
             _accountRepo.RemovFromCartRepo(bookId, userId);
         }
+        public void UpdateCartItemQuantity(int quantity, string userId){
+            _bookRepo.UpdateCartItemQuantity( quantity, userId);
+        }
         public OrderHistoryViewModel OrderHistoryServ(string userId){
             var newModel = _accountRepo.OrderHistoryRepo(userId);
             return newModel;

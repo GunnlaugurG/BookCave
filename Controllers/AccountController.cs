@@ -166,6 +166,15 @@ namespace BookCave.Controllers
             _accountServices.RemoveFromCartServ(bookId, userId);
             return Ok();
         }
+        public async Task<IActionResult> UpdateCartItemQuantity( int Quantity ){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return Json("Something is wery wrong");
+            }
+            _accountServices.UpdateCartItemQuantity( Quantity, userId);
+            return Ok();
+        }
         public async Task<IActionResult> Cart(){
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
