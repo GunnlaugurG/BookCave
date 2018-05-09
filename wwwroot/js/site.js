@@ -11,7 +11,7 @@ $("#selectBox").change(function(){
     $.get("/book/SortBy", { value: sortVal }, function(data){
       $('#book-list').fadeOut(1000, function() {
       $('#book-list').empty();});
-      $('#book-list').fadeIn(500, function() {
+      $('#book-list').fadeIn(200, function() {
       
           $.each(data,function(i,j){
               markup += '<div id="animate-list" class="col-lg-3 col-sm-6 col-md-4" style="display: none;">'
@@ -19,9 +19,9 @@ $("#selectBox").change(function(){
                      + '<a href="/book/details/' + j.id + '">'
                      + '<img class="Thumb-nail-image" src="' + j.image + '"alt="book-cover" /></a>'
                      + '</div> </div> <div class="row"> <div id="book-info" class="col-lg-12 col-sm-12">'
-                     + '<a href="/book/details/' + j.id + ' class="card-text">' + j.title + '</a>'
-                     + '<div class="divider"></div><a href="author/details/' + j.id + '<p>' + j.author.authorName + '</p></a>';
-                     for(i = 0; i < j.rating; i++) {
+                     + '<a href="/book/details/' + j.id + ' class="card-text">' + j.title + '</a> <br/><div class="divider"></div>'
+                     + '<a href="/author/details/' + j.author.id + '"class=card-text">' + j.author.authorName + '</a> <br/>'
+                     for(i = 0; i < j.rating-1; i++) {
                       markup += '<img src="/Images/fullStar.png" alt="rating" class="starRatings">'
                       }
                       if(j.rating % 1 != 0) {
@@ -29,7 +29,7 @@ $("#selectBox").change(function(){
                       } else {
                           markup += '<img src="/Images/fullStar.png" alt="rating" class="starRatings">'
                       }
-                      markup += '<p>Price: ' + j.cost + '</p></div> </div><div class="row">'
+                      markup += '<p></a>' + j.cost + ' $</p></div> </div><div class="row">'
                      + '<div class="col-lg-12 col-sm-12 img-thumbnail-btn"><a class="btn btn-default center-block" href="/account/addToCart/'
                      + j.id + '">Add to cart</a></div> </div><div class="row">'
                      + '<div class="col-lg-12 col-sm-4 spacing"></div></div></div>';
@@ -98,36 +98,22 @@ $(window).scroll(function() {
    }
 });
 
+$('#check-out-button').hover(function(){
+var totalCost = $('#total-cost').html();
+  if(totalCost == 0) {
+    $("#check-out-button").attr("disabled", true);
+  } else {
+    $("#check-out-button").attr("disabled", false);
+   }
+  });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/// veit ekki hvað þetta er enn þetta kastar villu
-//$(function() {
-    // Setup drop down menu
-  //  $('.dropdown-toggle').dropdown();
-
-    // Fix input element click problem
-//    $('.dropdown input, .dropdown label').click(function(e) {
-  //    e.stopPropagation();
-  //  });
-//  });
-//Geyma
+$(function() {
+    $('.dropdown-toggle').dropdown();
+   $('.dropdown input, .dropdown label').click(function(e) {
+   e.stopPropagation();
+    });
+  });
 /*
   $("#SubmitShipping").click(function(event){
     event.preventDefault();
@@ -136,5 +122,6 @@ $(window).scroll(function() {
     }).fail(function(data) {
         alert("hi");
     })
-  });*/
+  });
+  */
 });

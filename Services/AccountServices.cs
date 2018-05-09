@@ -61,5 +61,29 @@ namespace BookCave.Services
             var success = _accountRepo.completeRepo(userId);
             return success;
         }
+        public bool checkPersonalInfo(CheckOutViewModel model){
+            if(model.address == null){
+                return false;
+            }
+            else if(model.cardHolderName == null){
+                return false;
+            }
+            else if(model.cardNumber == null){
+                return false;
+            }
+            else if(model.city == null){
+                return false;
+            }
+            else if(model.country == null){
+                return false;
+            }
+            else if(model.cvc == null){
+                return false;
+            }
+            else if(model.zipCode == null){
+                return false;
+            }
+            return true;
+        }
     }
 } 

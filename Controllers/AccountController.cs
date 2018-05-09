@@ -194,7 +194,11 @@ namespace BookCave.Controllers
             }
             //EF PERSONU UPPL'YSINGAR ERU NULL ÞA KEMUR VILLA ÞARF AÐ LAGA
             var newModel = _accountServices.checkOutService(userId);
-            return View(newModel);
+            var checkInfo = _accountServices.checkPersonalInfo(newModel);
+            if(checkInfo != true){
+                RedirectToAction("Details", "Account");
+            }
+                return View(newModel);
         }
         public async Task<IActionResult> Complete(){
             var user = await GetCurrentUserAsync();
@@ -203,7 +207,40 @@ namespace BookCave.Controllers
                 return RedirectToAction("Login", "Account");
             }
             var success = _accountServices.completeServ(userId);
-            return RedirectToAction("OrderSuccessful", "Account");
+            return View("OrderSuccessful");
+        }
+                
+        [HttpPost]
+        public async Task<IActionResult> ChangeShippingDetailsInCart(ChangeShippingInputModel changeShipping)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await GetCurrentUserAsync();
+                var userId = user?.Id;
+                if (userId == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+                _accountServices.changeShippingInfoServ(userId, changeShipping);
+
+                return RedirectToAction("CheckOut", "Account");
+            }
+            return RedirectToAction("CheckOut", "Account");
+        }
+        public async Task<IActionResult> ChangeCardDetailsInCart(ChangeCardInputModel ChangeCardInfo)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await GetCurrentUserAsync();
+                var userId = user?.Id;
+                if (userId == null)
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+                _accountServices.cahngeCardServ(userId, ChangeCardInfo);
+            }
+
+            return RedirectToAction("CheckOut", "Account");
         }
 
     }
