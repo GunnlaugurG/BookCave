@@ -74,8 +74,8 @@ namespace BookCave.Repositories {
                               id = b.Id,
                               title = b.title,
                               author = new AuthorListViewModel {
-                                  Id = a.Id,
-                                  authorName = a.authorName
+                              Id = a.Id,
+                              authorName = a.authorName
                               },
                               rating = b.rating,
                               image = b.image,
@@ -138,7 +138,7 @@ namespace BookCave.Repositories {
                 return lowPrice;
             }
             if (option == "mostPopular") {
-                var highPrice = (from b in _db.books
+                var mostPopular = (from b in _db.books
                                  orderby b.copiesSold descending
                                  join a in _db.authors on b.author equals a.authorName
                                  select new BookListViewModel {
@@ -152,7 +152,24 @@ namespace BookCave.Repositories {
                                      image = b.image,
                                      cost = b.cost
                                  }).ToList();
-                return highPrice;
+                return mostPopular;
+            }
+            if (option == "name") {
+                var alphabeticalOrder = (from b in _db.books
+                                 orderby b.title
+                                 join a in _db.authors on b.author equals a.authorName
+                                 select new BookListViewModel {
+                                     id = b.Id,
+                                     title = b.title,
+                                     author = new AuthorListViewModel{
+                                Id = a.Id,
+                                authorName = a.authorName
+                             },
+                                     rating = b.rating,
+                                     image = b.image,
+                                     cost = b.cost
+                                 }).ToList();
+                return alphabeticalOrder;
             }
             else {
                 //skila auðum lista ef ekkert er valið

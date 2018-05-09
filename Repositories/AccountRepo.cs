@@ -382,12 +382,36 @@ namespace BookCave.Repositories
             _db.SaveChanges();
         }
       
-        public OrderHistoryViewModel OrderHistoryRepo(string userId){
-            var getOrderList = (from a in _db.orders
-                                where a.aspForCartId == userId
-                                select a).ToList();
-
-                                return null;
-        }
+        public List<BooksInOrderHistoryViewModel> OrderHistoryRepo(string userId){
+            var getOrdersFromUser = (from a in _db.orders
+                                    where a.aspForCartId == userId
+                                    select a).ToList();
+            var returnList = new List<BooksInOrderHistoryViewModel>();
+            foreach(var a in getOrdersFromUser){
+                var newIndex = new BooksInOrderHistoryViewModel();
+                var newItem = (from b in _db.cartItems
+                                where b.keyCartId == a.Id
+                                select b.bookForCartItem).ToList();
+                            var listOfBooksForDisplay = new List<DisplayCartItemViewModel>();
+                            for(int i = 0; i < newItem.Count; i++) {
+                                var newshit = new DisplayCartItemViewModel();
+                                 var book= (from d in _db.books
+                                            where d.Id == newItem[i]
+                                            select d).FirstOrDefault();
+                                newshit.bookId = book.Id;
+                                newshit.BookName = book.title;
+                                newshit.cost = book.cost;    
+                                listOfBooksForDisplay.Add(newshit);                   
+                            }
+                            newIndex.listOfBooks = listOfBooksForDisplay;
+                            newIndex.address = a.address;
+                            newIndex.city = a.city;
+                            newIndex.country = a.country;
+                            newIndex.zipCode = a.zipCode;
+                            newIndex.totalCost = a.totalCost;
+                    returnList.Add(newIndex);
+                }
+                return null;
+            }
     }
 }

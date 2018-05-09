@@ -262,11 +262,20 @@ header {
 }
 #check-out-button {
     float: right;
-    margin-right:10%;
+    /*margin-right:10%;*/
 }
 
 #total-cost {
-    margin-right:10%;
+    /*margin-right:10%;*/
+}
+#clear-cart-button{
+    background-color: red; 
+    color: white; 
+    border: 2px solid #f44336;
+    border-radius: 8%;
+    float: right;
+    margin-right: 5px;
+    padding: 5.5px 5.5px;
 }
 form.example input[type=text] {
     padding: 10px;
