@@ -80,7 +80,6 @@ $(".remove-from-cart").click( function(){
   var tableRow = $(this).parents("tr"); 
   var bookId = $(this).val();
   console.log(bookId);
-  var bookId = $(".book-id").text();
     $.post("RemoveFromCart",{ bookId: bookId }, function(data, status){
       console.log(data);
       tableRow.remove();
