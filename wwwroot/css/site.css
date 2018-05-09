@@ -313,6 +313,9 @@ form.example input[type=text] {
          margin-right: 20%;
     }
 }
+.keep-min-height-all-books {
+    min-height: 50rem;
+}
 
 /*---------------ADDITIONS------------*/
 
@@ -346,7 +349,7 @@ input[type=text]:focus {
     width: 100%;
 }
  .sort-by-button {
-   width: 200px;
+   width: 220px;
    padding: 17px;
 }
 .footer-wrapper {
@@ -424,9 +427,9 @@ ul.dropdown-cart li .item-right button {
     position: absolute;
     display: none;
     top: -6px;
-    margin-left: 105px;
-    width: 20px;
-    height: 20px;
+    margin-left: 108px;
+    width: 19px;
+    height: 19px;
     border-radius: 50%;
     background: red;
     color: white;
