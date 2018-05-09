@@ -277,6 +277,10 @@ namespace BookCave.Repositories
             Order newOrder = new Order{
                 aspForCartId = userID
             };
+            var changeCart = (from a in _db.carts
+                            where a.cartForUserId == userID
+                            select a).FirstOrDefault();
+            changeCart.totalCost = 0;
             addOrderToDataBase(newOrder);
             var cartId = (from a in _db.carts
                             where a.cartForUserId == userID
