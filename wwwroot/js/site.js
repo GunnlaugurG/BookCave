@@ -100,12 +100,19 @@ $(window).scroll(function() {
 
 $('#check-out-button').hover(function(){
 var totalCost = $('#total-cost').html();
-  if(totalCost == 0) {
+  if(totalCost === "0 $") {
     $("#check-out-button").attr("disabled", true);
   } else {
     $("#check-out-button").attr("disabled", false);
    }
   });
+
+var i =0;
+ $('.add-to-cart').on('click', function () {
+    i = i+1;
+    alert(i);
+});
+
 
 
 $(function() {
