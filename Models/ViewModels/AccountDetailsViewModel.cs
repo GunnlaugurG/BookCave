@@ -10,5 +10,6 @@
         public string cardNumber { get; set; }
         public string cardholderName { get; set; }
         public string cvc { get; set; }
+        public BookListViewModel book {get; set; }
     }
 }
