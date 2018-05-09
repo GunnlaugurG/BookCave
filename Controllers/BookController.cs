@@ -41,7 +41,7 @@ namespace BookCave.Controllers
             return View(books);
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult SortBy(string value)
         {
             books = _bookService.SortBy(value);

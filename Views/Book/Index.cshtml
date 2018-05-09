@@ -4,19 +4,17 @@
         <div class="col-lg-9 col-md-8 col-sm-6">
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 sort-by-button">
-            <form action="SortByGenre" method="GET">
-                <select name="value" class="form-control top-right" id="selectBox1">
+                <select name="value" class="form-control top-right" id="selectBox">
                     <option value="rating">Sort by Rating</option>
-                    <option value="price">Sort by Price</option>
-                    <option value="name"><a asp-action="TopTenBooks" asp-controller="Book" asp-route-value="name">Sort by Name</a></option>
+                    <option value="highPrice">Sort by Price</option>
+                    <option value="name">Sort by Name</option>
                 </select>
-            </form>
         </div>
     </div>
     <hr />
 </div>
     <div class="container book-styling-layout">
-        <div class="row ">
+        <div id="book-list" class="row">
             @foreach (var book in Model)
             {
                 <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
