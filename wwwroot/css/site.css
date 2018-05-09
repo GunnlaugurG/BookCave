@@ -25,6 +25,18 @@ html{
     
 }
 
+#back-to-top {
+    height:50px;
+    width:50px;
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+}
+
+#back-to-top:hover {
+    cursor: pointer;
+}
+
 .user-styling {
     padding:20px;
 }

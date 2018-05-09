@@ -30,7 +30,6 @@
                             <a asp-controller="book" asp-action="details" asp-route-Id="@book.id" class="card-text">@book.title</a>
                             <div class="divider"></div>
                             <a asp-action="details" asp-controller="author" asp-route-id="@book.author.Id"><p>@book.author.authorName</p></a>
-                            <p>@book.rating</p>
                             @for(int i = 0; i < @book.rating-1; i++) {
                                 <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                             }
@@ -55,5 +54,9 @@
             }
             <br />
         </div>
-        <a href="" id="back-to-top">back to top!</a>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+        <img src="~/Images/backToTop.png" alt="backToTopLogo" style="display:none;"id="back-to-top">
+        </div>
+        </div>
     </div>

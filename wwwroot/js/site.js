@@ -1,4 +1,6 @@
 ﻿// Write your JavaScript code.
+$(document).ready(function(){
+
 console.log("Javascript up and running1");
 
 $("#sort-by").change(function(){
@@ -73,10 +75,18 @@ $('#submit').click(function(){
 });
 
 $("#back-to-top").click(function () {
-  
+
   $("html, body").animate({scrollTop: 0}, 500);
 });
 
+$(window).scroll(function() {
+  if($(this).scrollTop()>1000) {
+      $('#back-to-top').fadeIn();
+   } 
+   else {
+    $('#back-to-top').fadeOut();
+   }
+});
 /// veit ekki hvað þetta er enn þetta kastar villu
 //$(function() {
     // Setup drop down menu
@@ -97,3 +107,4 @@ $("#back-to-top").click(function () {
         alert("hi");
     })
   });*/
+});
