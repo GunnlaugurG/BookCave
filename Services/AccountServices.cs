@@ -31,6 +31,10 @@ namespace BookCave.Services
             var userDetails = _accountRepo.getUserDetailsFromDataBase(userID);
             return userDetails;
         }
+        public void setFavoriteBook(int bookId, string userId ){
+            _accountRepo.changeFavoriteBook(bookId, userId);
+        }
+
         public void changeImageServ(string UserId, ChangeProfilePictureInputModel newImage){
             _accountRepo.ChangeImageRepo(UserId, newImage );
         }
@@ -65,6 +69,9 @@ namespace BookCave.Services
         }
         public void RemoveFromCartServ(int bookId, string userId){
             _accountRepo.RemovFromCartRepo(bookId, userId);
+        }
+        public void UpdateCartItemQuantity(int quantity,int bookId, string userId){
+            _accountRepo.UpdateCartItemQuantity(quantity, bookId, userId);
         }
         public OrderHistoryViewModel OrderHistoryServ(string userId){
             var newModel = _accountRepo.OrderHistoryRepo(userId);
