@@ -1,9 +1,37 @@
 ﻿@model List<BookCave.Models.ViewModels.BooksInOrderHistoryViewModel>
 <div class="container">
     <div class="row">
-        @foreach (var item in Model)
-    {
-        <h1>@item.address</h1>
+        @foreach (var a in Model)
+        {
+            <div class="row">
+                <div class="col-sm-8">
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">BookName</th>
+                        <th scope="col">Item Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(var book in a.listOfBooks)
+                        {                        
+                            <tr>
+                            <td>@book.BookName</td>
+                            <td>@book.cost</td>
+                            </tr>
+                    }
+                    </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-4">
+                    <h3>Order shipped to:</h3>
+                    <p>Address: @a.address</p>
+                    <p>Country: @a.country</p>
+                    <p>City: @a.city</p>
+                    <p>Zip code: @a.zipCode</p>
+                    <p>Total cost of order: @a.totalCost</p>
+                </div>
+            </div>
         }
 
     </div>
