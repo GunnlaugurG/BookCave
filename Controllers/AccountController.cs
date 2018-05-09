@@ -163,7 +163,7 @@ namespace BookCave.Controllers
             if(userId == null){
                 return RedirectToAction("Login", "Account");
             } 
-            /// Kalla á eitthvað service til að remove-a
+            //_accountServices.RemoveFromCartServ(bookId, userId);
             return Ok();
         }
         public async Task<IActionResult> Cart(){
