@@ -121,7 +121,7 @@ $(window).scroll(function() {
    }
 });
 
-$('#check-out-button').hover(function(){
+$('.cart-buttons').hover(function(){
 var totalCost = $('#total-cost').html();
   if(totalCost === "Total price: 0 $") {
     $("#clear-cart-button").attr('disabled',true);
@@ -167,7 +167,7 @@ var totalCost = $('#total-cost').html();
       if (result.value) {
         swal(
           'Deleted!',
-          'Your file has been deleted.',
+          'Your cart is now empty.',
           'success'
         )
         $.post("/Account/EmptyCart", function(){
@@ -190,8 +190,6 @@ var totalCost = $('#total-cost').html();
       'success'
     )  
   })
-  
-
 
 $(function() {
     $('.dropdown-toggle').dropdown();
