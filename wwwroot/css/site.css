@@ -245,7 +245,14 @@ header {
     padding-left: 15px;
     padding-right: 15px;
 }
+#check-out-button {
+    float: right;
+    margin-right:10%;
+}
 
+#total-cost {
+    margin-right:10%;
+}
 form.example input[type=text] {
     padding: 10px;
     font-size: 17px;
