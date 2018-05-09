@@ -41,7 +41,10 @@ namespace BookCave.Repositories
             _db.Add(newCartItem);
             _db.SaveChanges();
         }
-        
+        public void addOrderToDataBase(Order orders){
+            _db.Add(orders);
+            _db.SaveChanges();
+        }
 
         public AccountDetailsViewModel getUserDetailsFromDataBase(string userId)
         {
@@ -269,6 +272,23 @@ namespace BookCave.Repositories
             }
 
             return newModel;
+        }
+        public bool completeRepo(string userID){
+            Order newOrder = new Order{
+                aspForCartId = userID
+            };
+            addOrderToDataBase(newOrder);
+            var cartId = (from a in _db.carts
+                            where a.cartForUserId == userID
+                            select a.Id).FirstOrDefault();
+            var listOfItems = (from a in _db.cartItems
+                                where a.keyCartId == cartId
+                                select a).ToList();
+            for(int i = 0; i < listOfItems.Count; i++){
+                listOfItems[i].keyCartId = newOrder.Id;
+            }
+            _db.SaveChanges();
+            return true;
         }
     }
 }

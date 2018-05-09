@@ -57,5 +57,9 @@ namespace BookCave.Services
             var newModel = _accountRepo.checkOutRepo(userId);
             return newModel;
         }
+        public bool completeServ(string userId){
+            var success = _accountRepo.completeRepo(userId);
+            return success;
+        }
     }
 } 
