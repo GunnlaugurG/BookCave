@@ -43,7 +43,8 @@ $("#selectBox").change(function(){
     });
 
 
-///////////////Fyrir review síðuna//////////////////
+///////////////Fyrir BookDetails síðuna//////////////////
+
 $('#review-form').addClass("hidden");
 
 $('#write-review').click(function(){
@@ -71,6 +72,18 @@ $('#close-review').click( function(){
   $('#review-form').fadeOut(500);
 
 })
+
+
+$('#favorite-book').click(function(){
+  var bookId = $('#book-id').text();
+  $.post("/book/FavoriteBook", { bookId: bookId }, function(data, status){
+
+    if(data == "RedirectToLogin"){
+      window.location.replace("/account/login");
+    }
+  });
+});
+
 ////////////////////////////////////////////
 
 
@@ -79,9 +92,7 @@ $('#close-review').click( function(){
 $(".remove-from-cart").click( function(){
   var tableRow = $(this).parents("tr"); 
   var bookId = $(this).val();
-  console.log(bookId);
     $.post("RemoveFromCart",{ bookId: bookId }, function(data, status){
-      console.log(data);
       tableRow.remove();
     })
 });

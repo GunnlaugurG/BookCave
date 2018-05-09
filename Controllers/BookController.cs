@@ -69,11 +69,13 @@ namespace BookCave.Controllers
             return View(bookDetails);
         }
 
-        [HttpGet]
-        public IActionResult review(int id)
-        {
-            var quickAndDirty = new ReviewInputModel { bookId = id };
-            return View(quickAndDirty);
+        public async Task<IActionResult> FavoriteBook( int bookId){
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+             if (userId == null) {
+                    return Json("RedirectToLogin");
+                }
+            return Ok();
         }
 
         [HttpPost]
