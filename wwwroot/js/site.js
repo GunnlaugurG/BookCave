@@ -118,10 +118,6 @@ var totalCost = $('#total-cost').html();
     $.post("/Account/AddToCart", { Id: bookId } );
 
     itemCount ++;
-<<<<<<< HEAD
-=======
-    //$('#message').hide().html("You clicked on a checkbox.").fadeIn('slow');
->>>>>>> 04994f06511672ff1b9369df580937c1f105d5ed
     if(itemCount >= 10) {
       $('#itemCount').hide().html(9 + "+").fadeIn('slow').css("display", "inline");
     } else {
