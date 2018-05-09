@@ -106,9 +106,7 @@ $(window).scroll(function() {
 $('#check-out-button').hover(function(){
 var totalCost = $('#total-cost').html();
   if(totalCost === "0 $") {
-    console.log("disabled");
-    $("#check-out-button").removeAttr("click");
-    $("#check-out-button").attr("disabled",true);
+    $("#check-out-button").attr('disabled',true);
   } else {
     $("#check-out-button").attr("disabled", false);
    }

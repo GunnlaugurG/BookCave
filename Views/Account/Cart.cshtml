@@ -19,8 +19,7 @@
             <td><button class="btn btn-danger remove-from-cart" value="@book.id" >X</button></td>
         </tr>
         }
-        
   </tbody>
 </table>
 <h2 id="total-cost" class="text-right">@Model.totalCost $</h2>
-<a asp-controller="account" asp-action="checkout" id="check-out-button" class="btn btn-primary">CheckOut</a>
+<button type="submit" href="/account/checkout/" id="check-out-button" class="btn btn-primary">CheckOut</button>
