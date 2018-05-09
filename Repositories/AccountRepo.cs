@@ -411,7 +411,7 @@ namespace BookCave.Repositories
                             newIndex.totalCost = a.totalCost;
                     returnList.Add(newIndex);
                 }
-                return null;
+                return returnList;
             }
     }
 }
