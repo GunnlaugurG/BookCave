@@ -21,7 +21,7 @@ $("#selectBox").change(function(){
                      + '</div> </div> <div class="row"> <div id="book-info" class="col-lg-12 col-sm-12">'
                      + '<a href="/book/details/' + j.id + ' class="card-text">' + j.title + '</a> <br/><div class="divider"></div>'
                      + '<a href="/author/details/' + j.author.id + '"class=card-text">' + j.author.authorName + '</a> <br/>'
-                     for(i = 0; i < j.rating; i++) {
+                     for(i = 0; i < j.rating-1; i++) {
                       markup += '<img src="/Images/fullStar.png" alt="rating" class="starRatings">'
                       }
                       if(j.rating % 1 != 0) {
@@ -98,36 +98,22 @@ $(window).scroll(function() {
    }
 });
 
+$('#check-out-button').hover(function(){
+var totalCost = $('#total-cost').html();
+  if(totalCost == 0) {
+    $("#check-out-button").attr("disabled", true);
+  } else {
+    $("#check-out-button").attr("disabled", false);
+   }
+  });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/// veit ekki hvað þetta er enn þetta kastar villu
-//$(function() {
-    // Setup drop down menu
-  //  $('.dropdown-toggle').dropdown();
-
-    // Fix input element click problem
-//    $('.dropdown input, .dropdown label').click(function(e) {
-  //    e.stopPropagation();
-  //  });
-//  });
-//Geyma
+$(function() {
+    $('.dropdown-toggle').dropdown();
+   $('.dropdown input, .dropdown label').click(function(e) {
+   e.stopPropagation();
+    });
+  });
 /*
   $("#SubmitShipping").click(function(event){
     event.preventDefault();
@@ -136,5 +122,6 @@ $(window).scroll(function() {
     }).fail(function(data) {
         alert("hi");
     })
-  });*/
+  });
+  */
 });
