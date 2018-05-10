@@ -121,6 +121,13 @@ $(document).ready(function () {
 
   /////////Fyrir Cartið///////////////////
 
+  $(".cart-quantity").change( function(){
+    var quantity = $(this).val();
+    var id = $(this).parent().parent()[0].cells[3].firstElementChild.value;
+    console.log(quantity + " " + id);
+    $.post("UpdateCartItemQuantity", { Quantity: quantity , bookId: id })
+  })
+
   $(".remove-from-cart").click(function () {
     var tableRow = $(this).parents("tr");
     var bookId = $(this).val();
