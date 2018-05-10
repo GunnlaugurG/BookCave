@@ -80,14 +80,12 @@ $('#submit').click(function(){
 });
 $('#close-review').click( function(){
   $('#review-form').fadeOut(500);
-
 })
 
 
 $('#favorite-book').click(function(){
   var bookId = $('#book-id').text();
   $.post("/book/FavoriteBook", { bookId: bookId }, function(data, status){
-
     if(data == "RedirectToLogin"){
       window.location.replace("/account/login");
     }
@@ -103,7 +101,9 @@ $(".remove-from-cart").click( function(){
   var tableRow = $(this).parents("tr"); 
   var bookId = $(this).val();
     $.post("RemoveFromCart",{ bookId: bookId }, function(data, status){
-      tableRow.remove();
+      $(tableRow).fadeOut( "slow", function() {
+        tableRow.remove()
+      });
     })
 });
 
@@ -185,7 +185,7 @@ var totalCost = $('#total-cost').html();
 
   $('.add').click(function() {
     swal(
-      'Good job!',
+      'Success!',
       'Book added to cart!',
       'success'
     )  
