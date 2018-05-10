@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-sm-12 col-lg-12" style="height: 70px">
                         <h4><strong>@Model.name </strong></h4>
-                        <a asp-action="details" asp-controller="author" asp-route-id="@Model.author.Id"><p>@Model.author.authorName</p></a>
+                        <p> Written by <a asp-action="details" asp-controller="author" asp-route-id="@Model.author.Id">@Model.author.authorName</a></p>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <strong>Description</strong>
@@ -42,6 +42,7 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12 text-right">
                     <h3>@Model.price $</h3>
+                    <hr />
                 </div>
             </div>
             <div class="row">
@@ -98,8 +99,8 @@
         </div>
         <div class="row">
             <div id="button-wrapper" class="col-sm-12 col-lg-12 col-md-12">
-                <button class="btn  btn-default text-center button-size" id="submit">Submit review</button>
-                <button id="close-review" class=" btn btn-danger button-size">Cancel review</button>
+                <button class="btn  btn-success text-center button-review-submit" id="submit">Submit review</button>
+                <button id="close-review" class=" btn btn-danger button-review">Cancel review</button>
             </div>
         </div>
         
