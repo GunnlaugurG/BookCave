@@ -48,8 +48,13 @@
                 <div class="col-sm-12 col-lg-12 three-buttons">
                     <a id="favorite-book" class="btn btn-success center-block">Set as favorite</a>
                     <a id="write-review" class="btn btn-info center-block">Write review</a>
+<<<<<<< HEAD
+                    <a class="btn btn-warning center-block" id="add-to-wish-list">Add to wishlist</a>
+                    <button class="btn btn-default center-block add add-to-cart-styling" value="@Model.id">Add to cart</button>
+=======
                     <a asp-controller="account" asp-action="AddToWishList" asp-route-id="@Model.id" class="btn btn-warning center-block">Add to wishlist</a>
                     <button class="btn btn-primary center-block add add-to-cart-styling" value="@Model.id">Add to cart</button>
+>>>>>>> 9a83f471a4ec31109b4d533cd544566f9432290e
                 </div>
             </div>
         </div>

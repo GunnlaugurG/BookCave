@@ -190,12 +190,13 @@ var totalCost = $('#total-cost').html();
       'success'
     )
   })
-/*
-  $('#wish-list').click(function(){
-    $.post("/Account/AddToWishList", { Id: bookId });
-      console.log("hehe");
+
+  $('#add-to-wish-list').click(function(){
+    alert("hi");
+    $.post("/Account/AddToWishList", { id: bookId });
+          
     });
-  })
+  });
 
 $(function() {
     $('.dropdown-toggle').dropdown();
@@ -213,4 +214,4 @@ $(function() {
     })
   });
   */
-});
+
