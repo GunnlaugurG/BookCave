@@ -3,6 +3,19 @@ $(document).ready(function () {
 
   console.log("Javascript up and running");
 
+  function printStars(rating) {
+    var markup = "";  
+    for (i = 0; i < j.rating - 1; i++) {
+        markup += '<img src="/Images/fullStar.png" alt="rating" class="starRatings">'
+      }
+      if (j.rating % 1 != 0) {
+        markup += '<img src="/Images/halfStar.png" alt="rating" class="starRatings">'
+      } else {
+        markup += '<img src="/Images/fullStar.png" alt="rating" class="starRatings">'
+      }
+      return markup;
+  }
+
   //Ajax request for sorting the book list "All Books"
   $("#selectBox").change(function () {
     var sortVal = $(this).val();
@@ -153,6 +166,8 @@ $(document).ready(function () {
       });
     })
   });
+
+
 
   $("#back-to-top").click(function () {
     $("html, body").animate({ scrollTop: 0 }, 500);
