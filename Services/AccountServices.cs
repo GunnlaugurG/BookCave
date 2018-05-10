@@ -78,9 +78,12 @@ namespace BookCave.Services
             var newModel = _accountRepo.OrderHistoryRepo(userId);
             return newModel;
         }
-
         public void EmptyCartFromServ(string userId) {
             _accountRepo.EmptyCartFromRepo(userId);
+        }
+
+        public List<WishListViewModel> GetWishList(string userId) {
+            return _accountRepo.GetWishList(userId);
         }
     }
 } 
