@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-sm-4 col-lg-4 col-md-4 user-styling">
             <h2>Personal information</h2>
-            <p class="important-fields" data-value="@Model.address">Adress:@Model.address</p> 
+            <p id="adress" data-value="@Model.address">Adress:@Model.address</p> 
             <p>City: @Model.city</p>
             <p>Country: @Model.country</p>
             <p>Zip code: @Model.zipCode</p>
@@ -300,7 +300,7 @@
         <div class="row">
             <div class=" col-lg-4 col-md-4 col-sm-4 user-styling">
                 <h2>Card information</h2>
-                <p>Cardholder name: @Model.cardHolderName</p>
+                <p id="cardholder-name" data-value="@Model.cardHolderName">Cardholder name: @Model.cardHolderName</p>
                 <p>Card number: @Model.cardNumber</p>
                 <button class="btn btn-default" data-toggle="modal" data-target="#anotherModal">Change card information</button>
                 <!--***************************Another Modal******************************-->
@@ -362,7 +362,7 @@
     </div>
     <div class="row">
         <div class="col-lg-11 col-md-11 col-sm-11">
-            <a asp-controller="Account" asp-action="Complete" class="btn btn-success center-block button-size-checkout" id="complete-order-button">Complete order</a>
+            <a asp-controller="Account" asp-action="Complete" class="btn btn-success center-block button-size-checkout" id="complete-order-button">Complete order</a><span id="warning-text"></span>
             <a asp-controller="Account" asp-action="Cart" class="btn center-block button-size-checkout-back">Back to cart</a>
 
         </div>

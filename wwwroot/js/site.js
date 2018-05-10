@@ -291,10 +291,13 @@ $.post("RemoveFromWishList",{ "id": bookid }, function(){
   });
 
   $('#complete-order-button').hover(function(){
-    var importantFields = $('.important-fields').attr("data-value");
-    console.log(importantFields);
-    if(importantFields == "") {
+    var adress = $('#adress').attr("data-value");
+    var cardHolderName = $('#cardholder-name').attr("data-value");
+    console.log(adress);
+    console.log(cardHolderName);
+    if(adress == "" || cardHolderName == "") {
       $('#complete-order-button').attr('Disabled',true);
+      $('#warning-text').html("Adress or Cardholder name cannot be empty!").css("color", "red");
     }
   })
 
