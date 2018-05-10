@@ -37,8 +37,8 @@ $(document).ready(function () {
             + '<a href="/author/details/' + j.author.id + '"class=card-text">' + j.author.authorName + '</a> <br/>'
             + printStars(j.rating)
           markup += '<p></a>' + j.cost + ' $</p></div> </div><div class="row">'
-            + '<div class="col-lg-12 col-sm-12 img-thumbnail-btn"><button style="margin-top: 5px" class="btn-cart btn-5-cart btn-5b-cart fa fa-shopping-cart add" href="/account/addToCart/'
-            + j.id + '"><span>Add to cart</span></button></div> </div><div class="row">'
+            + '<div class="col-lg-12 col-sm-12 img-thumbnail-btn"><a class="btn btn-default center-block" href="/account/addToCart/'
+            + j.id + '">Add to cart</a></div> </div><div class="row">'
             + '<div class="col-lg-12 col-sm-4 spacing"></div></div></div>';
 
           $(markup).appendTo("#book-list").slideDown(1000);
@@ -143,6 +143,13 @@ $(document).ready(function () {
     var id = $(this).parent().parent()[0].cells[3].firstElementChild.value;
     $(this).parent().parent()[0].cells[4].innerText = (quantity * price).toFixed(2);
     $.post("UpdateCartItemQuantity", { Quantity: quantity , bookId: id })
+  })
+
+  $('.cart-quantity').change(function(){
+    console.log("hehe");
+    $.get("/account/GetTotalCost", function(data){
+        $('#total-cost').html("Total price: " + data + " $");
+    })  
   })
 
   $(".remove-from-cart").click(function () {
@@ -295,7 +302,7 @@ $.post("RemoveFromWishList",{ "id": bookid }, function(){
     var cardHolderName = $('#cardholder-name').attr("data-value");
     console.log(adress);
     console.log(cardHolderName);
-    if(adress == "" || cardHolderName == "") {
+    if(adress = "" || cardHolderName == "") {
       $('#complete-order-button').attr('Disabled',true);
       $('#warning-text').html("Adress or Cardholder name cannot be empty!").css("color", "red");
     }
