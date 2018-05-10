@@ -1,10 +1,11 @@
 @model List<BookCave.Models.ViewModels.BookListViewModel>
 <div class="container">
-    <div class="row">
-        <div class="col-lg-9 col-md-8 col-sm-6">
-            <h1 class="content-styling-h">All books</h1>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 sort-by-button">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-sm-6">
+                <h1 class="content-styling-h">All books</h1>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 sort-by-button">
                 <select name="value" class="form-control top-right" id="selectBox">
                     <option value="rating">Sort by Rating</option>
                     <option value="mostPopular">Sort by popularity</option>
@@ -12,10 +13,10 @@
                     <option value="lowPrice">Sort by Price (Low to high)</option>
                     <option value="name">Sort by Name</option>
                 </select>
+            </div>
         </div>
+        <hr />
     </div>
-    <hr />
-</div>
     <div class="container book-styling-layout keep-min-height">
         <div id="book-list" class="row">
             @foreach (var book in Model)
@@ -31,20 +32,24 @@
                             <a asp-controller="book" asp-action="details" asp-route-Id="@book.id" class="card-text">@book.title</a>
                             <div class="divider"></div>
                             <a asp-action="details" asp-controller="author" asp-route-id="@book.author.Id"><p>@book.author.authorName</p></a>
-                            @for(int i = 0; i < @book.rating-1; i++) {
+                            @for (int i = 0; i < @book.rating - 1; i++)
+                            {
                                 <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                             }
-                            @if(@book.rating % 1 != 0) {
+                            @if (@book.rating % 1 != 0)
+                            {
                                 <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
-                            } else {
+                            }
+                            else
+                            {
                                 <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                             }
-                                <p>@book.cost $</p>
+                            <p>@book.cost $</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 col-sm-12 img-thumbnail-btn">
-                            <button class="btn btn-default center-block add add-to-cart-styling" value="@book.id">Add to cart</button>
+                            <button class="btn btn-default center-block add add-to-cart-styling" value="@book.id"> Add to cart</button>
                         </div>
                     </div>
                     <div class="row">
@@ -57,7 +62,8 @@
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
-        <img src="~/Images/backToTop.png" alt="backToTopLogo" style="display:none;"id="back-to-top">
-        </div>
+                <img src="~/Images/backToTop.png" alt="backToTopLogo" style="display:none;" id="back-to-top">
+            </div>
         </div>
     </div>
+</div>

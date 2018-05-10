@@ -197,11 +197,21 @@ var totalCost = $('#total-cost').html();
     $.post("/Account/AddToWishList", { id: bookid });
     swal(
       'Success!',
-      'Book added to wishList!',
+      'Book added to wishlist!',
       'success'
     )
     });
-  });
+});
+// þarf að kíkja betur á, fer alltaf í display:none þannig að notendanafnið færist til
+$(window).scroll(function () {
+    if ($(this).scrollTop() >= 85) {
+        $('#wish-list-navbar').fadeIn(1200).css({ "visibility": "visible" });
+        $('#cart-navbar').fadeIn(1200).css({ "visibility": "visible"});
+    }
+    else {
+        $('#wish-list-navbar').fadeOut(800).css({"visibility": "hidden"});
+        $('#cart-navbar').fadeOut(800).css({"visibility": "hidden"});
+}});
 
 $(function() {
     $('.dropdown-toggle').dropdown();

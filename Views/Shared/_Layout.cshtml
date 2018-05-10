@@ -57,9 +57,8 @@
                             <ul id="header-list">
                                     <div id="cart-container">
                                     <div id="cart">
-                                        <span id="itemCount"></span>
                                         <li><a class="text-nav-content" id="wish-list" asp-controller="Account" asp-action="WishList"><i class="glyphicon glyphicon-heart wishlist"></i>Wishlist</a></li>
-                                        <a asp-controller="account" asp-action="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>
+                                        <a asp-controller="account" asp-action="cart"><i class="fa fa-shopping-cart fa-2x cart-color" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
                             </ul>
@@ -105,7 +104,11 @@
                         <li><a class="text-nav-content" asp-controller="book" asp-action="Index" >All books</a></li>
                         <li><a class="text-nav-content" asp-controller="author" asp-action="Index" >Authors</a></li>
                     </ul>
-                    @await Html.PartialAsync("_LoginPartial")
+                    <ul class="navbar-nav navbar-right">
+                        <li>@await Html.PartialAsync("_LoginPartial")</li>
+                            <li class="navbar-wishlist"><a id="wish-list-navbar" asp-controller="Account" asp-action="WishList"><i class="glyphicon glyphicon-heart wishlist"></i></a></li>
+                            <li class="navbar-cart"><a id="cart-navbar" asp-controller="account" asp-action="cart"><i class="fa fa-shopping-cart fa-2x cart-color" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
             </div>
             </nav>
