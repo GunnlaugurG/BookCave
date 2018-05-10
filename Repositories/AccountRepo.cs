@@ -445,7 +445,8 @@ namespace BookCave.Repositories
                                select new WishListViewModel {
                                    title = b.title,
                                    image = b.image,
-                                   rating = b.rating
+                                   rating = b.rating,
+                                   bookForWishListId = b.Id
                                }).ToList();
 
                 return wishList;
