@@ -159,6 +159,7 @@ namespace BookCave.Controllers
             var userId = user?.Id;
             return Json(System.Math.Round(_accountServices.getCartviewModel(userId).totalCost,2));
        }
+       
         public async Task<IActionResult> AddToCart(int Id){
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
