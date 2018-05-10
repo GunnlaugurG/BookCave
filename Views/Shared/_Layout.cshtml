@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/sweetalert2.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -101,13 +102,13 @@
                             </div>
                         </li>
                         <li><a class="text-nav-content" asp-action="TopTenBooks" asp-controller="Book">Top 10 books</a></li>
-                        <li><a class="text-nav-content" asp-controller="book" asp-action="Index" >All books</a></li>
-                        <li><a class="text-nav-content" asp-controller="author" asp-action="Index" >Authors</a></li>
+                        <li><a class="text-nav-content" asp-controller="book" asp-action="Index">All books</a></li>
+                        <li><a class="text-nav-content" asp-controller="author" asp-action="Index">Authors</a></li>
                     </ul>
+                    @await Html.PartialAsync("_LoginPartial")
                     <ul class="navbar-nav navbar-right">
-                        <li>@await Html.PartialAsync("_LoginPartial")</li>
-                            <li class="navbar-wishlist"><a id="wish-list-navbar" asp-controller="Account" asp-action="WishList"><i class="glyphicon glyphicon-heart wishlist"></i></a></li>
-                            <li class="navbar-cart"><a id="cart-navbar" asp-controller="account" asp-action="cart"><i class="fa fa-shopping-cart fa-2x cart-color" aria-hidden="true"></i></a></li>
+                        <li class="navbar-wishlist"><a id="wish-list-navbar" asp-controller="Account" asp-action="WishList"><i class="glyphicon glyphicon-heart wishlist"></i></a></li>
+                        <li class="navbar-cart"><a id="cart-navbar" asp-controller="account" asp-action="cart"><i class="fa fa-shopping-cart fa-2x cart-color" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
