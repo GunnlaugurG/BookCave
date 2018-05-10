@@ -1,4 +1,7 @@
 @model BookCave.Models.ViewModels.DisplayCartViewModel
+<!DOCTYPE html>
+<html>
+  <body>
 <div class="container">
 <div class="row">
   <div class="col-lg-12 col-md-12 col-sm-12">
@@ -26,6 +29,7 @@
             <td><input type="number" value="@book.quantity" class="cart-quantity"></td>
             <td>@book.cost</td>
             <td><button class="btn btn-danger remove-from-cart" value="@book.id" >X</button></td>
+            <td><!--herna kemur total cost ut fra quantity per bok--></td>
         </tr>
         }
         
@@ -34,10 +38,12 @@
 </div>
 </div>
 <div class="row">
-  <div class="col-lg-11 col-md-11 col-sm-11"> 
+  <div class="col-lg-12 col-md-12 col-sm-12"> 
 <h4 id="total-cost" class="text-right">Total price: @Model.totalCost $</h4>
 <a asp-controller="account" asp-action="checkout"><button type="submit" id="check-out-button" class="btn btn-primary cart-buttons">Check out</button></a>
 <button type="submit" id="clear-cart-button" class="cart-buttons">Clear cart!</button>
 </div>
 </div>
 </div>
+  </body>
+</html>
