@@ -59,9 +59,9 @@ namespace BookCave.Controllers
 
             var user = await GetCurrentUserAsync();
             Claim newName = new Claim("Name", $"{firstName} {lastName}");
-            var hvadertetta = _userManager.GetClaimsAsync(user).Result[0];
             await _userManager.ReplaceClaimAsync(user, _userManager.GetClaimsAsync(user).Result[0], newName);
-            return Ok();
+                            await _signInManager.SignInAsync(user, false);
+            return RedirectToAction("Details", "Account");
         }
         public IActionResult Login()
         {
@@ -154,7 +154,11 @@ namespace BookCave.Controllers
 
             return RedirectToAction("Details", "Account");
         }
-        
+       public async Task<IActionResult> GetTotalCost(){ 
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            return Json(System.Math.Round(_accountServices.getCartviewModel(userId).totalCost,2));
+       }
         public async Task<IActionResult> AddToCart(int Id){
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
