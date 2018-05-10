@@ -231,9 +231,10 @@ $(document).ready(function () {
 ////////FOR-THE-WISHLIST////////
 $('.remove-from-wishlist').click(function(){
   var bookid = (this).value;
-$.post("einhver"),{ id: bookid}, function(){
+  console.log(bookid);
+$.post("RemoveFromWishList",{ "id": bookid }, function(){
   location.reload();
-}
+})
 });
 /////////////////////////////
   $('#add-to-wish-list').click(function () {
