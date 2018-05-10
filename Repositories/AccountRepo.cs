@@ -116,8 +116,29 @@ namespace BookCave.Repositories
                                             }).FirstOrDefault()
                         }).FirstOrDefault();
             
-            
-            return user;
+            if(user == null){
+                var temp = new AccountDetailsViewModel{
+                    userName = "",
+                    picture = "",
+                    address = "",
+                    zipCode = "",
+                    city = "",
+                    country ="",
+                    cardholderName = "",
+                    cardNumber = "",
+                    book = new BookListViewModel{
+                        id = 0,
+                        title = "",
+                        image = "",
+                        cost = 0,
+                        rating = 4
+                    }
+                };
+                return temp;
+            }
+            else{
+                return user;
+            }
         }
         public void ChangeImageRepo( string userId, ChangeProfilePictureInputModel newImage ){
 
@@ -280,16 +301,30 @@ namespace BookCave.Repositories
             var getUserDetails = (from a in _db.shipingInfo
                                     where a.aspUserIdForShipping == userId
                                     select a).FirstOrDefault();
-            newModel.address = getUserDetails.address;
-            newModel.city = getUserDetails.city;
-            newModel.country = getUserDetails.country;
-            newModel.zipCode = getUserDetails.zipCode;
+            if( getUserDetails == null){
+                newModel.address = "";
+                newModel.city = "";
+                newModel.country = "";
+                newModel.zipCode = "";
+            }
+            else {
+                newModel.address = getUserDetails.address;
+                newModel.city = getUserDetails.city;
+                newModel.country = getUserDetails.country;
+                newModel.zipCode = getUserDetails.zipCode;
+            }
             // FILL IN VIEW MODEL FROM SHIPPING INFO
             var cardInfo = (from b in _db.cardInfo
                             where b.aspUserIdForCardInfo == userId
                             select b).FirstOrDefault();
-            newModel.cardHolderName = cardInfo.cardholderName;
-            newModel.cardNumber = cardInfo.cardNumber;
+            if( cardInfo != null ){
+                newModel.cardHolderName = cardInfo.cardholderName;
+                newModel.cardNumber = cardInfo.cardNumber;
+            }
+            else{
+                newModel.cardHolderName = "";
+                newModel.cardNumber = "";
+            }
             //FILL IN TOTALCOST
             newModel.totalCost = (from a in _db.carts
                                 where a.cartForUserId == userId
