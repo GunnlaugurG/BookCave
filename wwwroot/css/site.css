@@ -418,7 +418,7 @@ header {
     backface-visibility: hidden;
 }
     .btn-5-cart:active {
-        background: #9053a9;
+        background: #3996cc;
         top: 2px;
     }
 
@@ -447,7 +447,7 @@ header {
     }
 
     .btn-5-cart:active:before {
-        color: #703b87;
+        color: white;
     }
 
 .btn-5b-cart:hover span {
