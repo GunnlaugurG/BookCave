@@ -39,6 +39,9 @@ html{
     width:95%;
     padding-top:5px;
 }
+#cart-table td, #cart-table th{
+    border: 1px solid #ddd;
+}
 .center-books {
     /*margin: auto    !important;*/
 }
