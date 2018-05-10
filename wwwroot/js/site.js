@@ -192,7 +192,6 @@ $(document).ready(function () {
       console.log(data);
       if (data == "NotLoggedIn") {
         swal({
-          title: 'attention',
           text: 'Only logged in users can add to cart!'
         })
       }
