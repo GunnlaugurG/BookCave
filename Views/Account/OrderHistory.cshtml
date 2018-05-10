@@ -9,6 +9,7 @@
                     <thead>
                         <tr>
                         <th scope="col">BookName</th>
+                        <th scope="col">Quantity</th>
                         <th scope="col">Item Cost</th>
                         </tr>
                     </thead>
@@ -17,10 +18,12 @@
                         {                        
                             <tr>
                             <td>@book.BookName</td>
+                            <td>@book.quantity</td>
                             <td>@book.cost</td>
                             </tr>
                         }
                             <tr>
+                            <td></td>
                                 <td><strong>Total Cost</strong></td>
                                 <td>@a.totalCost</td>
                             </tr>

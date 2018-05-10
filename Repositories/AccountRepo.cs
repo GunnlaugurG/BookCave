@@ -415,16 +415,17 @@ namespace BookCave.Repositories
                 var newIndex = new BooksInOrderHistoryViewModel();
                 var newItem = (from b in _db.cartItems
                                 where b.keyCartId == a.Id
-                                select b.bookForCartItem).ToList();
+                                select b).ToList();
                             var listOfBooksForDisplay = new List<DisplayCartItemViewModel>();
                             for(int i = 0; i < newItem.Count; i++) {
                                 var newshit = new DisplayCartItemViewModel();
                                  var book= (from d in _db.books
-                                            where d.Id == newItem[i]
+                                            where d.Id == newItem[i].bookForCartItem
                                             select d).FirstOrDefault();
                                 newshit.bookId = book.Id;
                                 newshit.BookName = book.title;
-                                newshit.cost = book.cost;    
+                                newshit.cost = book.cost;
+                                newshit.quantity = newItem[i].bookQuantity;
                                 listOfBooksForDisplay.Add(newshit);                   
                             }
                             newIndex.listOfBooks = listOfBooksForDisplay;

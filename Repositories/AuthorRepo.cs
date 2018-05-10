@@ -23,6 +23,9 @@ namespace BookCave.Repositories
                                Id = a.Id,
                                authorName = a.authorName,
                            }).ToList();
+            var allBooks = ( from b in _db.books
+                            select b).ToList();
+
             for(int i = 0; i < authors.Count; i++) {
                 authors[i].mostPopularBook = (from b in _db.books
                             where b.keyAuthorId == authors[i].Id
