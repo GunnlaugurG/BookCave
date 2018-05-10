@@ -40,7 +40,6 @@ namespace BookCave.Controllers
             var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
 
             var result = await _userManager.CreateAsync(user, model.Password);
-
             if (result.Succeeded)
             {
                 //The user is successfully registerd
@@ -49,12 +48,21 @@ namespace BookCave.Controllers
                 await _signInManager.SignInAsync(user, false);
 
                 _accountServices.addNewUserToDataBase(user);
+                
 
                 return RedirectToAction("Index", "Home");
             }
             return View();
         }
 
+        public async Task<IActionResult> ChangeName( string firstName, string lastName){
+
+            var user = await GetCurrentUserAsync();
+            Claim newName = new Claim("Name", $"{firstName} {lastName}");
+            var hvadertetta = _userManager.GetClaimsAsync(user).Result[0];
+            await _userManager.ReplaceClaimAsync(user, _userManager.GetClaimsAsync(user).Result[0], newName);
+            return Ok();
+        }
         public IActionResult Login()
         {
             return View();
