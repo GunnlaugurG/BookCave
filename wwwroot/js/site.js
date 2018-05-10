@@ -132,6 +132,10 @@ $(document).ready(function () {
     var tableRow = $(this).parents("tr");
     var bookId = $(this).val();
     $.post("RemoveFromCart", { bookId: bookId }, function (data, status) {
+      $.get("/account/GetTotalCost", function(data){
+       
+        $('#total-cost').html("Total price: " + data + " $");
+      })
       $(tableRow).fadeOut("slow", function () {
         tableRow.remove()
       });
@@ -139,7 +143,6 @@ $(document).ready(function () {
   });
 
   $("#back-to-top").click(function () {
-
     $("html, body").animate({ scrollTop: 0 }, 500);
   });
 
@@ -274,14 +277,5 @@ $.post("RemoveFromWishList",{ "id": bookid }, function(){
       e.stopPropagation();
     });
   });
-  /*
-    $("#SubmitShipping").click(function(event){
-      event.preventDefault();
-      $.post('/Account/ChangeShippingDetails', $('firstForm').serialize(), function(data) {
-          alert("Yes");
-      }).fail(function(data) {
-          alert("hi");
-      })
-    });
-    */
+
 });

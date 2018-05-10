@@ -102,6 +102,7 @@ ul.bullet-punktur{
 
 .navbar-cart {
     padding-top:10px;
+    padding-right:30px;
 }
 #wish-list-navbar {
     visibility:hidden;
@@ -316,10 +317,127 @@ header {
 #total-cost {
     /*margin-right:10%;*/
 }
-#clear-cart-button{
-    background-color: red; 
-    color: white; 
-    border: 2px solid #f44336;
+.btn-delete {
+    border: 1px solid #ef1212;
+    border-radius: 10px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.btn-cart {
+    border: 1px solid #ef1212;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-5 {
+    background: #ef1212;
+    color: #fff;
+    height: 40px;
+    min-width: 80px;
+    width: 100px;
+    line-height: 24px;
+    font-size: 16px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.btn-5-cart {
+    background: #ef1212;
+    color: #fff;
+    height: 70px;
+    min-width:80px;
+    width:100px;
+    line-height: 24px;
+    font-size: 16px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+    .btn-5:active {
+        background: #9053a9;
+        top: 2px;
+    }
+
+    .btn-5 span {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all 0.3s;
+        -webkit-backface-visibility: hidden;
+        -moz-transition: all 0.3s;
+        -moz-backface-visibility: hidden;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+    }
+
+    .btn-5:before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        line-height: 1;
+        font-size: 180%;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .btn-5:active:before {
+        color: #703b87;
+    }
+.btn-5b:hover span {
+    -webkit-transform: translateX(200%);
+    -moz-transform: translateX(200%);
+    -ms-transform: translateX(200%);
+    transform: translateX(200%);
+}
+
+.btn-5b:before {
+    left: -100%;
+    top: 0;
+}
+
+.btn-5b:hover:before {
+    left: 0;
+}
+.remove-from-cart {
+    width:30px;
+    height:30px;
+    text-align:center;
+    padding-top:5px;
+    margin-right:2px;
+}
+#clear-cart-button {
+    background-color: #ef1212;
+    color: white;
+    border: 2px solid #ef1212;
     border-radius: 8%;
     float: right;
     margin-right: 5px;
@@ -373,137 +491,153 @@ form.example input[type=text] {
 .keep-min-height {
     min-height: 65rem;
 }
+@media screen and (max-width: 767px) {
 
-/*---------------ADDITIONS------------*/
-
-/*--------------NAVIGATION BAR------------*/
-#formLogin {
-    padding: 15px;
-    min-width: 300px;
-}
-
-.navigation-Bar {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-}
-.review-area {
-    resize:none;
-    width:100%;
-}
-.review-layout {
-}
-.review-box {
-}
-#logout-btn {
-    width: 200px;
-    padding-top:5px !important;
-    border-color: #e8e8e8;
-}
-
-/* When the input field gets focus, change its width to 100% */
-input[type=text]:focus {
-    width: 100%;
-}
- .sort-by-button {
-   width: 220px;
-   padding: 17px;
-}
-.footer-wrapper {
-    border-top: 1px solid #b6b0b0;
-    padding: 44px;
-    margin-top: 100px;
-}
-.footer-list {
-    text-decoration: none;
-    color: black;
-}
-
-.footer-list a {
-    text-decoration: none;
-    color: black;
-}
-
-.footer-list:hover {
-    text-decoration: none;
-    color: black;
-}
-
-.footer-list:active {
-    text-decoration: none;
-    color: black;
-}
-
-/*-----------CART--------------*/
-ul.dropdown-cart {
-    min-width: 250px;
-}
-
-    ul.dropdown-cart li .item {
-        display: block;
-        padding: 3px 10px;
-        margin: 3px 0;
+    #wish-list-navbar {
+        display: none !important;
     }
 
- ul.dropdown-cart li .item:hover {
-            background-color: white;
+    #cart-navbar {
+        display: none !important;
+    }
 }
+    /*---------------ADDITIONS------------*/
 
-ul.dropdown-cart li .item:after {
-     visibility: hidden;
-     display: block;
-     font-size: 0;
-     content: " ";
-     clear: both;
-     height: 0;
-}
+    /*--------------NAVIGATION BAR------------*/
+    #formLogin {
+        padding: 15px;
+        min-width: 300px;
+    }
 
-ul.dropdown-cart li .item-left span.item-info {
-    margin-left: 10px;
-}
+    .navigation-Bar {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
 
-ul.dropdown-cart li .item-left span.item-info span {
-    display: block;
-}
+    .review-area {
+        resize: none;
+        width: 100%;
+    }
 
-ul.dropdown-cart li .item-right {
-    float: right;
-}
+    .review-layout {
+    }
 
-ul.dropdown-cart li .item-right button {
-    margin-top: 14px;
-}
+    .review-box {
+    }
 
-#cart-container {
-    float: right;
-    width: 210px;
-    position: relative;
-}
-          
-#itemCount {
-    position: absolute;
-    display: none;
-    top: -6px;
-    margin-left: 108px;
-    width: 19px;
-    height: 19px;
-    border-radius: 50%;
-    background: red;
-    color: white;
-    text-align: center;
-}
-          
-img {
-    width: 100%;
-}
-          
-          .item {
-            width: 31%;
-            float: left;
-            margin: 1%;
-          }
-          
-          i:hover {
-            cursor: pointer;
-          }
+    #logout-btn {
+        width: 200px;
+        padding-top: 5px !important;
+        border-color: #e8e8e8;
+    }
+
+    /* When the input field gets focus, change its width to 100% */
+    input[type=text]:focus {
+        width: 100%;
+    }
+
+    .sort-by-button {
+        width: 220px;
+        padding: 17px;
+    }
+
+    .footer-wrapper {
+        border-top: 1px solid #b6b0b0;
+        padding: 44px;
+        margin-top: 100px;
+    }
+
+    .footer-list {
+        text-decoration: none;
+        color: black;
+    }
+
+        .footer-list a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .footer-list:hover {
+            text-decoration: none;
+            color: black;
+        }
+
+        .footer-list:active {
+            text-decoration: none;
+            color: black;
+        }
+
+    /*-----------CART--------------*/
+    ul.dropdown-cart {
+        min-width: 250px;
+    }
+
+        ul.dropdown-cart li .item {
+            display: block;
+            padding: 3px 10px;
+            margin: 3px 0;
+        }
+
+            ul.dropdown-cart li .item:hover {
+                background-color: white;
+            }
+
+            ul.dropdown-cart li .item:after {
+                visibility: hidden;
+                display: block;
+                font-size: 0;
+                content: " ";
+                clear: both;
+                height: 0;
+            }
+
+        ul.dropdown-cart li .item-left span.item-info {
+            margin-left: 10px;
+        }
+
+            ul.dropdown-cart li .item-left span.item-info span {
+                display: block;
+            }
+
+        ul.dropdown-cart li .item-right {
+            float: right;
+        }
+
+            ul.dropdown-cart li .item-right button {
+                margin-top: 14px;
+            }
+
+    #cart-container {
+        float: right;
+        width: 210px;
+        position: relative;
+    }
+
+    #itemCount {
+        position: absolute;
+        display: none;
+        top: -6px;
+        margin-left: 108px;
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        background: red;
+        color: white;
+        text-align: center;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    .item {
+        width: 31%;
+        float: left;
+        margin: 1%;
+    }
+
+    i:hover {
+        cursor: pointer;
+    }
           
