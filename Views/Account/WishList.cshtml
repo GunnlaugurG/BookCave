@@ -14,12 +14,12 @@
             <div class="col-lg-3 col-sm-6 col-md-4">
                 <div class="row">
                     <div class="col-lg-12 col-sm-12">
-                        <img src="@book.image" alt="wishListBookCover" class="Thumb-nail-image">
+                        <a asp-controller="book" asp-action="details" asp-route-id="@book.bookForWishListId"><img src="@book.image" alt="wishListBookCover" class="Thumb-nail-image"></a>
                     </div>
                 </div>
                 <div class="row review-margin" >
                     <div id="book-info" class="col-lg-12 col-sm-12">
-                        <p>@book.title</p>
+                        <a asp-controller="book" asp-action="details" asp-route-id="@book.bookForWishListId"><p>@book.title</p></a>
                         @for (int i = 0; i < @book.rating - 1; i++)
                         {
                             <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
