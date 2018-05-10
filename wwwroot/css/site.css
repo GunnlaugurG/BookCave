@@ -363,9 +363,10 @@ header {
     -moz-transition: all 0.3s;
     transition: all 0.3s;
 }
+/*Add to cart*/
 .btn-cart {
     border: 1px solid #2b7cfc;
-    border-radius: 10px;
+    border-radius: 4px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: inherit;
     color: inherit;
@@ -382,7 +383,7 @@ header {
     transition: all 0.3s;
 }
 
-/*Add to cart*/
+
 .btn-5-cart {
     background: #2b7cfc;
     color: #fff;
@@ -446,11 +447,32 @@ header {
 }
 
 /*Add to cart details*/
-.btn-5-cart {
+.btn-cart-details {
+    border: 1px solid #2b7cfc;
+    border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+
+.btn-5-cart-details {
     background: #2b7cfc;
     color: #fff;
     height: 35px;
-    min-width: 200px;
+    min-width: 100%;
+    margin-left: 6px;
     width: 100px;
     line-height: 24px;
     font-size: 16px;
@@ -460,12 +482,82 @@ header {
     backface-visibility: hidden;
 }
 
-    .btn-5-cart:active {
+.btn-5-cart-details:active {
+    background: #9053a9;
+    top: 2px;
+}
+
+.btn-5-cart-details span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    margin-top: 8px;
+    -webkit-transition: all 0.3s;
+    -webkit-backface-visibility: hidden;
+    -moz-transition: all 0.3s;
+    -moz-backface-visibility: hidden;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+}
+
+.btn-5-cart-details:before {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    line-height: 1;
+    font-size: 180%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-5-cart-details:active:before {
+    color: #703b87;
+}
+/*Add to wishlist*/
+
+.btn-wishlist-details {
+    border: 1px solid #FF851B;
+    border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+
+.btn-5-wishlist-details {
+    background: #FF851B;
+    color: #fff;
+    height: 35px;
+    min-width: 100%;
+    margin-left: 6px;
+    width: 100px;
+    margin-bottom: 5px;
+    line-height: 24px;
+    font-size: 16px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+    .btn-5-wishlist-details:active {
         background: #9053a9;
         top: 2px;
     }
 
-    .btn-5-cart span {
+    .btn-5-wishlist-details span {
         display: inline-block;
         width: 100%;
         height: 100%;
@@ -478,7 +570,7 @@ header {
         backface-visibility: hidden;
     }
 
-    .btn-5-cart:before {
+    .btn-5-wishlist-details:before {
         position: absolute;
         height: 100%;
         width: 100%;
@@ -489,27 +581,155 @@ header {
         transition: all 0.3s;
     }
 
-    .btn-5-cart:active:before {
+    .btn-5-wishlist-details:active:before {
         color: #703b87;
     }
 
-.btn-5b-cart:hover span {
-    -webkit-transform: translateX(200%);
-    -moz-transform: translateX(200%);
-    -ms-transform: translateX(200%);
-    transform: translateX(200%);
+/**************/
+/*Add to favorite*/
+
+.btn-favorite-details {
+    border: 1px solid #2ECC40;
+    border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
-.btn-5b-cart:before {
-    left: -100%;
-    top: 0;
+
+.btn-5-favorite-details {
+    background: #2ECC40;
+    color: #fff;
+    height: 35px;
+    min-width: 100%;
+    margin-left: 6px;
+    width: 100px;
+    margin-bottom: 5px;
+    line-height: 24px;
+    font-size: 16px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
-.btn-5b-cart:hover:before {
-    left: 0;
+    .btn-5-favorite-details:active {
+        background: #9053a9;
+        top: 2px;
+    }
+
+    .btn-5-favorite-details span {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        margin-top: 8px;
+        -webkit-transition: all 0.3s;
+        -webkit-backface-visibility: hidden;
+        -moz-transition: all 0.3s;
+        -moz-backface-visibility: hidden;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+    }
+
+    .btn-5-favorite-details:before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        line-height: 1;
+        font-size: 180%;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .btn-5-favorite-details:active:before {
+        color: #703b87;
+    }
+
+/*************/
+/*Write review */
+
+.btn-review-details {
+    border: 1px solid #a92465;
+    border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 
+.btn-5-review-details {
+    background: #a92465;
+    color: #fff;
+    height: 35px;
+    min-width: 100%;
+    margin-left: 6px;
+    width: 100px;
+    margin-bottom: 5px;
+    line-height: 24px;
+    font-size: 16px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+    .btn-5-review-details:active {
+        background: #9053a9;
+        top: 2px;
+    }
+
+    .btn-5-review-details span {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        margin-top: 8px;
+        -webkit-transition: all 0.3s;
+        -webkit-backface-visibility: hidden;
+        -moz-transition: all 0.3s;
+        -moz-backface-visibility: hidden;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+    }
+
+    .btn-5-review-details:before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        line-height: 1;
+        font-size: 180%;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .btn-5-review-details:active:before {
+        color: #703b87;
+    }
+
+/************/
 /*Remove from cart*/
 .btn-5 {
     background: #ef1212;
@@ -570,6 +790,74 @@ header {
 .btn-5b:hover:before {
     left: 0;
 }
+/*Remove from wishlist*/
+.btn-remove-wishlist {
+    border: 1px solid #ef1212;
+    border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.btn-5-remove-wishlist {
+    background: #ef1212;
+    color: #fff;
+    height: 40px !important;
+    min-width: 90%;
+    margin-top:5px;
+    width: 100px;
+    margin-bottom: 5px;
+    line-height: 24px;
+    font-size: 16px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+    .btn-5-remove-wishlist:active {
+        background: #9053a9;
+        top: 2px;
+    }
+
+    .btn-5-remove-wishlist span {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all 0.3s;
+        -webkit-backface-visibility: hidden;
+        -moz-transition: all 0.3s;
+        -moz-backface-visibility: hidden;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+    }
+
+    .btn-5-remove-wishlist:before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        line-height: 1;
+        font-size: 180%;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .btn-5-remove-wishlist:active:before {
+        color: #703b87;
+    }
+/********/
 .remove-from-cart {
     width:30px;
     height:30px;

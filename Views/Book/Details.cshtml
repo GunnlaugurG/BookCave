@@ -11,7 +11,7 @@
             <div class="col-sm-8 col-lg-8">
                 <div class="row">
                     <div class="col-sm-12 col-lg-12" style="height: 70px">
-                        <h4>@Model.name</h4>
+                        <h4><strong>@Model.name </strong></h4>
                         <a asp-action="details" asp-controller="author" asp-route-id="@Model.author.Id"><p>@Model.author.authorName</p></a>
                     </div>
                     <div class="col-sm-12 col-md-12 col-lg-12">
@@ -46,10 +46,10 @@
             </div>
             <div class="row">
                 <div class="col-sm-12 col-lg-12 three-buttons">
-                    <a id="favorite-book" class="btn btn-success center-block">Set as favorite</a>
-                    <a id="write-review" class="btn btn-info center-block">Write review</a>
-                    <a class="btn btn-warning center-block" id="add-to-wish-list" data-book-id="@Model.id">Add to wishlist</a>
-                    <button class="btn btn-primary center-block add add-to-cart-styling" value="@Model.id">Add to cart</button>
+                    <button id="favorite-book" class="btn-favorite-details btn-5-favorite-details btn-5b fa fa-thumbs-up"> <span>Set as favorite</span></button>
+                    <button id="write-review"class="btn-review-details btn-5-review-details btn-5b fa fa-pencil"> <span>Write review</span></button>
+                    <button class="btn-wishlist-details btn-5-wishlist-details btn-5b fa fa-heart" id="add-to-wish-list" data-book-id="@Model.id"><span>Add to wishlist</span></button>
+                    <button class="btn-cart-details btn-5-cart-details btn-5b fa fa-shopping-cart add" value="@Model.id"><span>Add to cart</span></button>
                 </div>
             </div>
         </div>
