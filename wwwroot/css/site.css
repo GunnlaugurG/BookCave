@@ -18,7 +18,10 @@ html{
     width: 20%;
     height:10%;
 }
-.text-nav-content{
+.review-margin {
+    margin-bottom:5px;
+}
+.text-nav-content {
     color: rgb(97, 92, 92) !important;
     font-weight: bold;
     text-decoration: none !important;
@@ -30,6 +33,7 @@ html{
 }
 .add-to-cart-styling  {
     width:95%;
+    padding-top:5px;
 }
 .center-books {
     /*margin: auto    !important;*/
