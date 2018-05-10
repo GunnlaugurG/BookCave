@@ -85,7 +85,9 @@ namespace BookCave.Services
         public List<WishListViewModel> GetWishList(string userId) {
             return _accountRepo.GetWishList(userId);
         }
-
+        public void RemoveFromWishList(int id , string userId){
+            _accountRepo.RemoveFromWishList(id, userId);
+        }
         public void AddToWishList(int id, string userId) {
             _accountRepo.addBookToWishList(id,userId);
         }

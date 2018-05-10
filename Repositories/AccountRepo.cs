@@ -29,7 +29,12 @@ namespace BookCave.Repositories
             _db.Add(newUser);
             _db.SaveChanges();
         }
-
+        public void RemoveFromWishList(int bookId ,string userId){
+            var wishListItem = (from w in _db.wishLists
+                                where userId == w.aspUserforWishList && bookId == w.bookForWishListId
+                                select w).FirstOrDefault();
+            _db.Remove(wishListItem);
+        }
         public void addBookToWishList(int bookId ,string userId) {
             var book = (from b in _db.books
                         where b.Id == bookId

@@ -202,7 +202,7 @@ namespace BookCave.Controllers
                 return Json("NotLoggedIn");
             }
             else{
-                // kalla á eikkað service
+                _accountServices.RemoveFromWishList(id, userId);
                 return Ok();
             }
         }
