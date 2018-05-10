@@ -281,12 +281,12 @@ $.post("RemoveFromWishList",{ "id": bookid }, function(){
   // þarf að kíkja betur á, fer alltaf í display:none þannig að notendanafnið færist til
   $(window).scroll(function () {
     if ($(this).scrollTop() >= 85) {
-      $('#wish-list-navbar').fadeIn(1200).css({ "visibility": "visible" });
-      $('#cart-navbar').fadeIn(1200).css({ "visibility": "visible" });
+      $('#wish-list-navbar').fadeIn(1400).css({ "visibility": "visible" });
+      $('#cart-navbar').fadeIn(1400).css({ "visibility": "visible" });
     }
     else {
-      $('#wish-list-navbar').fadeOut(800).css({ "visibility": "hidden" });
-      $('#cart-navbar').fadeOut(800).css({ "visibility": "hidden" });
+      $('#wish-list-navbar').fadeOut(200).css({ "visibility": "hidden" });
+      $('#cart-navbar').fadeOut(200).css({ "visibility": "hidden" });
     }
   });
 
