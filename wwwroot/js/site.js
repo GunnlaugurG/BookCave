@@ -192,9 +192,14 @@ var totalCost = $('#total-cost').html();
   })
 
   $('#add-to-wish-list').click(function(){
-    alert("hi");
-    $.post("/Account/AddToWishList", { id: bookId });
-          
+   
+    var bookid = $(this).attr("data-book-id");
+    $.post("/Account/AddToWishList", { id: bookid });
+    swal(
+      'Success!',
+      'Book added to wishList!',
+      'success'
+    )
     });
   });
 
