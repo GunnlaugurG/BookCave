@@ -34,6 +34,7 @@ namespace BookCave.Repositories
                                 where userId == w.aspUserforWishList && bookId == w.bookForWishListId
                                 select w).FirstOrDefault();
             _db.Remove(wishListItem);
+            _db.SaveChanges();
         }
         public void addBookToWishList(int bookId ,string userId) {
             var book = (from b in _db.books

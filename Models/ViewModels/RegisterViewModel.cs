@@ -13,7 +13,8 @@ namespace BookCave.Models.ViewModels {
         [Required]
         public string LastName { get; set; }
 
-        [Required(ErrorMessage = "Please enter password")]
+        [Required(ErrorMessage = "Password must contain 1 spceial charecter, 1 upper case carecter and must be 10 charecters")]
+        [RegularExpression("^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{10,}$", ErrorMessage = "Password must contain 1 spceial charecter, 1 upper case carecter and must be 10 charecters")]
         public string Password { get; set; }
 
         [NotMapped]

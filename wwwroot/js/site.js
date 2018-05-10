@@ -44,7 +44,7 @@ $(document).ready(function () {
     });
   });
 
-
+  //$.post("account/ChangeName",{firstName: "Stebbi", lastName: "cool" });
   ///////////////Fyrir BookDetails síðuna//////////////////
 
   $('#review-form').addClass("hidden");

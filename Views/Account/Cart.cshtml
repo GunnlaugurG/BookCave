@@ -14,7 +14,7 @@
 <table class="table table-striped" id="cart-table">
   <thead>
         <tr>
-            <th scope="col">BookName</th>
+            <th scope="col">Product name</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
             <th scope="col">Remove</th>
@@ -26,9 +26,9 @@
         {
         <tr>
             <td><a asp-controller="Book" asp-action="details" asp-route-id="@book.id"> @book.title</a></td>
-            <td><input type="number" value="@book.quantity" class="cart-quantity"></td>
+            <td><input style="width:50px;" type="number" value="@book.quantity" class="cart-quantity"></td>
             <td>@book.cost</td>
-            <td><button class="btn btn-danger remove-from-cart" value="@book.id" >X</button></td>
+            <td><button class="btn-delete btn-5 btn-5b fa fa-trash remove-from-cart" value="@book.id"><span>Delete</span></button></td>
             <td><!--herna kemur total cost ut fra quantity per bok--></td>
         </tr>
         }
