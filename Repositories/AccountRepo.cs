@@ -30,6 +30,24 @@ namespace BookCave.Repositories
             _db.SaveChanges();
         }
 
+        public void addBookToWishList(int bookId ,string userId) {
+            var book = (from b in _db.books
+                        where b.Id == bookId
+                        select b).FirstOrDefault();
+
+            var userWishList = (from a in _db.wishLists
+                        where a.aspUserforWishList == userId && a.bookForWishListId == bookId
+                        select a).FirstOrDefault();
+
+            if(userWishList == null) {
+                WishList wishList = new WishList();
+                {
+                    wishList.bookForWishListId = book.Id;
+                    wishList.aspUserforWishList = userId;
+                }
+                addWishListItemToDataBase(wishList);   
+            }
+        }
         public void addShippingAddresToDataBase(ShippingInfo newShipping)
         {
             _db.Add(newShipping);
@@ -45,6 +63,11 @@ namespace BookCave.Repositories
         }
         public void addOrderToDataBase(Order orders){
             _db.Add(orders);
+            _db.SaveChanges();
+        }
+
+        public void addWishListItemToDataBase(WishList wishListItem) {
+            _db.Add(wishListItem);
             _db.SaveChanges();
         }
 
@@ -413,6 +436,19 @@ namespace BookCave.Repositories
                     returnList.Add(newIndex);
                 }
                 return returnList;
+            }
+
+            public List<WishListViewModel> GetWishList(string userId) {
+                var wishList = (from a in _db.wishLists
+                               where a.aspUserforWishList == userId
+                               join b in _db.books on a.bookForWishListId equals b.Id
+                               select new WishListViewModel {
+                                   title = b.title,
+                                   image = b.image,
+                                   rating = b.rating
+                               }).ToList();
+
+                return wishList;
             }
     }
 }
