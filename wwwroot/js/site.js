@@ -5,10 +5,10 @@ $(document).ready(function () {
 
   function printStars(rating) {
     var markup = "";  
-    for (i = 0; i < j.rating - 1; i++) {
+    for (i = 0; i < rating - 1; i++) {
         markup += '<img src="/Images/fullStar.png" alt="rating" class="starRatings">'
       }
-      if (j.rating % 1 != 0) {
+      if (rating % 1 != 0) {
         markup += '<img src="/Images/halfStar.png" alt="rating" class="starRatings">'
       } else {
         markup += '<img src="/Images/fullStar.png" alt="rating" class="starRatings">'
@@ -35,14 +35,7 @@ $(document).ready(function () {
             + '</div> </div> <div class="row"> <div id="book-info" class="col-lg-12 col-sm-12">'
             + '<a href="/book/details/' + j.id + ' class="card-text">' + j.title + '</a> <br/><div class="divider"></div>'
             + '<a href="/author/details/' + j.author.id + '"class=card-text">' + j.author.authorName + '</a> <br/>'
-          for (i = 0; i < j.rating - 1; i++) {
-            markup += '<img src="/Images/fullStar.png" alt="rating" class="starRatings">'
-          }
-          if (j.rating % 1 != 0) {
-            markup += '<img src="/Images/halfStar.png" alt="rating" class="starRatings">'
-          } else {
-            markup += '<img src="/Images/fullStar.png" alt="rating" class="starRatings">'
-          }
+            + printStars(j.rating)
           markup += '<p></a>' + j.cost + ' $</p></div> </div><div class="row">'
             + '<div class="col-lg-12 col-sm-12 img-thumbnail-btn"><a class="btn btn-default center-block" href="/account/addToCart/'
             + j.id + '">Add to cart</a></div> </div><div class="row">'
@@ -50,7 +43,6 @@ $(document).ready(function () {
 
           $(markup).appendTo("#book-list").slideDown(1000);
           markup = "";
-          console.log(markup);
         });
         ;
       });
@@ -106,12 +98,12 @@ $(document).ready(function () {
             markup += description;
             markup += "<br>";
             markup += printStars(ratings);
-            $("eitthvaðTagg")
             markup += "<br>";
             markup += "<br>";
-             markup += "<fieldset>";
+            markup += "<fieldset>";
 
             console.log(markup);
+            $(markup).appendTo("#review-list").slideDown(1000);
           })
       }
     })

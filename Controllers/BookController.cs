@@ -90,7 +90,7 @@ namespace BookCave.Controllers
             }
             else{
                 _bookService.SetBookReview( input, userId );
-                return Ok();
+                return Json( User.Identity.Name );
             }
         }
         [HttpPost]
