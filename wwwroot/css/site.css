@@ -426,7 +426,7 @@ header {
         display: inline-block;
         width: 100%;
         height: 100%;
-        margin-top:8px;
+        margin-top:10px;
         -webkit-transition: all 0.3s;
         -webkit-backface-visibility: hidden;
         -moz-transition: all 0.3s;
@@ -439,6 +439,7 @@ header {
         position: absolute;
         height: 100%;
         width: 100%;
+        margin-top:4px;
         line-height: 1;
         font-size: 180%;
         -webkit-transition: all 0.3s;
@@ -520,16 +521,17 @@ header {
     backface-visibility: hidden;
 }
 
-.btn-5-cart-details:before {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    line-height: 1;
-    font-size: 180%;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    transition: all 0.3s;
-}
+    .btn-5-cart-details:before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        margin-top: 4px;
+        line-height: 1;
+        font-size: 180%;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
 
 .btn-5-cart-details:active:before {
     color: #703b87;
@@ -594,6 +596,7 @@ header {
         position: absolute;
         height: 100%;
         width: 100%;
+        margin-top: 4px;
         line-height: 1;
         font-size: 180%;
         -webkit-transition: all 0.3s;
@@ -666,6 +669,7 @@ header {
         position: absolute;
         height: 100%;
         width: 100%;
+        margin-top: 4px;
         line-height: 1;
         font-size: 180%;
         -webkit-transition: all 0.3s;
@@ -738,6 +742,7 @@ header {
         position: absolute;
         height: 100%;
         width: 100%;
+        margin-top: 4px;
         line-height: 1;
         font-size: 180%;
         -webkit-transition: all 0.3s;
@@ -867,6 +872,7 @@ header {
         position: absolute;
         height: 100%;
         width: 100%;
+        margin-top: 4px;
         line-height: 1;
         font-size: 180%;
         -webkit-transition: all 0.3s;
