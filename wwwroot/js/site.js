@@ -228,15 +228,14 @@ $(document).ready(function () {
       }
     })
   })
-
-  /*$('.add').click(function() {
-    swal(
-      'Success!',
-      'Book added to cart!',
-      'success'
-    )
-  })*/
-
+////////FOR-THE-WISHLIST////////
+$('.remove-from-wishlist').click(function(){
+  var bookid = (this).value;
+$.post("einhver"),{ id: bookid}, function(){
+  location.reload();
+}
+});
+/////////////////////////////
   $('#add-to-wish-list').click(function () {
 
     var bookid = $(this).attr("data-book-id");
