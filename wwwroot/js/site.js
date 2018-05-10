@@ -141,7 +141,7 @@ $(document).ready(function () {
     var quantity = $(this).val();
     var price =  $(this).parent().parent()[0].cells[2].innerText;
     var id = $(this).parent().parent()[0].cells[3].firstElementChild.value;
-    $(this).parent().parent()[0].cells[4].innerText = quantity * price;
+    $(this).parent().parent()[0].cells[4].innerText = (quantity * price).toFixed(2);
     $.post("UpdateCartItemQuantity", { Quantity: quantity , bookId: id })
   })
 
