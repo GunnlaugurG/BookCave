@@ -151,7 +151,7 @@ namespace BookCave.Controllers
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
             if(userId == null){
-                return RedirectToAction("Login", "Account");
+                return Json("NotLoggedIn");
             }
             else{
                 bool added = _accountServices.AddToCart(Id, userId);
@@ -200,7 +200,7 @@ namespace BookCave.Controllers
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
             if(userId == null){
-                return RedirectToAction("Login", "Account");
+                return Json("NotLoggedIn");
             }
             else{
                 _accountServices.AddToWishList(id, userId);
