@@ -103,7 +103,7 @@ $(document).ready(function () {
             markup += "<fieldset>";
 
             console.log(markup);
-            $(markup).appendTo("#review-list").slideDown(1000);
+            $(markup).hide().prependTo("#review-list").slideDown(500);
           })
       }
     })
