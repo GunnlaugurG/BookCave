@@ -188,7 +188,13 @@ var totalCost = $('#total-cost').html();
       'Success!',
       'Book added to cart!',
       'success'
-    )  
+    )
+  })
+/*
+  $('#wish-list').click(function(){
+    $.post("/Account/AddToWishList", { Id: bookId });
+      console.log("hehe");
+    });
   })
 
 $(function() {

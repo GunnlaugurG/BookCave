@@ -1,5 +1,19 @@
-@model BookCave.Models.ViewModels.WishListViewModel
+@model List<BookCave.Models.ViewModels.WishListViewModel>
 <h1>My wishList</h1>
 @foreach(var book in Model) {
+    <tr>
+    <img src="@book.image" alt="wishListBookCover" class="Thumb-nail-image">
     <p>@book.title</p>
+     @for(int i = 0; i < @book.rating - 1; i++) {
+        <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+        }
+        @if (@book.rating % 1 != 0)
+        {
+        <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
+        }
+        else
+        {
+            <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
+        }</tr>
+       <br>              
 }

@@ -195,6 +195,18 @@ namespace BookCave.Controllers
             var wishList = _accountServices.GetWishList(userId);
             return View(wishList);
         }
+
+        public async Task<IActionResult> AddToWishList(int id) {
+            var user = await GetCurrentUserAsync();
+            var userId = user?.Id;
+            if(userId == null){
+                return RedirectToAction("Login", "Account");
+            }
+            else{
+                _accountServices.AddToWishList(id, userId);
+                return Ok();
+            }
+        }
         public async Task<IActionResult> CheckOut(){
             var user = await GetCurrentUserAsync();
             var userId = user?.Id;
