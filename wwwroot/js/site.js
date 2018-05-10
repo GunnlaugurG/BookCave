@@ -88,6 +88,17 @@ $(document).ready(function () {
             if (data == "RedirectToLogin") {
               window.location.replace("/account/login");
             }
+            var markup = "<fieldset>";
+            markup += "<legend>" + data + "</legend>";
+            markup += description;
+            markup += "<br>";
+            markup += printStars(ratings);
+            $("eitthvaðTagg")
+            markup += "<br>";
+            markup += "<br>";
+             markup += "<fieldset>";
+
+            console.log(markup);
           })
       }
     })
@@ -123,8 +134,9 @@ $(document).ready(function () {
 
   $(".cart-quantity").change( function(){
     var quantity = $(this).val();
+    var price =  $(this).parent().parent()[0].cells[2].innerText;
     var id = $(this).parent().parent()[0].cells[3].firstElementChild.value;
-    console.log(quantity + " " + id);
+    $(this).parent().parent()[0].cells[4].innerText = quantity * price;
     $.post("UpdateCartItemQuantity", { Quantity: quantity , bookId: id })
   })
 
