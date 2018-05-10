@@ -262,9 +262,12 @@ header {
     rpg(22,)
 }
 .button-size-checkout {
-    width: 18%;
+    width: 12%;
     display: inline-block;
     overflow: auto;
+    float:right;
+    margin-left:5px;
+    
 }
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
