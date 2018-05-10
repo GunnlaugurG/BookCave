@@ -1,9 +1,16 @@
 @model BookCave.Models.ViewModels.AccountDetailsViewModel
 
 <h1>Please insert shipping and card information</h1>
-    <div class="row">
        
+    <div class="row">
+        
         <div class="col-sm-4 col-lg-4 col-md-4 user-styling">
+            <form>
+       <p>Adress:</p>
+       <p>City: </p>
+       <p>Country: </p>
+       <p>Zip code:</p>
+       </form>
             <button class="btn btn-default" data-toggle="modal" data-target="#myModal">Change personal information</button>
             <!--*****************************MODAL BEGINS***********************-->
             <div class="modal fade" id="myModal" role="dialog">
@@ -292,6 +299,9 @@
 
         <div class="row">
             <div class=" col-lg-4 col-md-4 col-sm-4 user-styling">
+                <p>Cardholders name: </p>
+                <p>Card number: </p>
+                <p>CVC: </p>
 
                     <button class="btn btn-default" data-toggle="modal" data-target="#anotherModal">Change card information</button>
                     <!--***************************Another Modal******************************-->
