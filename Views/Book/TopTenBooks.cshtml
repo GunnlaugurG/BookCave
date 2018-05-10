@@ -5,12 +5,13 @@
         <div class="col-lg-12 col-md-12 col-sm-12">
             <h1 class="content-styling-h">From the top shelf</h1>
             <hr />
-            </div>
         </div>
     </div>
-<div  class="container book-styling-layout">
+</div>
+<div class="container book-styling-layout">
     <div class="row ">
-        @foreach (var book in Model) {
+        @foreach (var book in Model)
+        {
             <div id="settings" class="col-lg-3 col-sm-6 col-md-4">
                 <div class="row">
                     <div class="col-lg-12 col-sm-12">
@@ -22,12 +23,17 @@
                         <a asp-controller="book" asp-action="details" asp-route-Id="@book.id" class="card-text">@book.title</a>
                         <div class="divider"></div>
                         <a asp-controller="author" asp-action="details" asp-route-id="@book.author.Id">@book.author.authorName</a> <br>
-                        @for(int i = 0; i < @Model[i].rating-1; i++) {
+                        <p>@book.rating</p>
+                        @for (int i = 0; i < @Model[i].rating - 1; i++)
+                        {
                             <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                         }
-                        @if(@book.rating % 1 != 0) {
+                        @if (@book.rating % 1 != 0)
+                        {
                             <img src="~/Images/halfStar.png" alt="rating" class="starRatings">
-                        } else {
+                        }
+                        else
+                        {
                             <img src="~/Images/fullStar.png" alt="rating" class="starRatings">
                         }
                         <p>@book.cost $</p>
