@@ -383,8 +383,6 @@ header {
 }
 
 /*Add to cart*/
-
-
 .btn-5-cart {
     background: #2b7cfc;
     color: #fff;
@@ -446,6 +444,71 @@ header {
 .btn-5b-cart:hover:before {
     left: 0;
 }
+
+/*Add to cart details*/
+.btn-5-cart {
+    background: #2b7cfc;
+    color: #fff;
+    height: 35px;
+    min-width: 200px;
+    width: 100px;
+    line-height: 24px;
+    font-size: 16px;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+    .btn-5-cart:active {
+        background: #9053a9;
+        top: 2px;
+    }
+
+    .btn-5-cart span {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        margin-top: 8px;
+        -webkit-transition: all 0.3s;
+        -webkit-backface-visibility: hidden;
+        -moz-transition: all 0.3s;
+        -moz-backface-visibility: hidden;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+    }
+
+    .btn-5-cart:before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        line-height: 1;
+        font-size: 180%;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .btn-5-cart:active:before {
+        color: #703b87;
+    }
+
+.btn-5b-cart:hover span {
+    -webkit-transform: translateX(200%);
+    -moz-transform: translateX(200%);
+    -ms-transform: translateX(200%);
+    transform: translateX(200%);
+}
+
+.btn-5b-cart:before {
+    left: -100%;
+    top: 0;
+}
+
+.btn-5b-cart:hover:before {
+    left: 0;
+}
+
 
 /*Remove from cart*/
 .btn-5 {
