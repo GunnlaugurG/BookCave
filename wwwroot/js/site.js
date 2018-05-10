@@ -290,6 +290,14 @@ $.post("RemoveFromWishList",{ "id": bookid }, function(){
     }
   });
 
+  $('#complete-order-button').hover(function(){
+    var importantFields = $('.important-fields').attr("data-value");
+    console.log(importantFields);
+    if(importantFields == "") {
+      $('#complete-order-button').attr('Disabled',true);
+    }
+  })
+
   $(function () {
     $('.dropdown-toggle').dropdown();
     $('.dropdown input, .dropdown label').click(function (e) {
