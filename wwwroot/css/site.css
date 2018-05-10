@@ -90,7 +90,7 @@ ul.bullet-punktur{
     padding-right: 5px;
 }
 .cart-color {
-    color: #2b7cfc;
+    color: #3996cc;
 }
 .glyphicon.glyphicon-heart{
     font-size:24px;
@@ -162,6 +162,7 @@ header {
     height:40px;
     width: 50px;
     position:absolute;
+    background-color:white;
 }
 
 .search-bar input {
@@ -290,17 +291,36 @@ header {
     display: flex;
     justify-content: center;
 }
-.button-size {
-    width:10%;
-    margin-right:5px;
-    rpg(22,)
+.button-review {
+    width: 10%;
+    margin-right: 5px;
+    background: #ef1212 !important;
+    border:none;
+    margin-left: 5px;
 }
+    .button-review:hover {
+        background: #ef1212 !important;
+        border: none;
+    }
 .button-size-checkout {
+    background-color: white
     width: 12%;
     display: inline-block;
     overflow: auto;
     float: right;
     margin-left: 5px;
+}
+.btn-success {
+    background-color: #2fd81c;
+    border: 1px solid #2fd81c;
+}
+.btn-success:hover {
+    background-color: #2fd81c;
+    border: 1px solid #2fd81c;
+}
+.btn-success:active {
+    background-color: #2fd81c;
+    border: 1px solid #2fd81c;
 }
 .button-size-checkout-back {
     background-color: #ef1212;
@@ -346,9 +366,9 @@ header {
     /*margin-right:10%;*/
 }
 .btn-delete {
-    border: 1px solid #ef1212;
-    border-radius: 10px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 1px solid #FF4136;
+    border-radius: 4px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: inherit;
     color: inherit;
     background: none;
@@ -365,7 +385,7 @@ header {
 }
 /*Add to cart*/
 .btn-cart {
-    border: 1px solid #2b7cfc;
+    border: 1px solid #3996cc;
     border-radius: 4px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: inherit;
@@ -385,7 +405,7 @@ header {
 
 
 .btn-5-cart {
-    background: #2b7cfc;
+    background: #3996cc;
     color: #fff;
     height: 35px;
     min-width: 200px;
