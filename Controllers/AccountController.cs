@@ -59,9 +59,9 @@ namespace BookCave.Controllers
 
             var user = await GetCurrentUserAsync();
             Claim newName = new Claim("Name", $"{firstName} {lastName}");
-            var hvadertetta = _userManager.GetClaimsAsync(user).Result[0];
             await _userManager.ReplaceClaimAsync(user, _userManager.GetClaimsAsync(user).Result[0], newName);
-            return Ok();
+                            await _signInManager.SignInAsync(user, false);
+            return RedirectToAction("Details", "Account");
         }
         public IActionResult Login()
         {

@@ -11,5 +11,7 @@
         public string cardholderName { get; set; }
         public string cvc { get; set; }
         public BookListViewModel book {get; set; }
+        public string firstName { get; set; }
+        public string lastName { get; set; }
     }
 }
