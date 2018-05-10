@@ -942,14 +942,42 @@ form.example input[type=text] {
 .keep-min-height {
     min-height: 65rem;
 }
+#wish-list-navbar-mini  {
+    display:none;
+}
+#cart-navbar-mini {
+    display:none;
+}
+.wish-cart-mini li {
+    float:left;
+    padding-left:10px;
+}
+.wish-cart-mini ul {
+    margin:0;
+    padding-top:5px;
+}
+#cart-navbar-mini {
+    padding-bottom:5px !important;
+}
 @media screen and (max-width: 767px) {
-
     #wish-list-navbar {
         display: none !important;
+    }
+    #cart {
+        display:none;
+    }
+    #wishlist {
+        display:none;
     }
 
     #cart-navbar {
         display: none !important;
+    }
+    #cart-navbar-mini {
+        display:inline !important;
+    }
+    #wish-list-navbar-mini {
+        display: inline !important;
     }
 }
     /*---------------ADDITIONS------------*/
