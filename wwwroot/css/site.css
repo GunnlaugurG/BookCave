@@ -90,7 +90,7 @@ ul.bullet-punktur{
     padding-right: 5px;
 }
 .cart-color {
-    color: #75adea;;
+    color: #2b7cfc;
 }
 .glyphicon.glyphicon-heart{
     font-size:24px;
@@ -299,16 +299,44 @@ header {
     width: 12%;
     display: inline-block;
     overflow: auto;
-    float:right;
-    margin-left:5px;
-    
+    float: right;
+    margin-left: 5px;
 }
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.button-size-checkout-back {
+    background-color: #ef1212;
+    border: 1px solid #ef1212;
+    color:white;
+    border-color: #ef1212;
+    width: 12%;
+    display: inline-block;
+    overflow: auto;
+    float: right;
+    margin-left: 5px;
 }
+.button-size-checkout-back:hover {
+    background-color: #ef1212;
+    border: 1px solid #ef1212;
+    color:white;
+    border-color: #ef1212;
+}
+.button-size-checkout-back:active {
+    background-color: #ef1212;
+    border: 1px solid #ef1212;
+    color:white;
+    border-color: #ef1212;
+}
+.button-size-checkout-back:focus {
+    background-color: #ef1212;
+    color:white;
+    border: 1px solid #ef1212;
+    border-color: #ef1212;
+}
+    /* Wrapping element */
+    /* Set some basic padding to keep content from hitting the edges */
+    .body-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 #check-out-button {
     float: right;
     /*margin-right:10%;*/
@@ -336,7 +364,7 @@ header {
     transition: all 0.3s;
 }
 .btn-cart {
-    border: 1px solid #ef1212;
+    border: 1px solid #2b7cfc;
     border-radius: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: inherit;
@@ -354,11 +382,14 @@ header {
     transition: all 0.3s;
 }
 
-.btn-5 {
-    background: #ef1212;
+/*Add to cart*/
+
+
+.btn-5-cart {
+    background: #2b7cfc;
     color: #fff;
-    height: 40px;
-    min-width: 80px;
+    height: 35px;
+    min-width: 200px;
     width: 100px;
     line-height: 24px;
     font-size: 16px;
@@ -367,13 +398,62 @@ header {
     -moz-backface-visibility: hidden;
     backface-visibility: hidden;
 }
+    .btn-5-cart:active {
+        background: #9053a9;
+        top: 2px;
+    }
 
-.btn-5-cart {
+    .btn-5-cart span {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        margin-top:8px;
+        -webkit-transition: all 0.3s;
+        -webkit-backface-visibility: hidden;
+        -moz-transition: all 0.3s;
+        -moz-backface-visibility: hidden;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+    }
+
+    .btn-5-cart:before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        line-height: 1;
+        font-size: 180%;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    .btn-5-cart:active:before {
+        color: #703b87;
+    }
+
+.btn-5b-cart:hover span {
+    -webkit-transform: translateX(200%);
+    -moz-transform: translateX(200%);
+    -ms-transform: translateX(200%);
+    transform: translateX(200%);
+}
+
+.btn-5b-cart:before {
+    left: -100%;
+    top: 0;
+}
+
+.btn-5b-cart:hover:before {
+    left: 0;
+}
+
+/*Remove from cart*/
+.btn-5 {
     background: #ef1212;
     color: #fff;
-    height: 70px;
-    min-width:80px;
-    width:100px;
+    height: 40px;
+    min-width: 80px;
+    width: 100px;
     line-height: 24px;
     font-size: 16px;
     overflow: hidden;
