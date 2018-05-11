@@ -302,19 +302,16 @@ $.post("RemoveFromWishList",{ "id": bookid }, function(){
     console.log(adress);
     console.log(cardHolderName);
     if(adress == "" || cardHolderName == "") {
-      $('#complete-order-button').attr('Disabled',true);
       swal({
         title: 'attention',
         text: 'Address and Cardholders name can not be empty'
       })
     } else {
-      $('#complete-order-button').attr('Disabled',false);
-      $.post("/Account/Complete", function(){
-        console.log("nigger");
-          window.loction = "Account/OrderComplete";
-      })
+      $.get("/Account/Complete", function(){
+        document.location.href="/Account/Complete";
+      });
     }
-  })
+  });
 
   $(function () {
     $('.dropdown-toggle').dropdown();
