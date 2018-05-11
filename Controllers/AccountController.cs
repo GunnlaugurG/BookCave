@@ -252,7 +252,7 @@ namespace BookCave.Controllers
                 return RedirectToAction("Login", "Account");
             }
             var success = _accountServices.completeServ(userId);
-            return View("OrderSuccessful");
+            return Ok();
         }
                 
         [HttpPost]

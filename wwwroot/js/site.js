@@ -296,14 +296,23 @@ $.post("RemoveFromWishList",{ "id": bookid }, function(){
     }
   });
 
-  $('#complete-order-button').hover(function(){
+  $('#complete-order-button').click(function(){
     var adress = $('#adress').attr("data-value");
     var cardHolderName = $('#cardholder-name').attr("data-value");
     console.log(adress);
     console.log(cardHolderName);
-    if(adress = "" || cardHolderName == "") {
+    if(adress == "" || cardHolderName == "") {
       $('#complete-order-button').attr('Disabled',true);
-      $('#warning-text').html("Adress or Cardholder name cannot be empty!").css("color", "red");
+      swal({
+        title: 'attention',
+        text: 'Address and Cardholders name can not be empty'
+      })
+    } else {
+      $('#complete-order-button').attr('Disabled',false);
+      $.post("/Account/Complete", function(){
+        console.log("nigger");
+          window.loction = "Account/OrderComplete";
+      })
     }
   })
 
