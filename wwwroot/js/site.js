@@ -297,6 +297,7 @@ $.post("RemoveFromWishList",{ "id": bookid }, function(){
   });
 
   $('#complete-order-button').click(function(){
+    
     var adress = $('#adress').attr("data-value");
     var cardHolderName = $('#cardholder-name').attr("data-value");
     console.log(adress);
@@ -308,8 +309,8 @@ $.post("RemoveFromWishList",{ "id": bookid }, function(){
       })
     } else {
       $.get("/Account/Complete", function(){
-        document.location.href="/Account/Complete";
       });
+      document.location="/Account/Complete"; 
     }
   });
 
