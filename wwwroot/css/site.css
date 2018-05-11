@@ -954,14 +954,12 @@ form.example input[type=text] {
 #cart-navbar-mini {
     display:none;
 }
-.wish-cart-mini li {
-    float:left;
-    padding-left:10px;
+.wish-cart-mini{
+    margin-top: 10px;
+    margin-left: 10px;
 }
-.wish-cart-mini ul {
-    margin:0;
-    padding-top:5px;
-}
+
+
 #cart-navbar-mini {
     padding-bottom:5px !important;
 }
