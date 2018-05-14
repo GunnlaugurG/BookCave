@@ -37,8 +37,8 @@ $(document).ready(function () {
             + '<a href="/author/details/' + j.author.id + '"class=card-text">' + j.author.authorName + '</a> <br/>'
             + printStars(j.rating)
           markup += '<p></a>' + j.cost + ' $</p></div> </div><div class="row">'
-            + '<div class="col-lg-12 col-sm-12 img-thumbnail-btn"><a class="btn btn-default center-block" href="/account/addToCart/'
-            + j.id + '">Add to cart</a></div> </div><div class="row">'
+            + '<div class="col-lg-12 col-sm-12 img-thumbnail-btn"><button style="margin-top:5px" class="add btn-cart btn-5-cart btn-5b-cart fa fa-shopping-cart" value='
+            + j.id + '"><span>Add to cart</span></button></div> </div><div class="row">'
             + '<div class="col-lg-12 col-sm-4 spacing"></div></div></div>';
 
           $(markup).appendTo("#book-list").slideDown(1000);
@@ -193,10 +193,9 @@ $(document).ready(function () {
   });
 
   var itemCount = 0;
-  $('.add').click(function () {
+  $('body').on("click", ".add", function () {
     var bookId = $(this).val();
     $.post("/Account/AddToCart", { Id: bookId }, function (data, status) {
-      console.log(data);
       if (data == "NotLoggedIn") {
         swal({
           text: 'Only logged in users can add to cart!'
