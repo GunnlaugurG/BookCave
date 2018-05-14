@@ -20,55 +20,46 @@ namespace BookCave.Services
         private ReviewRepo _reviewRepo;
 
         private AccountRepo _accountRepo;
-        public BookServices()
-        {
+        public BookServices() {
             _reviewRepo = new ReviewRepo();
             _bookRepo = new BookRepo();
             _accountRepo = new AccountRepo();
             
         }
 
-        public List<BookListViewModel> GetSearchedResults(string search)
-        {
+        public List<BookListViewModel> GetSearchedResults(string search) {
             return _bookRepo.GetSearchedResults(search);
         }
 
-        public BookDetailsViewModel GetBookByID(int id)
-        {
+        public BookDetailsViewModel GetBookByID(int id) {
             return _bookRepo.GetBookByID(id);
         }
 
-        public List<BookListViewModel> GetBooksByGenre(string genre)
-        {
+        public List<BookListViewModel> GetBooksByGenre(string genre) {
             return _bookRepo.GetBooksByGenre(genre);
         }
 
-        public List<BookListViewModel> SortBy(string option)
-        {
+        public List<BookListViewModel> SortBy(string option) {
             return _bookRepo.SortBy(option);
         }
 
-        public List<BookListViewModel> GetAllBooks()
-        {
+        public List<BookListViewModel> GetAllBooks() {
             return _bookRepo.GetAllBooks();
         }
 
         public List<BookListViewModel> GetTopBooks(string value, int count) {
             return _bookRepo.GetTopBooks(value,count);
         }
-        public void SetBookReview(ReviewInputModel inputFromUser, string user)
-        {
-
+        public void SetBookReview(ReviewInputModel inputFromUser, string user) {
+            
             var reviewForBook = _reviewRepo.GetReviewByBookId(inputFromUser.bookId);
             double sumOfAllReview = inputFromUser.Ratings;
-            for (int i = 0; i < reviewForBook.Count; i++)
-            {
+            for (int i = 0; i < reviewForBook.Count; i++) {
                 sumOfAllReview += reviewForBook[i].Ratings;
             }
             double newRating = sumOfAllReview / (reviewForBook.Count + 1);
 
-            ReviewTwo newReview = new ReviewTwo
-            {
+            ReviewTwo newReview = new ReviewTwo {
                 reviewBookId = inputFromUser.bookId,
                 Ratings = inputFromUser.Ratings,
                 Description = inputFromUser.Description,
